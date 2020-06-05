@@ -116,7 +116,11 @@ namespace Game.Engine
         {
             interactionList = new List<Interaction>();
             for (int i = 0; i < shops; i++) interactionList.Add(new ShopInteraction(parentSession));
-            for (int i = shops; i < interactions; i++) interactionList.AddRange(Index.DrawInteractions(parentSession));
+            for (int i = shops; i < interactions; i++)
+            {
+                List<Interaction> tmp = Index.DrawInteractions(parentSession);
+                if (tmp != null) interactionList.AddRange(tmp);
+            }
         }
     }
 }

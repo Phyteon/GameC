@@ -82,6 +82,24 @@ namespace Game.Engine
             itemPositions.Add(i);
             RefreshItems();
         }
+        private void RemoveItemFromGrid(Item it)
+        {
+            Image removed = it.GetImage();
+            UIElement tmp = null;
+            foreach(var img in parentPage.ItemGrid.Children)
+            {
+                if ((img as Image) != null) 
+                {
+                    if ((img as Image).Name == removed.Name)
+                    {
+                        tmp = (img as UIElement); //avoid foreach issues with deleting
+                        break;
+                    }
+                }
+            }
+            if(tmp != null) parentPage.ItemGrid.Children.Remove(tmp);
+            RefreshItems();
+        }
         private void RefreshItems()
         {
             // re-check for active items - both the game logic and the user may have changed them

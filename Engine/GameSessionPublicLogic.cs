@@ -157,6 +157,23 @@ namespace Game.Engine
             }
         }
 
+        public void RemoveThisItem(Item it)
+        {
+            // player will lose a particular item (if currently owned)
+            // example usage: RemoveThisItem(new BasicSpear());
+
+            RemoveItemFromGrid(it);
+            // reset itemPositions
+            itemPositions.Clear();
+            for (int i = 0; i < 30; i++)
+            {
+                Image img = parentPage.GetImageFromGrid(i, 0);
+                if (img != null)
+                {
+                    itemPositions.Add(i);
+                }
+            }
+        }
 
         /***************************        SKILLS      ***************************/
         public void LearnThisSkill(Skill sk)
