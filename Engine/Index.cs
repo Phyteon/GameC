@@ -5,14 +5,14 @@ using Game.Engine.Monsters.MonsterFactories;
 using Game.Engine.Items;
 using Game.Engine.Items.ItemFactories;
 using Game.Engine.Items.BasicArmor;
-using Game.Engine.Interactions;
 using Game.Engine.Interactions.InteractionFactories;
 using Game.Engine.Items.BasicRing;
 using Game.Engine.Items.Amulet;
 using Game.Engine.Items.OsirisArmor;
 using Game.Engine.Items.AmuletsAndPotions;
-using Game.Engine.Monsters;
 using Game.Engine.Items.Shield;
+using Game.Engine.Items.Attributes;
+
 
 namespace Game.Engine
 {
@@ -97,6 +97,10 @@ namespace Game.Engine
             new MagnificentCape(),
             new SingleUseArmor(),
             new StylisedFlatIron(),
+            // quest items start here
+            new Flute(),
+            new Kithara(),
+            new Lyre(),
         };
 
         private static List<ItemFactory> itemFactories = new List<ItemFactory>()
@@ -159,7 +163,20 @@ namespace Game.Engine
         private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
         {
             new SkillForgetFactory(),
-            new GymirHymirFactory()
+            new GymirHymirFactory(),
+            new BloodFountainFactory(),
+            new AltairOfOldGodFactory(),
+            new BymirDymirFymirFactory(),
+            new CymirCaveFactory(),
+            new EgyptianInteractionFactory(),
+            new MusesFactory(),
+            new MageQuestFactory(),
+            new OldManMysticQuestFactory(),
+            new EchionNoicheFactory(),
+            new GuitarQuestFactory(),
+            new PrincessQuestFactory(),
+            new LootingLuteFactory(),
+            new TroubadourFactory(),
         };
 
     }

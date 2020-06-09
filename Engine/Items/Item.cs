@@ -32,6 +32,7 @@ namespace Game.Engine.Items
         {
             // by default, simply add item statistics to player statistics
             // can be overriden to include more complicated item mechanics (conditionals, randomness... )
+            // note: otherItems are specified here by their Name property
             currentPlayer.HealthBuff += HpMod;
             currentPlayer.StrengthBuff += StrMod;
             currentPlayer.ArmorBuff += ArMod;

@@ -20,7 +20,7 @@ namespace Game.Engine
     class MapMatrix
     {
         // map parameters
-        private int monsters = 10;
+        private int monsters = 6;
         private int walls = 10;
 
         // other fields and properties
