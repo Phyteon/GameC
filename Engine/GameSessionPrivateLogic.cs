@@ -309,7 +309,7 @@ namespace Game.Engine
                     Monster monster = mapMatrix.CreateMonster(playerPosLeft, playerPosTop, currentPlayer.Level);
                     if (monster != null)
                     {
-                        BattleScene newBattleScene = new BattleScene(parentPage, currentPlayer, monster);
+                        BattleScene newBattleScene = new BattleScene(parentPage, this, currentPlayer, monster);
                         Battle newBattle = new Battle(this, newBattleScene, monster);
                         newBattle.Run();
                         if (newBattle.battleResult)

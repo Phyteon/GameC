@@ -25,9 +25,10 @@ namespace Game.Engine.CharacterClasses
         protected override void LevelUp()
         {
             Level++;
-            parentSession.SendText("\nLevel Up! Level: " + Level);
+            parentSession.SendText("\n");
+            parentSession.SendColorText("Level Up! Level: " + Level, "yellow");
             List<string> validInputs = new List<string>() { "1", "2", "3", "4" }; // only accept these inputs
-            parentSession.SendText("Choose a statistic to improve: +20 Health (press 1), +15 Strength (press 2), +5 Precision (press 3), +20 Stamina (press 4)");
+            parentSession.SendColorText("Choose a statistic to improve: +20 Health (press 1), +15 Strength (press 2), +5 Precision (press 3), +20 Stamina (press 4)", "yellow");
             string key = parentSession.GetValidKeyResponse(validInputs).Item1;
             // don't make changes directly, ask GameSession to do it right
             if (key == "1") parentSession.UpdateStat(1, 20);

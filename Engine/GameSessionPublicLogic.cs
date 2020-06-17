@@ -17,6 +17,13 @@ namespace Game.Engine
             // no need to put an enter at the end/beginning
             parentPage.AddConsoleText(text);
         }
+        public void SendColorText(string text, string color)
+        {
+            // same as above, but in color
+            // available colors: "yellow", "red", "green", "blue"
+            // warning - do not insert enters into the text or you may break the color formatting
+            parentPage.AddConsoleColorText(text, color);
+        }
 
 
         /***************************        KEYBOARD      ***************************/
@@ -35,7 +42,6 @@ namespace Game.Engine
             watch.Stop();
             if (CurrentKey.Length == 2 && CurrentKey[0] == 'D') CurrentKey = CurrentKey.Remove(0, 1); // remove windows code for digits
             parentPage.Movable = true;
-            SendText(CurrentKey);
             return new Tuple<string, int>(CurrentKey, (int)watch.ElapsedMilliseconds);
         }
         public Tuple<string,int> GetValidKeyResponse(List<string> validKeys)
@@ -193,7 +199,7 @@ namespace Game.Engine
                 Monster monster = Index.RandomMonsterFactory().Clone().Create(currentPlayer.Level);
                 if (monster != null)
                 {
-                    Display.BattleScene newBattleScene = new Display.BattleScene(parentPage, currentPlayer, monster);
+                    Display.BattleScene newBattleScene = new Display.BattleScene(parentPage, this, currentPlayer, monster);
                     Battle newBattle = new Battle(this, newBattleScene, monster, false);
                     newBattle.Run();
                     if (newBattle.battleResult) UpdateStat(7, monster.XPValue);
@@ -212,7 +218,7 @@ namespace Game.Engine
             // xp can be gained here, but gold/items cannot (you can do this separately inside your interaction)
             if (monster != null)
             {
-                Display.BattleScene newBattleScene = new Display.BattleScene(parentPage, currentPlayer, monster);
+                Display.BattleScene newBattleScene = new Display.BattleScene(parentPage, this, currentPlayer, monster);
                 Battle newBattle = new Battle(this, newBattleScene, monster, false);
                 newBattle.Run();
                 if (newBattle.battleResult) UpdateStat(7, monster.XPValue);

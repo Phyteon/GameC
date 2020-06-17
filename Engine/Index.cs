@@ -12,7 +12,7 @@ using Game.Engine.Items.OsirisArmor;
 using Game.Engine.Items.AmuletsAndPotions;
 using Game.Engine.Items.Shield;
 using Game.Engine.Items.Attributes;
-
+using Game.Engine.Interactions.TroubadourQuest;
 
 namespace Game.Engine
 {
@@ -101,6 +101,7 @@ namespace Game.Engine
             new Flute(),
             new Kithara(),
             new Lyre(),
+            new Lute(),
         };
 
         private static List<ItemFactory> itemFactories = new List<ItemFactory>()

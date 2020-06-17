@@ -161,6 +161,43 @@ namespace Game.Display
             Console.AppendText(text.ToString() + "\n");
             Console.ScrollToEnd();
         }
+
+        public void AddConsoleColorText(string text, string color)
+        {
+            // same as AddConsoleText, but in color
+            if (Console == null) return;
+            AddConsoleText(text);
+            SolidColorBrush brush;
+            switch (color)
+            {
+                case "yellow":
+                    brush = Brushes.Yellow;
+                    break;
+                case "red":
+                    brush = Brushes.Red;
+                    break;
+                case "green":
+                    brush = Brushes.LimeGreen;
+                    break;
+                case "blue":
+                    brush = Brushes.DodgerBlue;
+                    break;
+                default:
+                    brush = Brushes.Yellow;
+                    break;
+            }
+            for (int i = Console.Document.Blocks.Count - 1; i > 0; i--)
+            {
+                var paragraph = Console.Document.Blocks.ElementAt(i);
+                var text2 = new System.Windows.Documents.TextRange(paragraph.ContentStart, paragraph.ContentEnd).Text;
+                if (text2 == text)
+                {
+                    paragraph.Foreground = brush;
+                    break;
+                }
+            }
+        }
+
         public void ListBoxSelected(Skill skill)
         {
             // receive a listbox item selected and inform the game session
@@ -301,7 +338,9 @@ namespace Game.Display
         // end current game
         public void EndGame()
         {
-            frameRef.ParentFrame.Navigate(new Display.MenuPage(frameRef)); 
+            frameRef.ParentFrame.Navigate(new Display.MenuPage(frameRef));
+            var window = Window.GetWindow(this);
+            window.KeyDown -= OnKeyDownHandler;
         }
         protected void OnKeyDownHandler(object sender, System.Windows.Input.KeyEventArgs e)
         {

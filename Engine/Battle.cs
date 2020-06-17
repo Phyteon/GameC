@@ -40,8 +40,8 @@ namespace Game.Engine
                 if(parentSession.currentPlayer.ListAvailableSkills().Count == 0) // player has run out of stamina
                 {
                     RestorePlayerState();
-                    battleScene.SendColorText("No more skills to use - defeat!", "red");
-                    parentSession.Wait(100);
+                    battleScene.SendColorText("No more skills to use - defeat! (press any key to continue)", "red");
+                    parentSession.GetKeyResponse();
                     parentSession.SendText("No more skills to use - you lost the battle!");
                     battleScene.EndDisplay();
                     return;
@@ -66,8 +66,8 @@ namespace Game.Engine
             // restore player state
             battleResult = true;
             RestorePlayerState();
-            battleScene.SendColorText("Victory!", "green");
-            parentSession.Wait(300);
+            battleScene.SendColorText("Victory! (press any key to continue)", "green");
+            parentSession.GetKeyResponse();
             battleScene.EndDisplay();
             parentSession.SendText("You won! XP gained: " + Monster.XPValue);
             if(rewards) VictoryReward();

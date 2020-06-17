@@ -67,15 +67,13 @@ namespace Game.Engine.Interactions.TroubadourQuest
                     {
                         if (visited == 1)
                         {
-                            parentSession.SendText("Exactly, very good, now I think, you are ready.");
-                            
+                            parentSession.SendText("Exactly, very good, now I think you are ready.");  
                         }
                         if(visited == 0)//1st time we get lute
                         {
                             visited++;//it's here because we get item here
                             parentSession.SendText("Exactly, very good, now I think, you are ready. Take my lute and kill this monster!");
-                            parentSession.AddThisItem(Index.ProduceSpecificItem("item0544"));//lute
-                            
+                            parentSession.AddThisItem(Index.ProduceSpecificItem("item0544"));//lute   
                         }
                         test.Clear();
                         parentSession.SendText("But before killing, you should know, what you should be looking for... I'll show you my village.");

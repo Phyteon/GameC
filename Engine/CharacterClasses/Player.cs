@@ -171,9 +171,10 @@ namespace Game.Engine.CharacterClasses
         {
             // override this for specific character classes, which may have easier time learning one stat vs another... 
             Level++;
-            parentSession.SendText("\nLevel Up! Level: " + Level);
+            parentSession.SendText("\n");
+            parentSession.SendColorText("Level Up! Level: " + Level, "yellow");
             List<string> validInputs = new List<string>() { "1", "2", "3", "4", "5" }; // only accept these inputs
-            parentSession.SendText("Choose a statistic to improve: +10 Health (press 1), +10 Strength (press 2), +5 Precision (press 3), +10 Magic Power (press 4), +10 Stamina (press 5)");
+            parentSession.SendColorText("Choose a statistic to improve: +10 Health (press 1), +10 Strength (press 2), +5 Precision (press 3), +10 Magic Power (press 4), +10 Stamina (press 5)", "yellow");
             string key = parentSession.GetValidKeyResponse(validInputs).Item1;
             // don't make changes directly, ask GameSession to do it right
             if (key == "1") parentSession.UpdateStat(1, 10);
@@ -187,10 +188,10 @@ namespace Game.Engine.CharacterClasses
             // learn a new skill from the list (maximum three choices)
             if (learningSkills.Count > 2) 
             {
-                parentSession.SendText("Choose a skill to learn:");
-                parentSession.SendText(learningSkills[0]+ " (press 1)");
-                parentSession.SendText(learningSkills[1]+ " (press 2)");
-                parentSession.SendText(learningSkills[2]+ " (press 3)");
+                parentSession.SendColorText("Choose a skill to learn:", "yellow");
+                parentSession.SendColorText(learningSkills[0]+ " (press 1)", "yellow");
+                parentSession.SendColorText(learningSkills[1]+ " (press 2)", "yellow");
+                parentSession.SendColorText(learningSkills[2]+ " (press 3)", "yellow");
                 string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2", "3" }).Item1;
                 if (key == "1") Learn(learningSkills[0]);
                 else if (key == "2") Learn(learningSkills[1]);
@@ -198,17 +199,17 @@ namespace Game.Engine.CharacterClasses
             }
             else if(learningSkills.Count > 1)
             {
-                parentSession.SendText("Choose a skill to learn:");
-                parentSession.SendText(learningSkills[0] + " (press 1)");
-                parentSession.SendText(learningSkills[1] + " (press 2)");
+                parentSession.SendColorText("Choose a skill to learn:", "yellow");
+                parentSession.SendColorText(learningSkills[0] + " (press 1)", "yellow");
+                parentSession.SendColorText(learningSkills[1] + " (press 2)", "yellow");
                 string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2"}).Item1;
                 if (key == "1") Learn(learningSkills[0]);
                 else if (key == "2") Learn(learningSkills[1]);
             }
             else if (learningSkills.Count > 0)
             {
-                parentSession.SendText("Choose a skill to learn:");
-                parentSession.SendText(learningSkills[0] + " (press 1)");
+                parentSession.SendColorText("Choose a skill to learn:", "yellow");
+                parentSession.SendColorText(learningSkills[0] + " (press 1)", "yellow");
                 string key = parentSession.GetValidKeyResponse(new List<string>() {"1"}).Item1;
                 if (key == "1") Learn(learningSkills[0]);
             }

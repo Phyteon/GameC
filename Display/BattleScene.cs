@@ -18,15 +18,17 @@ namespace Game.Display
         protected RichTextBox battleConsole;
         protected ListBox moves;
         protected GamePage parentPage;
+        protected GameSession parentSession;
         protected Image playerImage;
         protected Image monsterImage;
         protected Player player;
         protected Monster monster;
         List<RichTextBox> rtbs;
         public Image ImgSetup { get; set; }
-        public BattleScene(GamePage page, Player player, Monster monster)
+        public BattleScene(GamePage page, GameSession session, Player player, Monster monster)
         {
             parentPage = page;
+            parentSession = session;
             this.player = player;
             this.monster = monster;
             this.playerImage = player.GetImage();
@@ -133,7 +135,8 @@ namespace Game.Display
             battleConsole.FontWeight = FontWeights.Bold;
             battleConsole.SetValue(Paragraph.LineHeightProperty, 1.0);
             battleConsole.FontSize = 12.0;
-            battleConsole.IsReadOnly = true;
+            //battleConsole.IsReadOnly = true;
+            battleConsole.Focusable = false;
             BattleGrid.Children.Add(battleConsole);
             Grid.SetColumn(battleConsole, 1);
             Grid.SetRow(battleConsole, 0);
@@ -143,6 +146,8 @@ namespace Game.Display
             Grid.SetColumn(BattleGrid, 0);
             Grid.SetRow(BattleGrid, 0);
             Grid.SetRowSpan(BattleGrid, 2);
+            BattleGrid.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.ItemsMouseLeftButtonDown);
+            battleConsole.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.ItemsMouseLeftButtonDown);
         }
         public void EndDisplay()
         {
@@ -246,6 +251,10 @@ namespace Game.Display
             System.Windows.Documents.EditingCommands.AlignCenter.Execute(null, rtbs[9]);
             System.Windows.Documents.EditingCommands.AlignCenter.Execute(null, rtbs[10]);
             System.Windows.Documents.EditingCommands.AlignCenter.Execute(null, rtbs[11]);
+        }
+        protected void ItemsMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            parentSession.CurrentKey = "MousePress";
         }
     }
 }
