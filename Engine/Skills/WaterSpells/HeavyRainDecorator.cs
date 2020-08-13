@@ -12,7 +12,7 @@ namespace Game.Engine.Skills.WaterSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1; 
             PublicName = "COMBO - Heavy Rain: decreases enemy precision and strength stat by 0.2*MP [water] AND " + decoratedSkill.PublicName.Replace("COMBO: ", ""); 
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

@@ -10,7 +10,6 @@ namespace Game.Engine.Skills
         public Heal() : base("Heal", 1, 2)
         {
             PublicName = "Heal: restores 10 health";
-            RequiredItem = "SteelArmor";
         }
 
         public override List<StatPackage> BattleMove(Player player)

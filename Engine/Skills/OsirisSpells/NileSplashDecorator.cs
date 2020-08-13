@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.OsirisMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = " COMBO - Nile Splash: 5 + 0.5*MP damage [water] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

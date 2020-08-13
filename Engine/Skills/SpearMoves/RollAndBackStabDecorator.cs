@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
         {
             MinimumLevel = Math.Max(5, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Roll and stab in the back [requires spear]: 0.2*Pr damage [incised] and then 0.3*Str + 0.3*Pr damage [stab] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = "Spear";
+            RequiredItem = Skill.MainItem.spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

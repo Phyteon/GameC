@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.BasicSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO: Constrain person - takes a random amount of strength from the enemy 10+(0-4)*MP" + skill.PublicName;
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

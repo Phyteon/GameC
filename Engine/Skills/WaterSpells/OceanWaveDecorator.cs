@@ -12,7 +12,7 @@ namespace Game.Engine.Skills.WaterSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1; 
             PublicName = "COMBO - Ocean Wave: 0.4*MP + 0.1*STR damage [water] AND " + decoratedSkill.PublicName.Replace("COMBO: ", ""); 
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

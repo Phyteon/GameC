@@ -10,7 +10,6 @@ namespace Game.Engine.Skills
         public Bloodlust() : base ("Bloodlust", 3, 3)
         {
             PublicName = "Bloodlust: dameges a target for 10% of their health and restores that amount to you";
-            RequiredItem = "BerserkerArmor";
         }
 
         public override List<StatPackage> BattleMove(Player player)

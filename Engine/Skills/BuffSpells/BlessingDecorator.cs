@@ -15,7 +15,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "Blessing: increase your Strength and armor by 20, and decrease enemy armor by 10 [earth] AND"
             + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
 
         public override List<StatPackage> BattleMove(Player player)

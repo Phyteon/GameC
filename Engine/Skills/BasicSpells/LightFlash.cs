@@ -12,7 +12,7 @@ namespace Game.Engine.Skills.BasicSkills
         public LightFlash() : base("Light Flash", 10, 1) 
         { 
             PublicName = "Light Flash: decrease enemy precision stat by 15 [fire]";
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

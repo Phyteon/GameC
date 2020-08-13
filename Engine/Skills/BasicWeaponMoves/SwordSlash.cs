@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         public SwordSlash() : base("Sword Slash", 20, 1)
         {
             PublicName = "Basic sword slash [requires sword]: 0.1*Str + 0.1*Pr damage [stab] and then 0.1*Str + 0.1*Pr damage [incised]";
-            RequiredItem = "Sword";
+            RequiredItem = Skill.MainItem.sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

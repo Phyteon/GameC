@@ -12,7 +12,7 @@ namespace Game.Engine.Skills.BasicSkills
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Wind Gust: 5 + 0.3 * MP damage[air] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

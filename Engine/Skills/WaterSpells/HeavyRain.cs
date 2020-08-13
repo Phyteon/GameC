@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.WaterSpells
         public HeavyRain() : base("Heavy Rain", 10, 2)
         {
             PublicName = "Heavy Rain: decrease enemy precision and strength stat by 0.2*MP [water]"; 
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

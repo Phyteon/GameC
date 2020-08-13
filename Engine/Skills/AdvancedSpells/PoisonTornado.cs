@@ -13,7 +13,7 @@ namespace Game.Engine.Skills
         public PoisonTornado() : base("Poison Tornado", 20, 2)
         {
             PublicName = "Poison tornado: 0.1*MP + 0.1*PR damage [poison]";
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

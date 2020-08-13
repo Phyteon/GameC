@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.BasicSpells
         public ForcedLightning() : base("spell0582", 60, 3)
         {
             PublicName = "Forced Lightning - UNLIMITED POWER (5-10*MP) 10% chance to hurt self";
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

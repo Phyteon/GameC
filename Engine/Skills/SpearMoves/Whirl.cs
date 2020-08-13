@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
         public Whirl() : base("Whirl", 50, 4)
         {
             PublicName = "Spear-whirl [requires spear]: 0.3*Str + 0.4*Pr damage [stab]";
-            RequiredItem = "Spear";
+            RequiredItem = Skill.MainItem.spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

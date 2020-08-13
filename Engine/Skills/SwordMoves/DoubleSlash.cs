@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         public DoubleSlash() : base("Double Slash", 20, 2)
         {
             PublicName = "double basic sword slash [requires sword]: 0.2*Str + 0.2*Pr damage [stab] and 0.2*Str + 0.2*Pr damage [incised]";
-            RequiredItem = "Sword";
+            RequiredItem = Skill.MainItem.sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

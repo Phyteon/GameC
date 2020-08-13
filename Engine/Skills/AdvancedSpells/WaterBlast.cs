@@ -13,7 +13,7 @@ namespace Game.Engine.Skills
         public WaterBlast() : base("Water Blast", 25, 3)
         {
             PublicName = "Water Blast: a 70% chance to land 0.5*MP damage [water]";
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

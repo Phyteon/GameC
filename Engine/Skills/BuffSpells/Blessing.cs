@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
         public Blessing(): base("Blessing", 30, 3)
         {
             PublicName = "Blessing: increase your Strength and armor by 20, and decrease enemy armor by 10 [earth]";
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
 
         public override List<StatPackage> BattleMove(Player player)

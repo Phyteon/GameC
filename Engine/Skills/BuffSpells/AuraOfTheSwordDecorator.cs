@@ -15,7 +15,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "Aura of the sword: If you have more than 120HP increse your strength stats by 50, otherwise increase your strength by 20 [air] AND"
             + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = "Sword";
+            RequiredItem = Skill.MainItem.sword;
         }
 
         public override List<StatPackage> BattleMove(Player player)

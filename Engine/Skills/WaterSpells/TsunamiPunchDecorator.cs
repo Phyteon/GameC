@@ -12,7 +12,7 @@ namespace Game.Engine.Skills.WaterSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1; 
             PublicName = "COMBO - Tsunami Punch: desrease enemy strength stat by 10 and land 0.3*MP damage [water] AND " + decoratedSkill.PublicName.Replace("COMBO: ", ""); 
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

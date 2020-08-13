@@ -10,7 +10,7 @@ namespace Game.Engine.Skills.AdvancedWeaponMoves
         public AxeThrow() : base("Axe Throw", 30, 5)
         {
             PublicName = "Axe Throw [requires axe]: a chance equal to your Stamina stat to land 0.5*Str + 0.2*Pr damage [incised]";
-            RequiredItem = "Axe";
+            RequiredItem = Skill.MainItem.axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

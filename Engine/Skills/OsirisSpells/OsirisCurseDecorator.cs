@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.OsirisMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = " COMBO - Osiris Curse [requires sword] : 0.2*Str + 0.2*MagPwr damage [poison] + random god`s help [fire + armor damage, water + precision damage, earth + strength damage, air + magic power damage] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = "Sword";
+            RequiredItem = Skill.MainItem.sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

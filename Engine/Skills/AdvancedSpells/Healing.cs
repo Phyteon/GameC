@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.MoreSpells
         public Healing() : base("Healing", 10, 2)
         {
             PublicName = "extra 50 Hp [magic]";
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

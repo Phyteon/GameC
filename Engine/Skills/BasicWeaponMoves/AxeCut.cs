@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         public AxeCut() : base("Axe Cut", 20, 1) 
         {
             PublicName = "Basic axe cut [requires axe]: 0.4*Str + 0.1*Pr damage [incised]";
-            RequiredItem = "Axe";
+            RequiredItem = Skill.MainItem.axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

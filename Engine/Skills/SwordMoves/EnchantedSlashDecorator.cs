@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 2;
             PublicName = "Enchanted Slash [requires sword]: {(0.2*Str + 0.2*Pr) damage [stab] and (0.2*Str + 0.2*Pr) damage [incised]}*random value from 1 to 5";
-            RequiredItem = "Sword";
+            RequiredItem = Skill.MainItem.sword;
         }
         private int chance;
         public override List<StatPackage> BattleMove(Player player)

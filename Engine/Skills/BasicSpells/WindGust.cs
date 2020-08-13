@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicSkills
         public WindGust() : base("Wind Gust", 10, 1)
         {
             PublicName = "Wind Gust: 5 + 0.3*MP damage [air]";
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

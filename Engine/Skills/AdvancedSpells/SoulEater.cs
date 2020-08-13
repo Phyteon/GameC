@@ -14,7 +14,7 @@ namespace Game.Engine.Skills
         public SoulEater() : base("Soul Eater", 30, 5)//zmien lvl
         {
             PublicName = "Soul Eater: 0.4*Mp fire damage, gives you 0.1*MP health points during battle.";
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

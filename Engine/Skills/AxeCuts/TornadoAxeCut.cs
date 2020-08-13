@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.SkillWeaponMoves
         public TornadoAxeCut() : base("Tornado Axe Cut", 50, 4)
         {
             PublicName = "Tornado Axe Cut: a chance equal to your Precission stat to make 3 times bigger damage";
-            RequiredItem = "Axe";
+            RequiredItem = Skill.MainItem.axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

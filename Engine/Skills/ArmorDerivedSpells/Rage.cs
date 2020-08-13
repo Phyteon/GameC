@@ -10,7 +10,6 @@ namespace Game.Engine.Skills
         public Rage() : base("Rage", 2, 1)
         {
             PublicName = "Rage: damages you for 10 and converts it to strength";
-            RequiredItem = "GrowingStoneArmor";
         }
 
         public override List<StatPackage> BattleMove(Player player)

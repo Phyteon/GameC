@@ -10,7 +10,7 @@ namespace Game.Engine.Skills.AdvancedWeaponMoves
         public AuraOfASword() : base("Aura Of The Sword", 30, 5)
         {
             PublicName = "Aura Of The Sword [requires sword]: deal 0.1*Str + 0.1*Pr incised damage and then create an aura that increase your strength and precision by 10";
-            RequiredItem = "Sword";
+            RequiredItem = Skill.MainItem.sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

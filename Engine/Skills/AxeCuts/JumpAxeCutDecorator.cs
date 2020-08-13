@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.SkillWeaponMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Jump Axe Cut: a chance equal to your Precission stat to make 1,5 times bigger damage AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = "Axe";
+            RequiredItem = Skill.MainItem.axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.MoreSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 2;
             PublicName = "COMBO - extra 50 Hp [magic] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = "Staff";
+            RequiredItem = Skill.MainItem.staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

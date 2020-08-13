@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         public SpearStab() : base("Spear Stab", 20, 1) 
         { 
             PublicName = "Basic spear stab [requires spear]: 0.2*Str + 0.3*Pr damage [stab]";
-            RequiredItem = "Spear";
+            RequiredItem = Skill.MainItem.spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

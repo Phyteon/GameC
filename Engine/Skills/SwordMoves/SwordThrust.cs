@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         public SwordThrust() : base("Sword Thrust", 25, 2)
         {
             PublicName = "Sword Thrust [requires sword]: 0.1*Str + 0.3*Pr damage [stab]";
-            RequiredItem = "Sword";
+            RequiredItem = Skill.MainItem.sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
