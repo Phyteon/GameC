@@ -105,6 +105,8 @@ namespace Game.Engine
             // check if ANY item from a given special class (staff,axe,spear,sword) is currently equipped as active
             switch(name)
             {
+                case "":
+                    return true;
                 case "Axe":
                     foreach (Item item in items) if (item.IsAxe) return true;
                     break;
@@ -212,7 +214,7 @@ namespace Game.Engine
             }
         }
 
-        public void FightThisMonster(Monster monster)
+        public bool FightThisMonster(Monster monster)
         {
             // player will fight against a particular monster
             // xp can be gained here, but gold/items cannot (you can do this separately inside your interaction)
@@ -222,7 +224,9 @@ namespace Game.Engine
                 Battle newBattle = new Battle(this, newBattleScene, monster, false);
                 newBattle.Run();
                 if (newBattle.battleResult) UpdateStat(7, monster.XPValue);
+                return newBattle.battleResult;
             }
+            return true;
         }
 
 

@@ -116,14 +116,13 @@ namespace Game.Engine.CharacterClasses
         public int StaminaBuff { get; set; }
 
 
-
         // methods
         protected Player(GameSession ses) // for derived classes
         {
             parentSession = ses;
-            ListOfSkills = new List<Skill>();
+            ListOfSkills = new List<Skill>() { new RunAway() };
             Name = "player";
-            Level = 1;
+            Level = 1;  
         }
         private int LevelBasedOnXP()
         {

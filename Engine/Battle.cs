@@ -4,6 +4,7 @@ using Game.Display;
 using Game.Engine.Monsters;
 using Game.Engine.Skills;
 using Game.Engine.Interactions;
+using Game.Engine.CharacterClasses;
 
 namespace Game.Engine
 {
@@ -12,7 +13,7 @@ namespace Game.Engine
     {
         protected BattleScene battleScene;
         protected int hpCopy, strCopy, armCopy, prCopy, mgCopy, staCopy; // after the battle, all statistics of the player are restored
-        protected bool rewards;
+        protected bool rewards, firstBlood = false;
         public Monster Monster { get; set; }
         public bool battleResult { get; private set; } = false; // has the player won?
         public Battle(GameSession ses, BattleScene scene, Monster monster, bool rewards = true) : base(ses)
@@ -46,15 +47,18 @@ namespace Game.Engine
                     battleScene.EndDisplay();
                     return;
                 }
-                // monster always attacks first
-                List<StatPackage> monsterAttack = parentSession.ModifyDefensive(Monster.BattleMove());
-                foreach (StatPackage i in monsterAttack) battleScene.SendColorText(i.CustomText, "red");
-                parentSession.currentPlayer.React(monsterAttack);
-                battleScene.RefreshStats();
-                //ReportStats();
-                battleScene.SendBattleText("");
-                // now the player
+                // player attacks first
                 Skill playerResponse = parentSession.GetListBoxResponse();
+                if (playerResponse.PublicName == "Run away (only half of your wounds will heal!)")
+                {
+                    battleScene.EndDisplay();
+                    if (firstBlood) parentSession.SendText("The monster is chasing you down and you have no time to properly tend to your wounds...");
+                    else parentSession.SendText("It looks rather dangerous, better stay away from it.");
+                    battleResult = false;
+                    RestorePlayerState(false);
+                    return;
+                }
+                firstBlood = true;
                 List<StatPackage> playerAttack = parentSession.ModifyOffensive(playerResponse.BattleMove(parentSession.currentPlayer));
                 foreach (StatPackage i in playerAttack) battleScene.SendColorText(i.CustomText, "green");
                 Monster.React(playerAttack);
@@ -62,6 +66,12 @@ namespace Game.Engine
                 parentSession.UpdateStat(6, -1*playerResponse.StaminaCost);
                 battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills());
                 battleScene.ResetChoice();
+                // now monster
+                battleScene.SendBattleText("");
+                List<StatPackage> monsterAttack = parentSession.ModifyDefensive(Monster.BattleMove());
+                foreach (StatPackage i in monsterAttack) battleScene.SendColorText(i.CustomText, "red");
+                parentSession.currentPlayer.React(monsterAttack);
+                battleScene.RefreshStats();    
             }
             // restore player state
             battleResult = true;
@@ -83,9 +93,13 @@ namespace Game.Engine
             mgCopy = parentSession.currentPlayer.MagicPower - parentSession.currentPlayer.MagicPowerBuff;
             staCopy = parentSession.currentPlayer.Stamina - parentSession.currentPlayer.StaminaBuff;
         }
-        protected void RestorePlayerState()
+        protected void RestorePlayerState(bool fullHP = true)
         {
-            parentSession.currentPlayer.Health = hpCopy;
+            if(fullHP)
+            {
+                parentSession.currentPlayer.Health = hpCopy;  
+            }
+            else parentSession.currentPlayer.Health = (int)((parentSession.currentPlayer.Health + hpCopy)/2);
             parentSession.currentPlayer.Strength = strCopy;
             parentSession.currentPlayer.Armor = armCopy;
             parentSession.currentPlayer.Precision = prCopy;
