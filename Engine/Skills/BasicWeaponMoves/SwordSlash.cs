@@ -15,9 +15,9 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response1 = new StatPackage("stab");
+            StatPackage response1 = new StatPackage(DmgType.stab);
             response1.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.1 * player.Precision);
-            StatPackage response2 = new StatPackage("incised");
+            StatPackage response2 = new StatPackage(DmgType.cut);
             response2.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.1 * player.Precision);
             // applying CustomText only once is sufficient
             response2.CustomText = "You use Sword Slash! (" + ((int)(0.1 * player.Strength) + (int)(0.1 * player.Precision)) + " stab damage, " + ((int)(0.1 * player.Strength) + (int)(0.1 * player.Precision)) + " incised damage)";

@@ -27,11 +27,11 @@ namespace Game.Engine.Items
                
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "fire")
+            if (pack.DamageType == DmgType.fire)
             {
                 pack.HealthDmg = 20 * pack.HealthDmg / 100;
             }
-            else if (pack.DamageType == "water" || pack.DamageType == "air" || pack.DamageType == "earth")
+            else if (pack.DamageType == DmgType.water || pack.DamageType == DmgType.air || pack.DamageType == DmgType.earth)
             {
                 pack.HealthDmg = 120 * pack.HealthDmg / 100;
             }

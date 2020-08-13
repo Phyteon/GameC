@@ -26,18 +26,18 @@ namespace Game.Engine.Monsters
             if (Stamina > 0)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage("stab", Strength + (Precision/10), "Jester used Jester's Rod! (" + (Strength + (Precision / 10)) + " stab damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.stab, Strength + (Precision/10), "Jester used Jester's Rod! (" + (Strength + (Precision / 10)) + " stab damage)") };
             }
             else
             {
                 int test =Index.RNG(0, 101);
                 if (test < 11)
                 {
-                    return new List<StatPackage>() { new StatPackage("Explosion", 500, "Jester has exploded!") }; 
+                    return new List<StatPackage>() { new StatPackage(DmgType.fire, 500, "Jester has exploded!") }; 
                 }
                 else
                 {
-                    return new List<StatPackage>() { new StatPackage("none", 0, "Jester has no energy to attack anymore!") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Jester has no energy to attack anymore!") };
                 }
             }
         }

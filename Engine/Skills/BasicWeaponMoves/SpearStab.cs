@@ -15,7 +15,7 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("stab");
+            StatPackage response = new StatPackage(DmgType.stab);
             response.HealthDmg = (int)(0.2 * player.Strength) + (int)(0.3 * player.Precision);
             response.CustomText = "You use Spear Stab! (" + ((int)(0.2 * player.Strength) + (int)(0.3 * player.Precision)) + " stab damage)";
             return new List<StatPackage>() { response };

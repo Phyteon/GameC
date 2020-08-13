@@ -28,17 +28,17 @@ namespace Game.Engine.Monsters
             if (Stamina > 16)
             {
                 Stamina -= 15;
-                return new List<StatPackage>() { new StatPackage("air", 15 + MagicPower, "Bat uses Wind Attack! (" + (15 + MagicPower) + " air damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.air, 15 + MagicPower, "Bat uses Wind Attack! (" + (15 + MagicPower) + " air damage)") };
 
             }
             else if (Stamina < 16 && Stamina > 0)
             {
                 Stamina = -15;
-                return new List<StatPackage>() { new StatPackage("air", 40 + MagicPower, "Bat uses Hurricane! (" + (40 + MagicPower) + " air damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.air, 40 + MagicPower, "Bat uses Hurricane! (" + (40 + MagicPower) + " air damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Bat has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Bat has no energy to attack anymore!") };
             }
         }
 

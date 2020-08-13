@@ -20,7 +20,7 @@ namespace Game.Engine.Items
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "wind")
+            if (pack.DamageType == DmgType.air)
             {
                 power += pack.HealthDmg;
             }

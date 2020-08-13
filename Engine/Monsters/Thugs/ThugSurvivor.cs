@@ -31,15 +31,15 @@ namespace Game.Engine.Monsters
                 return new List<StatPackage>()
                 { 
                     
-                new StatPackage("stab", 10 + Strength, "Thug uses his knife! (" + (10 + Strength) + " stab damage)"),
-                new StatPackage("hit", 30, "A thug beats you very furiously! (30 hit damage)")
+                new StatPackage(DmgType.stab, 10 + Strength, "Thug uses his knife! (" + (10 + Strength) + " stab damage)"),
+                new StatPackage(DmgType.none, 30, "A thug beats you very furiously! (30 hit damage)")
                 };
             }
             else
             {
                 return new List<StatPackage>()
                 {
-                     new StatPackage("none", 0, "Thug has no energy to attack anymore!")
+                     new StatPackage(DmgType.none, 0, "Thug has no energy to attack anymore!")
                 };
             }
 

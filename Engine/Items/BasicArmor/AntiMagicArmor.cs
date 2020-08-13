@@ -19,7 +19,7 @@ namespace Game.Engine.Items.BasicArmor
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "fire" || pack.DamageType == "water" || pack.DamageType == "air" || pack.DamageType == "earth")
+            if (pack.DamageType == DmgType.fire || pack.DamageType == DmgType.water || pack.DamageType == DmgType.air || pack.DamageType == DmgType.earth)
             {
                 pack.HealthDmg = 70 * pack.HealthDmg / 100;
             }

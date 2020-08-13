@@ -17,7 +17,7 @@ namespace Game.Engine.Skills.OsirisMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("water");
+            StatPackage response = new StatPackage(DmgType.water);
             response.HealthDmg = 10 + (int)(0.5 * player.MagicPower);
             response.CustomText = "Bless Osisris! You used Nile Water Splash! (" + (5 + (int)(0.5 * player.MagicPower)) + "water damage)";
             return new List<StatPackage>() { response };

@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage reaction = new StatPackage("air");
+            StatPackage reaction = new StatPackage(DmgType.air);
             if(player.Health>120)
             {
                 player.Strength += 50;

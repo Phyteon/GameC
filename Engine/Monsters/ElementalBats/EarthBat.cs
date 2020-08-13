@@ -28,17 +28,17 @@ namespace Game.Engine.Monsters
             if (Stamina > 16)
             {
                 Stamina -= 15;
-                return new List<StatPackage>() { new StatPackage("earth", 15 + MagicPower, "Bat uses Rock Wrecker! (" + (15 + MagicPower) + " earth damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.earth, 15 + MagicPower, "Bat uses Rock Wrecker! (" + (15 + MagicPower) + " earth damage)") };
 
             }
             else if (Stamina < 16 && Stamina > 0)
             {
                 Stamina = -15;
-                return new List<StatPackage>() { new StatPackage("earth", 40 + MagicPower, "Bat uses Earthquake (" + (40 + MagicPower) + " earth damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.earth, 40 + MagicPower, "Bat uses Earthquake (" + (40 + MagicPower) + " earth damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Bat has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Bat has no energy to attack anymore!") };
             }
         }
 

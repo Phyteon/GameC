@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.BasicSpells
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("air");
+            StatPackage response = new StatPackage(DmgType.air);
             response.HealthDmg = player.MagicPower;
             player.HealthBuff += Convert.ToInt32(response.HealthDmg * 0.5);
             player.StaminaBuff += Convert.ToInt32(response.HealthDmg * 0.5);

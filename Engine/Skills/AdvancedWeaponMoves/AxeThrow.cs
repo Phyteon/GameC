@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.AdvancedWeaponMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("incised");
+            StatPackage response = new StatPackage(DmgType.cut);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < player.Stamina)
             {

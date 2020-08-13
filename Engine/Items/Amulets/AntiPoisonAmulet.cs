@@ -17,7 +17,7 @@ namespace Game.Engine.Items.Amulet
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "poison")
+            if (pack.DamageType == DmgType.poison)
             {
                 pack.HealthDmg = 70 * pack.HealthDmg / 100;
             }

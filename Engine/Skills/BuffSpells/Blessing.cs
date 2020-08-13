@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage reaction = new StatPackage("earth");
+            StatPackage reaction = new StatPackage(DmgType.earth);
             player.Strength += 20;
             player.Armor += 20;
             reaction.ArmorDmg = 10;

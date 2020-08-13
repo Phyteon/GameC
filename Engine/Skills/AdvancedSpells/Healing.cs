@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.MoreSpells
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("magic");
+            StatPackage response = new StatPackage(DmgType.none);
             player.Health += 50;
             response.CustomText = "You heal yourself with 50 Hp";
             return new List<StatPackage>() { response };

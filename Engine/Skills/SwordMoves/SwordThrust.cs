@@ -17,7 +17,7 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-        StatPackage response1 = new StatPackage("stab");
+        StatPackage response1 = new StatPackage(DmgType.stab);
         response1.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.3 * player.Precision);
         response1.CustomText = "You use Sword Thrust! (" + ((int)(0.1 * player.Strength) + (int)(0.3 * player.Precision)) + ") stab damage";
         return new List<StatPackage>() { response1 };

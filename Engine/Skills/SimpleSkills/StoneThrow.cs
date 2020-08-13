@@ -17,7 +17,7 @@ namespace Game.Engine.Skills.SimpleSkills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("earth");
+            StatPackage response = new StatPackage(DmgType.earth);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < player.Precision+50)
             {

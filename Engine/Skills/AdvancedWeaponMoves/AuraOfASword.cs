@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.AdvancedWeaponMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("incised");
+            StatPackage response = new StatPackage(DmgType.cut);
             response.HealthDmg = (int)(0.1 * player.Strength + 0.1 * player.Precision);
             player.StrengthBuff = 20;
             player.PrecisionBuff = 20;

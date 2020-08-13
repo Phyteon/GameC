@@ -18,7 +18,7 @@ namespace Game.Engine.Skills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("fire");
+            StatPackage response = new StatPackage(DmgType.fire);
             response.HealthDmg = (int)(0.4 * player.MagicPower);
             player.Health += (int)(0.1 * player.MagicPower);
             response.CustomText = "You use Soul Eater! (" + ((int)(0.4 * player.MagicPower)) + " fire damage)\nYou've gained " + ((int)(0.1 * player.MagicPower)) + " health points";

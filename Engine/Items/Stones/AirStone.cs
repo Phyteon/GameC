@@ -19,7 +19,7 @@ namespace Game.Engine.Items
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "air")
+            if (pack.DamageType == DmgType.air)
             {
                 pack.HealthDmg += airStoneBonus;
             }

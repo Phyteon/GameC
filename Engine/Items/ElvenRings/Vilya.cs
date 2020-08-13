@@ -23,7 +23,7 @@ namespace Game.Engine.Items
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "air")
+            if (pack.DamageType == DmgType.air)
             {
                 pack.HealthDmg += pack.HealthDmg / 4;
             }
@@ -31,7 +31,7 @@ namespace Game.Engine.Items
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "air")
+            if (pack.DamageType == DmgType.air)
             {
                 pack.HealthDmg -= pack.HealthDmg/2;
             }

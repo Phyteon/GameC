@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.MoreSpells
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("magic");
+            StatPackage response = new StatPackage(DmgType.none);
 
             if(Index.RNG(0,2) > 0)
             {

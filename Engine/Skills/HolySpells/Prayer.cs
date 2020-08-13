@@ -17,23 +17,23 @@ namespace Game.Engine.Skills.HolySpells
         }
         public override List<StatPackage> BattleMove(Engine.CharacterClasses.Player player)
         {
-            StatPackage response = new StatPackage("none");
+            StatPackage response = new StatPackage(DmgType.none);
             int randomNumber = Index.RNG(0, 3);
             if (randomNumber == 0)//Base Magic
             {
-                response.DamageType = "fire";
+                response.DamageType = DmgType.fire;
                 response.HealthDmg = (int)(player.MagicPower * 1.5);
                 response.CustomText = "You use Prayer. Base attribute: Magic Power. You attack for (" + (int)(1.5 * player.MagicPower) + " fire damage)";
             }
             else if (randomNumber == 1)//base Precision
             {
-                response.DamageType = "stab";
+                response.DamageType = DmgType.stab;
                 response.HealthDmg = (int)(player.Precision * 1.5);
                 response.CustomText = "You use Prayer. Base attribute: Precision. You attack for (" + (int)(1.5 * player.Precision) + " stab damage)";
             }
             else//base Strength
             {
-                response.DamageType = "incised";
+                response.DamageType = DmgType.cut;
                 response.HealthDmg = (int)(player.Strength * 1.5);
                 response.CustomText = "You use Prayer. Base attribute: Strength. You attack for (" + (int)(1.5 * player.Strength) + " incised damage)";
             }

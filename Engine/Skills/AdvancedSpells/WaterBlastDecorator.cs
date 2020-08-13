@@ -19,7 +19,7 @@ namespace Game.Engine.Skills
         public override List<StatPackage> BattleMove(Player player)
         {
             int damage = (int)(0.5 * player.MagicPower);
-            StatPackage response = new StatPackage("water");
+            StatPackage response = new StatPackage(DmgType.water);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < 70)
             {

@@ -15,7 +15,7 @@ namespace Game.Engine.Skills.BasicSkills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("air");
+            StatPackage response = new StatPackage(DmgType.air);
             response.HealthDmg = 5 + (int)(0.3 * player.MagicPower);
             response.CustomText = "You use Wind Gust! (" + (5 + (int)(0.3 * player.MagicPower)) + " air damage)";
             return new List<StatPackage>() { response };

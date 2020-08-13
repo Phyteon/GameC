@@ -14,7 +14,7 @@ namespace Game.Engine.Skills
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("none");
+            StatPackage response = new StatPackage(DmgType.none);
             player.Health += 10;
             response.CustomText = "You used Heal! (" + 10 + " health restored)";
             return new List<StatPackage>() { response };

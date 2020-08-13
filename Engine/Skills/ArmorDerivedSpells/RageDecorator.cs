@@ -16,7 +16,7 @@ namespace Game.Engine.Skills
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("health");
+            StatPackage response = new StatPackage(DmgType.none);
             player.Health -= 10;
             player.Strength += 10;
             response.CustomText = "You used Rage! (health decreased to " + player.Health + " strength increased to " + player.Strength + ")";

@@ -26,18 +26,18 @@ namespace Game.Engine.Monsters
             if (Stamina > 0)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage("water", MagicPower, "Numi uses Water Ring Spell! (" + (MagicPower) + " magic damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.water, MagicPower, "Numi uses Water Ring Spell! (" + (MagicPower) + " magic damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Numi has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Numi has no energy to attack anymore!") };
             }
         }
         public override void React(List<StatPackage> packs)
         {
             foreach (StatPackage pack in packs)
             {
-                if (pack.DamageType == "stab" || pack.DamageType == "incised" || pack.DamageType == "cut")
+                if (pack.DamageType == DmgType.stab || pack.DamageType == DmgType.cut)
                 {
                     Health -= pack.HealthDmg*50/100;
                     Strength -= pack.StrengthDmg;

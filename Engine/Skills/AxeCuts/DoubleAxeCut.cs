@@ -17,7 +17,7 @@ namespace Game.Engine.Skills.SkillWeaponMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("cut");
+            StatPackage response = new StatPackage(DmgType.cut);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < player.Precision)
             {

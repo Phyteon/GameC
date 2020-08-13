@@ -22,7 +22,7 @@ namespace Game.Engine.Items.OsirisArmor
 
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "fire" || pack.DamageType == "water" || pack.DamageType == "air" || pack.DamageType == "earth")
+            if (pack.DamageType == DmgType.fire || pack.DamageType == DmgType.water || pack.DamageType == DmgType.air || pack.DamageType == DmgType.earth)
             {
                 pack.HealthDmg = 80 * pack.HealthDmg / 100;
             }

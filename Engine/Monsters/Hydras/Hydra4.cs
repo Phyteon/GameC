@@ -26,11 +26,11 @@ namespace Game.Engine.Monsters
             if (Stamina > 0)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage("stab", 4 + Strength, "Hydra uses Bite! (" + (4 + Strength) + " stab damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.stab, 4 + Strength, "Hydra uses Bite! (" + (4 + Strength) + " stab damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Hydra has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Hydra has no energy to attack anymore!") };
             }
         }
     }

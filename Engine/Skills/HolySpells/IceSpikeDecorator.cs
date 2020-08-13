@@ -17,7 +17,7 @@ namespace Game.Engine.Skills.HolySpells
         public override List<StatPackage> BattleMove(Engine.CharacterClasses.Player player)
         {
             int randomNumber = Index.RNG(0, 3);
-            StatPackage response = new StatPackage("water");
+            StatPackage response = new StatPackage(DmgType.water);
             if (randomNumber == 0)
             {
                 response.HealthDmg = 2 * player.MagicPower;
@@ -25,7 +25,7 @@ namespace Game.Engine.Skills.HolySpells
             }
             else
             {
-                response.DamageType = "none";
+                response.DamageType = DmgType.none;
                 response.CustomText = "You use Ice Spike, but you miss!";
             }
             List<StatPackage> combo = decoratedSkill.BattleMove(player);

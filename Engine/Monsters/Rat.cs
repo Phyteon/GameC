@@ -28,11 +28,11 @@ namespace Game.Engine.Monsters
             {
                 Stamina -= 10;
                 // a simple bite move dealing 5 + (rat strength statistic) damage
-                return new List<StatPackage>() { new StatPackage("stab", 5 + Strength, "Rat uses Bite! ("+ (5 + Strength) +" stab damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.stab, 5 + Strength, "Rat uses Bite! ("+ (5 + Strength) +" stab damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Rat has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Rat has no energy to attack anymore!") };
             }
         }
     }

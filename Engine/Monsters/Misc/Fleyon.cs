@@ -31,19 +31,19 @@ namespace Game.Engine.Monsters
                 {
                     Stamina -= 10;
                     turnNumber++;
-                    return new List<StatPackage>() { new StatPackage("poison", ((Strength + Precision) / 10), avoid + "Fleyon uses poisonous bite! (Decrease Precision and Strenght by " + ((Strength + Precision) / 10) + " )") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.poison, ((Strength + Precision) / 10), avoid + "Fleyon uses poisonous bite! (Decrease Precision and Strenght by " + ((Strength + Precision) / 10) + " )") };
                 }
                 else
                 {
                     List<StatPackage> tmp = new List<StatPackage>();
-                    tmp.Add(new StatPackage("stab", 5 + Strength / 2, avoid + "Fleyon uses bite! (" + Strength / 2 + " physical damage)"));
-                    tmp.Add(new StatPackage("cut", (Precision + Strength) / 5, avoid + "Fleyon scratched you! (" + (Precision + Strength) / 5 + " physical damage)"));
+                    tmp.Add(new StatPackage(DmgType.stab, 5 + Strength / 2, avoid + "Fleyon uses bite! (" + Strength / 2 + " physical damage)"));
+                    tmp.Add(new StatPackage(DmgType.cut, (Precision + Strength) / 5, avoid + "Fleyon scratched you! (" + (Precision + Strength) / 5 + " physical damage)"));
                     return new List<StatPackage>() { tmp[Index.RNG(0, tmp.Count)] };
                 }
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, avoid + "Fleyon has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, avoid + "Fleyon has no energy to attack anymore!") };
             }
         }
         public override void React(List<StatPackage> packs)
@@ -51,7 +51,7 @@ namespace Game.Engine.Monsters
             int i = Index.RNG(0, 2);
             foreach (StatPackage pack in packs)
             {
-                if ((pack.DamageType == "water" || pack.DamageType == "earth" || pack.DamageType == "air" || pack.DamageType == "fire") && i == 0)
+                if ((pack.DamageType == DmgType.water || pack.DamageType == DmgType.earth || pack.DamageType == DmgType.air || pack.DamageType == DmgType.fire) && i == 0)
                 {
                     avoid = "Fleyon avoids being hit!\n";
                 }

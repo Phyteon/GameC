@@ -28,7 +28,7 @@ namespace Game.Engine.Monsters
         {
             foreach (StatPackage pack in packs) //if opponent uses magic (water,air,earth,fire) attack, AnubisGuard Strength is increasing.
             {
-                if (pack.DamageType == "water" || pack.DamageType == "air" || pack.DamageType == "earth" || pack.DamageType == "fire") 
+                if (pack.DamageType == DmgType.water || pack.DamageType == DmgType.air || pack.DamageType == DmgType.earth || pack.DamageType == DmgType.fire) 
                 {
                     reactNumber = 1;
                     Strength += 5;
@@ -48,17 +48,17 @@ namespace Game.Engine.Monsters
             {
                 Stamina -= 10;
                 MagicPower -= 20;
-                return new List<StatPackage>() { new StatPackage("fire", MagicPower, "YOU ATTACKED ANUBIS USING MAGIC. Anubis Guard uses his magic: The Pharaoh Curse! (" + (MagicPower) + " fire damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.fire, MagicPower, "YOU ATTACKED ANUBIS USING MAGIC. Anubis Guard uses his magic: The Pharaoh Curse! (" + (MagicPower) + " fire damage)") };
             }
             else if (Stamina>0) //if opponent uses unmagical attack, Anubis Guard sis using strenght attack.
             {
                 Stamina -= 10;
                 Strength -= 10;
-                return new List<StatPackage>() { new StatPackage("stab", Strength, " Anubis Guard uses The Pyramid Attack! (" + (Strength) + " Curse damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.stab, Strength, " Anubis Guard uses The Pyramid Attack! (" + (Strength) + " Curse damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Anubis Guard has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Anubis Guard has no energy to attack anymore!") };
             }
         }
     }

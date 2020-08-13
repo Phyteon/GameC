@@ -18,7 +18,7 @@ namespace Game.Engine.Skills
         public override List<StatPackage> BattleMove(Player player)
         {
             int damage = (int)(0.1 * player.MagicPower) + (int)(0.1 * player.Precision);
-            StatPackage response = new StatPackage("poison");
+            StatPackage response = new StatPackage(DmgType.poison);
             response.HealthDmg = damage;
             response.CustomText = "You use Poison Tornado! (" + damage + " poison damage)";
             return new List<StatPackage>() { response };

@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.BasicSpells
         public override List<StatPackage> BattleMove(Player player)
         {
             Random rng = new Random();
-            StatPackage response = new StatPackage("fire");
+            StatPackage response = new StatPackage(DmgType.fire);
             int multiplier = rng.Next(5,10);
             response.HealthDmg = multiplier * player.MagicPower;
             response.CustomText = "Forceful lightning envelops the enemy.";

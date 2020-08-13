@@ -15,7 +15,7 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("incised");
+            StatPackage response = new StatPackage(DmgType.cut);
             response.HealthDmg = (int)(0.4 * player.Strength) + (int)(0.1 * player.Precision);
             response.CustomText = "You use Axe Cut! (" + ((int)(0.4 * player.Strength) + (int)(0.1 * player.Precision)) + " incised damage)";
             return new List<StatPackage>() { response };

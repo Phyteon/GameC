@@ -22,7 +22,7 @@ namespace Game.Engine.Items.Shield
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "stab" || pack.DamageType == "incised" || pack.DamageType == "cut")
+            if (pack.DamageType == DmgType.stab || pack.DamageType == DmgType.cut)
             {
                 if (otherItems.Contains("Basic Sword") == true)
                 {
@@ -34,7 +34,7 @@ namespace Game.Engine.Items.Shield
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "stab" || pack.DamageType == "incised" || pack.DamageType == "cut")
+            if (pack.DamageType == DmgType.stab || pack.DamageType == DmgType.cut )
             {
                 pack.HealthDmg = pack.HealthDmg * 70 / 100;
                 return pack;

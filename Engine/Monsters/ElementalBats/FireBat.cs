@@ -29,17 +29,17 @@ namespace Game.Engine.Monsters
             if (Stamina > 16)
             {
                 Stamina -= 15;
-                return new List<StatPackage>() { new StatPackage("fire", 15 + MagicPower, "Bat uses Fire Ball! (" + (15 + MagicPower) + " fire damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.fire, 15 + MagicPower, "Bat uses Fire Ball! (" + (15 + MagicPower) + " fire damage)") };
 
             }
             else if (Stamina < 16 && Stamina > 0)
             {
                 Stamina = -15;
-                return new List<StatPackage>() { new StatPackage("fire", 40 + MagicPower, "Bat uses Ultimate Fire Attack! (" + (40 + MagicPower) + " fire damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.fire, 40 + MagicPower, "Bat uses Ultimate Fire Attack! (" + (40 + MagicPower) + " fire damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Bat has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Bat has no energy to attack anymore!") };
             }
         }
 

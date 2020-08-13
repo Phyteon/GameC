@@ -20,9 +20,9 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         public override List<StatPackage> BattleMove(Player player)
         {
             chance = Index.RNG(1, 6);
-            StatPackage response1 = new StatPackage("stab");
+            StatPackage response1 = new StatPackage(DmgType.stab);
             response1.HealthDmg = (int)(0.1 * player.Strength * chance) + (int)(0.1 * player.Precision * chance);
-            StatPackage response2 = new StatPackage("incised");
+            StatPackage response2 = new StatPackage(DmgType.cut);
             response2.HealthDmg = (int)(0.1 * player.Strength * chance) + (int)(0.1 * player.Precision * chance);
 
             response2.CustomText = "You use Enchanted Slash! (" + ((int)(0.2 * player.Strength * chance) + (int)(0.2 * player.Precision * chance)) + " stab damage, " + ((int)(0.2 * player.Strength * chance) + (int)(0.2 * player.Precision * chance)) * chance + " incised damage)";

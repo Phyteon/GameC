@@ -28,7 +28,7 @@ namespace Game.Engine.Monsters
                 if (chance < 5)
                 {
                     Stamina -= 25;
-                    return new List<StatPackage>() { new StatPackage("incised", 50 + Strength, "Vampire attacks you with his sword (" + (50 + Strength) + " incised damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.cut, 50 + Strength, "Vampire attacks you with his sword (" + (50 + Strength) + " incised damage)") };
                 }
                 else
                 {
@@ -36,14 +36,14 @@ namespace Game.Engine.Monsters
                     health += 30;
                     return new List<StatPackage>()
                     {
-                        new StatPackage("stab", 70 + Strength, "Vampire drinks your blood (" + (70 + Strength) + " cut damage) and gains 30 health"), 
+                        new StatPackage(DmgType.stab, 70 + Strength, "Vampire drinks your blood (" + (70 + Strength) + " cut damage) and gains 30 health"), 
                     };
                 }
             }
             else
             {
                 stamina += 20;
-                return new List<StatPackage>() { new StatPackage("none", 0, "Vampire is exhausted, he has to rest") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Vampire is exhausted, he has to rest") };
             }
         }
     }

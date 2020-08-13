@@ -28,13 +28,13 @@ namespace Game.Engine.Monsters
             {
                 Stamina -= 20;
                 hits += 1;
-                if(hits%2==0) return new List<StatPackage>() { new StatPackage("incised", 10 + Strength, "Phoenix attacks with his claws! (" + (10 + Strength) + " incised damage)") };
-                else return new List<StatPackage>() { new StatPackage("fire", 10 + MagicPower, "Phoenix uses Fire! (" + (10 + MagicPower) + " fire damage)") };
+                if(hits%2==0) return new List<StatPackage>() { new StatPackage(DmgType.cut, 10 + Strength, "Phoenix attacks with his claws! (" + (10 + Strength) + " incised damage)") };
+                else return new List<StatPackage>() { new StatPackage(DmgType.fire, 10 + MagicPower, "Phoenix uses Fire! (" + (10 + MagicPower) + " fire damage)") };
 
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Phoenix has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Phoenix has no energy to attack anymore!") };
             }
         }
     }

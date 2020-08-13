@@ -29,12 +29,12 @@ namespace Game.Engine.Monsters
                 // egg does not attack
                 return new List<StatPackage>()
                 {
-                    new StatPackage("none", 0, "Crack, crack.")
+                    new StatPackage(DmgType.none, 0, "Crack, crack.")
                 };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "You cracked the egg!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "You cracked the egg!") };
             }
         }
     }

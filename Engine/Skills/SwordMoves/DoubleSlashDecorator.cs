@@ -19,14 +19,14 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response1 = new StatPackage("stab");
+            StatPackage response1 = new StatPackage(DmgType.stab);
             response1.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.1 * player.Precision);
-            StatPackage response2 = new StatPackage("incised");
+            StatPackage response2 = new StatPackage(DmgType.cut);
             response2.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.1 * player.Precision);
 
-            StatPackage response3 = new StatPackage("stab");
+            StatPackage response3 = new StatPackage(DmgType.stab);
             response3.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.1 * player.Precision);
-            StatPackage response4 = new StatPackage("incised");
+            StatPackage response4 = new StatPackage(DmgType.cut);
             response4.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.1 * player.Precision);
 
             response1.CustomText = "You use Double Sword Slash! (" + ((int)(0.2 * player.Strength) + (int)(0.2 * player.Precision)) + " stab damage, " + ((int)(0.2 * player.Strength) + (int)(0.2 * player.Precision)) + " incised damage)";

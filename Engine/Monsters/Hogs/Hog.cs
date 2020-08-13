@@ -26,11 +26,11 @@ namespace Game.Engine.Monsters
             if (Stamina > 0)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage("stab", 12 + Strength, "Hog Charges! (" + (12 + Strength) + " stab damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.stab, 12 + Strength, "Hog Charges! (" + (12 + Strength) + " stab damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Hog is out of Stamina!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Hog is out of Stamina!") };
             }
         }
     }

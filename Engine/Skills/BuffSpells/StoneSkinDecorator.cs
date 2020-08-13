@@ -19,7 +19,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage reaction = new StatPackage("earth");
+            StatPackage reaction = new StatPackage(DmgType.earth);
             player.Armor = player.Armor + (30 + player.Armor / 4);
             reaction.HealthDmg = 0;
             reaction.CustomText = "You use Stone Skin! You will get ( " + (30 + player.Armor / 4) + " ) armor buff!";

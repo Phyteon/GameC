@@ -18,9 +18,9 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response1 = new StatPackage("incised");
+            StatPackage response1 = new StatPackage(DmgType.cut);
             response1.HealthDmg = (int)(0.2 * player.Precision);
-            StatPackage response2 = new StatPackage("stab");
+            StatPackage response2 = new StatPackage(DmgType.stab);
             response2.HealthDmg = (int)(0.3 * player.Strength) + (int)(0.3 * player.Precision);
             response2.CustomText = "You use roll&stab in the back technique! (" + ((int)(0.2 * player.Precision)) + " incised damage, " + ((int)(0.3 * player.Strength) + (int)(0.3 * player.Precision)) + " stab damage)";
             List<StatPackage> combo = decoratedSkill.BattleMove(player);

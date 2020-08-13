@@ -15,7 +15,7 @@ namespace Game.Engine.Skills.WaterSpells
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("water");
+            StatPackage response = new StatPackage(DmgType.water);
             response.PrecisionDmg = (int)(0.2 * player.MagicPower);
             response.StrengthDmg = (int)(0.2 * player.MagicPower);
             response.CustomText = "You use Heavy Rain! (enemy precision desreased by " +((int)(0.2 * player.MagicPower)) + " )"; 

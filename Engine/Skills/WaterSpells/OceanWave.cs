@@ -15,7 +15,7 @@ namespace Game.Engine.Skills.WaterSpells
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("water");
+            StatPackage response = new StatPackage(DmgType.water);
             response.HealthDmg =  (int)(0.4 * player.MagicPower) + (int)(0.1*player.Strength); 
             response.CustomText = "You use Ocean Wave! (" + ((int)(0.4 * player.MagicPower) + (int)(0.1*player.Strength)) + " water damage)"; 
             return new List<StatPackage>() { response };

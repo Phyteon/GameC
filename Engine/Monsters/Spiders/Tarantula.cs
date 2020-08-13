@@ -28,17 +28,17 @@ namespace Game.Engine.Monsters
                 if (Stamina > 70)
                 {
                     Stamina -= 10;
-                    return new List<StatPackage>() { new StatPackage("stab", 20 + Strength, "Tarantula Charges Forward! (" + (20 + Strength) + " stab damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.stab, 20 + Strength, "Tarantula Charges Forward! (" + (20 + Strength) + " stab damage)") };
                 }
 
                 if (Stamina > 0 && Stamina <= 70)
                 {
                     Stamina -= 10;
-                    return new List<StatPackage>() { new StatPackage("poison", 15 + MagicPower, "Tarantula's poison Digests you from the inside! (" + (15 + MagicPower) + " poison damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.poison, 15 + MagicPower, "Tarantula's poison Digests you from the inside! (" + (15 + MagicPower) + " poison damage)") };
                 }
                 else
                 {
-                    return new List<StatPackage>() { new StatPackage("none", 0, "Tarantula has no energy to attack anymore!") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Tarantula has no energy to attack anymore!") };
                 }
             }
             else
@@ -46,12 +46,12 @@ namespace Game.Engine.Monsters
                 if (Stamina > 0)
                 {
                     Stamina -= 5;
-                    return new List<StatPackage>() { new StatPackage("stab", 10 + Strength, "Tarantula uses Bite! (" + (10 + Strength) + " stab damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.stab, 10 + Strength, "Tarantula uses Bite! (" + (10 + Strength) + " stab damage)") };
                 }
 
                 else
                 {
-                    return new List<StatPackage>() { new StatPackage("none", 0, "Tarantula has no energy to attack anymore!") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Tarantula has no energy to attack anymore!") };
                 }
             }
         }

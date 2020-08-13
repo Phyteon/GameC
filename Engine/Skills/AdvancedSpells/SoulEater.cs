@@ -18,7 +18,7 @@ namespace Game.Engine.Skills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("fire");
+            StatPackage response = new StatPackage(DmgType.fire);
             response.HealthDmg = (int)(0.4 * player.MagicPower);
             player.Health += (int)(0.1 * player.MagicPower);
             // applying CustomText only once is sufficient

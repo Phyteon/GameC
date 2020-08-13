@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.OsirisMoves
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("poison");
+            StatPackage response = new StatPackage(DmgType.poison);
             response.StrengthDmg = 10;
             response.PrecisionDmg = 10;
             response.HealthDmg = 10;

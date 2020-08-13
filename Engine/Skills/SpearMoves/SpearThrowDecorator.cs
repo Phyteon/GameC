@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("stab");
+            StatPackage response = new StatPackage(DmgType.stab);
             response.HealthDmg = (int)(0.5 * player.Precision);
             response.CustomText = "You use Spear Throw! (" + (int)(0.5 * player.Precision) + " stab damage)";
             List<StatPackage> combo = decoratedSkill.BattleMove(player);

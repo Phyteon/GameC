@@ -31,28 +31,28 @@ namespace Game.Engine.Monsters
                     Stamina -= 10;
                     return new List<StatPackage>()
                     {
-                        new StatPackage("stab", Strength - 20, "Death Dragon uses Black Breathe! (" + (Strength - 20) + " stab damage)"),
-                        new StatPackage("poison", 10, "You feel devil blood inside your veins! (10 poison damage)")
+                        new StatPackage(DmgType.stab, Strength - 20, "Death Dragon uses Black Breathe! (" + (Strength - 20) + " stab damage)"),
+                        new StatPackage(DmgType.poison, 10, "You feel devil blood inside your veins! (10 poison damage)")
                     };
                 }
                 else if (random.NextDouble() > 0.4 && random.NextDouble() <= 0.8)
                 {
                     Stamina -= 5;
-                    return new List<StatPackage>() { new StatPackage("stab", Strength - 65, "Death Dragon uses Tail Punch! (" + (Strength - 65) + " stab damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.stab, Strength - 65, "Death Dragon uses Tail Punch! (" + (Strength - 65) + " stab damage)") };
                 }
                 else
                 {
                     Stamina -= 15;
                     return new List<StatPackage>()
                     {
-                        new StatPackage("stab", Strength + 10, "Death Dragon uses Danse Macabre! (" + (Strength + 10) + " stab damage)"),
-                        new StatPackage("poison", 30, "It feels like you've lost part of soul... (30 poison damage)")
+                        new StatPackage(DmgType.stab, Strength + 10, "Death Dragon uses Danse Macabre! (" + (Strength + 10) + " stab damage)"),
+                        new StatPackage(DmgType.poison, 30, "It feels like you've lost part of soul... (30 poison damage)")
                     };
                 }
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Death Dragon has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Death Dragon has no energy to attack anymore!") };
             }
         }
     }

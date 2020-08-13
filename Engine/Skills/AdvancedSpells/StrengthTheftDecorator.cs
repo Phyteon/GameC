@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.MoreSpells
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("magic");
+            StatPackage response = new StatPackage(DmgType.none);
             player.Strength += 15;
             response.StrengthDmg = 15;
             response.CustomText = "You steal 15 strength points for yourself";

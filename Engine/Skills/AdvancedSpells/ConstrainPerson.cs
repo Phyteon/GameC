@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.BasicSpells
         public override List<StatPackage> BattleMove(Player player)
         {
             Random rng = new Random();
-            StatPackage response = new StatPackage("air");
+            StatPackage response = new StatPackage(DmgType.air);
             int multiplier = rng.Next(0, 4);
             response.StrengthDmg = 10 + multiplier * player.MagicPower;
             response.CustomText = "A spell falls upon the enemy making it difficult for him to move";

@@ -16,7 +16,7 @@ namespace Game.Engine.Skills.BasicSkills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("fire");
+            StatPackage response = new StatPackage(DmgType.fire);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < player.Precision)
             {

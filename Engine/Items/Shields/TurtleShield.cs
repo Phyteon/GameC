@@ -22,7 +22,7 @@ namespace Game.Engine.Items.Shield
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == "stab" || pack.DamageType == "incised" || pack.DamageType == "cut")
+            if (pack.DamageType == DmgType.stab || pack.DamageType == DmgType.cut || pack.DamageType == DmgType.cut)
             {
                 int i = Index.RNG(0, 3);
                 if (i == 1)

@@ -14,7 +14,7 @@ namespace Game.Engine.Skills
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("health");
+            StatPackage response = new StatPackage(DmgType.none);
             response.HealthDmg = 90 * response.HealthDmg / 10;
             player.Health += response.HealthDmg;
             response.CustomText = "You use Bloodlust! (" + 90 * response.HealthDmg / 10 + " health damage)";

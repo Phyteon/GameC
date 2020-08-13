@@ -16,7 +16,7 @@ namespace Game.Engine.Skills.BasicSkills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage("fire");
+            StatPackage response = new StatPackage(DmgType.fire);
             response.PrecisionDmg = 15;
             response.CustomText = "You use Light Flash! (enemy precision decreased by 15)";
             List<StatPackage> combo = decoratedSkill.BattleMove(player);

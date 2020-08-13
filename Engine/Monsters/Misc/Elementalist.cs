@@ -31,14 +31,14 @@ namespace Game.Engine.Monsters
                 {
                     return new List<StatPackage>()
 					{ 
-						new StatPackage("fire", 3 + MagicPower, "Elementalist uses fireball! ("+ (3 + MagicPower) +" fire damage)"),
-						new StatPackage("fire", 3 + MagicPower, "Elementalist uses fireball! ("+ (3 + MagicPower) +" fire damage)")
+						new StatPackage(DmgType.fire, 3 + MagicPower, "Elementalist uses fireball! ("+ (3 + MagicPower) +" fire damage)"),
+						new StatPackage(DmgType.fire, 3 + MagicPower, "Elementalist uses fireball! ("+ (3 + MagicPower) +" fire damage)")
 					};
                 }
                 else if (test == 2)
                 {
                     Health += 5 + (MagicPower / 2);
-                    return new List<StatPackage>() { new StatPackage("water", 5 + (MagicPower/2), "Elementalist uses Ebb And Flow! (" + (5 + MagicPower/2) + " water damage," + (5 + MagicPower/2) +" regained health)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.water, 5 + (MagicPower/2), "Elementalist uses Ebb And Flow! (" + (5 + MagicPower/2) + " water damage," + (5 + MagicPower/2) +" regained health)") };
                 }
                 else if (test == 3)
                 {
@@ -47,9 +47,9 @@ namespace Game.Engine.Monsters
                     {
                         return new List<StatPackage>()
                         {
-                            new StatPackage("earth", MagicPower/2, "Elementalist uses Mud Shot! (" + (MagicPower / 2) + " earth damage). Elementalist slowed you down and used another spell!"),
-                            new StatPackage("fire", 3 + MagicPower, "Elementalist uses fireball! ("+ (3 + MagicPower) +" fire damage)"),
-                            new StatPackage("fire", 3 + MagicPower, "Elementalist uses fireball! ("+ (3 + MagicPower) +" fire damage)")
+                            new StatPackage(DmgType.earth, MagicPower/2, "Elementalist uses Mud Shot! (" + (MagicPower / 2) + " earth damage). Elementalist slowed you down and used another spell!"),
+                            new StatPackage(DmgType.fire, 3 + MagicPower, "Elementalist uses fireball! ("+ (3 + MagicPower) +" fire damage)"),
+                            new StatPackage(DmgType.fire, 3 + MagicPower, "Elementalist uses fireball! ("+ (3 + MagicPower) +" fire damage)")
                         };
                     }
 
@@ -58,8 +58,8 @@ namespace Game.Engine.Monsters
                         Health += 5 + (MagicPower / 2);
                         return new List<StatPackage>()
                         {
-                            new StatPackage("earth", MagicPower/2, "Elementalist uses Mud Shot! (" + (MagicPower / 2) + " earth damage). Elementalist slowed you down and used another spell!"),
-                            new StatPackage("water", 5 + (MagicPower / 2), "Elementalist uses Ebb And Flow! (" + (5 + MagicPower / 2) + " water damage," + (5 + MagicPower / 2) + " regained health)"),
+                            new StatPackage(DmgType.earth, MagicPower/2, "Elementalist uses Mud Shot! (" + (MagicPower / 2) + " earth damage). Elementalist slowed you down and used another spell!"),
+                            new StatPackage(DmgType.water, 5 + (MagicPower / 2), "Elementalist uses Ebb And Flow! (" + (5 + MagicPower / 2) + " water damage," + (5 + MagicPower / 2) + " regained health)"),
                         };
                     }
                     else if (test2 == 3)
@@ -67,28 +67,28 @@ namespace Game.Engine.Monsters
                         MagicPower += 2;
                         return new List<StatPackage>()
                         {
-                            new StatPackage("earth", MagicPower/2, "Elementalist uses Mud Shot! (" + (MagicPower / 2) + " earth damage). Elementalist slowed you down and used another spell!"),
-                            new StatPackage("wind", 0, "Elementalist uses Rejuvenating Wind! (+2 spell damage)"),
+                            new StatPackage(DmgType.earth, MagicPower/2, "Elementalist uses Mud Shot! (" + (MagicPower / 2) + " earth damage). Elementalist slowed you down and used another spell!"),
+                            new StatPackage(DmgType.air, 0, "Elementalist uses Rejuvenating Wind! (+2 spell damage)"),
                         };
                     }
                     else
                     {
                         return new List<StatPackage>()
                         {
-                            new StatPackage("earth", MagicPower/2, "Elementalist uses Mud Shot! (" + (MagicPower / 2) + " earth damage). Elementalist slowed you down and used another spell!"),
-                            new StatPackage("none", 0, "Elementalist missed her second spell"),
+                            new StatPackage(DmgType.earth, MagicPower/2, "Elementalist uses Mud Shot! (" + (MagicPower / 2) + " earth damage). Elementalist slowed you down and used another spell!"),
+                            new StatPackage(DmgType.none, 0, "Elementalist missed her second spell"),
                         };
                     }
                 }
                 else
                 {
                     MagicPower += 2;
-                    return new List<StatPackage>() { new StatPackage("wind", 0 , "Elementalist uses Rejuvenating Wind! (+2 spell damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.air, 0 , "Elementalist uses Rejuvenating Wind! (+2 spell damage)") };
                 }
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Elementalist has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Elementalist has no energy to attack anymore!") };
             }
         }
     }

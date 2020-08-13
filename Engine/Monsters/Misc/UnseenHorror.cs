@@ -28,7 +28,7 @@ namespace Game.Engine.Monsters
                 Stamina -= 10;
                 return new List<StatPackage>()
                 { 
-                    new StatPackage("Poison damage", 10 + Strength, "Unseen horror attacks with his void powers! ("+ (10 + Strength) +" poison damage)"),
+                    new StatPackage(DmgType.poison, 10 + Strength, "Unseen horror attacks with his void powers! ("+ (10 + Strength) +" poison damage)"),
                 };
             }
             else if (Stamina < 80 && Stamina > 0)
@@ -36,12 +36,12 @@ namespace Game.Engine.Monsters
                 Stamina -= 10;
                 return new List<StatPackage>()
                 {
-                    new StatPackage("Poison damage", 20 + Strength, "Unseen horror is angrier and attacks with more powerful void powers! (" + (20 + Strength) + " poison damage)"),
+                    new StatPackage(DmgType.poison, 20 + Strength, "Unseen horror is angrier and attacks with more powerful void powers! (" + (20 + Strength) + " poison damage)"),
                 };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Unseen horror has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Unseen horror has no energy to attack anymore!") };
             }
         }
     }
