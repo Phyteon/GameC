@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace Game.Engine.Interactions
 {
@@ -14,6 +12,13 @@ namespace Game.Engine.Interactions
         public Interaction(GameSession ses)
         {
             parentSession = ses;
+        }
+        public override Image GetImage()
+        {
+            Image img = new Image();
+            img.Source = new BitmapImage(new Uri(("Assets/Interactions/" + Name + ".png"), UriKind.Relative));
+            img.Name = Name;
+            return img;
         }
 
         // every interaction has to know how to run itself

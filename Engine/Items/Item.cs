@@ -1,5 +1,6 @@
 ﻿using System;
-using Game.Engine;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using System.Collections.Generic;
 using Game.Engine.CharacterClasses;
 
@@ -27,6 +28,13 @@ namespace Game.Engine.Items
         {
             Name = name;
             HpMod = 0;
+        }
+        public override Image GetImage()
+        {
+            Image img = new Image();
+            img.Source = new BitmapImage(new Uri(("Assets/Items/" + Name + ".png"), UriKind.Relative));
+            img.Name = Name;
+            return img;
         }
         public virtual void ApplyBuffs(Player currentPlayer, List<string> otherItems)
         {

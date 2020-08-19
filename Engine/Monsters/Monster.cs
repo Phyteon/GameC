@@ -23,5 +23,13 @@ namespace Game.Engine.Monsters
                 MagicPower -= pack.MagicPowerDmg;
             }
         }
+        public override Image GetImage()
+        {
+            Image img = new Image();
+            img.Source = new BitmapImage(new Uri(("Assets/Monsters/" + Name + ".png"), UriKind.Relative));
+            img.Name = Name;
+            return img;
+        }
+
     }
 }

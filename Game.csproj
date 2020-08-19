@@ -528,24 +528,24 @@
     <Resource Include="Display\Assets\world.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0001.png" />
-    <Resource Include="Display\Assets\item0002.png" />
-    <Resource Include="Display\Assets\item0003.png" />
-    <Resource Include="Display\Assets\item0004.png" />
+    <Resource Include="Display\Assets\Items\item0001.png" />
+    <Resource Include="Display\Assets\Items\item0002.png" />
+    <Resource Include="Display\Assets\Items\item0003.png" />
+    <Resource Include="Display\Assets\Items\item0004.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0006.png" />
-    <Resource Include="Display\Assets\item0007.png" />
-    <Resource Include="Display\Assets\item0008.png" />
+    <Resource Include="Display\Assets\Items\item0006.png" />
+    <Resource Include="Display\Assets\Items\item0007.png" />
+    <Resource Include="Display\Assets\Items\item0008.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0005.png" />
+    <Resource Include="Display\Assets\Items\item0005.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0001.png" />
+    <Resource Include="Display\Assets\Monsters\monster0001.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0002.png" />
+    <Resource Include="Display\Assets\Monsters\monster0002.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\battle0001.png" />
@@ -563,262 +563,256 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\obstacle0001.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\obstacle0002.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Display\Assets\portal0001.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0001.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0001.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0002.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0002.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0003.png" />
-    <Resource Include="Display\Assets\interaction0004.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0003.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0004.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0820.png" />
-    <Resource Include="Display\Assets\monster0830.png" />
+    <Resource Include="Display\Assets\Monsters\monster0820.png" />
+    <Resource Include="Display\Assets\Monsters\monster0830.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0581.png" />
-    <Resource Include="Display\Assets\monster0583.png" />
+    <Resource Include="Display\Assets\Monsters\monster0581.png" />
+    <Resource Include="Display\Assets\Monsters\monster0583.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0581b.png" />
+    <Resource Include="Display\Assets\Monsters\monster0581b.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0180.png" />
-    <Resource Include="Display\Assets\monster0181.png" />
+    <Resource Include="Display\Assets\Monsters\monster0180.png" />
+    <Resource Include="Display\Assets\Monsters\monster0181.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0862.png" />
-    <Resource Include="Display\Assets\monster0863.png" />
+    <Resource Include="Display\Assets\Monsters\monster0862.png" />
+    <Resource Include="Display\Assets\Monsters\monster0863.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0940.png" />
-    <Resource Include="Display\Assets\monster0941.png" />
+    <Resource Include="Display\Assets\Monsters\monster0940.png" />
+    <Resource Include="Display\Assets\Monsters\monster0941.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0481.png" />
-    <Resource Include="Display\Assets\monster0482.png" />
-    <Resource Include="Display\Assets\monster0483.png" />
+    <Resource Include="Display\Assets\Monsters\monster0481.png" />
+    <Resource Include="Display\Assets\Monsters\monster0482.png" />
+    <Resource Include="Display\Assets\Monsters\monster0483.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster1280.png" />
-    <Resource Include="Display\Assets\monster1281.png" />
-    <Resource Include="Display\Assets\monster1282.png" />
-    <Resource Include="Display\Assets\monster1283.png" />
-    <Resource Include="Display\Assets\monster1284.png" />
+    <Resource Include="Display\Assets\Monsters\monster1280.png" />
+    <Resource Include="Display\Assets\Monsters\monster1281.png" />
+    <Resource Include="Display\Assets\Monsters\monster1282.png" />
+    <Resource Include="Display\Assets\Monsters\monster1283.png" />
+    <Resource Include="Display\Assets\Monsters\monster1284.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item1281.png" />
-    <Resource Include="Display\Assets\item1282.png" />
-    <Resource Include="Display\Assets\item1283.png" />
+    <Resource Include="Display\Assets\Items\item1281.png" />
+    <Resource Include="Display\Assets\Items\item1282.png" />
+    <Resource Include="Display\Assets\Items\item1283.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0381.png" />
-    <Resource Include="Display\Assets\item0382.png" />
+    <Resource Include="Display\Assets\Items\item0381.png" />
+    <Resource Include="Display\Assets\Items\item0382.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item1160.png" />
-    <Resource Include="Display\Assets\item1161.png" />
-    <Resource Include="Display\Assets\item1162.png" />
+    <Resource Include="Display\Assets\Items\item1160.png" />
+    <Resource Include="Display\Assets\Items\item1161.png" />
+    <Resource Include="Display\Assets\Items\item1162.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0822.png" />
-    <Resource Include="Display\Assets\item0823.png" />
-    <Resource Include="Display\Assets\item0824.png" />
+    <Resource Include="Display\Assets\Items\item0822.png" />
+    <Resource Include="Display\Assets\Items\item0823.png" />
+    <Resource Include="Display\Assets\Items\item0824.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item1080.png" />
+    <Resource Include="Display\Assets\Items\item1080.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item1260.png" />
-    <Resource Include="Display\Assets\item1261.png" />
-    <Resource Include="Display\Assets\item1262.png" />
+    <Resource Include="Display\Assets\Items\item1260.png" />
+    <Resource Include="Display\Assets\Items\item1261.png" />
+    <Resource Include="Display\Assets\Items\item1262.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0641.png" />
-    <Resource Include="Display\Assets\item0642.png" />
+    <Resource Include="Display\Assets\Items\item0641.png" />
+    <Resource Include="Display\Assets\Items\item0642.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0540.png" />
-    <Resource Include="Display\Assets\item0542.png" />
+    <Resource Include="Display\Assets\Items\item0540.png" />
+    <Resource Include="Display\Assets\Items\item0542.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0180.png" />
-    <Resource Include="Display\Assets\item0181.png" />
-    <Resource Include="Display\Assets\item0182.png" />
+    <Resource Include="Display\Assets\Items\item0180.png" />
+    <Resource Include="Display\Assets\Items\item0181.png" />
+    <Resource Include="Display\Assets\Items\item0182.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0850.png" />
-    <Resource Include="Display\Assets\item0851.png" />
-    <Resource Include="Display\Assets\item0852.png" />
-    <Resource Include="Display\Assets\item0853.png" />
-    <Resource Include="Display\Assets\item0854.png" />
-    <Resource Include="Display\Assets\item0855.png" />
+    <Resource Include="Display\Assets\Items\item0850.png" />
+    <Resource Include="Display\Assets\Items\item0851.png" />
+    <Resource Include="Display\Assets\Items\item0852.png" />
+    <Resource Include="Display\Assets\Items\item0853.png" />
+    <Resource Include="Display\Assets\Items\item0854.png" />
+    <Resource Include="Display\Assets\Items\item0855.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0221.png" />
+    <Resource Include="Display\Assets\Monsters\monster0221.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster1260.png" />
-    <Resource Include="Display\Assets\monster1261.png" />
+    <Resource Include="Display\Assets\Monsters\monster1260.png" />
+    <Resource Include="Display\Assets\Monsters\monster1261.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster1420.png" />
-    <Resource Include="Display\Assets\monster1421.png" />
-    <Resource Include="Display\Assets\monster1422.png" />
+    <Resource Include="Display\Assets\Monsters\monster1420.png" />
+    <Resource Include="Display\Assets\Monsters\monster1421.png" />
+    <Resource Include="Display\Assets\Monsters\monster1422.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster1302.png" />
-    <Resource Include="Display\Assets\monster1303.png" />
-    <Resource Include="Display\Assets\monster1304.png" />
-    <Resource Include="Display\Assets\monster1305.png" />
+    <Resource Include="Display\Assets\Monsters\monster1302.png" />
+    <Resource Include="Display\Assets\Monsters\monster1303.png" />
+    <Resource Include="Display\Assets\Monsters\monster1304.png" />
+    <Resource Include="Display\Assets\Monsters\monster1305.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster1140.png" />
-    <Resource Include="Display\Assets\monster1143.png" />
+    <Resource Include="Display\Assets\Monsters\monster1140.png" />
+    <Resource Include="Display\Assets\Monsters\monster1143.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0621.png" />
-    <Resource Include="Display\Assets\monster0622.png" />
+    <Resource Include="Display\Assets\Monsters\monster0621.png" />
+    <Resource Include="Display\Assets\Monsters\monster0622.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster1360.png" />
-    <Resource Include="Display\Assets\monster1361.png" />
-    <Resource Include="Display\Assets\monster1362.png" />
+    <Resource Include="Display\Assets\Monsters\monster1360.png" />
+    <Resource Include="Display\Assets\Monsters\monster1361.png" />
+    <Resource Include="Display\Assets\Monsters\monster1362.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster1042.png" />
-    <Resource Include="Display\Assets\monster1043.png" />
+    <Resource Include="Display\Assets\Monsters\monster1042.png" />
+    <Resource Include="Display\Assets\Monsters\monster1043.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item1360.png" />
-    <Resource Include="Display\Assets\item1361.png" />
-    <Resource Include="Display\Assets\item1362.png" />
+    <Resource Include="Display\Assets\Items\item1360.png" />
+    <Resource Include="Display\Assets\Items\item1361.png" />
+    <Resource Include="Display\Assets\Items\item1362.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0341.png" />
-    <Resource Include="Display\Assets\item0342.png" />
-    <Resource Include="Display\Assets\item0343.png" />
+    <Resource Include="Display\Assets\Items\item0341.png" />
+    <Resource Include="Display\Assets\Items\item0342.png" />
+    <Resource Include="Display\Assets\Items\item0343.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0940.png" />
-    <Resource Include="Display\Assets\item0942.png" />
-    <Resource Include="Display\Assets\item0943.png" />
+    <Resource Include="Display\Assets\Items\item0940.png" />
+    <Resource Include="Display\Assets\Items\item0942.png" />
+    <Resource Include="Display\Assets\Items\item0943.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0863.png" />
+    <Resource Include="Display\Assets\Items\item0863.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0581.png" />
-    <Resource Include="Display\Assets\item0582.png" />
-    <Resource Include="Display\Assets\item0583.png" />
-    <Resource Include="Display\Assets\item0584.png" />
+    <Resource Include="Display\Assets\Items\item0581.png" />
+    <Resource Include="Display\Assets\Items\item0582.png" />
+    <Resource Include="Display\Assets\Items\item0583.png" />
+    <Resource Include="Display\Assets\Items\item0584.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item0620.png" />
+    <Resource Include="Display\Assets\Items\item0620.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0820.png" />
-    <Resource Include="Display\Assets\interaction0821.png" />
-    <Resource Include="Display\Assets\interaction0822.png" />
-    <Resource Include="Display\Assets\interaction0823.png" />
-    <Resource Include="Display\Assets\interaction0824.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0820.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0821.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0822.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0823.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0824.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction1360.png" />
-    <Resource Include="Display\Assets\interaction1361.png" />
-    <Resource Include="Display\Assets\interaction1362.png" />
-    <Resource Include="Display\Assets\interaction1363.png" />
-    <Resource Include="Display\Assets\interaction1364.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1360.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1361.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1362.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1363.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1364.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\item1363.png" />
-    <Resource Include="Display\Assets\item1364.png" />
-    <Resource Include="Display\Assets\item1365.png" />
+    <Resource Include="Display\Assets\Items\item1363.png" />
+    <Resource Include="Display\Assets\Items\item1364.png" />
+    <Resource Include="Display\Assets\Items\item1365.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction1140.png" />
-    <Resource Include="Display\Assets\interaction1141.png" />
-    <Resource Include="Display\Assets\interaction1142.png" />
-    <Resource Include="Display\Assets\interaction1143.png" />
-    <Resource Include="Display\Assets\interaction1144.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1140.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1141.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1142.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1143.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1144.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0681.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0681.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction1120.png" />
-    <Resource Include="Display\Assets\interaction1121.png" />
-    <Resource Include="Display\Assets\interaction1122.png" />
-    <Resource Include="Display\Assets\interaction1123.png" />
-    <Resource Include="Display\Assets\interaction1124.png" />
-    <Resource Include="Display\Assets\interaction1125.png" />
-    <Resource Include="Display\Assets\interaction1126.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1120.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1121.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1122.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1123.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1124.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1125.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1126.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0973.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0973.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0341.png" />
-    <Resource Include="Display\Assets\interaction0343.png" />
-    <Resource Include="Display\Assets\interaction0344.png" />
-    <Resource Include="Display\Assets\interaction0349.png" />
-    <Resource Include="Display\Assets\monster0345.png" />
-    <Resource Include="Display\Assets\monster0346.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0341.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0343.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0344.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0349.png" />
+    <Resource Include="Display\Assets\Monsters\monster0345.png" />
+    <Resource Include="Display\Assets\Monsters\monster0346.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0267.png" />
-    <Resource Include="Display\Assets\interaction0268.png" />
-    <Resource Include="Display\Assets\interaction0270.png" />
-    <Resource Include="Display\Assets\interaction0271.png" />
-    <Resource Include="Display\Assets\item0269.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0267.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0268.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0270.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0271.png" />
+    <Resource Include="Display\Assets\Items\item0269.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction1280.png" />
-    <Resource Include="Display\Assets\interaction1281.png" />
-    <Resource Include="Display\Assets\interaction1282.png" />
-    <Resource Include="Display\Assets\interaction1283.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1280.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1281.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1282.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1283.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0581.png" />
-    <Resource Include="Display\Assets\interaction0582.png" />
-    <Resource Include="Display\Assets\interaction0583.png" />
-    <Resource Include="Display\Assets\interaction0584.png" />
-    <Resource Include="Display\Assets\interaction0585.png" />
-    <Resource Include="Display\Assets\interaction0588.png" />
-    <Resource Include="Display\Assets\interaction0590.png" />
-    <Resource Include="Display\Assets\item0590.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0581.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0582.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0583.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0584.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0585.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0588.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0590.png" />
+    <Resource Include="Display\Assets\Items\item0590.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction1080.png" />
-    <Resource Include="Display\Assets\interaction1081.png" />
-    <Resource Include="Display\Assets\interaction1082.png" />
-    <Resource Include="Display\Assets\interaction1083.png" />
-    <Resource Include="Display\Assets\interaction1084.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1080.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1081.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1082.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1083.png" />
+    <Resource Include="Display\Assets\Interactions\interaction1084.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0620.png" />
-    <Resource Include="Display\Assets\interaction0621.png" />
-    <Resource Include="Display\Assets\interaction0622.png" />
-    <Resource Include="Display\Assets\interaction0623.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0620.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0621.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0622.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0623.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\interaction0540.png" />
-    <Resource Include="Display\Assets\interaction0541.png" />
-    <Resource Include="Display\Assets\interaction0542.png" />
-    <Resource Include="Display\Assets\interaction0542display.png" />
-    <Resource Include="Display\Assets\interaction0543.png" />
-    <Resource Include="Display\Assets\interaction0543display.png" />
-    <Resource Include="Display\Assets\item0544.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0540.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0541.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0542.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0542display.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0543.png" />
+    <Resource Include="Display\Assets\Interactions\interaction0543display.png" />
+    <Resource Include="Display\Assets\Items\item0544.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1A.wav" />
@@ -848,7 +842,11 @@
     <None Include="Resources\Song.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\monster0240.png" />
+    <Resource Include="Display\Assets\Monsters\monster0240.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\obstacle0001.png" />
+    <Resource Include="Display\Assets\obstacle0002.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

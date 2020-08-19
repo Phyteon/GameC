@@ -305,7 +305,7 @@ namespace Game.Display
             try
             {
                 Image img = new Image();
-                img.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(("Assets/interaction" + (number.ToString()).PadLeft(4, '0') + ".png"), UriKind.Relative));
+                img.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(("Assets/Interactions/interaction" + (number.ToString()).PadLeft(4, '0') + ".png"), UriKind.Relative));
                 img.Stretch = Stretch.Fill;
                 WorldGrid.Children.Add(img);
                 interactionImages.Add(img);
