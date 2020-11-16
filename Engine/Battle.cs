@@ -67,6 +67,7 @@ namespace Game.Engine
                 battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills());
                 battleScene.ResetChoice();
                 // now monster
+                if (Monster.Health == 0) continue;
                 battleScene.SendBattleText("");
                 List<StatPackage> monsterAttack = parentSession.ModifyDefensive(Monster.BattleMove());
                 foreach (StatPackage i in monsterAttack) battleScene.SendColorText(i.CustomText, "red");
