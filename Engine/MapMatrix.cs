@@ -24,9 +24,10 @@ namespace Game.Engine
         private int walls = 10;
 
         // other fields and properties
-        private Dictionary<int, MonsterFactory> monDict;
         private Random rng;
         private GameSession parentSession;
+
+        public Dictionary<int, MonsterFactory> MonDict;
         public Dictionary<int, Monster> Monsters { get; set; }
         public Dictionary<int, Interaction> Interactions { get; private set; }
         public int[,] Matrix { get; set; }
@@ -63,14 +64,14 @@ namespace Game.Engine
 
         private void InitializeFactoryList()
         {
-            monDict = new Dictionary<int, MonsterFactory>();
+            MonDict = new Dictionary<int, MonsterFactory>();
             for (int y = 0; y < Height; y++)
             {
                 for (int x = 0; x < Width; x++) 
                 {
                     if (Matrix[y, x] == 1000)
                     {
-                        monDict.Add(y * Width + x, Index.RandomMonsterFactory());
+                        MonDict.Add(y * Width + x, Index.RandomMonsterFactory());
                     }
                 }
             }
@@ -80,17 +81,17 @@ namespace Game.Engine
         public Monster CreateMonster(int x, int y, int playerLevel)
         {
             if (Monsters.ContainsKey(y * Width + x) && Monsters[y * Width + x] != null) return Monsters[y * Width + x];
-            if (monDict.ContainsKey(y * Width + x) && monDict[y * Width + x] != null)
+            if (MonDict.ContainsKey(y * Width + x) && MonDict[y * Width + x] != null)
             {
-                return monDict[y * Width + x].Create(playerLevel);
+                return MonDict[y * Width + x].Create(playerLevel);
             }
             return null;
         }
         public System.Windows.Controls.Image HintMonsterImage(int x, int y)
         {
-            if (monDict.ContainsKey(y * Width + x) && monDict[y * Width + x] != null)
+            if (MonDict.ContainsKey(y * Width + x) && MonDict[y * Width + x] != null)
             {
-                return monDict[y * Width + x].Hint();
+                return MonDict[y * Width + x].Hint();
             }
             return null;
         }

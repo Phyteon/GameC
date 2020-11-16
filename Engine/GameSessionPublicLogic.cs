@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Game.Engine.Items;
 using Game.Engine.Skills;
 using Game.Engine.Monsters;
+using Game.Engine.Monsters.MonsterFactories;
+using Game.Engine.Interactions;
 
 namespace Game.Engine
 {
@@ -229,6 +231,12 @@ namespace Game.Engine
             return true;
         }
 
+        /***************************        MAP MODIFICATIONS      ***************************/
+        public void AddMonstersToMap(MonsterFactory monsterFactory)
+        {
+            // add new monster factory to a random place in the game
+            metaMapMatrix.AddMonsterToRandomMap(monsterFactory);
+        }
 
         /***************************        PLAYER STATISTICS      ***************************/
         public void UpdateStat(int number, int value)

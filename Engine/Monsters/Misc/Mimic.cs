@@ -20,7 +20,7 @@ namespace Game.Engine.Monsters.MonsterFactories
             Stamina = 60;
             XPValue = 100 + 2 * mimicLevel;
             Name = "monster0581";
-            BattleGreetings = "You approach the shop, but the shape changes into something weird..."; //poison brings down all stats down by 15
+            BattleGreetings = "You approach the shop, but the shape changes into something weird..."; 
         }
 
         public override List<StatPackage> BattleMove()

@@ -10,17 +10,17 @@ namespace Game.Engine
     {
         private GameSession parentSession;
         // how many maps in total in the game world
-        private const int maps = 25;
-        private int minPortals = 35;
+        private const int maps = 2;
+        private int minPortals = 1;
+        // interactions
+        private int shops = 1; // number of shops in the game world
+        private int interactions = 1; // number of all interactions (including shops) in the game world (can be slightly bigger due to quest constraints)
+        private List<Interaction> interactionList;
         // connections between maps
         private int[,] adjacencyMatrix = new int[maps, maps];
         private int[] visited;
         private int lastNumber;
         private int currentNumber;
-        // interactions
-        private int shops = 10; // number of shops in the game world
-        private int interactions = 75; // number of all interactions (including shops) in the game world (can be slightly bigger due to quest constraints)
-        private List<Interaction> interactionList;
         // maps
         private MapMatrix[] matrix;
 
@@ -80,6 +80,26 @@ namespace Game.Engine
             // for display when portal hopping
             return lastNumber;
         }
+
+        public void AddMonsterToRandomMap(Monsters.MonsterFactories.MonsterFactory factory)
+        {
+            int mapNumber = Index.RNG(0, maps); // generate random map number
+            // write value to the map matrix and update Monsters dict
+            while (true) 
+            {
+                int x = Index.RNG(2, matrix[mapNumber].Width - 2);
+                int y = Index.RNG(2, matrix[mapNumber].Height - 2);
+                if (matrix[mapNumber].Matrix[y, x] != 1)
+                {
+                    continue;
+                }
+                matrix[mapNumber].Matrix[y, x] = 1000;
+                matrix[mapNumber].MonDict.Add(matrix[mapNumber].Width * y + x, factory);
+                break;
+            }
+            parentSession.RefreshMonstersDisplay();
+        }
+
         private bool CheckConnectivity()
         {
             // check if the adjacencyMatrix represents a fully connected graph

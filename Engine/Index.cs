@@ -135,6 +135,7 @@ namespace Game.Engine
             new Monsters.MonsterFactories.SpiderFactory(),
             new Monsters.MonsterFactories.SpiderFactory(),
             // x2
+            /*
             new Monsters.MonsterFactories.ButterflyFactory(),
             new Monsters.MonsterFactories.ButterflyFactory(),
             new Monsters.MonsterFactories.HogFactory(),
@@ -159,6 +160,7 @@ namespace Game.Engine
             new Monsters.MonsterFactories.JesterFactory(),
             new Monsters.MonsterFactories.NumiFactory(),
             new Monsters.MonsterFactories.FleyonFactory(),
+            */
         };
 
         private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
