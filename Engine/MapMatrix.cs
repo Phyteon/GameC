@@ -4,6 +4,7 @@ using Game.Engine.Monsters.MonsterFactories;
 using Game.Engine.Monsters;
 using System.Windows;
 using Game.Engine.Interactions;
+using System.Windows.Controls;
 
 namespace Game.Engine
 {
@@ -28,7 +29,8 @@ namespace Game.Engine
         private GameSession parentSession;
 
         public Dictionary<int, MonsterFactory> MonDict;
-        public Dictionary<int, Monster> Monsters { get; set; }
+        public Dictionary<int, Monster> MemorizedMonsters { get; set; }
+        public Dictionary<int, Image> MemorizedMonsterImages { get; set; }
         public Dictionary<int, Interaction> Interactions { get; private set; }
         public int[,] Matrix { get; set; }
         public int Width { get; set; } = 25;
@@ -59,7 +61,8 @@ namespace Game.Engine
             for (int x = 0; x < Width; x++) Matrix[Height - 1, x] = 0;
             // initialize 
             InitializeFactoryList();
-            Monsters = new Dictionary<int, Monster>();
+            MemorizedMonsters = new Dictionary<int, Monster>();
+            MemorizedMonsterImages = new Dictionary<int, Image>();
         }
 
         private void InitializeFactoryList()
@@ -80,15 +83,16 @@ namespace Game.Engine
         // produce or hint monsters
         public Monster CreateMonster(int x, int y, int playerLevel)
         {
-            if (Monsters.ContainsKey(y * Width + x) && Monsters[y * Width + x] != null) return Monsters[y * Width + x];
+            if (MemorizedMonsters.ContainsKey(y * Width + x) && MemorizedMonsters[y * Width + x] != null) return MemorizedMonsters[y * Width + x];
             if (MonDict.ContainsKey(y * Width + x) && MonDict[y * Width + x] != null)
             {
                 return MonDict[y * Width + x].Create(playerLevel);
             }
             return null;
         }
-        public System.Windows.Controls.Image HintMonsterImage(int x, int y)
+        public Image HintMonsterImage(int x, int y)
         {
+            if (MemorizedMonsterImages.ContainsKey(y * Width + x) && MemorizedMonsterImages[y * Width + x] != null) return MemorizedMonsterImages[y * Width + x];
             if (MonDict.ContainsKey(y * Width + x) && MonDict[y * Width + x] != null)
             {
                 return MonDict[y * Width + x].Hint();

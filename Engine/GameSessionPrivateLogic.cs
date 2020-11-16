@@ -314,11 +314,16 @@ namespace Game.Engine
                         newBattle.Run();
                         if (newBattle.battleResult)
                         {
+                            mapMatrix.MemorizedMonsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = null; // this monster was defeated
+                            mapMatrix.MemorizedMonsterImages[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = null;
                             parentPage.UpdateMonster(mapMatrix.Width * PlayerPosTop + PlayerPosLeft, mapMatrix.HintMonsterImage(playerPosLeft, playerPosTop), mapMatrix.Width);
                             UpdateStat(7, monster.XPValue);
-                            mapMatrix.Monsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = null; // this monster was defeated
                         }
-                        else mapMatrix.Monsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = monster; // remember this monster until the next time
+                        else
+                        {
+                            mapMatrix.MemorizedMonsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = monster; // remember this monster until the next time
+                            mapMatrix.MemorizedMonsterImages[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = monster.GetImage();
+                        }
                         // restore position from before the battle
                         parentPage.MovePlayer("reverse");
                     }
