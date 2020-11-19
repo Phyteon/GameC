@@ -21,7 +21,7 @@ namespace Game.Engine.Items.BasicArmor
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == DmgType.stab || pack.DamageType == DmgType.cut)
+            if (pack.DamageType == DmgType.Cut || pack.DamageType == DmgType.Cut)
             {
                 pack.HealthDmg = (100 + berserkerBonus / 4) * pack.HealthDmg / 100;
             }

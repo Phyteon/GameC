@@ -14,11 +14,11 @@ namespace Game.Engine.Skills
         public SoulEater() : base("Soul Eater", 30, 5)//zmien lvl
         {
             PublicName = "Soul Eater: 0.4*Mp fire damage, gives you 0.1*MP health points during battle.";
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.fire);
+            StatPackage response = new StatPackage(DmgType.Fire);
             response.HealthDmg = (int)(0.4 * player.MagicPower);
             player.Health += (int)(0.1 * player.MagicPower);
             // applying CustomText only once is sufficient

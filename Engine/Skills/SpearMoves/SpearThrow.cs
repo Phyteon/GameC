@@ -12,14 +12,14 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
     {
         public SpearThrow() : base("Spear Throw", 15, 1)
         {
-            PublicName = "Spear throw [requires spear]: 0.5*Pr damage [stab]";
-            RequiredItem = Skill.MainItem.spear;
+            PublicName = "Spear throw [requires spear]: 0.5*Pr damage [cut]";
+            RequiredItem = Skill.MainItem.Spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.stab);
+            StatPackage response = new StatPackage(DmgType.Cut);
             response.HealthDmg = (int)(0.5 * player.Precision);
-            response.CustomText = "You use Spear Throw! (" + (int)(0.5 * player.Precision) + " stab damage)";
+            response.CustomText = "You use Spear Throw! (" + (int)(0.5 * player.Precision) + " cut damage)";
             return new List<StatPackage>() { response };
         }
     }

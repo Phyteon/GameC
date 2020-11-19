@@ -26,24 +26,24 @@ namespace Game.Engine.Monsters
             if (Stamina > 50)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage(DmgType.stab, 15 + Strength, "Spider uses strong Bite! (" + (5 + Strength) + " stab damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 15 + Strength, "Spider uses strong Bite! (" + (5 + Strength) + " cut damage)") };
             }
 
             if (Stamina > 20 && Stamina <= 50)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage(DmgType.stab, 10 + Strength, "Spider uses its Sting! (" + (5 + Strength) + " stab damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 10 + Strength, "Spider uses its Sting! (" + (5 + Strength) + " cut damage)") };
             }
 
             if (Stamina > 0 && Stamina <= 20)
             {
                 Stamina -= 5;
-                return new List<StatPackage>() { new StatPackage(DmgType.stab, 5 + Strength, "Spider uses weak Bite! (" + (5 + Strength) + " stab damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 5 + Strength, "Spider uses weak Bite! (" + (5 + Strength) + " cut damage)") };
             }
 
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Spider has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Spider has no energy to attack anymore!") };
             }
         }
     }

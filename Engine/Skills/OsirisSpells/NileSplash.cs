@@ -13,11 +13,11 @@ namespace Game.Engine.Skills.OsirisMoves
         public NileSplash() : base("Nile Spash", 10, 1)
         {
             PublicName = "Nile Water Splash [requires staff]: 5 + 0.5*MP damage [water]";
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.water);
+            StatPackage response = new StatPackage(DmgType.Water);
             response.HealthDmg = 10 + (int)(0.5 * player.MagicPower);
             response.CustomText = "Bless Osisris! You used Nile Water Splash! (" + (5 + (int)(0.5 * player.MagicPower)) + "water damage)";
             return new List<StatPackage>() { response };

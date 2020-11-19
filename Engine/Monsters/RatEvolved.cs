@@ -30,13 +30,13 @@ namespace Game.Engine.Monsters
                 return new List<StatPackage>()
                 { 
                     // the same bite move as in Rat, but also with 15 poison damage
-                    new StatPackage(DmgType.stab, 5 + Strength, "Rat uses Bite! ("+ (5 + Strength) +" stab damage)"),
-                    new StatPackage(DmgType.poison, 15, "Venom burns in your veins (15 poison damage)")
+                    new StatPackage(DmgType.Cut, 5 + Strength, "Rat uses Bite! ("+ (5 + Strength) +" cut damage)"),
+                    new StatPackage(DmgType.Poison, 15, "Venom burns in your veins (15 poison damage)")
                 };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Rat has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Rat has no energy to attack anymore!") };
             }
         }
     }

@@ -26,12 +26,12 @@ namespace Game.Engine.Monsters
             if (Stamina > 0)
             {
                 Stamina -= 30;
-                if (Index.RNG(0, 3) == 0) return new List<StatPackage>() { new StatPackage(DmgType.stab, 15 + Strength, "Unicorn stabs you with its horn! (" + (5 + Strength) + " stab damage)") };
-                else return new List<StatPackage>() { new StatPackage(DmgType.air, MagicPower * 2, "Unicorn creates rainbow! (" + (MagicPower * 2) + " air damage)") };
+                if (Index.RNG(0, 3) == 0) return new List<StatPackage>() { new StatPackage(DmgType.Cut, 15 + Strength, "Unicorn stabs you with its horn! (" + (5 + Strength) + " cut damage)") };
+                else return new List<StatPackage>() { new StatPackage(DmgType.Air, MagicPower * 2, "Unicorn creates rainbow! (" + (MagicPower * 2) + " air damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Unicorn has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Unicorn has no energy to attack anymore!") };
             }
         }
     }

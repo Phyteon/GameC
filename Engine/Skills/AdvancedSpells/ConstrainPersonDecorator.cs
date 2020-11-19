@@ -14,12 +14,12 @@ namespace Game.Engine.Skills.BasicSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO: Constrain person - takes a random amount of strength from the enemy 10+(0-4)*MP" + skill.PublicName;
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
             Random rng = new Random();
-            StatPackage response = new StatPackage(DmgType.air);
+            StatPackage response = new StatPackage(DmgType.Air);
             int multiplier = rng.Next(0, 4);
             response.StrengthDmg = 10 + multiplier * player.MagicPower;
             response.CustomText = "A spell falls upon the enemy making it difficult for him to move";

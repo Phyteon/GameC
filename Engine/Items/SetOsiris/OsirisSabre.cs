@@ -20,7 +20,7 @@ namespace Game.Engine.Items.OsirisArmor
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == DmgType.stab || pack.DamageType == DmgType.cut)
+            if (pack.DamageType == DmgType.Cut || pack.DamageType == DmgType.Cut)
             {
                 pack.HealthDmg = 80 * pack.HealthDmg / 100;
             }

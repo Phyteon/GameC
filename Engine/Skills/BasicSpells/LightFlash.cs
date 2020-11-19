@@ -12,11 +12,11 @@ namespace Game.Engine.Skills.BasicSkills
         public LightFlash() : base("Light Flash", 10, 1) 
         { 
             PublicName = "Light Flash: decrease enemy precision stat by 15 [fire]";
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.fire);
+            StatPackage response = new StatPackage(DmgType.Fire);
             response.PrecisionDmg = 15;
             response.CustomText = "You use Light Flash! (enemy precision decreased by 15)";
             return new List<StatPackage>() { response };

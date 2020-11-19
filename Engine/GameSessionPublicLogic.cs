@@ -102,23 +102,23 @@ namespace Game.Engine
             }
             return false;
         }
-        public bool TestForItemClass(Skill.MainItem name)
+        public bool TestForItemClass(RequiredItem name)
         {
             // check if ANY item from a given special class (staff,axe,spear,sword) is currently equipped as active
             switch(name)
             {
-                case Skill.MainItem.none:
+                case RequiredItem.None:
                     return true;
-                case Skill.MainItem.sword:
+                case RequiredItem.Sword:
                     foreach (Item item in items) if (item.IsSword) return true;
                     break;
-                case Skill.MainItem.axe:
+                case RequiredItem.Axe:
                     foreach (Item item in items) if (item.IsAxe) return true;
                     break;
-                case Skill.MainItem.spear:
+                case RequiredItem.Spear:
                     foreach (Item item in items) if (item.IsSpear) return true;
                     break;
-                case Skill.MainItem.staff:
+                case RequiredItem.Staff:
                     foreach (Item item in items) if (item.IsStaff) return true;
                     break;
             }

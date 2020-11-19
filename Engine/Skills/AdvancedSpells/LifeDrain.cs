@@ -13,11 +13,11 @@ namespace Game.Engine.Skills.BasicSpells
         public LifeDrain() : base("spell0583", 5, 4)
         {
             PublicName = "Life drain - drains the enemy vital energy and replenishes HP and stamina";
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.air);
+            StatPackage response = new StatPackage(DmgType.Air);
             response.HealthDmg = player.MagicPower;
             player.HealthBuff += Convert.ToInt32(response.HealthDmg * 0.5);
             player.StaminaBuff += Convert.ToInt32(response.HealthDmg * 0.5);

@@ -29,12 +29,12 @@ namespace Game.Engine.Monsters
                 // germ is poisonous 
                 return new List<StatPackage>()
                 {
-                    new StatPackage(DmgType.poison, 5 + Strength, "Germ makes you ill! (" + (Strength) + " poison damage)")
+                    new StatPackage(DmgType.Poison, 5 + Strength, "Germ makes you ill! (" + (Strength) + " poison damage)")
                 };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Germ has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Germ has no energy to attack anymore!") };
             }
         }
     }

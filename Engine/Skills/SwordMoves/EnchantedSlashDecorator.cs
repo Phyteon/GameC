@@ -13,19 +13,19 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         public EnchantedSlashDecorator(Skill skill) : base("Enchanted Slash", 30, 2, skill)
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 2;
-            PublicName = "Enchanted Slash [requires sword]: {(0.2*Str + 0.2*Pr) damage [stab] and (0.2*Str + 0.2*Pr) damage [incised]}*random value from 1 to 5";
-            RequiredItem = Skill.MainItem.sword;
+            PublicName = "Enchanted Slash [requires sword]: {(0.2*Str + 0.2*Pr) damage [cut] and (0.2*Str + 0.2*Pr) damage [incised]}*random value from 1 to 5";
+            RequiredItem = Skill.MainItem.Sword;
         }
         private int chance;
         public override List<StatPackage> BattleMove(Player player)
         {
             chance = Index.RNG(1, 6);
-            StatPackage response1 = new StatPackage(DmgType.stab);
+            StatPackage response1 = new StatPackage(DmgType.Cut);
             response1.HealthDmg = (int)(0.1 * player.Strength * chance) + (int)(0.1 * player.Precision * chance);
-            StatPackage response2 = new StatPackage(DmgType.cut);
+            StatPackage response2 = new StatPackage(DmgType.Cut);
             response2.HealthDmg = (int)(0.1 * player.Strength * chance) + (int)(0.1 * player.Precision * chance);
 
-            response2.CustomText = "You use Enchanted Slash! (" + ((int)(0.2 * player.Strength * chance) + (int)(0.2 * player.Precision * chance)) + " stab damage, " + ((int)(0.2 * player.Strength * chance) + (int)(0.2 * player.Precision * chance)) * chance + " incised damage)";
+            response2.CustomText = "You use Enchanted Slash! (" + ((int)(0.2 * player.Strength * chance) + (int)(0.2 * player.Precision * chance)) + " cut damage, " + ((int)(0.2 * player.Strength * chance) + (int)(0.2 * player.Precision * chance)) * chance + " incised damage)";
             List<StatPackage> combo = decoratedSkill.BattleMove(player);
             combo.Add(response1);
             combo.Add(response2);

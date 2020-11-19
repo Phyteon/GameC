@@ -11,11 +11,11 @@ namespace Game.Engine.Skills.WaterSpells
         public OceanWave() : base("Ocean Wave", 15, 3)
         {
             PublicName = "Ocean Wave: 0.4*MP + 0.1*STR damage [water]"; 
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.water);
+            StatPackage response = new StatPackage(DmgType.Water);
             response.HealthDmg =  (int)(0.4 * player.MagicPower) + (int)(0.1*player.Strength); 
             response.CustomText = "You use Ocean Wave! (" + ((int)(0.4 * player.MagicPower) + (int)(0.1*player.Strength)) + " water damage)"; 
             return new List<StatPackage>() { response };

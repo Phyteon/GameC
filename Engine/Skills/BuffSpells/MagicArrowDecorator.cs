@@ -15,12 +15,12 @@ namespace Game.Engine.Skills.SomeSeriousSpells
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 2;
             PublicName = "Magic Arrow: deal 0.6*MP damage [air], but if your precision skill is high enough you can deal 1*MP damage [air] :O AND " 
                 + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage reaction = new StatPackage(DmgType.air);
+            StatPackage reaction = new StatPackage(DmgType.Air);
             if (player.Precision > 70)
             {
                 reaction.HealthDmg = (int)(player.MagicPower);

@@ -19,7 +19,7 @@ namespace Game.Engine.Items
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == DmgType.earth)
+            if (pack.DamageType == DmgType.Earth)
             {
                 pack.HealthDmg +=  earthStoneBonus;
             }

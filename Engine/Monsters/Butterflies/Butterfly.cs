@@ -26,11 +26,11 @@ namespace Game.Engine.Monsters
             if (Stamina > 0)
             {
                 Stamina -= 12;
-                return new List<StatPackage>() { new StatPackage(DmgType.air, 6 + Strength, "Butterfly uses Wings to create Wind! (" + (6 + Strength) + " magical damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Air, 6 + Strength, "Butterfly uses Wings to create Wind! (" + (6 + Strength) + " magical damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Butterfly damaged its wings. It's harmless to you now.") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Butterfly damaged its wings. It's harmless to you now.") };
             }
         }
     }

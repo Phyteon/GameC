@@ -14,11 +14,11 @@ namespace Game.Engine.Skills.MoreSpells
         public Healing() : base("Healing", 10, 2)
         {
             PublicName = "extra 50 Hp [magic]";
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.none);
+            StatPackage response = new StatPackage(DmgType.Other);
             player.Health += 50;
             response.CustomText = "You heal yourself with 50 Hp";
             return new List<StatPackage>() { response };

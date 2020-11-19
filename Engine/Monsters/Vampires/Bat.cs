@@ -30,15 +30,15 @@ namespace Game.Engine.Monsters
                 {
                     case 0:
                         //Bat accidentally hits you with his wing
-                        return new List<StatPackage>() { new StatPackage(DmgType.none, 2 + Strength, "Bat flies and accidentally hits you with wing (" + (2 + Strength) + " damage)") };
+                        return new List<StatPackage>() { new StatPackage(DmgType.Other, 2 + Strength, "Bat flies and accidentally hits you with wing (" + (2 + Strength) + " damage)") };
                     default:
                         //Bat just flies, he can't even bite a man
-                        return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Bat flies and can't hit you (0 damage)") };
+                        return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Bat flies and can't hit you (0 damage)") };
                 }
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Bat has no energy to fly anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Bat has no energy to fly anymore!") };
             }
         }
     }

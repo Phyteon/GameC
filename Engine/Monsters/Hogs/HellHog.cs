@@ -28,13 +28,13 @@ namespace Game.Engine.Monsters
                 Stamina -= 10;
                 return new List<StatPackage>()
                 {
-                    new StatPackage(DmgType.stab, 11 + Strength, "Hell Hog Charges! (" + (11 + Strength) + " stab damage)"),
-                    new StatPackage(DmgType.fire, 5 * MagicPower, "Fire surrounding the creature burns you! (" + (5 * MagicPower) + " fire damage)")
+                    new StatPackage(DmgType.Cut, 11 + Strength, "Hell Hog Charges! (" + (11 + Strength) + " cut damage)"),
+                    new StatPackage(DmgType.Fire, 5 * MagicPower, "Fire surrounding the creature burns you! (" + (5 * MagicPower) + " fire damage)")
                 };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Hell Hog is out of Stamina!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Hell Hog is out of Stamina!") };
             }
         }
     }

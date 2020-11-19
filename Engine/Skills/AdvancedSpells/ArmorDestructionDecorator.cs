@@ -14,11 +14,11 @@ namespace Game.Engine.Skills.MoreSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 2;
             PublicName = "COMBO - Armor destruction: 50% chance to ruin monster's armor [magic] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.none);
+            StatPackage response = new StatPackage(DmgType.Other);
             if (Index.RNG(0, 2) > 0)
             {
                 response.ArmorDmg = 2000;//  I guess monster cant have more armor than that

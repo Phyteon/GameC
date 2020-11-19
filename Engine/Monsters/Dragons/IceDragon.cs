@@ -29,12 +29,12 @@ namespace Game.Engine.Monsters
                 //  
                 return new List<StatPackage>()
                 {
-                  new StatPackage(DmgType.ice, 5 + Strength, "Dragon uses ice magic! (" + (Strength) + " magical damage)")
+                  new StatPackage(DmgType.Water, 5 + Strength, "Dragon uses ice magic! (" + (Strength) + " magical damage)")
                 };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Dragon has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Dragon has no energy to attack anymore!") };
             }
         }
     }

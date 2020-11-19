@@ -14,16 +14,16 @@ namespace Game.Engine.Skills.SkillWeaponMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Tornado Axe Cut: a chance equal to your Precission stat to make 3 times bigger damage AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.axe;
+            RequiredItem = Skill.MainItem.Axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.cut);
+            StatPackage response = new StatPackage(DmgType.Cut);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < player.Precision)
             {
                 response.HealthDmg = (int)(3 * player.Strength);
-                response.CustomText = "You use Tornado Axe Cut! (" + (int)(3 * player.Strength) + " stab damage)";
+                response.CustomText = "You use Tornado Axe Cut! (" + (int)(3 * player.Strength) + " cut damage)";
             }
             else
             {

@@ -16,7 +16,7 @@ namespace Game.Engine.Skills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.none);
+            StatPackage response = new StatPackage(DmgType.Other);
             return new List<StatPackage>() { response };
         }
     }

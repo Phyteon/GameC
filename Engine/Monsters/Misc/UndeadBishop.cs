@@ -45,7 +45,7 @@ namespace Game.Engine.Monsters
         {
             if (strategyNumber == 1) 
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Critical Hit! The Undead Bishop gets stunned and can't attack") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Critical Hit! The Undead Bishop gets stunned and can't attack") };
             }  
             else      
 			{
@@ -53,13 +53,13 @@ namespace Game.Engine.Monsters
 				{
 					Stamina -= 20;
 					// Casting an earthquake  Spell 
-					return new List<StatPackage>() { new StatPackage(DmgType.earth, 25 + MagicPower, "The Undead Bishop summons devil's anger and shakes the Earth! (" + (25 + MagicPower) + ") earth damage!)") };
+					return new List<StatPackage>() { new StatPackage(DmgType.Earth, 25 + MagicPower, "The Undead Bishop summons devil's anger and shakes the Earth! (" + (25 + MagicPower) + ") earth damage!)") };
 				}
 				else if (Stamina > 0)
 				{
 					Stamina -= 15;
 					//Weaker attack, deals less dmg
-					return new List<StatPackage>() { new StatPackage(DmgType.fire, 10 + MagicPower, "The Undead Bishop schorches your conscience with Flames of Hell!! (" + (5 + MagicPower) + ") water damage!)") };
+					return new List<StatPackage>() { new StatPackage(DmgType.Fire, 10 + MagicPower, "The Undead Bishop schorches your conscience with Flames of Hell!! (" + (5 + MagicPower) + ") water damage!)") };
 				}
 				else
 				{
@@ -67,10 +67,10 @@ namespace Game.Engine.Monsters
 					if (random == 1)
 					{
 						Health = 0;
-						return new List<StatPackage>() { new StatPackage(DmgType.fire, 10 + 10 * MagicPower, "In his last move The Undead Bishop explodes with devil's energy! (" + (5 + MagicPower) + ") fire damage!)") };
+						return new List<StatPackage>() { new StatPackage(DmgType.Fire, 10 + 10 * MagicPower, "In his last move The Undead Bishop explodes with devil's energy! (" + (5 + MagicPower) + ") fire damage!)") };
 					}
 					Stamina += 10;       
-					return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "The Undead Bishop rests and regenerates 10 stamina.")};
+					return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "The Undead Bishop rests and regenerates 10 stamina.")};
 				}
 			}
         }

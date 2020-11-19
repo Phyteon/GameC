@@ -13,12 +13,12 @@ namespace Game.Engine.Skills.SomeSeriousSpells
         public AuraOfTheSword(): base("Aura of the sword! ", 30,3)
         {
             PublicName = "Aura of the sword: If you have more than 120HP increse your strength stats by 50, otherwise increase your strength by 20 [air]";
-            RequiredItem = Skill.MainItem.sword;
+            RequiredItem = Skill.MainItem.Sword;
         }
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage reaction = new StatPackage(DmgType.air);
+            StatPackage reaction = new StatPackage(DmgType.Air);
             if(player.Health>120)
             {
                 player.Strength += 50;

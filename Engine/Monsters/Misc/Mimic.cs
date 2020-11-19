@@ -25,8 +25,8 @@ namespace Game.Engine.Monsters.MonsterFactories
 
         public override List<StatPackage> BattleMove()
         {
-            if (health > 0.5 * Health) return new List<StatPackage>() { new StatPackage(DmgType.cut, 45 + strength, "The mimic attacks dealing " + (45+strength) + " damage") };
-            else return new List<StatPackage>() { new StatPackage(DmgType.cut, 45 + 2 * strength, "The mimic attacks ferociously" + (45 + 2*strength) + " damage") };
+            if (health > 0.5 * Health) return new List<StatPackage>() { new StatPackage(DmgType.Cut, 45 + strength, "The mimic attacks dealing " + (45+strength) + " damage") };
+            else return new List<StatPackage>() { new StatPackage(DmgType.Cut, 45 + 2 * strength, "The mimic attacks ferociously" + (45 + 2*strength) + " damage") };
         }
     }
 }

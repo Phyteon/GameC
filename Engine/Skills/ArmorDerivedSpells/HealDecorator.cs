@@ -11,12 +11,12 @@ namespace Game.Engine.Skills
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Heal: restores 10 health AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
 
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.none);
+            StatPackage response = new StatPackage(DmgType.Other);
             player.Health += 10;
             response.CustomText = "You used Heal! (" + 10 + " health restored)";
             List<StatPackage> combo = decoratedSkill.BattleMove(player);

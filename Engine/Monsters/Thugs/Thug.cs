@@ -30,13 +30,13 @@ namespace Game.Engine.Monsters
                 {
                     Stamina -= 15;
 
-                    return new List<StatPackage>() { new StatPackage(DmgType.stab, 10 + Strength, "Thug uses his knife! (" + (10 + Strength) + " stab damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Cut, 10 + Strength, "Thug uses his knife! (" + (10 + Strength) + " cut damage)") };
                 }
                 else
                 {
                     return new List<StatPackage>()
                     {
-                         new StatPackage(DmgType.none, 0, "Thug has no energy to attack anymore!")
+                         new StatPackage(DmgType.Other, 0, "Thug has no energy to attack anymore!")
                     };
                 }
             }
@@ -45,7 +45,7 @@ namespace Game.Engine.Monsters
                 Counter = 0;
                 return new List<StatPackage>()
                 {
-                     new StatPackage(DmgType.none, 0, "Thug is scared and needs to calm down!")
+                     new StatPackage(DmgType.Other, 0, "Thug is scared and needs to calm down!")
                 };
             }
 

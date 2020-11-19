@@ -17,7 +17,7 @@ namespace Game.Engine.Skills.SimpleSkills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.air);
+            StatPackage response = new StatPackage(DmgType.Air);
             response.StrengthDmg = player.Level * 5;
             response.PrecisionDmg = player.Level * 5;
             response.MagicPowerDmg = player.Level * 5;

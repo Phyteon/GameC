@@ -27,19 +27,19 @@ namespace Game.Engine.Monsters
         {
             if (stamina >= 10)
             {
-                stamina = 0; return new List<StatPackage>() { new StatPackage(DmgType.cut, strength * 2, "The golem attacks mightily with its stony hands. They're surprisingly sharp. " + strength*2 + " damage") };
+                stamina = 0; return new List<StatPackage>() { new StatPackage(DmgType.Cut, strength * 2, "The golem attacks mightily with its stony hands. They're surprisingly sharp. " + strength*2 + " damage") };
             }
             else
             {
                 int t = 10 - stamina;
-                stamina++; return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "The golem is gearing up to an attack, it looks like he'll be ready in " + t + " turns") };
+                stamina++; return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "The golem is gearing up to an attack, it looks like he'll be ready in " + t + " turns") };
             }
         }
         public override void React(List<StatPackage> packs)//every spell that hits the golem quickens his attack
         {
            foreach(StatPackage foo in packs)
             {
-                if (foo.DamageType == DmgType.air || foo.DamageType == DmgType.earth || foo.DamageType == DmgType.water || foo.DamageType == DmgType.fire || foo.DamageType == DmgType.psycho || foo.DamageType == DmgType.ice) stamina++;
+                if (foo.DamageType == DmgType.Air || foo.DamageType == DmgType.Earth || foo.DamageType == DmgType.Water || foo.DamageType == DmgType.Fire || foo.DamageType == DmgType.Psycho || foo.DamageType == DmgType.Water) stamina++;
             }
             base.React(packs);
         }

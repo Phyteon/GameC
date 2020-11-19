@@ -17,7 +17,7 @@ namespace Game.Engine.Skills.SimpleSkills
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.none);
+            StatPackage response = new StatPackage(DmgType.Other);
             player.Health += 30;
             response.CustomText = "You use Healing Factor! (30 health added)";
             return new List<StatPackage>() { response };

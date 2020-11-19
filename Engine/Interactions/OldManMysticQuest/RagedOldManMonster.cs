@@ -30,28 +30,28 @@ namespace Game.Engine.Interactions.OldManMysticQuest
                     Stamina -= 10;
                     return new List<StatPackage>()
                     {
-                        new StatPackage(DmgType.air, Strength - 20, "Raged Old Man uses Forced Wind Gust! (" + (Strength - 20) + " air damage)"),
+                        new StatPackage(DmgType.Air, Strength - 20, "Raged Old Man uses Forced Wind Gust! (" + (Strength - 20) + " air damage)"),
 
                     };
                 }
                 else if (random.NextDouble() > 0.4 && random.NextDouble() <= 0.8)
                 {
                     Stamina -= 10;
-                    return new List<StatPackage>() { new StatPackage(DmgType.stab, Strength - 35, "Raged Old Man stab you with his staff! (" + (Strength - 35) + " stab damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Cut, Strength - 35, "Raged Old Man stab you with his staff! (" + (Strength - 35) + " cut damage)") };
                 }
                 else
                 {
                     Stamina -= 20;
                     return new List<StatPackage>()
                     {
-                        new StatPackage(DmgType.fire, Strength + 10 , "Raged Old Man uses Fire Strike! (" + (Strength + 10) + " fire damage)"),
+                        new StatPackage(DmgType.Fire, Strength + 10 , "Raged Old Man uses Fire Strike! (" + (Strength + 10) + " fire damage)"),
 
                     };
                 }
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Raged Old Man has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Raged Old Man has no energy to attack anymore!") };
             }
         }
     }

@@ -14,12 +14,12 @@ namespace Game.Engine.Skills.BasicSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO: Forced Lightning - UNLIMITED POWER (5-10*MP) 10% chance to hurt self" + skill.PublicName;
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
             Random rng = new Random();
-            StatPackage response = new StatPackage(DmgType.fire);
+            StatPackage response = new StatPackage(DmgType.Fire);
             int multiplier = rng.Next(5, 10);
             response.HealthDmg = multiplier * player.MagicPower;
             response.CustomText = "Forceful lightning envelops the enemy.";

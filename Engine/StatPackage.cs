@@ -9,10 +9,7 @@ namespace Game.Engine
     // wrapper class for a bunch of statistics
     // meant to be used during battles and interactions
 
-    // predefined damage types:
-    // PHYSICAL DAMAGE - stab, cut (po polsku: rany kłute i cięte)
-    // MAGIC DAMAGE - fire, air, water, earth, ice, psycho
-    // OTHERS - poison
+    // for damage types, see file DmgType.cs
     
 
     public class StatPackage

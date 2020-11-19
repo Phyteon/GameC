@@ -14,11 +14,11 @@ namespace Game.Engine.Skills.OsirisMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = " COMBO - Nile Splash: 5 + 0.5*MP damage [water] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.water);
+            StatPackage response = new StatPackage(DmgType.Water);
             response.HealthDmg = 5 + (int)(0.5 * player.MagicPower);
             response.CustomText = "Bless Osisris! You used Nile Water Splash! (" + (5 + (int)(0.5 * player.MagicPower)) + "water damage)";
             List<StatPackage> combo = decoratedSkill.BattleMove(player);

@@ -13,16 +13,16 @@ namespace Game.Engine.Skills.SkillWeaponMoves
         public DoubleAxeCut() : base("Double Axe Cut", 30, 3)
         {
             PublicName = "Double Axe Cut: a chance equal to your Precission stat to make two times bigger damage";
-            RequiredItem = Skill.MainItem.axe;
+            RequiredItem = Skill.MainItem.Axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.cut);
+            StatPackage response = new StatPackage(DmgType.Cut);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < player.Precision)
             {
                 response.HealthDmg = (int)(2 * player.Strength);
-                response.CustomText = "You use Double Axe Cut! (" + (int)(2 * player.Strength) + " stab damage)";
+                response.CustomText = "You use Double Axe Cut! (" + (int)(2 * player.Strength) + " cut damage)";
             }
             else
             {

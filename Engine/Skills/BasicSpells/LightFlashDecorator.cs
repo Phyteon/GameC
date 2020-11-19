@@ -12,11 +12,11 @@ namespace Game.Engine.Skills.BasicSkills
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Light Flash: decrease enemy precision stat by 15 [fire] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.fire);
+            StatPackage response = new StatPackage(DmgType.Fire);
             response.PrecisionDmg = 15;
             response.CustomText = "You use Light Flash! (enemy precision decreased by 15)";
             List<StatPackage> combo = decoratedSkill.BattleMove(player);

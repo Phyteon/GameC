@@ -14,11 +14,11 @@ namespace Game.Engine.Skills.OsirisMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = " COMBO - Osiris Curse [requires sword] : 0.2*Str + 0.2*MagPwr damage [poison] + random god`s help [fire + armor damage, water + precision damage, earth + strength damage, air + magic power damage] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.sword;
+            RequiredItem = Skill.MainItem.Sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response1 = new StatPackage(DmgType.poison);
+            StatPackage response1 = new StatPackage(DmgType.Poison);
             response1.HealthDmg = (int)(0.2 * player.Strength) + (int)(0.2 * player.Precision);
 
             int godHelp = Index.RNG(1, 5);
@@ -26,28 +26,28 @@ namespace Game.Engine.Skills.OsirisMoves
             StatPackage response2;
             if (godHelp == 1)
             {
-                response2 = new StatPackage(DmgType.fire);
+                response2 = new StatPackage(DmgType.Fire);
                 response2.ArmorDmg = 15;
                 response2.CustomText = "You use Osiris Sabre Cut (" + ((int)(0.2 * player.Strength) + (int)(0.2 * player.MagicPower)) + " poison damage, " + "\n" + " God Raa helped you! [enemy armor decreased by 15] ";
 
             }
             else if (godHelp == 2)
             {
-                response2 = new StatPackage(DmgType.water);
+                response2 = new StatPackage(DmgType.Water);
                 response2.PrecisionDmg = 15;
                 response2.CustomText = "You use Osiris Sabre Cut (" + ((int)(0.2 * player.Strength) + (int)(0.2 * player.MagicPower)) + " poison damage, " + "\n" + " God Sobek helped you! [enemy precision decreased by 15] ";
 
             }
             else if (godHelp == 3)
             {
-                response2 = new StatPackage(DmgType.earth);
+                response2 = new StatPackage(DmgType.Earth);
                 response2.StrengthDmg = 15;
                 response2.CustomText = "You use Osiris Sabre Cut (" + ((int)(0.2 * player.Strength) + (int)(0.2 * player.MagicPower)) + " poison damage, " + "\n" + " God Geb helped you! [enemy strength decreased by 15] ";
 
             }
             else
             {
-                response2 = new StatPackage(DmgType.air);
+                response2 = new StatPackage(DmgType.Air);
                 response2.MagicPowerDmg = 15;
                 response2.CustomText = "You use Osiris Sabre Cut (" + ((int)(0.2 * player.Strength) + (int)(0.2 * player.MagicPower)) + " poison damage, " + "\n" + " God Amon helped you! [enemy magic power decreased by 15] ";
             }

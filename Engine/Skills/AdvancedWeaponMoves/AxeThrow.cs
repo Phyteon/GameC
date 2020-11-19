@@ -10,11 +10,11 @@ namespace Game.Engine.Skills.AdvancedWeaponMoves
         public AxeThrow() : base("Axe Throw", 30, 5)
         {
             PublicName = "Axe Throw [requires axe]: a chance equal to your Stamina stat to land 0.5*Str + 0.2*Pr damage [incised]";
-            RequiredItem = Skill.MainItem.axe;
+            RequiredItem = Skill.MainItem.Axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.cut);
+            StatPackage response = new StatPackage(DmgType.Cut);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < player.Stamina)
             {

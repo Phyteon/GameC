@@ -12,14 +12,14 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
     {
         public SwordThrust() : base("Sword Thrust", 25, 2)
         {
-            PublicName = "Sword Thrust [requires sword]: 0.1*Str + 0.3*Pr damage [stab]";
-            RequiredItem = Skill.MainItem.sword;
+            PublicName = "Sword Thrust [requires sword]: 0.1*Str + 0.3*Pr damage [cut]";
+            RequiredItem = Skill.MainItem.Sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-        StatPackage response1 = new StatPackage(DmgType.stab);
+        StatPackage response1 = new StatPackage(DmgType.Cut);
         response1.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.3 * player.Precision);
-        response1.CustomText = "You use Sword Thrust! (" + ((int)(0.1 * player.Strength) + (int)(0.3 * player.Precision)) + ") stab damage";
+        response1.CustomText = "You use Sword Thrust! (" + ((int)(0.1 * player.Strength) + (int)(0.3 * player.Precision)) + ") cut damage";
         return new List<StatPackage>() { response1 };
         }
     }

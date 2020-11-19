@@ -25,7 +25,7 @@ namespace Game.Engine.Skills.HolySpells
             myList.Add(player.Health);
             myList.Add(player.Armor);
             myList.Sort();//sorting the list
-            StatPackage response = new StatPackage(DmgType.air);
+            StatPackage response = new StatPackage(DmgType.Air);
             int randomNumber = Index.RNG(0, 3);
             if (randomNumber == 0)//Strongest stat 
             {
@@ -45,7 +45,7 @@ namespace Game.Engine.Skills.HolySpells
             }
             else//miss
             {
-                response.DamageType = DmgType.none;
+                response.DamageType = DmgType.Other;
                 response.MagicPowerDmg = 0;
                 response.CustomText = "You try to use Excommunication, but you miss!";
             }

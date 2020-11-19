@@ -14,11 +14,11 @@ namespace Game.Engine.Skills.OsirisMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = " COMBO - MummySpell: decrease enemy strenght, precision, health stats by 10 AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.poison);
+            StatPackage response = new StatPackage(DmgType.Poison);
             response.StrengthDmg = 10;
             response.PrecisionDmg = 10;
             response.HealthDmg = 10;

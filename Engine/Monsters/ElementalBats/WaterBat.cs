@@ -28,17 +28,17 @@ namespace Game.Engine.Monsters
             if (Stamina > 16)
             {
                 Stamina -= 15;
-                return new List<StatPackage>() { new StatPackage(DmgType.water, 15 + MagicPower, "Bat uses Waterfall! (" + (15 + MagicPower) + " water damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Water, 15 + MagicPower, "Bat uses Waterfall! (" + (15 + MagicPower) + " water damage)") };
 
             }
             else if (Stamina < 16 && Stamina > 0)
             {
                 Stamina = -15;
-                return new List<StatPackage>() { new StatPackage(DmgType.water, 40 + MagicPower, "Bat uses Hydro Attack! (" + (40 + MagicPower) + " water damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Water, 40 + MagicPower, "Bat uses Hydro Attack! (" + (40 + MagicPower) + " water damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Bat has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Bat has no energy to attack anymore!") };
             }
         }
 

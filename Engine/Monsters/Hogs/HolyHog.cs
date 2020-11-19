@@ -28,16 +28,16 @@ namespace Game.Engine.Monsters
                 Stamina -= 10;
                 return new List<StatPackage>()
                 {
-                    new StatPackage(DmgType.stab, 8 + Strength, "Holy Hog Charges! (" + (8 + Strength) + " stab damage)"),
-                    new StatPackage(DmgType.fire, 1 * MagicPower, ""),
-                    new StatPackage(DmgType.earth, 1 * MagicPower, ""),
-                    new StatPackage(DmgType.air, 1 * MagicPower, ""),
-                    new StatPackage(DmgType.water, 1 * MagicPower, "It calls all of the elements for help! (" + (4 * MagicPower) + " elemental damage)")
+                    new StatPackage(DmgType.Cut, 8 + Strength, "Holy Hog Charges! (" + (8 + Strength) + " cut damage)"),
+                    new StatPackage(DmgType.Fire, 1 * MagicPower, ""),
+                    new StatPackage(DmgType.Earth, 1 * MagicPower, ""),
+                    new StatPackage(DmgType.Air, 1 * MagicPower, ""),
+                    new StatPackage(DmgType.Water, 1 * MagicPower, "It calls all of the elements for help! (" + (4 * MagicPower) + " elemental damage)")
                 };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Impossible! Holy Hog is out of Stamina!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Impossible! Holy Hog is out of Stamina!") };
             }
         }
     }

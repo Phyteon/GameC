@@ -25,11 +25,11 @@ namespace Game.Engine.Monsters
             if (Stamina > 0)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage(DmgType.stab, 5 + Strength, "Skeleton stabs you!(" + (10 + Strength) + " stab damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 5 + Strength, "Skeleton stabs you!(" + (10 + Strength) + " cut damage)") };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.none, 0, "Skeleton has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Skeleton has no energy to attack anymore!") };
             }
         }
     }

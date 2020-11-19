@@ -14,11 +14,11 @@ namespace Game.Engine.Skills.BasicSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO: Life drain - drains the enemy vital energy and replenishes HP and stamina" + skill.PublicName;
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.air);
+            StatPackage response = new StatPackage(DmgType.Air);
             response.HealthDmg = player.MagicPower;
             player.HealthBuff += Convert.ToInt32(response.HealthDmg * 0.5);
             player.StaminaBuff += Convert.ToInt32(response.HealthDmg * 0.5);

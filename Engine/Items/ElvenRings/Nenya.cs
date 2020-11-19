@@ -22,7 +22,7 @@ namespace Game.Engine.Items
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == DmgType.water)
+            if (pack.DamageType == DmgType.Water)
             {
                 pack.HealthDmg += pack.HealthDmg/4;
             }
@@ -30,7 +30,7 @@ namespace Game.Engine.Items
         }
         public override StatPackage ModifyDefensive(StatPackage pack, List<string> otherItems)
         {
-            if(pack.DamageType == DmgType.water)
+            if(pack.DamageType == DmgType.Water)
             {
                 pack.HealthDmg -= pack.HealthDmg/2;
 

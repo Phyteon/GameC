@@ -14,12 +14,12 @@ namespace Game.Engine.Skills
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Water blast: a 70% chance to land 0.5*MP damage [water] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.staff;
+            RequiredItem = Skill.MainItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
             int damage = (int)(0.5 * player.MagicPower);
-            StatPackage response = new StatPackage(DmgType.water);
+            StatPackage response = new StatPackage(DmgType.Water);
             Random rnd = new Random();
             if (rnd.Next(0, 100) < 70)
             {

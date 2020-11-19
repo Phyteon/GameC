@@ -13,14 +13,14 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
         public SpearThrowDecorator(Skill skill) : base("Spear Throw", 15, 3, skill)
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
-            PublicName = "COMBO - Spear throw [requires spear]: 0.5*Pr damage [stab] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.spear;
+            PublicName = "COMBO - Spear throw [requires spear]: 0.5*Pr damage [cut] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
+            RequiredItem = Skill.MainItem.Spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.stab);
+            StatPackage response = new StatPackage(DmgType.Cut);
             response.HealthDmg = (int)(0.5 * player.Precision);
-            response.CustomText = "You use Spear Throw! (" + (int)(0.5 * player.Precision) + " stab damage)";
+            response.CustomText = "You use Spear Throw! (" + (int)(0.5 * player.Precision) + " cut damage)";
             List<StatPackage> combo = decoratedSkill.BattleMove(player);
             combo.Add(response);
             return combo;
