@@ -11,12 +11,11 @@ namespace Game.Engine.Interactions.Built_In
     [Serializable]
     class HymirFriendlyStrategy : IHymirStrategy
     {
-        public void Execute(GameSession parentSession, bool visited)
+        public bool Execute(GameSession parentSession, bool complete)
         {
-            if(visited)
+            if(complete)
             {
                 parentSession.SendText("\nHello again! Pretty nice weather we have today, right?");
-                return;
             }
             else
             {
@@ -24,6 +23,7 @@ namespace Game.Engine.Interactions.Built_In
                 parentSession.SendText("They say that drinking the water from my well brings wisdom, so please let this be my gift for you.");
                 parentSession.UpdateStat(7, 500); // + 500 xp
             }
+            return true; // executing this strategy means HymirEncounter is now complete
         }
     }
 }

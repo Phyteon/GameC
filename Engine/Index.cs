@@ -163,10 +163,11 @@ namespace Game.Engine
             */
         };
 
+        public readonly static InteractionFactory QuestFactory = new GymirHymirFactory();
+
         private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
         {
             new SkillForgetFactory(),
-            new GymirHymirFactory(),
             /*new BloodFountainFactory(),
             new AltairOfOldGodFactory(),
             new BymirDymirFymirFactory(),

@@ -11,10 +11,11 @@ namespace Game.Engine.Interactions.Built_In
     [Serializable]
     class HymirNeutralStrategy : IHymirStrategy
     {
-        public void Execute(GameSession parentSession, bool visited)
+        public bool Execute(GameSession parentSession, bool complete)
         {
             parentSession.SendText("\nHello adventurer. Have you seen my brother Gymir? I haven't heard from him in ages... ");
             parentSession.SendText("In any case, I'm pretty busy right now, so perhaps you can come back later.");
+            return false; // executing this strategy means HymirEncounter is still not complete
         }
     }
 }

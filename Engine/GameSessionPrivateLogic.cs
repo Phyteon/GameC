@@ -348,6 +348,12 @@ namespace Game.Engine
             {
                 mapMatrix.Interactions[mapMatrix.Width * PlayerPosTop + PlayerPosLeft].Run();
                 if (mapMatrix.Interactions[mapMatrix.Width * PlayerPosTop + PlayerPosLeft].Enterable == false) parentPage.MovePlayer("reverse");
+                if (CurrentlyComplete >= 100) 
+                {
+                    parentPage.AddConsoleText("\n");
+                    parentPage.AddConsoleColorText("Congratulations! The quest is complete. You can end the game here or continue playing if you wish.", "blue");
+                    parentPage.AddConsoleText("\n");
+                }
             }
         }
 

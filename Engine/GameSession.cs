@@ -58,6 +58,20 @@ namespace Game.Engine
                 UpdateLocations();
             }
         }
+        public int CurrentlyComplete
+        {
+            // what percentage of the game is currently complete
+            get
+            {
+                int completeElements = 0, allElements = 0;
+                foreach(Interactions.Interaction inter in metaMapMatrix.QuestElements)
+                {
+                    allElements++;
+                    if (inter.Complete) completeElements++;
+                }
+                return (100 * completeElements) / allElements;
+            }
+        }
         public GameSession(GamePage parentPage, string playerChoice)
         {
             // core

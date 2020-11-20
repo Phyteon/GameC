@@ -29,7 +29,7 @@ namespace Game.Engine.Interactions
                 parentSession.SendText("\nYou again, thief? Just wait until my back pain gets better... ");
                 return;
             }
-            if (visited > 2) // already visited this place more than two times
+            if (visited > 0) // already visited this place 
             {
                 parentSession.SendText("\nOh, hello. Thanks for coming, but I don't have any job for you right now.");
                 return;
@@ -78,6 +78,7 @@ namespace Game.Engine.Interactions
                     parentSession.UpdateStat(8, payment); // +15 gold
                 }
                 visited++;
+                Complete = true; // this interaction is now complete
             }
             else
             {
@@ -85,6 +86,7 @@ namespace Game.Engine.Interactions
                 parentSession.AddThisItem(Index.ProduceSpecificItem("item1261")); //silver axe
                 myBrother.Strategy = new HymirHostileStrategy(); // Hymir will hear about this and he will hate you now
                 visited = -1; // Gymir will no longer let you work here
+                Complete = true; // this interaction is now complete
             }
         }
     }

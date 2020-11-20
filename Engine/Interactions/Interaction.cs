@@ -9,6 +9,11 @@ namespace Game.Engine.Interactions
     {
         protected GameSession parentSession;
         public bool Enterable { get; protected set; } = true; // display: can you enter this place?
+        public bool Complete { get; protected set; } = false; // has this interaction been completed?
+        // for quests, changing this property is mandatory and will affect the game
+        // for all other interactions, it doesn't do anything, but you can use it for your own utility purposes
+        // you can also consider removing an interaction after it has been completed (optional)
+
         public Interaction(GameSession ses)
         {
             parentSession = ses;

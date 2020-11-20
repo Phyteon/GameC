@@ -8,6 +8,6 @@ namespace Game.Engine.Interactions.Built_In
 {
     interface IHymirStrategy
     {
-        void Execute(GameSession ses, bool visited);
+        bool Execute(GameSession ses, bool Complete);
     }
 }

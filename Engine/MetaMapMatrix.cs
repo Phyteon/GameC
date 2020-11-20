@@ -19,6 +19,7 @@ namespace Game.Engine
        
         private GameSession parentSession;
         private List<Interaction> interactionList;
+        public List<Interaction> QuestElements { get; private set; }
         // connections between maps
         private int[,] adjacencyMatrix = new int[maps, maps];
         private int[] visited;
@@ -119,8 +120,10 @@ namespace Game.Engine
         private void GenerateInteractions()
         {
             interactionList = new List<Interaction>();
+            QuestElements = Index.QuestFactory.CreateInteractionsGroup(parentSession);
+            interactionList.AddRange(QuestElements);
             for (int i = 0; i < shops; i++) interactionList.Add(new ShopInteraction(parentSession));
-            for (int i = shops; i < interactions; i++)
+            for (int i = shops + QuestElements.Count; i < interactions; i++) 
             {
                 List<Interaction> tmp = Index.DrawInteractions(parentSession);
                 if (tmp != null) interactionList.AddRange(tmp);

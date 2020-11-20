@@ -11,11 +11,12 @@ namespace Game.Engine.Interactions.Built_In
     [Serializable]
     class HymirHostileStrategy : IHymirStrategy
     {
-        public void Execute(GameSession parentSession, bool visited)
+        public bool Execute(GameSession parentSession, bool complete)
         {
             parentSession.SendText("\nHello adventurer. Wait, you must be the person who robbed my older brother Gymir! You will regret that.");
             parentSession.SendText("Quickly Charlie, get him!");
             parentSession.FightRandomMonster();
+            return true; // executing this strategy means HymirEncounter is now complete
         }
     }
 }

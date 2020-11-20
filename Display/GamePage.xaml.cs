@@ -415,6 +415,11 @@ namespace Game.Display
                 }
             }
 
+            if (e.Key == Key.Q)
+            {
+                AddConsoleColorText("Quest info: " + currentSession.CurrentlyComplete + "% complete", "blue");
+            }
+
         }
 
     }

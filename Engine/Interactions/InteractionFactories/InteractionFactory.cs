@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Engine.Interactions.InteractionFactories
 {
-    interface InteractionFactory
+    public interface InteractionFactory
     {
         List<Interaction> CreateInteractionsGroup(GameSession parentSession);
     }

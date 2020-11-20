@@ -13,7 +13,6 @@ namespace Game.Engine.Interactions
     [Serializable]
     class HymirEncounter : ConsoleInteraction
     {
-        private bool visited = false; // has this place been visited?
         public IHymirStrategy Strategy { get; set; } // store strategy 
         public HymirEncounter(GameSession ses) : base(ses)
         {
@@ -22,8 +21,7 @@ namespace Game.Engine.Interactions
         }
         protected override void RunContent()
         {
-            Strategy.Execute(parentSession, visited); // execute strategy
-            visited = true;
+            Complete = Strategy.Execute(parentSession, Complete); // execute strategy and check if we reached the end of this interaction
         }
     }
 }
