@@ -14,7 +14,7 @@ namespace Game.Engine.Skills
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Soul Eater: 0.4*MP fire damage gives you 0.1*MP health points during battle AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

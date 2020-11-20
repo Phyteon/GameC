@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
         public RollAndBackStab() : base("RollAndBackStab", 40, 5)
         {
             PublicName = "Roll and stab in the back [requires spear]: 0.2*Pr damage [incised] and then 0.3*Str + 0.3*Pr damage [cut]";
-            RequiredItem = Skill.MainItem.Spear;
+            RequiredItem = RequiredItem.Spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

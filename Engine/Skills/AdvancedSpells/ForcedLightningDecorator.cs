@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.BasicSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO: Forced Lightning - UNLIMITED POWER (5-10*MP) 10% chance to hurt self" + skill.PublicName;
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

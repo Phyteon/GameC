@@ -237,6 +237,12 @@ namespace Game.Engine
             // add new monster factory to a random place in the game
             metaMapMatrix.AddMonsterToRandomMap(monsterFactory);
         }
+        public void AddInteractionToMap(Interaction interaction)
+        {
+            // add new interaction to a random place in the game
+            // remember to set all important parameters inside the interaction first
+            metaMapMatrix.AddInteractionToRandomMap(interaction);
+        }
 
         /***************************        PLAYER STATISTICS      ***************************/
         public void UpdateStat(int number, int value)

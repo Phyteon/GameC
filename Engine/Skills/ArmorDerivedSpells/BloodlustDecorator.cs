@@ -11,7 +11,7 @@ namespace Game.Engine.Skills
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Bloodlust: dameges a target for 10% of their health and restores that amount to you AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
 
         public override List<StatPackage> BattleMove(Player player)

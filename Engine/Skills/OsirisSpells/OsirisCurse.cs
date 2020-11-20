@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.OsirisMoves
         public OsirisCurse() : base("Osiris Curse", 20, 2)
         {
             PublicName = "Osiris Curse [requires staff]: 0.2*Str + 0.2*MagPwr damage [poison] + random god`s help [fire + armor damage, water + precision damage, earth + strength damage, air + magic power damage]";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
 
         public override List<StatPackage> BattleMove(Player player)

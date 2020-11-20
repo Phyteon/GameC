@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.SkillWeaponMoves
         public DoubleAxeCut() : base("Double Axe Cut", 30, 3)
         {
             PublicName = "Double Axe Cut: a chance equal to your Precission stat to make two times bigger damage";
-            RequiredItem = Skill.MainItem.Axe;
+            RequiredItem = RequiredItem.Axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

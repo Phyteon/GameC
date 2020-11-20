@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.WaterSpells
         public OceanWave() : base("Ocean Wave", 15, 3)
         {
             PublicName = "Ocean Wave: 0.4*MP + 0.1*STR damage [water]"; 
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

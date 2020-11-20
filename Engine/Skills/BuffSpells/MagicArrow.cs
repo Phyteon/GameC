@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
         public MagicArrow(): base("Magic Arrow",30,2)
         {
             PublicName = "Magic Arrow: deal 0.6*MP damage [air], but if your precision skill is high enough you can deal 1*MP damage [air]";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
 
         public override List<StatPackage> BattleMove(Player player)

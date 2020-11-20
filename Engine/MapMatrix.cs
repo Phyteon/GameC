@@ -21,8 +21,8 @@ namespace Game.Engine
     class MapMatrix
     {
         // map parameters
-        private int monsters = 6;
-        private int walls = 10;
+        private int monsters;
+        private int walls;
 
         // other fields and properties
         private Random rng;
@@ -36,9 +36,11 @@ namespace Game.Engine
         public int Width { get; set; } = 25;
         public int Height { get; set; } = 20;
 
-        public MapMatrix(GameSession parent, List<int> portals, List<Interaction> inters, int randomCode)
+        public MapMatrix(GameSession parent, List<int> portals, List<Interaction> inters, int randomCode, (int, int) mapParams)
         {
             parentSession = parent;
+            monsters = mapParams.Item1;
+            walls = mapParams.Item2;
             Matrix = new int[Height, Width];
             rng = new Random(randomCode);
             // make map walkable
@@ -225,7 +227,7 @@ namespace Game.Engine
         }
 
         // utility
-        private bool ValidPlace(int x, int y)
+        public bool ValidPlace(int x, int y)
         {
             if (x < 1 || y < 1 || x > Width - 2 || y > Height - 2) return false;
             if (Matrix[y, x] > 2000) return false;

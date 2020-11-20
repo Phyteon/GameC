@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.BasicSpells
         public LifeDrain() : base("spell0583", 5, 4)
         {
             PublicName = "Life drain - drains the enemy vital energy and replenishes HP and stamina";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

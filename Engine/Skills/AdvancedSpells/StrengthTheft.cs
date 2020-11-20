@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.MoreSpells
         public StrengthTheft() : base("Strength theft", 20, 2)
         {
             PublicName = "Steal 15 strength poins from monster [theft]";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

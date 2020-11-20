@@ -28,7 +28,7 @@ namespace Game.Engine.Interactions
             parentSession.SendText("\nDrinking from this fountain can help you forget about one of your skills.");
             if (choices.Count > 1)
             {
-                choices.Add("Thank you, I have changed my mind");
+                choices.Add("Thank you, I've changed my mind");
                 int a = GetListBoxChoice(choices);
                 if (a < choices.Count - 1) parentSession.currentPlayer.ListOfSkills.RemoveAt(a);
             }

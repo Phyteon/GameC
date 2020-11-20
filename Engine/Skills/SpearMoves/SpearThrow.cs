@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
         public SpearThrow() : base("Spear Throw", 15, 1)
         {
             PublicName = "Spear throw [requires spear]: 0.5*Pr damage [cut]";
-            RequiredItem = Skill.MainItem.Spear;
+            RequiredItem = RequiredItem.Spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

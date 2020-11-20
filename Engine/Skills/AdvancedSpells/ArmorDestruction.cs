@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.MoreSpells
         public ArmorDestruction() : base("Armor destruction", 20, 2)
         {
             PublicName = "Armor destruction: 50% chance to ruin monster's armor [magic]";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.SkillWeaponMoves
         public JumpAxeCut() : base("Jump Axe Cut", 20, 2)
         {
             PublicName = "Jump Axe Cut: a chance equal to your Precission stat to make 1,5 times bigger damage";
-            RequiredItem = Skill.MainItem.Axe;
+            RequiredItem = RequiredItem.Axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

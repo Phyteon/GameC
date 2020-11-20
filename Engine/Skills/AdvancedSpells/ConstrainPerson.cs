@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.BasicSpells
         public ConstrainPerson() : base("spell0581", 10, 4)
         {
             PublicName = "Constrain person - takes a random amount of strength from the enemy 10+(0-4)*MP";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

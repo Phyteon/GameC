@@ -10,7 +10,7 @@ namespace Game.Engine.Skills.AdvancedWeaponMoves
         public EagleEye() : base("Eagle Eye", 30, 5)
         {
             PublicName = "Eagle Eye: + 30 Pr, + 10 Str, + 10 Armor";
-            RequiredItem = Skill.MainItem.Spear;
+            RequiredItem = RequiredItem.Spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

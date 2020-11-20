@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
         public StoneSkin(): base("Stone Skin", 15, 1)
         {
             PublicName = "Stone Skin: increase your armor stats by 30 + your current armor stat/4! [earth]";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
 
         public override List<StatPackage> BattleMove(Player player)

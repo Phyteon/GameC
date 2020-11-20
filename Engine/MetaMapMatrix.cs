@@ -8,13 +8,16 @@ namespace Game.Engine
     [Serializable]
     class MetaMapMatrix
     {
+        // world parameters
+        private const int maps = 2; // how many maps in total in the game world // must be minimum 2 or display may break
+        private const int minPortals = 1; // number of portals
+        private const int shops = 1; // number of shops in the game world
+        private const int interactions = 1; // number of all interactions (including shops) in the game world (can be slightly bigger due to quest constraints)
+        private const int monsters = 6; // monsters per single map
+        private const int walls = 20; // approximate number of walls per single map (not guaranteed due to movement constraints)
+        
+       
         private GameSession parentSession;
-        // how many maps in total in the game world
-        private const int maps = 2;
-        private int minPortals = 1;
-        // interactions
-        private int shops = 1; // number of shops in the game world
-        private int interactions = 1; // number of all interactions (including shops) in the game world (can be slightly bigger due to quest constraints)
         private List<Interaction> interactionList;
         // connections between maps
         private int[,] adjacencyMatrix = new int[maps, maps];
@@ -65,7 +68,7 @@ namespace Game.Engine
                         interactionList.RemoveAt(index);
                     }
                 }
-                matrix[i] = new MapMatrix(parentSession, MakePortalsList(i), tmp, rng.Next(1000 * maps));
+                matrix[i] = new MapMatrix(parentSession, MakePortalsList(i), tmp, rng.Next(1000 * maps), (monsters, walls));
             }
         }
 
@@ -79,25 +82,6 @@ namespace Game.Engine
         {
             // for display when portal hopping
             return lastNumber;
-        }
-
-        public void AddMonsterToRandomMap(Monsters.MonsterFactories.MonsterFactory factory)
-        {
-            int mapNumber = Index.RNG(0, maps); // generate random map number
-            // write value to the map matrix and update Monsters dict
-            while (true) 
-            {
-                int x = Index.RNG(2, matrix[mapNumber].Width - 2);
-                int y = Index.RNG(2, matrix[mapNumber].Height - 2);
-                if (matrix[mapNumber].Matrix[y, x] != 1)
-                {
-                    continue;
-                }
-                matrix[mapNumber].Matrix[y, x] = 1000;
-                matrix[mapNumber].MonDict.Add(matrix[mapNumber].Width * y + x, factory);
-                break;
-            }
-            parentSession.RefreshMonstersDisplay();
         }
 
         private bool CheckConnectivity()
@@ -142,5 +126,44 @@ namespace Game.Engine
                 if (tmp != null) interactionList.AddRange(tmp);
             }
         }
+
+        // in-game map modifications
+        public void AddMonsterToRandomMap(Monsters.MonsterFactories.MonsterFactory factory)
+        {
+            int mapNumber = currentNumber;
+            while (mapNumber == currentNumber) mapNumber = Index.RNG(0, maps); // random map other than the current one
+            while (true)
+            {
+                int x = Index.RNG(2, matrix[mapNumber].Width - 2);
+                int y = Index.RNG(2, matrix[mapNumber].Height - 2);
+                if (!matrix[mapNumber].ValidPlace(x, y))
+                {
+                    continue;
+                }
+                matrix[mapNumber].Matrix[y, x] = 1000;
+                matrix[mapNumber].MonDict.Add(matrix[mapNumber].Width * y + x, factory);
+                break;
+            }
+        }
+
+        public void AddInteractionToRandomMap(Interaction interaction)
+        {
+            int mapNumber = currentNumber;
+            while(mapNumber == currentNumber ) mapNumber = Index.RNG(0, maps); // random map other than the current one
+            while(true)
+            {
+                int x = Index.RNG(2, matrix[mapNumber].Width - 2);
+                int y = Index.RNG(2, matrix[mapNumber].Height - 2);
+                if(!matrix[mapNumber].ValidPlace(x,y))
+                {
+                    continue;
+                }
+                if (matrix[mapNumber].Interactions.ContainsKey(matrix[mapNumber].Width * y + x)) continue;
+                matrix[mapNumber].Interactions.Add(matrix[mapNumber].Width * y + x, interaction);
+                matrix[mapNumber].Matrix[y, x] = 3000 + Int32.Parse(interaction.Name.Replace("interaction", ""));
+                break;
+            }
+        }
+
     }
 }

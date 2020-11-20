@@ -12,7 +12,7 @@ namespace Game.Engine.Skills.BasicSkills
         public FireArrow() : base("Fire Arrow", 20, 1)
         { 
             PublicName = "Fire Arrow: a chance equal to your Precision stat to land 0.5*MP damage [fire]";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

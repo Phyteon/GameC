@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 2;
             PublicName = "double basic sword slash [requires sword]: 0.2*Str + 0.2*Pr damage [cut] and 0.2*Str + 0.2*Pr damage [incised]";
-            RequiredItem = Skill.MainItem.Sword;
+            RequiredItem = RequiredItem.Sword;
         }
 
         public override List<StatPackage> BattleMove(Player player)

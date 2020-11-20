@@ -13,7 +13,7 @@ namespace Game.Engine.Skills.OsirisMoves
         public MummySpell() : base("Mummy Spell", 20, 1)
         {
             PublicName = " MummySpell [requires staff]: decrease enemy strength, precision, health stats by 10 [poison] ";
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

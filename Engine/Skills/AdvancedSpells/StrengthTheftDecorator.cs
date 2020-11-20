@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.MoreSpells
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 2;
             PublicName = "COMBO - Steal 15 strength poins from monster [theft] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.AdvancedWeaponTechniques
         {
             MinimumLevel = Math.Max(4, skill.MinimumLevel) + 1;
             PublicName = "COMBO - Spear-whirl [requires spear]: 0.3*Str + 0.4*Pr damage [cut] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.Spear;
+            RequiredItem = RequiredItem.Spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

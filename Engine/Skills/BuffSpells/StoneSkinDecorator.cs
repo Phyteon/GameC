@@ -15,7 +15,7 @@ namespace Game.Engine.Skills.SomeSeriousSpells
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
             PublicName = "Stone Skin: increase your armor stats by 30 + your current armor stat/4! [earth] AND"
             + decoratedSkill.PublicName.Replace("COMBO: ", "");
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

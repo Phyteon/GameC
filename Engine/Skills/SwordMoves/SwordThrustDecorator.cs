@@ -14,7 +14,7 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 2;
             PublicName = "Sword Thrust [requires sword]: 0.1*Str + 0.3*Pr damage [cut]";
-            RequiredItem = Skill.MainItem.Sword;
+            RequiredItem = RequiredItem.Sword;
         }
 
         public override List<StatPackage> BattleMove(Player player)

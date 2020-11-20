@@ -16,7 +16,7 @@ namespace Game.Engine.Skills.UpgradedWeaponMoves
         public EnchantedSlash() : base("Enchanted Slash", 30, 2)
         {
             PublicName = "Enchanted Slash [requires sword]: {(0.2*Str + 0.2*Pr) damage [cut] and (0.2*Str + 0.2*Pr) damage [incised]}*random value from 1 to 5";
-            RequiredItem = Skill.MainItem.Sword;
+            RequiredItem = RequiredItem.Sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {

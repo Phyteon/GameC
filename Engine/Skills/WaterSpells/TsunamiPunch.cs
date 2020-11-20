@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.WaterSpells
         public TsunamiPunch() : base("Tsunami Punch", 20, 5)
         {
             PublicName = "Tsunami Punch: decrease enemy strength stat by 10 and land 0.3*MP damage [water]"; 
-            RequiredItem = Skill.MainItem.Staff;
+            RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
