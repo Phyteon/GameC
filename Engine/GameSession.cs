@@ -152,7 +152,7 @@ namespace Game.Engine
                 }
                 startGame = false;
             }
-            else
+            else if (codeNumber >= 0)
             {
                 bool found = false;
                 for (int x = mapMatrix.Width - 2; x > 2; x--)

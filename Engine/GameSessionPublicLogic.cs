@@ -243,6 +243,14 @@ namespace Game.Engine
             // remember to set all important parameters inside the interaction first
             metaMapMatrix.AddInteractionToRandomMap(interaction);
         }
+        public void RemoveCurrentlyVisitedInteraction()
+        {
+            // permanently remove currently visited interaction from the game
+            // can be used if your interaction has been completed and is no longer needed
+            // not intended for monsters or other map elements
+            mapMatrix.Matrix[PlayerPosTop, PlayerPosLeft] = 1;
+            InitializeMapDisplay(-1);
+        }
 
         /***************************        PLAYER STATISTICS      ***************************/
         public void UpdateStat(int number, int value)

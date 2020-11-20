@@ -217,6 +217,10 @@ namespace Game.Engine
         {
             scene.EndDisplay();
         }
+        public void DestroyInteraction(Interaction interaction)
+        {
+            // for permanently removing interactions
+        }
         public void ListAllItemsCost()
         {
             // for selling items

@@ -167,7 +167,7 @@ namespace Game.Engine
         {
             new SkillForgetFactory(),
             new GymirHymirFactory(),
-            new BloodFountainFactory(),
+            /*new BloodFountainFactory(),
             new AltairOfOldGodFactory(),
             new BymirDymirFymirFactory(),
             new CymirCaveFactory(),
@@ -179,7 +179,7 @@ namespace Game.Engine
             new GuitarQuestFactory(),
             new PrincessQuestFactory(),
             new LootingLuteFactory(),
-            new TroubadourFactory(),
+            new TroubadourFactory(),*/
         };
 
     }
