@@ -23,6 +23,7 @@ namespace Game.Engine
         private MapMatrix mapMatrix;
         private List<int> itemPositions; // all item positions
         private List<Item> items; // active items only
+        private bool startGame = true; // is the game starting?
         [NonSerialized] private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         [NonSerialized] private System.Windows.Forms.Timer timerPlayer = new System.Windows.Forms.Timer();
         public Player currentPlayer { get; set; }
@@ -131,7 +132,7 @@ namespace Game.Engine
                 }
             }
             // move player
-            if (codeNumber == 0)
+            if (startGame)
             {
                 bool found = false;
                 for (int x = mapMatrix.Width - 2; x > 2; x--)
@@ -149,10 +150,10 @@ namespace Game.Engine
                     }
                     if (found) break;
                 }
+                startGame = false;
             }
-            else if (codeNumber > 0)
+            else
             {
-                //SendText(codeNumber.ToString());
                 bool found = false;
                 for (int x = mapMatrix.Width - 2; x > 2; x--)
                 {
