@@ -11,8 +11,6 @@ using Game.Engine.Items.Amulet;
 using Game.Engine.Items.OsirisArmor;
 using Game.Engine.Items.AmuletsAndPotions;
 using Game.Engine.Items.Shield;
-using Game.Engine.Items.Attributes;
-using Game.Engine.Interactions.TroubadourQuest;
 
 namespace Game.Engine
 {
@@ -97,11 +95,7 @@ namespace Game.Engine
             new MagnificentCape(),
             new SingleUseArmor(),
             new StylisedFlatIron(),
-            // quest items start here
-            new Flute(),
-            new Kithara(),
-            new Lyre(),
-            new Lute(),
+            // quest items (if applicable) start below
         };
 
         private static List<ItemFactory> itemFactories = new List<ItemFactory>()
@@ -168,19 +162,6 @@ namespace Game.Engine
         private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
         {
             new SkillForgetFactory(),
-            /*new BloodFountainFactory(),
-            new AltairOfOldGodFactory(),
-            new BymirDymirFymirFactory(),
-            new CymirCaveFactory(),
-            new EgyptianInteractionFactory(),
-            new MusesFactory(),
-            new MageQuestFactory(),
-            new OldManMysticQuestFactory(),
-            new EchionNoicheFactory(),
-            new GuitarQuestFactory(),
-            new PrincessQuestFactory(),
-            new LootingLuteFactory(),
-            new TroubadourFactory(),*/
         };
 
     }

@@ -132,121 +132,12 @@
     <Compile Include="Engine\Interactions\Built-In\IHymirStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\SkillForgetInteraction.cs" />
     <Compile Include="Engine\Interactions\PlayerInteraction.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\DragonFireEncounter.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\EchionEncounter.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\INoicheStrategy.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\ITempleStrategy.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\NoicheEncounter.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\NoicheFriendlyStrategy.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\NoicheFriendlyStrategy2.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\NoicheHostileStrategy.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\NoicheHostileStrategy2.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\NoicheHostileStrategy3.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\NoicheNeutralStrategy.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\TempleEncounter.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\TempleHostileStrategy.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\TempleHostileStrategy2.cs" />
-    <Compile Include="Engine\Interactions\EchionNoicheQuest\TempleNeutralStrategy.cs" />
-    <Compile Include="Engine\Interactions\GuitarQuest\AdvelarInteraction.cs" />
-    <Compile Include="Engine\Interactions\GuitarQuest\BeggarInteraction.cs" />
-    <Compile Include="Engine\Interactions\GuitarQuest\EEEEEG.cs" />
-    <Compile Include="Engine\Interactions\GuitarQuest\KellanInteraction.cs" />
-    <Compile Include="Engine\Interactions\GuitarQuest\LeonardoInteraction.cs" />
-    <Compile Include="Engine\Interactions\GuitarQuest\MellanInteraction.cs" />
-    <Compile Include="Engine\Interactions\GuitarQuest\StringOnGroundInteraction.cs" />
-    <Compile Include="Engine\Interactions\Egyptian\DeathCommand.cs" />
-    <Compile Include="Engine\Interactions\Egyptian\HorusEncounter.cs" />
-    <Compile Include="Engine\Interactions\Egyptian\ICommand.cs" />
-    <Compile Include="Engine\Interactions\Egyptian\IGod.cs" />
-    <Compile Include="Engine\Interactions\Egyptian\OsirisEncounter.cs" />
-    <Compile Include="Engine\Interactions\Egyptian\RaaEncounter.cs" />
-    <Compile Include="Engine\Interactions\Egyptian\SethEncounter.cs" />
-    <Compile Include="Engine\Interactions\Egyptian\SphinxEncounter.cs" />
     <Compile Include="Engine\Interactions\InteractionWithImage.cs" />
     <Compile Include="Engine\Interactions\Interaction.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\AltairOfOldGodFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\BloodFountainFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\BymirDymirFymirFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\CymirCaveFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\GuitarQuestFactory.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\GymirHymirFactory.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\InteractionFactory.cs" />
     <Compile Include="Engine\Interactions\Built-In\ShopInteraction.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\EgyptianInteractionFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\LootingLuteFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\MageQuestFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\EchionNoicheFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\OldManMysticQuestFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\MusesFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\PrincessQuestFactory.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\SkillForgetFactory.cs" />
-    <Compile Include="Engine\Interactions\InteractionFactories\TroubadourFactory.cs" />
-    <Compile Include="Engine\Interactions\LootingLute\CaveEncounter.cs" />
-    <Compile Include="Engine\Interactions\LootingLute\CaveFriendlyStrategy.cs" />
-    <Compile Include="Engine\Interactions\LootingLute\CaveHostileStrategy.cs" />
-    <Compile Include="Engine\Interactions\LootingLute\CaveNeutralStrategy.cs" />
-    <Compile Include="Engine\Interactions\LootingLute\ICaveStrategy.cs" />
-    <Compile Include="Engine\Interactions\LootingLute\SewersEncounter.cs" />
-    <Compile Include="Engine\Interactions\LootingLute\StudentHouseEncounter.cs" />
-    <Compile Include="Engine\Interactions\LootingLute\TavernEncounter.cs" />
-    <Compile Include="Engine\Interactions\MageQuest\FriendlyMage.cs" />
-    <Compile Include="Engine\Interactions\MageQuest\FriendlyWarrior.cs" />
-    <Compile Include="Engine\Interactions\MageQuest\HelpfulMage.cs" />
-    <Compile Include="Engine\Interactions\MageQuest\PhoenixNest.cs" />
-    <Compile Include="Engine\Interactions\MageQuest\Sanctuary.cs" />
-    <Compile Include="Engine\Interactions\MageQuest\Smith.cs" />
-    <Compile Include="Engine\Interactions\MageQuest\SpiderCave.cs" />
-    <Compile Include="Engine\Interactions\Misc\AltairOfOldGod.cs" />
-    <Compile Include="Engine\Interactions\Misc\BloodFountainInteraction.cs" />
-    <Compile Include="Engine\Interactions\Muses\ApolloEncounter.cs" />
-    <Compile Include="Engine\Interactions\Muses\EratoEncounter.cs" />
-    <Compile Include="Engine\Interactions\Muses\EuterpeEncounter.cs" />
-    <Compile Include="Engine\Interactions\Muses\Items\Flute.cs" />
-    <Compile Include="Engine\Interactions\Muses\Items\Kithara.cs" />
-    <Compile Include="Engine\Interactions\Muses\Items\Lyre.cs" />
-    <Compile Include="Engine\Interactions\Muses\PolyhymniaEncounter.cs" />
-    <Compile Include="Engine\Interactions\Muses\TerpsichoreEncounter.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\Boss3Encounter.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\Boss4Encounter.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\ButterflyBoss.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\Cacofonix.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\Clef.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\FriendlyCacofonixStrategy.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\IBoss.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\ICacofonixStrategy.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\IMysticStrategy.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\IOldMan.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\Mystic.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\MysticFrendlyStrategy.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\MysticHostileStrategy.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\NeutralCacofonixStrategy.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\OldMan.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\OldManMonster.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\RagedOldManMonster.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\SpiderBoss.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\Treasury.cs" />
-    <Compile Include="Engine\Interactions\OldManMysticQuest\UnfriendlyCacofonixStrategy.cs" />
-    <Compile Include="Engine\Interactions\PrincessQuest\IMageStrategy.cs" />
-    <Compile Include="Engine\Interactions\PrincessQuest\KingEncounter.cs" />
-    <Compile Include="Engine\Interactions\PrincessQuest\MageEncounter.cs" />
-    <Compile Include="Engine\Interactions\PrincessQuest\MageHostileStrategy.cs" />
-    <Compile Include="Engine\Interactions\PrincessQuest\MageNeutralStrategy.cs" />
-    <Compile Include="Engine\Interactions\PrincessQuest\RingCreatureEncounter.cs" />
-    <Compile Include="Engine\Interactions\PrincessQuest\SmithEncounter.cs" />
-    <Compile Include="Engine\Interactions\PrincessQuest\TowerEncounter.cs" />
-    <Compile Include="Engine\Interactions\TrollBrothers\BymirEncounter.cs" />
-    <Compile Include="Engine\Interactions\TrollBrothers\CaveEncounter.cs" />
-    <Compile Include="Engine\Interactions\TrollBrothers\CaveNormalStrategy.cs" />
-    <Compile Include="Engine\Interactions\TrollBrothers\CaveQuestStrategy.cs" />
-    <Compile Include="Engine\Interactions\TrollBrothers\CymirEncounter.cs" />
-    <Compile Include="Engine\Interactions\TrollBrothers\DymirEncounter.cs" />
-    <Compile Include="Engine\Interactions\TrollBrothers\FymirEncounter.cs" />
-    <Compile Include="Engine\Interactions\TrollBrothers\ICave.cs" />
-    <Compile Include="Engine\Interactions\TroubadourQuest\Information1.cs" />
-    <Compile Include="Engine\Interactions\TroubadourQuest\Information2.cs" />
-    <Compile Include="Engine\Interactions\TroubadourQuest\Lute.cs" />
-    <Compile Include="Engine\Interactions\TroubadourQuest\Troubadour.cs" />
-    <Compile Include="Engine\Interactions\TroubadourQuest\VillageInFlames.cs" />
     <Compile Include="Engine\Items\Amulets\AmuletOfHealing.cs" />
     <Compile Include="Engine\Items\Amulets\AmuletOfNegotiation.cs" />
     <Compile Include="Engine\Items\Amulets\AntiPoisonAmulet.cs" />
@@ -721,97 +612,21 @@
     <Resource Include="Display\Assets\Items\item0620.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction0820.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0821.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0822.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0823.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0824.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction1360.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1361.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1362.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1363.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1364.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Display\Assets\Items\item1363.png" />
     <Resource Include="Display\Assets\Items\item1364.png" />
     <Resource Include="Display\Assets\Items\item1365.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction1140.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1141.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1142.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1143.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1144.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction0681.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction1120.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1121.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1122.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1123.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1124.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1125.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1126.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction0973.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction0341.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0343.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0344.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0349.png" />
     <Resource Include="Display\Assets\Monsters\monster0345.png" />
     <Resource Include="Display\Assets\Monsters\monster0346.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction0267.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0268.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0270.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0271.png" />
     <Resource Include="Display\Assets\Items\item0269.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction1280.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1281.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1282.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1283.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction0581.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0582.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0583.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0584.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0585.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0588.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0590.png" />
     <Resource Include="Display\Assets\Items\item0590.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction1080.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1081.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1082.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1083.png" />
-    <Resource Include="Display\Assets\Interactions\interaction1084.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction0620.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0621.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0622.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0623.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Interactions\interaction0540.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0541.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0542.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0542display.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0543.png" />
-    <Resource Include="Display\Assets\Interactions\interaction0543display.png" />
     <Resource Include="Display\Assets\Items\item0544.png" />
   </ItemGroup>
   <ItemGroup>
