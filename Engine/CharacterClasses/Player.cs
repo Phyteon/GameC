@@ -120,7 +120,11 @@ namespace Game.Engine.CharacterClasses
         protected Player(GameSession ses) // for derived classes
         {
             parentSession = ses;
-            ListOfSkills = new List<Skill>() { new RunAway() };
+
+            // this has to be the first skill 
+            // if you need to change this, change SkillForgetInteraction as well
+            ListOfSkills = new List<Skill>() { new RunAway() }; 
+           
             Name = "player";
             Level = 1;  
         }

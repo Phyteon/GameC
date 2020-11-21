@@ -69,6 +69,7 @@ namespace Game.Engine
                     allElements++;
                     if (inter.Complete) completeElements++;
                 }
+                if (allElements == 0) return 0;
                 return (100 * completeElements) / allElements;
             }
         }

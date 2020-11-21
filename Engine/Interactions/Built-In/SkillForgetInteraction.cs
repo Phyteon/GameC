@@ -26,11 +26,12 @@ namespace Game.Engine.Interactions
                 choices.Add(sk.ToString());
             }
             parentSession.SendText("\nDrinking from this fountain can help you forget about one of your skills.");
-            if (choices.Count > 1)
+            if (choices.Count > 2)
             {
+                choices.RemoveAt(0); // remove running away, which is always first on the list
                 choices.Add("Thank you, I've changed my mind");
                 int a = parentSession.GetListBoxChoice(choices);
-                if (a < choices.Count - 1) parentSession.currentPlayer.ListOfSkills.RemoveAt(a);
+                if (a < choices.Count - 1) parentSession.currentPlayer.ListOfSkills.RemoveAt(a + 1);
             }
             else parentSession.SendText("However, you only know one skill currently. Your mind is already calm and simple, so the fountain water will not change you.");
         }
