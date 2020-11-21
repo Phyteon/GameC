@@ -2,11 +2,10 @@
 using Game.Engine.CharacterClasses;
 using Game.Engine.Items;
 using Game.Engine.Skills;
-using System.Collections.Generic;
-using System;
-using Game.Engine.Skills.BasicWeaponMoves;
 using Game.Engine.Skills.BasicSkills;
-using System.Windows.Documents;
+using Game.Engine.Skills.BasicWeaponMoves;
+using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 
 namespace Game.Engine
@@ -169,8 +168,7 @@ namespace Game.Engine
             }
             else if (codeNumber >= 0)
             {
-                bool found = false;
-                for (int x = mapMatrix.Width - 2; x > 2; x--)
+                for (int x = mapMatrix.Width - 2; x >= 2; x--)
                 {
                     for (int y = 2; y < mapMatrix.Height - 2; y++)
                     {
@@ -183,7 +181,6 @@ namespace Game.Engine
                             break;
                         }
                     }
-                    if (found) break;
                 }
             }
             Grid.SetColumn(parentPage.Player, playerPosLeft);
