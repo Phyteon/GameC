@@ -30,7 +30,6 @@ namespace Game.Engine
 
         public Dictionary<int, MonsterFactory> MonDict;
         public Dictionary<int, Monster> MemorizedMonsters { get; set; }
-        public Dictionary<int, Image> MemorizedMonsterImages { get; set; }
         public Dictionary<int, Interaction> Interactions { get; private set; }
         public int[,] Matrix { get; set; }
         public int Width { get; set; } = 25;
@@ -64,7 +63,6 @@ namespace Game.Engine
             // initialize 
             InitializeFactoryList();
             MemorizedMonsters = new Dictionary<int, Monster>();
-            MemorizedMonsterImages = new Dictionary<int, Image>();
         }
 
         private void InitializeFactoryList()
@@ -94,7 +92,7 @@ namespace Game.Engine
         }
         public Image HintMonsterImage(int x, int y)
         {
-            if (MemorizedMonsterImages.ContainsKey(y * Width + x) && MemorizedMonsterImages[y * Width + x] != null) return MemorizedMonsterImages[y * Width + x];
+            if (MemorizedMonsters.ContainsKey(y * Width + x) && MemorizedMonsters[y * Width + x] != null) return MemorizedMonsters[y * Width + x].GetImage();
             if (MonDict.ContainsKey(y * Width + x) && MonDict[y * Width + x] != null)
             {
                 return MonDict[y * Width + x].Hint();
