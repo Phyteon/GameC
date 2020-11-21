@@ -10,7 +10,7 @@ namespace Game.Engine.Interactions.Misc
 {
     
     [Serializable]
-    class AltairOfOldGod : ListBoxInteraction
+    class AltairOfOldGod : PlayerInteraction
     {
        
         private int visited = 0;
@@ -29,7 +29,7 @@ namespace Game.Engine.Interactions.Misc
   
             parentSession.SendText("\nSo there is an Altair Of An Old God. Maybe I can get some benefits from that?");
     
-            int choice = GetListBoxChoice(new List<string>() { "I will sacrifice some of my blood", "Maybe I do not need to sacrifice my blood?", "No, I will be back here later!" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "I will sacrifice some of my blood", "Maybe I do not need to sacrifice my blood?", "No, I will be back here later!" });
             switch (choice)
             {
                 case 0:
@@ -37,7 +37,7 @@ namespace Game.Engine.Interactions.Misc
                     break;
                 case 1:
                     parentSession.SendText("But there is a sign! You need to sacrifice something if you want to get Its attention!");
-                    int choice2 = GetListBoxChoice(new List<string>() { "Okay. So I will sacrifice my blood.", "No, I do not want to do this! I will destroy this Altair Of An Old God!" });
+                    int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Okay. So I will sacrifice my blood.", "No, I do not want to do this! I will destroy this Altair Of An Old God!" });
                     if (choice2 == 0)
                     {
                         Sacrifice();
@@ -59,7 +59,7 @@ namespace Game.Engine.Interactions.Misc
         {
             health = 10;
             parentSession.SendText("What can i get from you?");
-            int choice = GetListBoxChoice(new List<string>() { "Get strength! [10 HP]", "Get precision! [10 HP]","Get stamina! [10 HP]","No! I want to destroy this Altair Of Old God!" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Get strength! [10 HP]", "Get precision! [10 HP]","Get stamina! [10 HP]","No! I want to destroy this Altair Of Old God!" });
             if (choice == 0)
             {
                 parentSession.SendText("You feel that you are losing your health, but you gain more strength!");

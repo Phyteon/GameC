@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 namespace Game.Engine.Interactions.Muses
 {
     [Serializable]
-    class ApolloEncounter : ListBoxInteraction
+    class ApolloEncounter : PlayerInteraction
     {
         public bool isQuestActive = false;
         public bool isQuestEnd = false;
@@ -53,7 +53,7 @@ namespace Game.Engine.Interactions.Muses
             if (meetPolyhymnia1 == true && meetPolyhymnia2 == false) //when we find out about the stolen Lyre
             {
                 parentSession.SendText("\nApollo: Hello! What's going on?");
-                int choice = GetListBoxChoice(new List<string>() { "Why didn't you mention the stolen Lyre?", });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Why didn't you mention the stolen Lyre?", });
                 switch (choice)
                 {
                     default:
@@ -87,7 +87,7 @@ namespace Game.Engine.Interactions.Muses
             parentSession.SendText("The curse that was cast on the village caused great chaos in the word of gods.");
             parentSession.SendText("My dear Muses argued and I can't reconcile them in any way.");
             parentSession.SendText("Do you want to help me? Of course, if you manage to resolve the conflict, you'll receive something in thanks.");
-            int choice = GetListBoxChoice(new List<string>() { "Sure, no problem!", "Sorry, I have other things on my head." });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Sure, no problem!", "Sorry, I have other things on my head." });
             switch (choice)
             {
                 case 0:
@@ -107,7 +107,7 @@ namespace Game.Engine.Interactions.Muses
         {
             meetApollo2 = true;
             parentSession.SendText("\n*Apollo is playing the Lyre*");
-            int choice = GetListBoxChoice(new List<string>() { "Hello! Nice Lyre!", "Is this Terpsichore's Lyre?!" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Hello! Nice Lyre!", "Is this Terpsichore's Lyre?!" });
             switch (choice)
             {
                 case 0:
@@ -117,12 +117,12 @@ namespace Game.Engine.Interactions.Muses
                     parentSession.SendText("Oh! You scared me! Of course not! It is mine, I bought it in the Luthiers Village!");
                     break;
             }
-            int choice2 = GetListBoxChoice(new List<string>() { "Can I try to play?", "*hmm he looks suspicious...* - distract him and take the Lyre", "- take the Lyre by force" });
+            int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Can I try to play?", "*hmm he looks suspicious...* - distract him and take the Lyre", "- take the Lyre by force" });
             switch (choice2)
             {
                 case 0:
                     parentSession.SendText("I'm sorry, but no, I paid a lot for this Lyre and you could damage it.");
-                    int choice3 = GetListBoxChoice(new List<string>() { "*hmm he looks suspicious...* - distract him and take the Lyre", "- take the Lyre by force" });
+                    int choice3 = parentSession.GetListBoxChoice(new List<string>() { "*hmm he looks suspicious...* - distract him and take the Lyre", "- take the Lyre by force" });
                     switch (choice3)
                     {
                         case 0:
@@ -146,7 +146,7 @@ namespace Game.Engine.Interactions.Muses
             getLyre = true;
             parentSession.SendText("\nOk! Ok! You got me! Yes, it's Terpsychore's Lyra. It's the most beautiful Lyra I've ever seen.");
             parentSession.SendText("I've always dreamed of having it and recently the opportunity has come for me,\nbut please, my Muses can't find out about it! They will hate me!");
-            int choice4 = GetListBoxChoice(new List<string>() { "Ok, I won't say anything. But I recommend you telling them everything to avoid another conflict.", "I will think about it but I don't promise." });
+            int choice4 = parentSession.GetListBoxChoice(new List<string>() { "Ok, I won't say anything. But I recommend you telling them everything to avoid another conflict.", "I will think about it but I don't promise." });
             switch (choice4)
             {
                 case 0:
@@ -154,7 +154,7 @@ namespace Game.Engine.Interactions.Muses
                     break;
                 default:
                     parentSession.SendText("Oh come on! I will pay you! How much do you want? 100 gold will be ok?");
-                    int choice5 = GetListBoxChoice(new List<string>() { "Ok, that's enough", "Emmm... not really, I have to pay my water bill." });
+                    int choice5 = parentSession.GetListBoxChoice(new List<string>() { "Ok, that's enough", "Emmm... not really, I have to pay my water bill." });
                     switch (choice5)
                     {
                         case 0:

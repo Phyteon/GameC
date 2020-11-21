@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.Muses
 {
     [Serializable]
-    class PolyhymniaEncounter : ListBoxInteraction
+    class PolyhymniaEncounter : PlayerInteraction
     {
         private ApolloEncounter apollo;
         private EratoEncounter erato;
@@ -81,7 +81,7 @@ namespace Game.Engine.Interactions.Muses
         {
             apollo.meetPolyhymnia2 = true;
             parentSession.SendText("\nPolyhymnia: Hi! do you have any news?");
-            int choice = GetListBoxChoice(new List<string>() { "Oh, yes. But I feel lost in this case... *Tell the story*" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Oh, yes. But I feel lost in this case... *Tell the story*" });
             switch (choice)
             {
                 default:

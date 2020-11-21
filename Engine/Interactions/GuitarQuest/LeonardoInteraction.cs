@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.GuitarQuest
 {
     [Serializable]
-    class LeonardoInteraction:ListBoxInteraction
+    class LeonardoInteraction:PlayerInteraction
     {
         int relationshipLevel;
         public bool isQuestlineActive;
@@ -24,7 +24,7 @@ namespace Game.Engine.Interactions.GuitarQuest
         protected override void RunContent()
         {
             if (relationshipLevel < 0) { parentSession.SendText("\nOh, It's you again. Did you come to apologise?");
-                int choice = GetListBoxChoice(new List<string>() { "\nYes, I'm sorry for my previous behaviour", "No, you buffoon. I came to kill you." });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "\nYes, I'm sorry for my previous behaviour", "No, you buffoon. I came to kill you." });
                 if (choice == 1)
                 {
                     parentSession.SendText("\nVery well. I accept your apology. Come back later, and we'll talk about the search.");
@@ -46,7 +46,7 @@ namespace Game.Engine.Interactions.GuitarQuest
                     parentSession.SendText("\nI have been studying the legend of the Enormously Electrifying Extremely Exceptional Electric Guitar");
                     parentSession.SendText("\nWould you care to help me in my search? The reward shall be enormously helpful in your adventures!");
 
-                    int choice = GetListBoxChoice(new List<string>() { "I would be most glad to help you", "I do not have time for such tasks right now.", "And who are you to talk to me this way? Get lost!" });
+                    int choice = parentSession.GetListBoxChoice(new List<string>() { "I would be most glad to help you", "I do not have time for such tasks right now.", "And who are you to talk to me this way? Get lost!" });
                     switch (choice)
                     {
                         case 0:

@@ -8,7 +8,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.TrollBrothers
 {
     [Serializable]
-    class DymirEncounter : ListBoxInteraction
+    class DymirEncounter : PlayerInteraction
     {
         private int visited = 0;
         public DymirEncounter(GameSession ses) : base(ses)
@@ -28,7 +28,7 @@ namespace Game.Engine.Interactions.TrollBrothers
             if (visited == 1)
             {
                 parentSession.SendText("\nOh, hello. Do you have MY GOLD STONE?.");
-                int choice = GetListBoxChoice(new List<string>() { "Yes, here you go!", "Not yet...", "No and you will not get it anyway","Do you know the lyrics of 'Toss A Coin To Your Witcher'?"});
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, here you go!", "Not yet...", "No and you will not get it anyway","Do you know the lyrics of 'Toss A Coin To Your Witcher'?"});
                 parentSession.GetActiveItemNames();
                 bool test = parentSession.TestForItem("item0852");
                 if (choice == 0 && test == true)
@@ -72,13 +72,13 @@ namespace Game.Engine.Interactions.TrollBrothers
                 }
             }
             parentSession.SendText("\nWife: OH MY LORD... HOW COULD YOU LOSE THAT STONE?!\nDymir's wife hits him with his double bass.\nDymir: Oh, hello! I haven't been expecting any guests... What ya want?");
-            int choice2 = GetListBoxChoice(new List<string>() { "Umm... Do you need any help?", "Sorry, not this house"});
+            int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Umm... Do you need any help?", "Sorry, not this house"});
             switch (choice2)
             {
                 case 0:
                     parentSession.SendText("\nI lost my GOLD STONE which i have stol... i mean borrowed, yeah borrowed... from my brother Bymir");
                     parentSession.SendText("\nCould you help me? i threw it accidently to my another's brother, Fymir, puddle. It's not a normal puddle and i think you can easily do this.");
-                    int choice3 = GetListBoxChoice(new List<string>() { "Fine, Will I get something for that?.", "Are you serious? PUDDLE?! Go find it yourself!" });
+                    int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Fine, Will I get something for that?.", "Are you serious? PUDDLE?! Go find it yourself!" });
                     if (choice3 == 0)
                     {
                         parentSession.SendText("\nWell, I can give you a reward. This thing is worth millions of gold! Now go away, you wouldn't want to see my wife.");

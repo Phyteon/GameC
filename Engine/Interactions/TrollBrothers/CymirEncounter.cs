@@ -8,7 +8,7 @@ using Game.Engine.Skills.SimpleSkills;
 namespace Game.Engine.Interactions.TrollBrothers
 {
     [Serializable]
-    class CymirEncounter : ListBoxInteraction
+    class CymirEncounter : PlayerInteraction
     {
         private int visited = 0;
         private CaveEncounter cave;
@@ -27,13 +27,13 @@ namespace Game.Engine.Interactions.TrollBrothers
             if (visited == -1)
             {
                 parentSession.SendText("DON'T COME HERE AGAIN, YOU *$#^@$#%&$#!.");
-                int choice = GetListBoxChoice(new List<string>() { "You ^%#&#%#^^", "*Just go away*" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "You ^%#&#%#^^", "*Just go away*" });
             }
 
             if (visited == 2)
             {
                 parentSession.SendText("\nAnd? Do you have these bats?");
-                int choice = GetListBoxChoice(new List<string>() { "Yes, here you go", "Not yet" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, here you go", "Not yet" });
                 parentSession.GetActiveItemNames();
                 bool test = parentSession.TestForItem("item0854");
                 if (choice == 0 && test == true)
@@ -41,15 +41,15 @@ namespace Game.Engine.Interactions.TrollBrothers
                     cave.Strategy = new CaveNormalStrategy();
                     parentSession.SendText("\nPerfect! These bats will be ideal for my bat soup!");
                     parentSession.SendText("\nWould you like to help me make this soup? You will be able to try it first!");
-                    int choice2 = GetListBoxChoice(new List<string>() { "Why not?", "Sorry, but I need to go" });
+                    int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Why not?", "Sorry, but I need to go" });
                     if (choice2 == 0)
                     {
                         parentSession.SendText("\nGive me a big pot.");
-                        int choice3 = GetListBoxChoice(new List<string>() { "Give a pot", "Give a flower pot" });
+                        int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Give a pot", "Give a flower pot" });
                         if (choice3 == 0)
                         {
                             parentSession.SendText("\nOkay, it's time for some water.");
-                            int choice4 = GetListBoxChoice(new List<string>() { "Go to the toilet for water", "Go to the river for water" });
+                            int choice4 = parentSession.GetListBoxChoice(new List<string>() { "Go to the toilet for water", "Go to the river for water" });
                             if (choice4 == 0)
                             {
                                 parentSession.SendText("What are you doing??? GO AWAY %$!&#$^&#@$&$");
@@ -58,7 +58,7 @@ namespace Game.Engine.Interactions.TrollBrothers
                             else
                             {
                                 parentSession.SendText("Can you give me these bats?");
-                                int choice5 = GetListBoxChoice(new List<string>() { "Give the bats from cave", "Give a baseball bat" });
+                                int choice5 = parentSession.GetListBoxChoice(new List<string>() { "Give the bats from cave", "Give a baseball bat" });
                                 if (choice5 == 0)
                                 {
                                     parentSession.SendText("Perfect!!! Now you can try it. We did it! It is the best soup ever. You deserve a reward! Hope to see you again!");
@@ -101,7 +101,7 @@ namespace Game.Engine.Interactions.TrollBrothers
             if (visited == 0)
             {
                 parentSession.SendText("\nOh, hello adventurer. I'm Cymir, chef of this restaurant since we lost the Gift of The Music. Would you like to help me cook something?");
-                int choice = GetListBoxChoice(new List<string>() { "Yes, what are you cooking?", "Sorry, but I came here to eat" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, what are you cooking?", "Sorry, but I came here to eat" });
                 if (choice == 0)
                 {
                     cave.Strategy = new CaveQuestStrategy();

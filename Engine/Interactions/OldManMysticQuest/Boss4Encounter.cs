@@ -9,7 +9,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.OldManMysticQuest
 {
     [Serializable]
-    class Boss4Encounter: ListBoxInteraction, IBoss
+    class Boss4Encounter: PlayerInteraction, IBoss
     { 
         public bool IsDefeated { get; set; }
         public string NameView { get; set; }
@@ -58,7 +58,7 @@ namespace Game.Engine.Interactions.OldManMysticQuest
                 for (int i = 1; i<=3; i++)
                 {
                     parentSession.SendText("Another hydra approached, what do you do?");
-                    int choice1 = GetListBoxChoice(new List<string>() { "Fight", "Escape" });
+                    int choice1 = parentSession.GetListBoxChoice(new List<string>() { "Fight", "Escape" });
                     switch (choice1)
                     {
                         case (0):

@@ -10,7 +10,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.OldManMysticQuest
 {
     [Serializable]
-	class ButterflyBoss : ConsoleInteraction, IBoss
+	class ButterflyBoss : PlayerInteraction, IBoss
 	{
         public Item item { get; set; }
 

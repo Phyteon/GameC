@@ -9,7 +9,7 @@ namespace Game.Engine.Interactions.MageQuest
 {
     [Serializable]
 
-    class Sanctuary : ConsoleInteraction
+    class Sanctuary : PlayerInteraction
     {
         private HelpfulMage myMage;
 

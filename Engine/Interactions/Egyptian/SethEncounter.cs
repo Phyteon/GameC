@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.EgyptianInteractions
 {
     [Serializable]
-    class SethEncounter : ListBoxInteraction
+    class SethEncounter : PlayerInteraction
     {
         public Monsters.AnubisGuard anubis = new Monsters.AnubisGuard(2);
         private Items.DemonSword demonSword = new Items.DemonSword();
@@ -35,7 +35,7 @@ namespace Game.Engine.Interactions.EgyptianInteractions
         private void FirstVisit()
         {
             parentSession.SendText("\nWell, well, well... Who would have thought that I will see a human again? \nBOW IN FRONT OF ME, YOU WRETCH!");
-            int choice = GetListBoxChoice(new List<string>() { "Who are you?! Show me your face, YOU COWARD!", "*Bow in silence*" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Who are you?! Show me your face, YOU COWARD!", "*Bow in silence*" });
             switch (choice)
             {
                 case 0:
@@ -53,7 +53,7 @@ namespace Game.Engine.Interactions.EgyptianInteractions
                     break;
                 case 1:
                     parentSession.SendText("Welcome, my little human. My name is Seth. I am the greatest god of the deserts and storms. I'm currently planning on defeating my brother Osiris... \n Fate must have brought you to me... or is it something else?");
-                    int choice2 = GetListBoxChoice(new List<string>() { "Gratest Seth, I`m on my mission to find power and wealth. \n Luckily, faith was really gracious for me, since you seem like the definition of power!","I`m sorry, but fate must have made a mistake.." }); 
+                    int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Gratest Seth, I`m on my mission to find power and wealth. \n Luckily, faith was really gracious for me, since you seem like the definition of power!","I`m sorry, but fate must have made a mistake.." }); 
                     if (choice2 == 0)
                     {
                         parentSession.SendText("Oh, you fawn over me...But that`s true! I can give you power and wealth, but... \n but you need to show me your worth!");
@@ -84,7 +84,7 @@ namespace Game.Engine.Interactions.EgyptianInteractions
         private void VictoryWithAnubis()
         {
             parentSession.SendText("So you won... That proves you`re worthy recieving my bless. Do you want to fight on my side?");
-            int choice3 = GetListBoxChoice(new List<string>() { "Yes","No" });
+            int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Yes","No" });
             if(choice3==0)
             {
                 parentSession.SendText("You won`t regret joining my side.. Here is my little gift for you.");

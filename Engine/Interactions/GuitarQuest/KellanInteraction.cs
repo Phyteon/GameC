@@ -8,7 +8,7 @@ using Game.Engine.Items;
 namespace Game.Engine.Interactions.GuitarQuest
 {
     [Serializable]
-    class KellanInteraction:ListBoxInteraction
+    class KellanInteraction:PlayerInteraction
     {
         protected int relationshipLevel;
         private LeonardoInteraction leonardo;
@@ -29,7 +29,7 @@ namespace Game.Engine.Interactions.GuitarQuest
                 parentSession.SendText("\nHello there adventurer. Do you know where my friend Mellan is? I can't seem to find him, and he must fear for my safety tremendously.");
                 if (mellanMyFriend.isQuestActive)
                 {
-                    int choice = GetListBoxChoice(new List<string>() { "Yes, Mellan sent me, he wants you to come to him. ", "Yes. I know where Mellan is, and he is right to fear for your safety (kill him)", "What? who? where? Goodbye"});
+                    int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, Mellan sent me, he wants you to come to him. ", "Yes. I know where Mellan is, and he is right to fear for your safety (kill him)", "What? who? where? Goodbye"});
                     switch (choice)
                     {
                         case 0:

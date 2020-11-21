@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.TrollBrothers
 {
     [Serializable]
-    class CaveEncounter : ConsoleInteraction
+    class CaveEncounter : PlayerInteraction
     {
         private bool visited = false;
         public ICave Strategy { get; set; }

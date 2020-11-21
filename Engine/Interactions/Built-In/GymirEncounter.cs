@@ -12,7 +12,7 @@ namespace Game.Engine.Interactions
     // Gymir has also a brother - Hymir
 
     [Serializable]
-    class GymirEncounter : ListBoxInteraction
+    class GymirEncounter : PlayerInteraction
     {
         private HymirEncounter myBrother; // store reference to Hymir
         private int visited = 0; // how many times have you visited this place?
@@ -37,7 +37,7 @@ namespace Game.Engine.Interactions
             // standard encounter
             parentSession.SendText("\nHello adventurer. My name is Gymir. Could you help me chop this wood?");
             // get player choice
-            int choice = GetListBoxChoice(new List<string>() { "Sure, no problem!", "Everything comes with a price, you know.", "Do I look like a lumberjack to you?" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Sure, no problem!", "Everything comes with a price, you know.", "Do I look like a lumberjack to you?" });
             switch(choice)
             {
                 case 0:
@@ -46,7 +46,7 @@ namespace Game.Engine.Interactions
                     break;
                 case 1:
                     parentSession.SendText("Come on, I don't have much money... is 15 gold enough?");
-                    int choice2 = GetListBoxChoice(new List<string>() { "*Sighs* Fine.", "Sorry, that's not enough." });
+                    int choice2 = parentSession.GetListBoxChoice(new List<string>() { "*Sighs* Fine.", "Sorry, that's not enough." });
                     if(choice2 == 0)
                     {
                         payment = 15;
@@ -64,7 +64,7 @@ namespace Game.Engine.Interactions
         private void ChopWood()
         {
             parentSession.SendText("Great! You can use my axe over there.");
-            int choice = GetListBoxChoice(new List<string>() { "Spend the next hour chopping wood", "Wait until he goes back to his home and run away with the axe" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Spend the next hour chopping wood", "Wait until he goes back to his home and run away with the axe" });
             if(choice == 0)
             {
                 if (payment == 0)

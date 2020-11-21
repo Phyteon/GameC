@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.Muses
 {
     [Serializable]
-    class EuterpeEncounter: ListBoxInteraction
+    class EuterpeEncounter: PlayerInteraction
     {
         public bool meetEuterpe = false;
         private bool meet2 = false;
@@ -29,12 +29,12 @@ namespace Game.Engine.Interactions.Muses
             if (apollo.meetPolyhymnia1 == true && meetEuterpe == false && isNervous == false) // first meeting, after talking to Polyhymnia
             {
                 parentSession.SendText("\n*Euterpe crying* What are you doing here? Leave me alone!");
-                int choice = GetListBoxChoice(new List<string>() { "Can we just talk?", "Ok, sorry." });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Can we just talk?", "Ok, sorry." });
                 switch (choice)
                 {
                     case 0:
                         parentSession.SendText("I'm not feeling well, I lost my instrument, my sisters think I stole the Terpsichore's Lyre...");
-                        int choice2 = GetListBoxChoice(new List<string>() { "Maybe they are right.", "I understand you must feel terrible. How can I help you?" });
+                        int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Maybe they are right.", "I understand you must feel terrible. How can I help you?" });
                         switch (choice2)
                         {
                             case 0:
@@ -55,7 +55,7 @@ namespace Game.Engine.Interactions.Muses
             if (isNervous && meetEuterpe == false) // wkurzona, po pierwszym spotkaniu
             {
                 parentSession.SendText("\nEuterpe: Why did you come here again? Will you still accuse me?");
-                int choice = GetListBoxChoice(new List<string>() { "No, I want to apologize. I trust you. How can I help?", "Haha! Nobody will believe your fairy tales!" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "No, I want to apologize. I trust you. How can I help?", "Haha! Nobody will believe your fairy tales!" });
                 switch (choice)
                 {
                     case 0:
@@ -77,7 +77,7 @@ namespace Game.Engine.Interactions.Muses
             if (apollo.getFlute && meet2 == false)
             {
                 parentSession.SendText("\nEuterpe: Do you have my Flute?");
-                int choice = GetListBoxChoice(new List<string>() { "Yes, here it is.  *give Flute back" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, here it is.  *give Flute back" });
                 switch (choice)
                 {
                     case 0:

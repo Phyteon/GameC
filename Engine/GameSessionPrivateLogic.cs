@@ -192,19 +192,6 @@ namespace Game.Engine
             }
             return CurrentSelection;
         }
-        public int ListBoxInteractionChoice(List<string> choices)
-        {
-            // for ListBoxInteractions
-            if (choices.Count == 0) return 0;
-            ListBoxInteractionDisplay inter = new ListBoxInteractionDisplay(parentPage);
-            inter.SetChoices(choices);
-            while (inter.ChosenNumber < 0)
-            {
-                Wait(100);
-            }
-            inter.Finish();
-            return inter.ChosenNumber;
-        }
 
         // for ImageInteractions
         public ImageInteractionScene SetTmpImage(Image img)

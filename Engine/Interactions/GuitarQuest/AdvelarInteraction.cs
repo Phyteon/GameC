@@ -10,7 +10,7 @@ using Game.Engine.Items;
 namespace Game.Engine.Interactions.GuitarQuest
 {
     [Serializable]
-    class AdvelarInteraction:ListBoxInteraction
+    class AdvelarInteraction:PlayerInteraction
     {
         protected int relationshipLevel;
         private LeonardoInteraction leonardo;
@@ -28,14 +28,14 @@ namespace Game.Engine.Interactions.GuitarQuest
                 if (relationshipLevel == 0)
                 {
                     parentSession.SendText("\nHello there adventurer. What business do you come to me with?");
-                    int choice = GetListBoxChoice(new List<string>() { "I have come from Leonardo of Musicians' Town. I hear you posess an item of great value", "Do you have any troubles here?", "Oh no, nothing. Just passing by"});
+                    int choice = parentSession.GetListBoxChoice(new List<string>() { "I have come from Leonardo of Musicians' Town. I hear you posess an item of great value", "Do you have any troubles here?", "Oh no, nothing. Just passing by"});
                     switch (choice)
                     {
                         case 0:
                             parentSession.SendText("\nWell yes, I do posess an Item Leonardo might consider precious. It's right there in the bell. The string supports its heart.");
                             parentSession.SendText("\nI could of course sell it to you, but if you help me with a small problem I will give it to you as a reward.");
                             parentSession.SendText("\nI have found this one in a pile of rubble nearby. Maybe another one could be somewhere there?");
-                            int choice2 = GetListBoxChoice(new List<string>() { "I'll buy it off you (400 gold)", "What can I help you with?" });
+                            int choice2 = parentSession.GetListBoxChoice(new List<string>() { "I'll buy it off you (400 gold)", "What can I help you with?" });
                             if (choice2 == 0)
                             {
                                 if (parentSession.currentPlayer.Gold >= 400)
@@ -72,7 +72,7 @@ namespace Game.Engine.Interactions.GuitarQuest
         {
             parentSession.SendText("\nAh, you see. There's this Golem, that sat itself down on my basement hatch, and does not want to leave");
             parentSession.SendText("\nIf you help remove it from here. I'll give you the string");
-            int choice = GetListBoxChoice(new List<string>() { "Sure, I'll help", "Maybe another time" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Sure, I'll help", "Maybe another time" });
             if (choice == 0)
             {
                 parentSession.SendText("\nHe's right here, get rid of him!");

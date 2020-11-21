@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.OldManMysticQuest
 {
     [Serializable]
-    class Cacofonix : ConsoleInteraction
+    class Cacofonix : PlayerInteraction
     {
         public ICacofonixStrategy Strategy { get; set; }
         private bool visited = false;

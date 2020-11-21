@@ -10,7 +10,7 @@ namespace Game.Engine.Interactions.MageQuest
 {
     [Serializable]
 
-    class SpiderCave : ConsoleInteraction
+    class SpiderCave : PlayerInteraction
     {
         private HelpfulMage myMage;
        

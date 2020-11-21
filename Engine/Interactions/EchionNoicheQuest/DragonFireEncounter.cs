@@ -10,7 +10,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.EchionNoiche
 {
     [Serializable]
-    class DragonFireEncounter : ListBoxInteraction
+    class DragonFireEncounter : PlayerInteraction
     {
         
         private EchionEncounter echion;
@@ -48,7 +48,7 @@ namespace Game.Engine.Interactions.EchionNoiche
                 parentSession.SendText("\nMedallion is shaking on your neck. You cannot explain it, but somehow you know that this is it. This is the fire that can charge the amulet.");
                 parentSession.SendText("\nYou know that you have to cast a spell for medallion to work. But you also now that casting a wrong spell might be very dangerous.");
                 parentSession.SendText("\nYou are trying to remember all magic incantations that you learn in your life.");
-                int choice = GetListBoxChoice(new List<string>() { "*Hederae suae hostis mei circumplica*", "*Vita mortis cordia*", "*Redivivus ignis potestas*", "*Aurum potestas est*", "*Posuit orbem in igne*", "*Respirare est draco*" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "*Hederae suae hostis mei circumplica*", "*Vita mortis cordia*", "*Redivivus ignis potestas*", "*Aurum potestas est*", "*Posuit orbem in igne*", "*Respirare est draco*" });
                 switch (choice)
                 {
                     case 2:

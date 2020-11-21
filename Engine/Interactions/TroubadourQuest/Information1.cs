@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.TroubadourQuest
 {
 	[Serializable]
-    class Information1 : ImageInteraction
+    class Information1 : InteractionWithImage
     {
         public Information1(GameSession ses) : base(ses)
         {

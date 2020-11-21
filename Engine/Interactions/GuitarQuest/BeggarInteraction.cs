@@ -8,7 +8,7 @@ using Game.Engine.Items;
 namespace Game.Engine.Interactions.GuitarQuest
 {
     [Serializable]
-    class BeggarInteraction:ListBoxInteraction
+    class BeggarInteraction:PlayerInteraction
     {
         int relationshipLevel;
         private LeonardoInteraction leonardo;
@@ -24,7 +24,7 @@ namespace Game.Engine.Interactions.GuitarQuest
             {
                 parentSession.SendText("\nGreetings adventurer. My name is Anielka, I used to be a great flutemaker, but because of life's cruelty i now have nothing");
                 parentSession.SendText("\nWould you spare a coin for an old beggar?");
-                int choice = GetListBoxChoice(new List<string>() { "Yes, here you are (50 gold)", "No, I have no coin to spare" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, here you are (50 gold)", "No, I have no coin to spare" });
                 if (choice == 0)
                 {
                     parentSession.SendText("\nAh, thank you. I don't have much to give in return, but such generosity should be rewarded.");

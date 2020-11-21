@@ -9,7 +9,7 @@ using Game.Engine.Items;
 namespace Game.Engine.Interactions.OldManMysticQuest
 {
 	[Serializable]
-	class OldMan : ListBoxInteraction, IOldMan
+	class OldMan : PlayerInteraction, IOldMan
 	{
 		public bool AllMissionCompleted { get; set; }
 		int visited = 0;
@@ -43,7 +43,7 @@ namespace Game.Engine.Interactions.OldManMysticQuest
 );
 				//Odpowiedź
 				List<string> choices1 = new List<string>() { "\nPlayer:  No, I don't know who you're talking about.", "\nPlayer: Yes, I was at his place." };
-				int index1 = GetListBoxChoice(choices1);
+				int index1 = parentSession.GetListBoxChoice(choices1);
 				if(index1 == 0)
 				{
 					// "Nie, nie wiem o kim mówisz."
@@ -91,7 +91,7 @@ namespace Game.Engine.Interactions.OldManMysticQuest
 					if (parentSession.currentPlayer.Gold >= item.GoldValue)
 						choices2.Add("\nPlayer: I'm buying.");
 
-					int index2 = GetListBoxChoice(choices1);
+					int index2 = parentSession.GetListBoxChoice(choices1);
 
 					if(index2 == 0)
 					{

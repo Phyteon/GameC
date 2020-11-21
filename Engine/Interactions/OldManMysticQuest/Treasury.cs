@@ -8,7 +8,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.OldManMysticQuest
 {
     [Serializable]
-    class Treasury : ListBoxInteraction
+    class Treasury : PlayerInteraction
     {
         private OldMan oldMan;
         private Cacofonix cacofonix;
@@ -26,7 +26,7 @@ namespace Game.Engine.Interactions.OldManMysticQuest
                 parentSession.SendText("Old Man - HA! SUPRISE! I bet that you did not expect me to be here. I stoled the gift that you are looking for.");
                 parentSession.SendText("Old Man - Now after these useless monsters died I can fully release my true power and rule the world! Now it`s time for you to DIE!");
 
-                int choice = GetListBoxChoice(new List<string>() { "I don`t want to fight with you, lets just talk.", "DIE OLD MAN!!11!1!" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "I don`t want to fight with you, lets just talk.", "DIE OLD MAN!!11!1!" });
                 switch (choice)
                 {
                     case 0:

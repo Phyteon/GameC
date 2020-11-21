@@ -11,7 +11,7 @@ namespace Game.Engine.Interactions
     // Hymir's behavior will depend on your previous interactions with Gymir, if you had them
 
     [Serializable]
-    class HymirEncounter : ConsoleInteraction
+    class HymirEncounter : PlayerInteraction
     {
         public IHymirStrategy Strategy { get; set; } // store strategy 
         public HymirEncounter(GameSession ses) : base(ses)

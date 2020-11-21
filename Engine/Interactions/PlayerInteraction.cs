@@ -9,9 +9,9 @@ namespace Game.Engine.Interactions
     // class representing an event (or a chain of events) that will be executed at some map location
     // console interaction means that the player will only use the console for interacting
     [Serializable]
-    abstract class ConsoleInteraction : Interaction
+    abstract class PlayerInteraction : Interaction
     {
-        public ConsoleInteraction(GameSession ses) : base(ses) { }
+        public PlayerInteraction(GameSession ses) : base(ses) { }
         public override void Run()
         {
             parentSession.StopMoving();

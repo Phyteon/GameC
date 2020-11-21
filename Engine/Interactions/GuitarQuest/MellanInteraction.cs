@@ -8,7 +8,7 @@ using Game.Engine.Items;
 namespace Game.Engine.Interactions.GuitarQuest
 {
     [Serializable]
-    class MellanInteraction:ListBoxInteraction
+    class MellanInteraction:PlayerInteraction
     {
         protected int relationshipLevel;
         private LeonardoInteraction leonardo;
@@ -30,7 +30,7 @@ namespace Game.Engine.Interactions.GuitarQuest
                 parentSession.SendText("\nGreetings adventurer. I know what you might require of me. I know of Leonardo and his quest to find the EEEEEG");
                 parentSession.SendText("\nI have one of the strings you seek, And I would like to give it to you, however, I first need to find my friend Kellan");
                 parentSession.SendText("\nI haven't the faintest idea where he could be, and he is a dear friend. I fear he may have been attacked. Would you help me, adventurer?");
-                int choice = GetListBoxChoice(new List<string>() { "Yes, I will find Kellan", "I haven't the time right now" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, I will find Kellan", "I haven't the time right now" });
                 if (choice == 0)
                 {
                     parentSession.SendText("\nThank you. Tell him where you found me, and I shall give you the string. He will give you his one if you tell him I sent you");
@@ -54,7 +54,7 @@ namespace Game.Engine.Interactions.GuitarQuest
                 {
                     foo.Add("Yes, he is on his way here right now");
                 }
-                int choice = GetListBoxChoice(foo);
+                int choice = parentSession.GetListBoxChoice(foo);
                 if (choice == 0)
                 {
                     parentSession.SendText("Go on then, make haste! Find him please!");

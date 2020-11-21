@@ -10,7 +10,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.OldManMysticQuest
 {
     [Serializable]
-    class SpiderBoss : ConsoleInteraction, IBoss
+    class SpiderBoss : PlayerInteraction, IBoss
     {
         public Item item { get; set; }
 

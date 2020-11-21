@@ -12,7 +12,7 @@ using System.Threading;
 namespace Game.Engine.Interactions.TroubadourQuest
 {
     [Serializable]
-    class VillageInFlames : ListBoxInteraction
+    class VillageInFlames : PlayerInteraction
     {
         private int visited = 0; // visit counter, if > 0, somehow we killed hydra
         private int Flag = 0; //used later in coding padlock
@@ -34,7 +34,7 @@ namespace Game.Engine.Interactions.TroubadourQuest
                 {
                     if (item == "item0544")//we have lute
                     {
-                        int choice1 = GetListBoxChoice(new List<string>() { "Show Lute", "Gesture you have to go" });
+                        int choice1 = parentSession.GetListBoxChoice(new List<string>() { "Show Lute", "Gesture you have to go" });
                         if (choice1 == 0)
                         {
                             parentSession.SendText("You are our Hero! But there is a problem, we closed the gate to " +
@@ -42,7 +42,7 @@ namespace Game.Engine.Interactions.TroubadourQuest
                                 "Your task is to read the numbers and unlock the gate, then close it. You must be fast" +
                                 " and do everything in less than 10 seconds(remembering the number from the door also), otherwise Hydra will get you. If you succeed" +
                                 " play the magic melody. Are you ready?");
-                            int choice4 = GetListBoxChoice(new List<string>() { "Of course! [Show Lute]", "Gesture your resignation" });
+                            int choice4 = parentSession.GetListBoxChoice(new List<string>() { "Of course! [Show Lute]", "Gesture your resignation" });
                             if(choice4==0)
                             {
                                 Unlocking();
@@ -63,11 +63,11 @@ namespace Game.Engine.Interactions.TroubadourQuest
                 if (Flag1 == 0) // we don't have lute
                 {
                     //parentSession.ProduceItem("item0544");       //useful while testing, we do not have to meet Troubadour
-                    int choice2 = GetListBoxChoice(new List<string>() { "Show Sword", "Leave and add your Lute to active items (green edges in equipment)", "Gesture you have to go" });
+                    int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Show Sword", "Leave and add your Lute to active items (green edges in equipment)", "Gesture you have to go" });
                     if (choice2 == 0)
                     {
                         parentSession.SendText("You are crazy. This Hydra is immortal, 20 of our great men have died, are you sure?");
-                        int choice3 = GetListBoxChoice(new List<string>() { "Show Sword", "Gesture you have to go" });
+                        int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Show Sword", "Gesture you have to go" });
                         if (choice3 == 0)
                         {
                             parentSession.SendText("Fool...");
@@ -165,7 +165,7 @@ namespace Game.Engine.Interactions.TroubadourQuest
                 {
                     while (counter != 9) // playing melody
                     {
-                        int choice = GetListBoxChoice(new List<string>() { "A", "D", "1E", "2E", "1F", "2F", "1G", "2G" });
+                        int choice = parentSession.GetListBoxChoice(new List<string>() { "A", "D", "1E", "2E", "1F", "2F", "1G", "2G" });
                         Music(choice, test);
                         counter++;
                     }
@@ -226,7 +226,7 @@ namespace Game.Engine.Interactions.TroubadourQuest
         
         private void Unlock(List<int> test) // Process of decoding padlock, is used while ThreadJob
         {
-            int Choice = GetListBoxChoice(new List<string>() { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Clear all", "Ready" });
+            int Choice = parentSession.GetListBoxChoice(new List<string>() { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Clear all", "Ready" });
             while (Choice != 11 && Timer > -1) // reference to our Timer changed by ThreadJob on fork
             {
                 if (Choice != 10)
@@ -263,13 +263,13 @@ namespace Game.Engine.Interactions.TroubadourQuest
             Item item2 = Index.RandomClassItem(parentSession.currentPlayer);
             Item item3 = Index.RandomClassItem(parentSession.currentPlayer);
 
-            int SellTransaction = GetListBoxChoice(new List<string>(){item1.PublicName + " [" + item1.GoldValue + "]",
+            int SellTransaction = parentSession.GetListBoxChoice(new List<string>(){item1.PublicName + " [" + item1.GoldValue + "]",
                 item2.PublicName +" [" + item2.GoldValue + "]",item3.PublicName +" [" + item3.GoldValue + "]", "Show me tips","Exit"});
 
             while (SellTransaction != 4)
             {
 
-                SellTransaction = GetListBoxChoice(new List<string>(){item1.PublicName + " [" + item1.GoldValue + "]",
+                SellTransaction = parentSession.GetListBoxChoice(new List<string>(){item1.PublicName + " [" + item1.GoldValue + "]",
                     item2.PublicName +" [" + item2.GoldValue + "]",item3.PublicName +" [" + item3.GoldValue + "]", "Show me tips","Exit"});
 
                 if (SellTransaction == 0)

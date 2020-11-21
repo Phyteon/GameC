@@ -3,7 +3,7 @@ using System;
 namespace Game.Engine.Interactions.PrincessQuest
 {
     [Serializable]
-    class SmithEncounter : ConsoleInteraction
+    class SmithEncounter : PlayerInteraction
     {
         private KingEncounter king;
         private RingCreatureEncounter ring;

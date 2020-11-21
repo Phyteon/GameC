@@ -12,12 +12,12 @@ namespace Game.Engine.Interactions
     // image interaction means that an image will be displayed in the place of game world image
     // which also means that an image has to be provided
     [Serializable]
-    abstract class ImageInteraction : Interaction
+    abstract class InteractionWithImage : Interaction
     {
         // image for display
         // make it follow the name convention "interactionXXXXdisplay.png"
         protected string displayedImageName = "";
-        public ImageInteraction(GameSession ses) : base(ses) { }
+        public InteractionWithImage(GameSession ses) : base(ses) { }
         public override void Run()
         {
             parentSession.StopMoving();

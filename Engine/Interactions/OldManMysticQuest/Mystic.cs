@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.OldManMysticQuest
 {
 	[Serializable]
-	class Mystic : ListBoxInteraction
+	class Mystic : PlayerInteraction
 	{
 		public int Visited { get; set; } = 0;
 		public IMysticStrategy strategy;
@@ -16,10 +16,10 @@ namespace Game.Engine.Interactions.OldManMysticQuest
 		public List<IBoss> Boses;
 
 		//Dodatkowa metoda potrzebna do strategii
-		public new int GetListBoxChoice(List<string> choices)
+		/*public new int parentSession.GetListBoxChoice(List<string> choices)
 		{
 			return parentSession.ListBoxInteractionChoice(choices);
-		}
+		}*/
 
 		public Mystic(GameSession ses, List<IBoss> myBoses) : base(ses)
 		{
@@ -41,7 +41,7 @@ namespace Game.Engine.Interactions.OldManMysticQuest
 					+"\nWill you help us?");
 
 				List<string> choices = new List<string>() { "Player: Yes, of course!", "Player: Unfortunately I don't have time, maybe another time." };
-				int index = GetListBoxChoice(choices);
+				int index = parentSession.GetListBoxChoice(choices);
 				if (index == 0)
 				{
 					Visited = 1;

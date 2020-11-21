@@ -131,7 +131,7 @@
     <Compile Include="Engine\Interactions\Built-In\HymirNeutralStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\IHymirStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\SkillForgetInteraction.cs" />
-    <Compile Include="Engine\Interactions\ConsoleInteraction.cs" />
+    <Compile Include="Engine\Interactions\PlayerInteraction.cs" />
     <Compile Include="Engine\Interactions\EchionNoicheQuest\DragonFireEncounter.cs" />
     <Compile Include="Engine\Interactions\EchionNoicheQuest\EchionEncounter.cs" />
     <Compile Include="Engine\Interactions\EchionNoicheQuest\INoicheStrategy.cs" />
@@ -162,7 +162,7 @@
     <Compile Include="Engine\Interactions\Egyptian\RaaEncounter.cs" />
     <Compile Include="Engine\Interactions\Egyptian\SethEncounter.cs" />
     <Compile Include="Engine\Interactions\Egyptian\SphinxEncounter.cs" />
-    <Compile Include="Engine\Interactions\ImageInteraction.cs" />
+    <Compile Include="Engine\Interactions\InteractionWithImage.cs" />
     <Compile Include="Engine\Interactions\Interaction.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\AltairOfOldGodFactory.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\BloodFountainFactory.cs" />
@@ -181,7 +181,6 @@
     <Compile Include="Engine\Interactions\InteractionFactories\PrincessQuestFactory.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\SkillForgetFactory.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\TroubadourFactory.cs" />
-    <Compile Include="Engine\Interactions\ListBoxInteraction.cs" />
     <Compile Include="Engine\Interactions\LootingLute\CaveEncounter.cs" />
     <Compile Include="Engine\Interactions\LootingLute\CaveFriendlyStrategy.cs" />
     <Compile Include="Engine\Interactions\LootingLute\CaveHostileStrategy.cs" />

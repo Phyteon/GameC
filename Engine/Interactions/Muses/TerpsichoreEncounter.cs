@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.Muses
 {
     [Serializable]
-    class TerpsichoreEncounter : ListBoxInteraction
+    class TerpsichoreEncounter : PlayerInteraction
     {
         public bool meetTerpsichore = false;
         private bool meet2 = false;
@@ -31,7 +31,7 @@ namespace Game.Engine.Interactions.Muses
             if ((apollo.meetPolyhymnia1 || erato.meetErato) && apollo.getLyre == false) //po rozmowie z Erato lub po rozmownie z Polihymnią
             {
                 parentSession.SendText("\nHi! I'm Terpsichore. Have you seen my Lyra?");
-                int choice = GetListBoxChoice(new List<string>() { "Unfortunately not, but I heard you have Erato's Kitara. Is it true?", "Unfortunately not." });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Unfortunately not, but I heard you have Erato's Kitara. Is it true?", "Unfortunately not." });
                 switch (choice)
                 {
                     case 0:
@@ -48,7 +48,7 @@ namespace Game.Engine.Interactions.Muses
             if (apollo.getLyre && meet2 == false)
             {
                 parentSession.SendText("\nTerpsichore: Have you found my Lyre?");
-                int choice = GetListBoxChoice(new List<string>() { "Yes, here it is.  *give Lyre back*" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, here it is.  *give Lyre back*" });
                 switch (choice)
                 {
                     case 0:

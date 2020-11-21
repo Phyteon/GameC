@@ -5,7 +5,7 @@ using System.Text;
 namespace Game.Engine.Interactions.Misc
 {
     [Serializable]
-    class BloodFountainInteraction : ListBoxInteraction
+    class BloodFountainInteraction : PlayerInteraction
     {
         private int payment = 0;
         public BloodFountainInteraction(GameSession ses) : base(ses)
@@ -15,7 +15,7 @@ namespace Game.Engine.Interactions.Misc
         protected override void RunContent()
         {
             parentSession.SendText("\nEngraved script on the fountain says: 'If you want my power you need to make the payment'");
-            int choice = GetListBoxChoice(new List<string>() { "*Throw a coin*", "*Cut your skin to donate blood*", "*Leave*" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "*Throw a coin*", "*Cut your skin to donate blood*", "*Leave*" });
             switch(choice)
             {
                 case 0:

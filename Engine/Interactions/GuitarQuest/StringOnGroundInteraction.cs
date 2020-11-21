@@ -8,7 +8,7 @@ using Game.Engine.Items;
 namespace Game.Engine.Interactions.GuitarQuest
 {
     [Serializable]
-    class StringOnGroundInteraction:ImageInteraction
+    class StringOnGroundInteraction:InteractionWithImage
     {
         protected LeonardoInteraction leonardo;
         bool successfullyVisited;

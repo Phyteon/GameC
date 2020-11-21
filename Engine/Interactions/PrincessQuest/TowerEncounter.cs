@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Game.Engine.Interactions.PrincessQuest
 {
     [Serializable]
-    class TowerEncounter : ListBoxInteraction
+    class TowerEncounter : PlayerInteraction
     {
         public int ifSaved = 0;
         public bool ifMageVisited = false;
@@ -26,7 +26,7 @@ namespace Game.Engine.Interactions.PrincessQuest
             if (ifMageVisited == true && ifSaved == 0)
             {
                 parentSession.SendText("\nThis castle isn't guarded by the witch - do you want to fight the dragon and save the princess?");
-                int choice = GetListBoxChoice(new List<string>() { "Yes.", "No, exit." });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes.", "No, exit." });
                 if (choice == 0)
                 {
                     parentSession.FightThisMonster(new DeathDragon(parentSession.currentPlayer.Level));

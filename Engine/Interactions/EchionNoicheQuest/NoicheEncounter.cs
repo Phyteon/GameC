@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.EchionNoiche
 {
     [Serializable]
-    class NoicheEncounter : ConsoleInteraction
+    class NoicheEncounter : PlayerInteraction
     {
         private bool visited = false;
         public INoicheStrategy Strategy { get; set; }

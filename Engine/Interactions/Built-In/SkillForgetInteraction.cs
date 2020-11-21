@@ -9,7 +9,7 @@ namespace Game.Engine.Interactions
     // see Gymir and Hymir files instead
 
     [Serializable]
-    class SkillForgetInteraction : ListBoxInteraction
+    class SkillForgetInteraction : PlayerInteraction
     {
         public SkillForgetInteraction(GameSession parentSession) : base(parentSession) 
         { 
@@ -29,7 +29,7 @@ namespace Game.Engine.Interactions
             if (choices.Count > 1)
             {
                 choices.Add("Thank you, I've changed my mind");
-                int a = GetListBoxChoice(choices);
+                int a = parentSession.GetListBoxChoice(choices);
                 if (a < choices.Count - 1) parentSession.currentPlayer.ListOfSkills.RemoveAt(a);
             }
             else parentSession.SendText("However, you only know one skill currently. Your mind is already calm and simple, so the fountain water will not change you.");

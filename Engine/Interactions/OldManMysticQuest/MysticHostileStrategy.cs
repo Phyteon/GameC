@@ -32,7 +32,7 @@ namespace Game.Engine.Interactions.OldManMysticQuest
 				if(session.currentPlayer.Gold >= (80 + actualItem.GoldValue))
 					choises1.Add("Player: Okay, hold the money.");
 
-				int index1 = mystic.GetListBoxChoice(choises1);
+				int index1 = 1;// parentSession.GetListBoxChoice(choises1);
 				if (index1 == 0)
 				{
 					session.SendText("\nMystic: Go on.");

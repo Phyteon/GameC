@@ -8,7 +8,7 @@ using System.IO;
 namespace Game.Engine.Interactions.TroubadourQuest
 {
     [Serializable]
-    class Troubadour : ListBoxInteraction
+    class Troubadour : PlayerInteraction
     {
         private int visited = 0; //The second time we don't give a lute
         public Troubadour(GameSession ses) : base(ses)
@@ -19,14 +19,14 @@ namespace Game.Engine.Interactions.TroubadourQuest
         {
 
             parentSession.SendText("Hey stranger, my village needs your help, can you help?");
-            int choice = GetListBoxChoice(new List<string>() { "Sure, no problem!", "No way, I have more important things to do" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Sure, no problem!", "No way, I have more important things to do" });
 
             if (choice == 0)
             {
                 parentSession.SendText("Our village was attacked by Great Hydra, no one can kill it, because of it's strength. " +
                     "However there is a way - the legendary melody played on lute, which weakens the hydra. Unfortunately some magic force made people deaf. " +
                     "I escaped... being a troubadour does not mean being brave. But you! You can take my lute play melody and kill it, would you?");
-                int choice1 = GetListBoxChoice(new List<string>() { "Of course, people are the most important!", "I think, I'm not brave enough either... Good luck..." });
+                int choice1 = parentSession.GetListBoxChoice(new List<string>() { "Of course, people are the most important!", "I think, I'm not brave enough either... Good luck..." });
                 if (choice1 == 0)
                 {
                     parentSession.SendText("Ok! Let's learn this magic stuff then!");
@@ -45,7 +45,7 @@ namespace Game.Engine.Interactions.TroubadourQuest
 
         private void LearnMusic() 
         {
-            int choice = GetListBoxChoice(new List<string>() { "Play whole song for me!", "A", "D", "1E", "2E", "1F", "2F", "1G", "2G", "I think, I'm ready", "It's stupid! I'm sick of it! I don't care!" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "Play whole song for me!", "A", "D", "1E", "2E", "1F", "2F", "1G", "2G", "I think, I'm ready", "It's stupid! I'm sick of it! I don't care!" });
             Music(choice); //recurensive call
             if (choice == 9)//begin test
             {
@@ -55,7 +55,7 @@ namespace Game.Engine.Interactions.TroubadourQuest
                 int counter = 0;
                 while (counter != 9)//after 9 sounds, comparison starts
                 {
-                    int choice1 = GetListBoxChoice(new List<string>() { "A", "D", "1E", "2E", "1F", "2F", "1G", "2G" });//only sounds
+                    int choice1 = parentSession.GetListBoxChoice(new List<string>() { "A", "D", "1E", "2E", "1F", "2F", "1G", "2G" });//only sounds
                     Music1(choice1, test);//Music1, because of extra argument - test and non recursive call
                     counter++;
                 }
@@ -77,7 +77,7 @@ namespace Game.Engine.Interactions.TroubadourQuest
                         }
                         test.Clear();
                         parentSession.SendText("But before killing, you should know, what you should be looking for... I'll show you my village.");
-                        int choice2 = GetListBoxChoice(new List<string>() {"Ok, I'm ready, show it!" });
+                        int choice2 = parentSession.GetListBoxChoice(new List<string>() {"Ok, I'm ready, show it!" });
                         if(choice2 == 0)
                         {
                             Information1 Info1 = new Information1(parentSession);//picture

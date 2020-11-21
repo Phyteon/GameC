@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.EgyptianInteractions
 {
     [Serializable]
-    class HorusEncounter : ConsoleInteraction,IGod
+    class HorusEncounter : PlayerInteraction,IGod
     {
         public string name = "Horus";
         int zm = 0;

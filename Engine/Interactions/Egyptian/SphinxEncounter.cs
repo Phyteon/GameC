@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.EgyptianInteractions
 {
     [Serializable]
-    class SphinxEncounter : ListBoxInteraction
+    class SphinxEncounter : PlayerInteraction
     {
         //items which sphinx could give to you 
         private Items.GoldStone goldStone = new Items.GoldStone();
@@ -69,7 +69,7 @@ namespace Game.Engine.Interactions.EgyptianInteractions
         public void HereFromSethsOrder()
         {
             parentSession.SendText("I can see you are here because of Seth. I know his plans. Which God interests you?");
-            int choice01 = GetListBoxChoice(new List<string>() { "Osiris...", "Raa...", "Horus..." });
+            int choice01 = parentSession.GetListBoxChoice(new List<string>() { "Osiris...", "Raa...", "Horus..." });
             if (choice01 == 0)
             {
                 letter = "o";
@@ -168,25 +168,25 @@ namespace Game.Engine.Interactions.EgyptianInteractions
             {
                 parentSession.SendText("Tell me: Which creature has one voice and yet becomes four-footed and two-footed and three-footed?");
                 poprawna = 1;
-                choice = GetListBoxChoice(new List<string>() { "student","human", "dog" });
+                choice = parentSession.GetListBoxChoice(new List<string>() { "student","human", "dog" });
             }
             else if (number == 2)
             {
                 parentSession.SendText("Tell me: What always comes, but it never comes today?");
                 poprawna = 0;
-                choice = GetListBoxChoice(new List<string>() { "tomorrow", "good mark", "Santa Claus" });
+                choice = parentSession.GetListBoxChoice(new List<string>() { "tomorrow", "good mark", "Santa Claus" });
             }
             else if (number == 3)
             {
                 parentSession.SendText("Tell me: I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I? ");
                 poprawna = 2;
-                choice = GetListBoxChoice(new List<string>() { "ghost", "butterfly", "echo" });
+                choice = parentSession.GetListBoxChoice(new List<string>() { "ghost", "butterfly", "echo" });
             }
             else
             {
                 parentSession.SendText("Tell me: You measure my life in hours and I serve you by expiring. I'm quick when I'm thin and slow when I'm fat.");
                 poprawna = 1;
-                choice = GetListBoxChoice(new List<string>() { "milk", "candle", "sportsman" });
+                choice = parentSession.GetListBoxChoice(new List<string>() { "milk", "candle", "sportsman" });
 
             }
 

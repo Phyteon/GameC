@@ -10,7 +10,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.OldManMysticQuest
 {
     [Serializable]
-    class Boss3Encounter : ConsoleInteraction, IBoss
+    class Boss3Encounter : PlayerInteraction, IBoss
     {
                         
         public bool IsDefeated { get; set; }

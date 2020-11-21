@@ -11,7 +11,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.EchionNoiche
 {
     [Serializable]
-    class EchionEncounter : ListBoxInteraction
+    class EchionEncounter : PlayerInteraction
     {
         private TempleEncounter temple;
         private NoicheEncounter noiche;
@@ -44,7 +44,7 @@ namespace Game.Engine.Interactions.EchionNoiche
             }
 
             parentSession.SendText("\n *You see Ice Troll sleeping in the distance. What should you do?* ");
-            int choice = GetListBoxChoice(new List<string>() { "*Sneak up, and kill him while he is asleep*", "*Shout: * Weak up beast!", "*Walk away quietly*" });
+            int choice = parentSession.GetListBoxChoice(new List<string>() { "*Sneak up, and kill him while he is asleep*", "*Shout: * Weak up beast!", "*Walk away quietly*" });
             switch (choice)
             {
                 case 0:
@@ -65,7 +65,7 @@ namespace Game.Engine.Interactions.EchionNoiche
                 case 1:
                     parentSession.SendText("*Troll stands and shakes his head*");
                     parentSession.SendText("What do you want from me?");
-                    int choice2 = GetListBoxChoice(new List<string>() { "I am here to kill you and take your medallion!", "Listen man, can I have your medallion, please? I really need it." });
+                    int choice2 = parentSession.GetListBoxChoice(new List<string>() { "I am here to kill you and take your medallion!", "Listen man, can I have your medallion, please? I really need it." });
                     if (choice2 == 0)
                     {
                         parentSession.SendText("Well, at least you have honor to face me! Let's see in which mood you found me!");

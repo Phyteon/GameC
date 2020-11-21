@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.LootingLute
 {
     [Serializable]
-    class SewersEncounter:ListBoxInteraction
+    class SewersEncounter:PlayerInteraction
     {
         private int visited = 0;
         public CaveEncounter caveSituation;
@@ -26,7 +26,7 @@ namespace Game.Engine.Interactions.LootingLute
                 if (visited == 0)
                 {
                     parentSession.SendText("\nYou find entrance to sewers, but it's guarded by some misterious hooded man");
-                    int choice1 = GetListBoxChoice(new List<string>() { "Excuse me sir, will you let me in?", "*Leave*" });
+                    int choice1 = parentSession.GetListBoxChoice(new List<string>() { "Excuse me sir, will you let me in?", "*Leave*" });
                     switch (choice1)
                     {
                         case 0:
@@ -54,7 +54,7 @@ namespace Game.Engine.Interactions.LootingLute
             bool haveRing = parentSession.TestForItem("item0382");
             if (haveRing==true)
             {
-                int choice2 = GetListBoxChoice(new List<string>() { "*Pay 200 gold*", "I'm going to enter this sewers wether you want it or not!", "*Show your ring*", "I will come back later then" });
+                int choice2 = parentSession.GetListBoxChoice(new List<string>() { "*Pay 200 gold*", "I'm going to enter this sewers wether you want it or not!", "*Show your ring*", "I will come back later then" });
                 switch (choice2)
                 {
                     case 0:
@@ -88,7 +88,7 @@ namespace Game.Engine.Interactions.LootingLute
             }
             else
             {
-                int choice3 = GetListBoxChoice(new List<string>() { "*Pay 200 gold*", "I'm going to enter this sewers wether you want it or not!", "I will come back later then" });
+                int choice3 = parentSession.GetListBoxChoice(new List<string>() { "*Pay 200 gold*", "I'm going to enter this sewers wether you want it or not!", "I will come back later then" });
                 switch (choice3)
                 {
                     case 0:
@@ -120,7 +120,7 @@ namespace Game.Engine.Interactions.LootingLute
         protected void InSewers()
         {
             parentSession.SendText("\nYou enter sewers. It's dark here, but you can hear bats flying here. You go after sounds and meets the Lord of Vampires");
-            int choice1 = GetListBoxChoice(new List<string>() {"Excuse me, I'm looking for a lute and I've heard that you have it","*Try to sneak and find lute silently*","Hey you! I came here for lute, give it to me right now or die!" });
+            int choice1 = parentSession.GetListBoxChoice(new List<string>() {"Excuse me, I'm looking for a lute and I've heard that you have it","*Try to sneak and find lute silently*","Hey you! I came here for lute, give it to me right now or die!" });
             switch(choice1)
             {
                 case 0:

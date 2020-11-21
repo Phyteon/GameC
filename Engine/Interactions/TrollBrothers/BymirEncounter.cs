@@ -9,7 +9,7 @@ using Game.Engine.Monsters;
 namespace Game.Engine.Interactions.TrollBrothers
 {
     [Serializable]
-    class BymirEncounter : ListBoxInteraction
+    class BymirEncounter : PlayerInteraction
     {
         private int visited = 0;
         public BymirEncounter(GameSession ses) : base(ses)
@@ -22,7 +22,7 @@ namespace Game.Engine.Interactions.TrollBrothers
             {
                 parentSession.SendText("\nDon't bother me. I'm praying to Our Lord to get my GOLD STONE back and hope my brother Dymir will be hit by lightning");
                 parentSession.SendText("\nPraise be to God, Our Lord! I hope my stupid brother Dymir will be judged justly... Praise be to God, Our Lord!");
-                int choice = GetListBoxChoice(new List<string>() { "Umm... I found something for you", "Okay, I won't", "Do you know the lyrics of 'Toss A Coin To Your Witcher'?" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Umm... I found something for you", "Okay, I won't", "Do you know the lyrics of 'Toss A Coin To Your Witcher'?" });
                 parentSession.GetActiveItemNames();
                 bool test = parentSession.TestForItem("item0852");
                 if (choice == 0 && test == true)

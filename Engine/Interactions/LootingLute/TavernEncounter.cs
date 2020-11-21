@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.LootingLute
 {
     [Serializable]
-    class TavernEncounter:ListBoxInteraction
+    class TavernEncounter:PlayerInteraction
     {
          
         public static StudentHouseEncounter studentHouseSituation;
@@ -46,7 +46,7 @@ namespace Game.Engine.Interactions.LootingLute
             if (studentHouseSituation.sewersSituation.caveSituation.tavernHelper == 0)
             {
                 parentSession.SendText("\nYou enter a tavern.");
-                int choice1 = GetListBoxChoice(new List<string>() { "Buy a beer", "Talk to stranger", "Leave" });
+                int choice1 = parentSession.GetListBoxChoice(new List<string>() { "Buy a beer", "Talk to stranger", "Leave" });
                 switch (choice1)
                 {
                     case 0:
@@ -58,12 +58,12 @@ namespace Game.Engine.Interactions.LootingLute
                         if (haveBeer)
                         {
                             parentSession.SendText("\nI see you have a beer and you’re looking for company, would you mind sitting with me and talking?");
-                            int choice3 = GetListBoxChoice(new List<string>() { "Not at all, thank you for invitation", "Piss off, you're drunk!" });
+                            int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Not at all, thank you for invitation", "Piss off, you're drunk!" });
                             switch (choice3)
                             {
                                 case 0:
                                     parentSession.SendText("\nEhh, it's hard to be bard these days you know? I'm Dante by the way! *gives you a hand to shake*");
-                                    int choice4 = GetListBoxChoice(new List<string>() { "*Just shake his hand and don't talk*", "*Shake his hand* Nice to meet you, my name is...", "*Don't shake his hand* Nice to meet you Dante, but I prefer not to reveal my name." });
+                                    int choice4 = parentSession.GetListBoxChoice(new List<string>() { "*Just shake his hand and don't talk*", "*Shake his hand* Nice to meet you, my name is...", "*Don't shake his hand* Nice to meet you Dante, but I prefer not to reveal my name." });
                                     if (choice4 == 0)
                                     {
                                         studentHouseSituation.sewersSituation.caveSituation.tavernHelper = 1;
@@ -91,7 +91,7 @@ namespace Game.Engine.Interactions.LootingLute
                         else
                         {
                             parentSession.SendText("\nWhat do you want from me? I’m sure he’s sent you for me!");
-                            int choice2 = GetListBoxChoice(new List<string>() { "What are you talking about? Who’s “he”?", "*lie* Yes, and now you’re going to pay me!" });
+                            int choice2 = parentSession.GetListBoxChoice(new List<string>() { "What are you talking about? Who’s “he”?", "*lie* Yes, and now you’re going to pay me!" });
                             switch (choice2)
                             {
                                 case 0:
@@ -121,7 +121,7 @@ namespace Game.Engine.Interactions.LootingLute
             if (studentHouseSituation.sewersSituation.caveSituation.tavernHelper == 3)
             {
                 parentSession.SendText("\nYou came back! With my lute! I don't know how to thank you! Are you fine?");
-                int choice1 = GetListBoxChoice(new List<string>() { "It wasn't easy to get it back, I hope for a reward.", "Yeeeaah, it was really easy..." });
+                int choice1 = parentSession.GetListBoxChoice(new List<string>() { "It wasn't easy to get it back, I hope for a reward.", "Yeeeaah, it was really easy..." });
                 switch (choice1)
                 {
                     case 0:
@@ -144,7 +144,7 @@ namespace Game.Engine.Interactions.LootingLute
         protected void QuestStart()
         {
 
-            int choice1 = GetListBoxChoice(new List<string>() { "Sure, no problem.", "I don’t have time for this right now." });
+            int choice1 = parentSession.GetListBoxChoice(new List<string>() { "Sure, no problem.", "I don’t have time for this right now." });
             switch(choice1)
             {
                 case 0:

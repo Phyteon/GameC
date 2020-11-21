@@ -9,7 +9,7 @@ using Game.Engine.CharacterClasses;
 namespace Game.Engine
 {
     // class representing a battle event
-    class Battle : ImageInteraction
+    class Battle : InteractionWithImage
     {
         protected BattleScene battleScene;
         protected int hpCopy, strCopy, armCopy, prCopy, mgCopy, staCopy; // after the battle, all statistics of the player are restored

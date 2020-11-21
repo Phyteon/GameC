@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.LootingLute
 {
     [Serializable]
-    class StudentHouseEncounter:ListBoxInteraction
+    class StudentHouseEncounter:PlayerInteraction
     {
         public SewersEncounter sewersSituation;
         private int visited = 0;
@@ -26,7 +26,7 @@ namespace Game.Engine.Interactions.LootingLute
             if (visited==0)
             {
                 parentSession.SendText("\nYou find a house.");
-                int choice1 = GetListBoxChoice(new List<string>() { "\nTry to enter the house", "Leave" });
+                int choice1 = parentSession.GetListBoxChoice(new List<string>() { "\nTry to enter the house", "Leave" });
                 switch (choice1)
                 {
                     case 0:
@@ -37,12 +37,12 @@ namespace Game.Engine.Interactions.LootingLute
                             parentSession.SendText("\n*You enter a house using a key and meet a man*\nWhaaat?! How the heck have you got a key to my house?! You will regret that! Meet my guard, Scotty, he will teach you good manners!");
                             parentSession.FightThisMonster(new Thug(parentSession.CheckStat(7)));
                             parentSession.SendText("\nYou defeated my guard! Who are you? And why have you entered my house?");
-                            int choice2 = GetListBoxChoice(new List<string>() { "I’m looking for some lute, a stranger in a tavern asked me to get it to him", "I’m here to take a lute and you better tell me where it is or you’ll finish just like your bodyguard!", });
+                            int choice2 = parentSession.GetListBoxChoice(new List<string>() { "I’m looking for some lute, a stranger in a tavern asked me to get it to him", "I’m here to take a lute and you better tell me where it is or you’ll finish just like your bodyguard!", });
                             switch (choice2)
                             {
                                 case 0:
                                     parentSession.SendText("\nYou work for this scum? Well, I have bad news for you anyway, the other day a man in a hood came here and offered me big amount of money for this lute. I sold it! But we can make a deal. I have 500 gold coins and they can be yours if you’ll just tell me, where he’s hiding.");
-                                    int choice3 = GetListBoxChoice(new List<string>() { "*Tell the truth* He’s hiding in a Tavern.", "*Lie* He’s hiding in a cave in the forest.", "*Refuse* I don’t want money, tell me where is the lute." });
+                                    int choice3 = parentSession.GetListBoxChoice(new List<string>() { "*Tell the truth* He’s hiding in a Tavern.", "*Lie* He’s hiding in a cave in the forest.", "*Refuse* I don’t want money, tell me where is the lute." });
                                     switch (choice3)
                                     {
                                         case 0:

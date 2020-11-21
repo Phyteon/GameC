@@ -8,7 +8,7 @@ namespace Game.Engine.Interactions.MageQuest
 {
     [Serializable]
 
-    class HelpfulMage : ListBoxInteraction
+    class HelpfulMage : PlayerInteraction
     {
         public int PartOfHelpfulMageQuest { get; set; }
 
@@ -35,12 +35,12 @@ namespace Game.Engine.Interactions.MageQuest
             if (PartOfHelpfulMageQuest == 0)
             {
                 parentSession.SendText("\nWelcome Adventurer! I'm Piright and i have dangerous mission for you, are you interested in this?");
-                int choice1 = GetListBoxChoice(new List<string>() { "Yes, what is the mission?", "Sorry, maybe later" });
+                int choice1 = parentSession.GetListBoxChoice(new List<string>() { "Yes, what is the mission?", "Sorry, maybe later" });
                 switch (choice1)
                 {
                     case 0:
                         parentSession.SendText("\nRecently, a lot of monsters have started to rule the world, can you take care of it?");
-                        int choice2 = GetListBoxChoice(new List<string>() { "Okey, no problem", "Sorry, that's too much for me" });
+                        int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Okey, no problem", "Sorry, that's too much for me" });
                         if (choice2 == 0)
                         {
                             parentSession.SendText("\nPerfectly, let's start by clear SpiderCave, please find it and kill all 4 spiders which have Magic Thread! Then come back with Magic Thread to me");

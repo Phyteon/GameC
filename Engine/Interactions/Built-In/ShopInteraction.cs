@@ -8,7 +8,7 @@ namespace Game.Engine.Interactions
     // if you want a clear example of how to write your own interesting interaction, this is probably NOT the right place 
     // see Gymir and Hymir files instead
     [Serializable]
-    class ShopInteraction : ConsoleInteraction
+    class ShopInteraction : PlayerInteraction
     {
         private Item it1, it2, it3;
         public ShopInteraction(GameSession parentSession) : base(parentSession) 

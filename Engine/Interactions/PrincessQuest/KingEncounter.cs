@@ -7,7 +7,7 @@ namespace Game.Engine.Interactions.PrincessQuest
 {
     //this is a castle - you enter and talk with king about his daughter
     [Serializable]
-    class KingEncounter : ListBoxInteraction
+    class KingEncounter : PlayerInteraction
     {
         private MageEncounter mage;
         private TowerEncounter tower;
@@ -88,22 +88,22 @@ namespace Game.Engine.Interactions.PrincessQuest
         }
         private void TalkAboutPrincess()
         {
-            int choice1 = GetListBoxChoice(new List<string>() { "Tell me more my king, a cursed tower?" , "It seems like a very dangerous mission and my" +
+            int choice1 = parentSession.GetListBoxChoice(new List<string>() { "Tell me more my king, a cursed tower?" , "It seems like a very dangerous mission and my" +
                 "prices are high...", "I've got better things to do - your daughter is propably dead by now anyway." });
             if (choice1 == 0)
             {
                 parentSession.SendText("Yes, a wicked old witch came for her sixteenth birthday and kidnapped her! Many tried to save her since, but all failed...");
-                int choice2 = GetListBoxChoice(new List<string>() {"Witches don't kidnap people for no reason. What did you do to her that got her so upset?","Failed? " +
+                int choice2 = parentSession.GetListBoxChoice(new List<string>() {"Witches don't kidnap people for no reason. What did you do to her that got her so upset?","Failed? " +
                     "I'm not experienced enough for such missions yet. Goodbye.", "You stupid people - it's not that hard to understand not to make more powerful creatures mad..." });
                 if (choice2 == 0)
                 {
                     parentSession.SendText("I don't know, she was so angry... She asked for something impossible.");
-                    int choice3 = GetListBoxChoice(new List<string>() { "Impossible? What was is? A treasure? A promise?", "It looks like you really " +
+                    int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Impossible? What was is? A treasure? A promise?", "It looks like you really " +
                         "made her mad. I don't deal with human-witches arguments - too risky."});
                     if (choice3 == 0)
                     {
                         parentSession.SendText("\nIT'S NOT YOUR BUSSINESS. Are you willing to save her or not?");
-                        int choice4 = GetListBoxChoice(new List<string>() { "Ok, I'll try. What should I do first?", "This seems too suspicious. You'll need to " +
+                        int choice4 = parentSession.GetListBoxChoice(new List<string>() { "Ok, I'll try. What should I do first?", "This seems too suspicious. You'll need to " +
                             "find somebody else to clean your mess." });
                         if (choice4 == 0)
                         {
@@ -129,7 +129,7 @@ namespace Game.Engine.Interactions.PrincessQuest
                 if (choice2 == 2)
                 {
                     parentSession.SendText("\nHOW DARE YOU CALL ME STUPID?!");
-                    int choice5 = GetListBoxChoice(new List<string>() { "Sorry my lord, please forgive me. I can help - for a price...", "I'm just " +
+                    int choice5 = parentSession.GetListBoxChoice(new List<string>() { "Sorry my lord, please forgive me. I can help - for a price...", "I'm just " +
                         "calling things by its name!" });
                     if (choice5 == 0)
                     {
@@ -172,11 +172,11 @@ namespace Game.Engine.Interactions.PrincessQuest
         private void Negotiate()
         {
             parentSession.SendText("\nOf course good man! Whoever saves my daughter will get huge bags of gold and maybe something more...");
-            int choice6 = GetListBoxChoice(new List<string>() { "More? Like what?", "Gold is just fine. 2000 should do." });
+            int choice6 = parentSession.GetListBoxChoice(new List<string>() { "More? Like what?", "Gold is just fine. 2000 should do." });
             if (choice6 == 0)
             {
                 parentSession.SendText("\nI can offer you a magic amulet that will help you fight the dragon, but you're payment will be smaller then...");
-                int choice7 = GetListBoxChoice(new List<string>() { "I'll stay with gold. Where should I look for this tower?", "Ok, I'll take the amulet." });
+                int choice7 = parentSession.GetListBoxChoice(new List<string>() { "I'll stay with gold. Where should I look for this tower?", "Ok, I'll take the amulet." });
                 if (choice7 == 0)
                 {
                     SendForQuest();
@@ -193,7 +193,7 @@ namespace Game.Engine.Interactions.PrincessQuest
             if (choice6 == 1)
             {
                 parentSession.SendText("Are you mad? I can offer you 1000.");
-                int choice8 = GetListBoxChoice(new List<string>() { "Then you'll have to save her yourself.", "Ok that's fair payment. Where should I go then?" });
+                int choice8 = parentSession.GetListBoxChoice(new List<string>() { "Then you'll have to save her yourself.", "Ok that's fair payment. Where should I go then?" });
                 if (choice8 == 0)
                 {
                     parentSession.SendText("Oh dear... Go away you stupid man! Guard, attack him!");

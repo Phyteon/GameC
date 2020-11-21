@@ -6,7 +6,7 @@ using Game.Engine.Interactions;
 namespace Game.Engine.Interactions.PrincessQuest
 {
     [Serializable]
-    class MageEncounter : ListBoxInteraction
+    class MageEncounter : PlayerInteraction
     {
         public int visited = 0;
         public bool ifQuestStarted = false;
@@ -31,7 +31,7 @@ namespace Game.Engine.Interactions.PrincessQuest
                 {
                     parentSession.SendText("\nI see you got this amulet. Maybe you'll be the first one that won't end up as a dragon's breakfast. " +
                         "Now I can help you deal with a witch - you don't have to worry about her - but the beast is on you.");
-                    int choice2 = GetListBoxChoice(new List<string>() { "Ok mage, farewell then and good luck to us both!", "Wait... Can you tell me what" +
+                    int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Ok mage, farewell then and good luck to us both!", "Wait... Can you tell me what" +
                         " happened with the princess? The king seemed very sketchy about this situation..."});
                     if (choice2 == 0)
                     {
@@ -47,7 +47,7 @@ namespace Game.Engine.Interactions.PrincessQuest
                             "the most dear to his heart - his daughter. The king went to the tower and tried to give the staff to the godmother, but " +
                             "she was blinded by anger and turned crazy. Now the princess is stuck in the tower, but the witch is weak and I can easily deal with her" +
                             ". The dragon on the other hand is your duty. Good luck .");
-                        int choice3 = GetListBoxChoice(new List<string>() { "Wow, thank you mage. Good luck." });
+                        int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Wow, thank you mage. Good luck." });
                         if (choice3 == 0)
                         {
                             tower.ifMageVisited = true;
@@ -69,7 +69,7 @@ namespace Game.Engine.Interactions.PrincessQuest
             {
                 visited = -1;
                 parentSession.SendText("\nYou've come a long way from the castle. I can help you win this fight, if you prove yourself to me!");
-                int choice1 = GetListBoxChoice(new List<string>() { "What do you need old mage?", "It's too much work, maybe " +
+                int choice1 = parentSession.GetListBoxChoice(new List<string>() { "What do you need old mage?", "It's too much work, maybe " +
                     "I'll come back here another time."});
                 if (choice1 == 0)
                 {

@@ -12,7 +12,7 @@ namespace Game.Engine.Interactions.MageQuest
 {
     [Serializable]
 
-    class FriendlyMage : ListBoxInteraction
+    class FriendlyMage : PlayerInteraction
     {
         private HelpfulMage myMage;
         private FriendlyWarrior myWarrior;
@@ -32,12 +32,12 @@ namespace Game.Engine.Interactions.MageQuest
         {
             parentSession.SendText("Hey i'm local mage, my name is Herald, how can i help you?");
 
-            int choice1 = GetListBoxChoice(new List<string>() { "What do you do?", "I have mission to do!" });
+            int choice1 = parentSession.GetListBoxChoice(new List<string>() { "What do you do?", "I have mission to do!" });
             switch (choice1)
             {
                 case 0:
                     parentSession.SendText("\nThe task of local magicians is teaching new magic skills");
-                    int choice2 = GetListBoxChoice(new List<string>() { "Really? Could you teach me new skills?","Could you teach me normal skills?", "Okey, thanks for conversation" });
+                    int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Really? Could you teach me new skills?","Could you teach me normal skills?", "Okey, thanks for conversation" });
                     switch (choice2)
                     { 
                         case 0:
@@ -90,7 +90,7 @@ namespace Game.Engine.Interactions.MageQuest
         {
 
                 parentSession.SendText("\nYes, i can teach you the following skills for a fee");
-                int choice3 = GetListBoxChoice(new List<string>() { "Ice Spike - 50 gold", "Magic Arrow - 60 gold", "Stone Skind - 45 gold", "Blessing - 30 gold", "I'm not interesting" });
+                int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Ice Spike - 50 gold", "Magic Arrow - 60 gold", "Stone Skind - 45 gold", "Blessing - 30 gold", "I'm not interesting" });
                 switch (choice3)
                 {
                     case 0:

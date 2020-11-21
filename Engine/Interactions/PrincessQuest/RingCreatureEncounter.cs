@@ -7,7 +7,7 @@ namespace Game.Engine.Interactions.PrincessQuest
 {
     //this interaction is just a little bit inspired by Hobbit, but at least it's a nice canvas to use plenty of features in the code
     [Serializable]
-    class RingCreatureEncounter : ListBoxInteraction
+    class RingCreatureEncounter : PlayerInteraction
     {
         private KingEncounter king;
         public int visited = 0;
@@ -53,7 +53,7 @@ namespace Game.Engine.Interactions.PrincessQuest
         }
         private void StandardEncounter()//what happens at a standard encounter with the creature
         {
-            int choice1 = GetListBoxChoice(new List<string>() {"Go away silently not bothering the creature.", "Attack the creature.", "Wait " +
+            int choice1 = parentSession.GetListBoxChoice(new List<string>() {"Go away silently not bothering the creature.", "Attack the creature.", "Wait " +
                 "in hiding, quietly listening what the creature is saying." });
             if (choice1 == 0)
             {
@@ -75,7 +75,7 @@ namespace Game.Engine.Interactions.PrincessQuest
             {
                 parentSession.SendText("You've attacked the creature, but it was prepared and you end up in a hanging trap." +
                     "\nCREATURE: INTRUDER! INTRUDER! ARGH! I GOT YOU IN MY TRAP!!!");
-                int choice2 = GetListBoxChoice(new List<string>() { "Stay quiet - let the mysterious creature talk.", "Try to escape the trap" });
+                int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Stay quiet - let the mysterious creature talk.", "Try to escape the trap" });
                 if (choice2 == 0)
                 {
                     RiddleNegotiation();
@@ -90,13 +90,13 @@ namespace Game.Engine.Interactions.PrincessQuest
             if (choice1 == 2)
             {
                 parentSession.SendText("\nCREATURE: Stupid people... If only they knew my treasure was here they would surely try to steal it.");
-                int choice3 = GetListBoxChoice(new List<string>() {"Go out from hiding, peacefully, not trying to fight the creature.", "Attack " +
+                int choice3 = parentSession.GetListBoxChoice(new List<string>() {"Go out from hiding, peacefully, not trying to fight the creature.", "Attack " +
                     "the creature.", "Keep listening." });
                 if (choice3 == 0)
                 {
                     parentSession.SendText("\nYOU: Welcome mysterious creature, I'm not here to fight, I've lost my way when going to the town..." +
                         "\nCREATURE: A traveller? You shouldn't be here! Go away!");
-                    int choice4 = GetListBoxChoice(new List<string>() { "Leave the cave.", "Attack the creature." });
+                    int choice4 = parentSession.GetListBoxChoice(new List<string>() { "Leave the cave.", "Attack the creature." });
                     if (choice4 == 0)
                     {   //if you try to leave without creature noticing you you have 50% chances to succesfully leave, but if
                         //you try to leave when you showed yourself to the creature you end up in a trap without other chances.
@@ -122,7 +122,7 @@ namespace Game.Engine.Interactions.PrincessQuest
                 if (choice3 == 2)
                 {
                     parentSession.SendText("\nI should protect it better. If someone would know it takes only to reforge it into infinity ring...");
-                    int choice5 = GetListBoxChoice(new List<string>() { "Attack.", "Leave." });
+                    int choice5 = parentSession.GetListBoxChoice(new List<string>() { "Attack.", "Leave." });
                     if (choice5 == 0)
                     {
                         parentSession.SendText("\nYou've tried to attack the creature, but it was prepared and you end up in a hanging trap." +
@@ -150,7 +150,7 @@ namespace Game.Engine.Interactions.PrincessQuest
         }
         private void EscapeTheTrap()
         {
-            int choice6 = GetListBoxChoice(new List<string>() { "Try to escape the trap.", "Try to negotiate." });
+            int choice6 = parentSession.GetListBoxChoice(new List<string>() { "Try to escape the trap.", "Try to negotiate." });
             if (choice6 == 0)
             {
                 int random3 = Index.RNG(1, 101); //I use some random element in storytelling here
@@ -171,7 +171,7 @@ namespace Game.Engine.Interactions.PrincessQuest
                 parentSession.SendText("\nYOU: Hey hey! Easy! I might have something to give you that you may like.. Gold maybe? " +
                     "\nCREATURE: Gold? I might let you go then... Ok. We can play a game. You'll have to answer three riddles. If I win - I get " +
                     "your gold, and if you win - I'll let you go.");
-                int choice8 = GetListBoxChoice(new List<string>() { "Agree.", "Ask what the creature is holding in his pocket." });
+                int choice8 = parentSession.GetListBoxChoice(new List<string>() { "Agree.", "Ask what the creature is holding in his pocket." });
                 if (choice8 == 0)
                 {
                     game = 1;
@@ -183,7 +183,7 @@ namespace Game.Engine.Interactions.PrincessQuest
                     parentSession.SendText("\nYOU: It's not fair for me! You win my gold, then I should win something too! I can agree " +
                         "to something small... If I win you give me what you have in your pocket.\nCREATURE: It's not fair! But ok, you got " +
                         "a point. If you win I let you go and you can take what's in my pocket, but if you lose I take all your gold!");
-                    int choice9 = GetListBoxChoice(new List<string>() {"Agree - lose 150 gold, or win supporting amulet.", "Disagree - lose 50 " +
+                    int choice9 = parentSession.GetListBoxChoice(new List<string>() {"Agree - lose 150 gold, or win supporting amulet.", "Disagree - lose 50 " +
                         "of your gold if you lose or escape freely if you win." });
                     if (choice9 == 0)
                     {
@@ -204,13 +204,13 @@ namespace Game.Engine.Interactions.PrincessQuest
         {
             parentSession.SendText("\nNow that I catched you in my trap I have to figure out what to do with you. Maybe" +
                 " I'll feed you to my monster friend...");
-            int choice7 = GetListBoxChoice(new List<string>() { "Try to negotiate calmly.", "Answer agressively." });
+            int choice7 = parentSession.GetListBoxChoice(new List<string>() { "Try to negotiate calmly.", "Answer agressively." });
             if (choice7 == 0)
             {
                 parentSession.SendText("\nYOU: Hey hey! Easy! I might have something to give you that you may like.. Gold maybe? " +
                     "\nCREATURE: Gold? I might let you go then... Ok. We can play a game. You'll have to answer three riddles. If I win - I get " +
                     "your gold, and if you win - I'll let you go.");
-                int choice8 = GetListBoxChoice(new List<string>() { "Agree.", "Ask what the creature is holding in his pocket." });
+                int choice8 = parentSession.GetListBoxChoice(new List<string>() { "Agree.", "Ask what the creature is holding in his pocket." });
                 if (choice8 == 0)
                 {
                     game = 1;
@@ -222,7 +222,7 @@ namespace Game.Engine.Interactions.PrincessQuest
                     parentSession.SendText("\nYOU: It's not fair for me! You win my gold, then I should win something too! I can agree " +
                         "to something small... If I win you give me what you have in your pocket.\nCREATURE: It's not fair! But ok, you got " +
                         "a point. If you win I let you go and you can take what's in my pocket, but if you lose I take all your gold!");
-                    int choice9 = GetListBoxChoice(new List<string>() {"Agree - lose 150 gold, or win supporting amulet.", "Disagree - lose 50 " +
+                    int choice9 = parentSession.GetListBoxChoice(new List<string>() {"Agree - lose 150 gold, or win supporting amulet.", "Disagree - lose 50 " +
                         "of your gold if you lose or escape freely if you win." });
                     if (choice9 == 0)
                     {

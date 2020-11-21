@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.MageQuest
 {
     [Serializable]
-    class FriendlyWarrior:ListBoxInteraction
+    class FriendlyWarrior:PlayerInteraction
     {
         public int MageAmulet { get; set; }
 
@@ -26,7 +26,7 @@ namespace Game.Engine.Interactions.MageQuest
         protected override void RunContent()
         {
             parentSession.SendText("\nHello Adventurer! I'm local warrior, do you wanna learn new normal skills?");
-            int choice2 = GetListBoxChoice(new List<string>() { "Really? Could you teach me new skills?", "Could you teach me mage skills?", "Okey, thanks for conversation" });
+            int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Really? Could you teach me new skills?", "Could you teach me mage skills?", "Okey, thanks for conversation" });
             switch (choice2)
             {
                 case 0:
@@ -61,7 +61,7 @@ namespace Game.Engine.Interactions.MageQuest
                     MageAmulet +=1;
                 }
 
-                int choice3 = GetListBoxChoice(new List<string>() { "Enchanted Slash - 40 gold - promotion!", "Whirl - 60 gold", "Axe Throw - 45 gold", "Aura of a Sword - 35 gold", "I'm not interesting" });
+                int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Enchanted Slash - 40 gold - promotion!", "Whirl - 60 gold", "Axe Throw - 45 gold", "Aura of a Sword - 35 gold", "I'm not interesting" });
                 switch (choice3)
                 {
                     case 0:
@@ -88,7 +88,7 @@ namespace Game.Engine.Interactions.MageQuest
             else
             {
                 parentSession.SendText("\nYes, i can teach you the following skills for a fee");
-                int choice3 = GetListBoxChoice(new List<string>() { "Enchanted Slash - 60 gold", "Whirl - 60 gold", "Axe Throw - 45 gold", "Aura of a Sword - 35 gold", "I'm not interesting" });
+                int choice3 = parentSession.GetListBoxChoice(new List<string>() { "Enchanted Slash - 60 gold", "Whirl - 60 gold", "Axe Throw - 45 gold", "Aura of a Sword - 35 gold", "I'm not interesting" });
                 switch (choice3)
                 {
                     case 0:

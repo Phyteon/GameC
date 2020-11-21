@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.Muses
 {
     [Serializable]
-    class EratoEncounter: ListBoxInteraction
+    class EratoEncounter: PlayerInteraction
     {
         public bool meetErato = false;
         private bool meet2 = false;
@@ -33,7 +33,7 @@ namespace Game.Engine.Interactions.Muses
             {
                 Meeting();
                 meetErato = true;
-                int choice = GetListBoxChoice(new List<string>() { "Nice to meet you! We have a beautiful day today!", "Why did you take the Euterpe Flute?" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Nice to meet you! We have a beautiful day today!", "Why did you take the Euterpe Flute?" });
                 switch (choice)
                 {
                     case 0:
@@ -49,7 +49,7 @@ namespace Game.Engine.Interactions.Muses
             if (apollo.getKithara && meet2 == false)
             {
                 parentSession.SendText("\nErato: Do you have my Kithara?");
-                int choice = GetListBoxChoice(new List<string>() { "Yes, here it is.  *give Kithara back" });
+                int choice = parentSession.GetListBoxChoice(new List<string>() { "Yes, here it is.  *give Kithara back" });
                 switch (choice)
                 {
                     case 0:

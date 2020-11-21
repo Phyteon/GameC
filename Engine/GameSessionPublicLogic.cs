@@ -74,6 +74,23 @@ namespace Game.Engine
         }
 
 
+        /***************************       CLICKABLE    ***************************/
+        public int GetListBoxChoice(List<string> choices)
+        {
+            // display a list of choices on game screen 
+            // return choice clicked by player as int (number on the list, starts from zero)
+            if (choices.Count == 0) return -1;
+            Display.ListBoxInteractionDisplay inter = new Display.ListBoxInteractionDisplay(parentPage);
+            inter.SetChoices(choices);
+            while (inter.ChosenNumber < 0)
+            {
+                Wait(100);
+            }
+            inter.Finish();
+            return inter.ChosenNumber;
+        }
+
+
         /***************************        ITEMS      ***************************/
         public List<string> GetActiveItemNames()
         {

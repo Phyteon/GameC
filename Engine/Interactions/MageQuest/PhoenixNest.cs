@@ -9,7 +9,7 @@ namespace Game.Engine.Interactions.MageQuest
 {
     [Serializable]
 
-    class PhoenixNest:ConsoleInteraction
+    class PhoenixNest:PlayerInteraction
     {
         private HelpfulMage myMage;
 

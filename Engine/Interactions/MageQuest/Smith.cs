@@ -9,7 +9,7 @@ namespace Game.Engine.Interactions.MageQuest
 {
     [Serializable]
 
-    class Smith:ListBoxInteraction
+    class Smith:PlayerInteraction
     {
             
         private HelpfulMage myMage;
@@ -34,12 +34,12 @@ namespace Game.Engine.Interactions.MageQuest
             {
                 parentSession.SendText("\nHey i'm Smith, how can i help you?");
 
-                int choice1 = GetListBoxChoice(new List<string>() { "What do you do?", "Nevermind" });
+                int choice1 = parentSession.GetListBoxChoice(new List<string>() { "What do you do?", "Nevermind" });
                 switch (choice1)
                 {
                     case 0:
                         parentSession.SendText("\nIf you wanna i can craft for you random Item, it will cost you 80 gold");
-                        int choice2 = GetListBoxChoice(new List<string>() { "Paid 80 gold and get random Item", "Sorry, I'm not interested" });
+                        int choice2 = parentSession.GetListBoxChoice(new List<string>() { "Paid 80 gold and get random Item", "Sorry, I'm not interested" });
                         switch (choice2)
                         {
                             case 0:

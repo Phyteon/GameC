@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game.Engine.Interactions.LootingLute
 {
     [Serializable]
-    class CaveEncounter:ImageInteraction
+    class CaveEncounter:InteractionWithImage
     {
         
         public ICaveStrategy strategy;
