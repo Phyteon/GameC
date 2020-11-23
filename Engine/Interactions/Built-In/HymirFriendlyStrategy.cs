@@ -21,7 +21,7 @@ namespace Game.Engine.Interactions.Built_In
             {
                 parentSession.SendText("\nHello adventurer. Wait, you must be the person who helped my older brother Gymir! Please come in, I have to thank you.");
                 parentSession.SendText("They say that drinking the water from my well brings wisdom, so please let this be my gift for you.");
-                parentSession.UpdateStat(7, 500); // + 500 xp
+                parentSession.UpdateStat(7, 300); // + 300 xp
             }
             return true; // executing this strategy means HymirEncounter is now complete
         }

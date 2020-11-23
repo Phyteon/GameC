@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game.Engine.Interactions.Built_In
 {
-    abstract class Gymir
+    [Serializable]
+    abstract class GymirState
     {
         public abstract void RunContent(GameSession ses, GymirEncounter myself, HymirEncounter myBrother);
     }

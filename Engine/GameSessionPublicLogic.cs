@@ -211,7 +211,7 @@ namespace Game.Engine
         }
 
         /***************************        FIGHTS      ***************************/
-        public void FightRandomMonster(bool possibleToEscape = false)
+        public bool FightRandomMonster(bool possibleToEscape = false)
         {
             // player will fight against a random monster
             // xp can be gained here, but gold/items cannot (you can do this separately inside your interaction)
@@ -226,13 +226,15 @@ namespace Game.Engine
                     Battle newBattle = new Battle(this, newBattleScene, monster, false, possibleToEscape);
                     newBattle.Run();
                     if (newBattle.battleResult) UpdateStat(7, monster.XPValue);
+                    return newBattle.battleResult;
                 }
             }
             catch (IndexOutOfRangeException e)
             {
                 parentPage.AddConsoleText("An attempt was made to create a monster but something went wrong. Did you remember to update the Index class?");
-                parentPage.AddConsoleText(e.Message);
+                parentPage.AddConsoleText(e.Message);     
             }
+            return false;
         }
 
         public bool FightThisMonster(Monster monster, bool possibleToEscape = false)

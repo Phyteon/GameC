@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Game.Engine.Interactions.Built_In
 {
-    class GymirCompleteState : Gymir
+    [Serializable]
+    class GymirCompleteState : GymirState
     {
-        public override void RunContent(GameSession ses, GymirEncounter myself, HymirEncounter myBrother)
+        public override void RunContent(GameSession parentSession, GymirEncounter myself, HymirEncounter myBrother)
         {
-            throw new NotImplementedException();
+            parentSession.SendText("\nOh, hello. Thanks for coming, but I don't have any job for you right now.");
+            return;
         }
     }
 }

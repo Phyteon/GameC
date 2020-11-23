@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Game.Engine.Interactions.Built_In
 {
-    class GymirHostileState : Gymir
+    [Serializable]
+    class GymirHostileState : GymirState
     {
-        public override void RunContent(GameSession ses, GymirEncounter myself, HymirEncounter myBrother)
+        public override void RunContent(GameSession parentSession, GymirEncounter myself, HymirEncounter myBrother)
         {
-            throw new NotImplementedException();
+            parentSession.SendText("\nYou again, thief? Just wait until my back pain gets better... ");
+            return;
         }
     }
 }

@@ -14,14 +14,30 @@ namespace Game.Engine.Interactions
     [Serializable]
     class GymirEncounter : PlayerInteraction
     {
-        private HymirEncounter myBrother; // store reference to Hymir
-        private int visited = 0; // how many times have you visited this place?
-        private int payment = 0;
+        private GymirState currentState; // current state of this interaction (design pattern)
+        private HymirEncounter myBrother; // store reference to Hymir    
         public GymirEncounter(GameSession ses, HymirEncounter myBrother) : base(ses)
         {
+            parentSession = ses;
             Name = "interaction0003";
             this.myBrother = myBrother; // set reference to Hymir
+            currentState = new GymirInitialState();
         }
+        protected override void RunContent()
+        {
+            currentState.RunContent(parentSession, this, myBrother);
+        }
+        public void ChangeState(GymirState newState, bool isCompleted = false)
+        {
+            currentState = newState;
+            if (isCompleted) Complete = true; // while changing state, we may also want to set this property
+        }
+
+
+        /*
+
+        private int visited = 0; // how many times have you visited this place?
+        private int payment = 0;
         protected override void RunContent()
         {
             if (visited == -1) // already visited this place and bad things happened 
@@ -89,5 +105,8 @@ namespace Game.Engine.Interactions
                 Complete = true; // this interaction is now complete
             }
         }
+
+
+        */
     }
 }
