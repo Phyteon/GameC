@@ -18,7 +18,7 @@ namespace Game.Engine.Monsters
             MagicPower = 50 + spiderLevel;
             Stamina = 100;
             XPValue = 70 + spiderLevel;
-            Name = "monster1043";
+            Name = "monster0004";
             BattleGreetings = "I can smell you, my little fly!";
         }
         public override List<StatPackage> BattleMove()
@@ -28,13 +28,13 @@ namespace Game.Engine.Monsters
                 if (Stamina > 70)
                 {
                     Stamina -= 10;
-                    return new List<StatPackage>() { new StatPackage(DmgType.Cut, 20 + Strength, "Tarantula Charges Forward! (" + (20 + Strength) + " cut damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Crush, 20 + Strength, "Tarantula charges forward! (" + (20 + Strength) + " crush damage)") };
                 }
 
                 if (Stamina > 0 && Stamina <= 70)
                 {
                     Stamina -= 10;
-                    return new List<StatPackage>() { new StatPackage(DmgType.Poison, 15 + MagicPower, "Tarantula's poison Digests you from the inside! (" + (15 + MagicPower) + " poison damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Poison, 15 + MagicPower, "Tarantula's poison burns you! (" + (15 + MagicPower) + " poison damage)") };
                 }
                 else
                 {

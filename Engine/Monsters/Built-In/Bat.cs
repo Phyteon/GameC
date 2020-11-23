@@ -17,8 +17,8 @@ namespace Game.Engine.Monsters
             Precision = 50;
             Stamina = 100;
             XPValue = 10 + batLevel;
-            Name = "monster0940";
-            BattleGreetings = "*Bat says something, but you can't hear this*";
+            Name = "monster0005";
+            BattleGreetings = null;
         }
         public override List<StatPackage> BattleMove()
         {

@@ -128,33 +128,6 @@ namespace Game.Engine
             new Monsters.MonsterFactories.SpiderFactory(),
             new Monsters.MonsterFactories.SpiderFactory(),
             new Monsters.MonsterFactories.SpiderFactory(),
-            // x2
-            /*
-            new Monsters.MonsterFactories.ButterflyFactory(),
-            new Monsters.MonsterFactories.ButterflyFactory(),
-            new Monsters.MonsterFactories.HogFactory(),
-            new Monsters.MonsterFactories.HogFactory(),
-            new Monsters.MonsterFactories.ElementalBatFactory(),
-            new Monsters.MonsterFactories.ElementalBatFactory(),
-            new Monsters.MonsterFactories.ThugFactory(),
-            new Monsters.MonsterFactories.ThugFactory(),
-            // x1
-            new Monsters.MonsterFactories.EgyptMonstersFactory(),
-            new Monsters.MonsterFactories.GolemFactory(),
-            new Monsters.MonsterFactories.MimicFactory(),
-            new Monsters.MonsterFactories.PhoenixFactory(),
-            new Monsters.MonsterFactories.UnicornFactory(),
-            new Monsters.MonsterFactories.GermFactory(),
-            new Monsters.MonsterFactories.DragonFactory(),
-            new Monsters.MonsterFactories.IceDragonFactory(),
-            new Monsters.MonsterFactories.HydraFactory(),
-            new Monsters.MonsterFactories.UnseenHorrorFactory(),
-            new Monsters.MonsterFactories.UndeadBishopFactory(),
-            new Monsters.MonsterFactories.ElementalistFactory(),
-            new Monsters.MonsterFactories.JesterFactory(),
-            new Monsters.MonsterFactories.NumiFactory(),
-            new Monsters.MonsterFactories.FleyonFactory(),
-            */
         };
 
         public readonly static InteractionFactory QuestFactory = new GymirHymirFactory();

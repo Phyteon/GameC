@@ -214,70 +214,18 @@
     <Compile Include="Engine\Items\Swords\MoonlightSword.cs" />
     <Compile Include="Engine\MapMatrix.cs" />
     <Compile Include="Engine\MetaMapMatrix.cs" />
-    <Compile Include="Engine\Monsters\Butterflies\Butterfly.cs" />
-    <Compile Include="Engine\Monsters\Butterflies\ButterflyEvolved.cs" />
-    <Compile Include="Engine\Monsters\Dragons\DeathDragon.cs" />
-    <Compile Include="Engine\Monsters\Dragons\FireDragon.cs" />
-    <Compile Include="Engine\Monsters\Dragons\IceDragon.cs" />
-    <Compile Include="Engine\Monsters\Dragons\IceEgg.cs" />
-    <Compile Include="Engine\Monsters\Egyptian\AnubisGuard.cs" />
-    <Compile Include="Engine\Monsters\Egyptian\ArabicSkeleton.cs" />
-    <Compile Include="Engine\Monsters\ElementalBats\AirBat.cs" />
-    <Compile Include="Engine\Monsters\ElementalBats\EarthBat.cs" />
-    <Compile Include="Engine\Monsters\ElementalBats\FireBat.cs" />
-    <Compile Include="Engine\Monsters\ElementalBats\WaterBat.cs" />
-    <Compile Include="Engine\Monsters\Hogs\HellHog.cs" />
-    <Compile Include="Engine\Monsters\Hogs\Hog.cs" />
-    <Compile Include="Engine\Monsters\Hogs\HolyHog.cs" />
-    <Compile Include="Engine\Monsters\Hydras\Hydra1.cs" />
-    <Compile Include="Engine\Monsters\Hydras\Hydra2.cs" />
-    <Compile Include="Engine\Monsters\Hydras\Hydra3.cs" />
-    <Compile Include="Engine\Monsters\Hydras\Hydra4.cs" />
-    <Compile Include="Engine\Monsters\Misc\Elementalist.cs" />
-    <Compile Include="Engine\Monsters\Misc\Fleyon.cs" />
-    <Compile Include="Engine\Monsters\Misc\GiantGerm.cs" />
-    <Compile Include="Engine\Monsters\Misc\Golem.cs" />
-    <Compile Include="Engine\Monsters\Misc\Jester.cs" />
-    <Compile Include="Engine\Monsters\Misc\Mimic.cs" />
-    <Compile Include="Engine\Monsters\Misc\Numi.cs" />
-    <Compile Include="Engine\Monsters\Misc\Numidex.cs" />
-    <Compile Include="Engine\Monsters\Misc\Phoenix.cs" />
-    <Compile Include="Engine\Monsters\Misc\UndeadBishop.cs" />
-    <Compile Include="Engine\Monsters\Misc\Unicorn.cs" />
-    <Compile Include="Engine\Monsters\Misc\UnseenHorror.cs" />
     <Compile Include="Engine\Monsters\Monster.cs" />
     <Compile Include="Engine\CharacterClasses\Player.cs" />
     <Compile Include="Engine\Monsters\MonsterFactories\BatFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\DragonFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\ElementalBatFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\ElementalistFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\FleyonFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\HogFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\JesterFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\NumiFactory.cs" />
     <Compile Include="Engine\Monsters\MonsterFactories\SpiderFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\ThugFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\UndeadBishopFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\ButterflyFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\EgyptMontersFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\GermFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\GolemFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\HydraFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\IceDragonFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\MimicFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\MonsterFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\PhoenixFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactory.cs" />
     <Compile Include="Engine\Monsters\MonsterFactories\RatFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\UnicornFactory.cs" />
-    <Compile Include="Engine\Monsters\MonsterFactories\UnseenHorrorFactory.cs" />
-    <Compile Include="Engine\Monsters\Rat.cs" />
-    <Compile Include="Engine\Monsters\RatEvolved.cs" />
-    <Compile Include="Engine\Monsters\Spiders\Spider.cs" />
-    <Compile Include="Engine\Monsters\Spiders\Tarantula.cs" />
-    <Compile Include="Engine\Monsters\Thugs\Thug.cs" />
-    <Compile Include="Engine\Monsters\Thugs\ThugSurvivor.cs" />
-    <Compile Include="Engine\Monsters\Vampires\Bat.cs" />
-    <Compile Include="Engine\Monsters\Vampires\VampireKnight.cs" />
+    <Compile Include="Engine\Monsters\Built-In\Rat.cs" />
+    <Compile Include="Engine\Monsters\Built-In\RatEvolved.cs" />
+    <Compile Include="Engine\Monsters\Built-In\Spider.cs" />
+    <Compile Include="Engine\Monsters\Built-In\Tarantula.cs" />
+    <Compile Include="Engine\Monsters\Built-In\Bat.cs" />
+    <Compile Include="Engine\Monsters\Built-In\VampireKnight.cs" />
     <Compile Include="Engine\SaveData.cs" />
     <Compile Include="Engine\Skills\AdvancedSpells\ArmorDestruction.cs" />
     <Compile Include="Engine\Skills\AdvancedSpells\ArmorDestructionDecorator.cs" />
@@ -472,39 +420,8 @@
     <Resource Include="Display\Assets\Interactions\interaction0004.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0820.png" />
-    <Resource Include="Display\Assets\Monsters\monster0830.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0581.png" />
-    <Resource Include="Display\Assets\Monsters\monster0583.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0581b.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0180.png" />
-    <Resource Include="Display\Assets\Monsters\monster0181.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0862.png" />
-    <Resource Include="Display\Assets\Monsters\monster0863.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0940.png" />
-    <Resource Include="Display\Assets\Monsters\monster0941.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0481.png" />
-    <Resource Include="Display\Assets\Monsters\monster0482.png" />
-    <Resource Include="Display\Assets\Monsters\monster0483.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster1280.png" />
-    <Resource Include="Display\Assets\Monsters\monster1281.png" />
-    <Resource Include="Display\Assets\Monsters\monster1282.png" />
-    <Resource Include="Display\Assets\Monsters\monster1283.png" />
-    <Resource Include="Display\Assets\Monsters\monster1284.png" />
+    <Resource Include="Display\Assets\Monsters\monster0005.png" />
+    <Resource Include="Display\Assets\Monsters\monster0006.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\Items\item1281.png" />
@@ -554,39 +471,8 @@
     <Resource Include="Display\Assets\Items\item0855.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0221.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster1260.png" />
-    <Resource Include="Display\Assets\Monsters\monster1261.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster1420.png" />
-    <Resource Include="Display\Assets\Monsters\monster1421.png" />
-    <Resource Include="Display\Assets\Monsters\monster1422.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster1302.png" />
-    <Resource Include="Display\Assets\Monsters\monster1303.png" />
-    <Resource Include="Display\Assets\Monsters\monster1304.png" />
-    <Resource Include="Display\Assets\Monsters\monster1305.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster1140.png" />
-    <Resource Include="Display\Assets\Monsters\monster1143.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0621.png" />
-    <Resource Include="Display\Assets\Monsters\monster0622.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster1360.png" />
-    <Resource Include="Display\Assets\Monsters\monster1361.png" />
-    <Resource Include="Display\Assets\Monsters\monster1362.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster1042.png" />
-    <Resource Include="Display\Assets\Monsters\monster1043.png" />
+    <Resource Include="Display\Assets\Monsters\monster0003.png" />
+    <Resource Include="Display\Assets\Monsters\monster0004.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\Items\item1360.png" />
@@ -619,10 +505,6 @@
     <Resource Include="Display\Assets\Items\item1363.png" />
     <Resource Include="Display\Assets\Items\item1364.png" />
     <Resource Include="Display\Assets\Items\item1365.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0345.png" />
-    <Resource Include="Display\Assets\Monsters\monster0346.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\Items\item0269.png" />
@@ -661,14 +543,14 @@
     <None Include="Resources\Song.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0240.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Display\Assets\obstacle0001.png" />
     <Resource Include="Display\Assets\obstacle0002.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\Items\item0009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Engine\Monsters\Misc\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

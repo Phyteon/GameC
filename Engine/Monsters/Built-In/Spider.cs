@@ -18,7 +18,7 @@ namespace Game.Engine.Monsters
             MagicPower = 0;
             Stamina = 70;
             XPValue = 35 + spiderLevel;
-            Name = "monster1042";
+            Name = "monster0003";
             BattleGreetings = null;
         }
         public override List<StatPackage> BattleMove()
@@ -26,19 +26,19 @@ namespace Game.Engine.Monsters
             if (Stamina > 50)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 15 + Strength, "Spider uses strong Bite! (" + (5 + Strength) + " cut damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 15 + Strength, "Spider uses Bite! (" + (15 + Strength) + " cut damage)") };
             }
 
             if (Stamina > 20 && Stamina <= 50)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 10 + Strength, "Spider uses its Sting! (" + (5 + Strength) + " cut damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 10 + Strength, "Spider uses Sting! (" + (5 + Strength) + " cut damage)") };
             }
 
             if (Stamina > 0 && Stamina <= 20)
             {
                 Stamina -= 5;
-                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 5 + Strength, "Spider uses weak Bite! (" + (5 + Strength) + " cut damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 5 + Strength, "Spider uses Bite! (" + (5 + Strength) + " cut damage)") };
             }
 
             else

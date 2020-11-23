@@ -17,7 +17,7 @@ namespace Game.Engine.Monsters
             Precision = 80;
             Stamina = 500;
             XPValue = 100 + 3 * vkLevel;
-            Name = "monster0941";
+            Name = "monster0006";
             BattleGreetings = "Greetings...";
         }
         public override List<StatPackage> BattleMove()
@@ -28,7 +28,7 @@ namespace Game.Engine.Monsters
                 if (chance < 5)
                 {
                     Stamina -= 25;
-                    return new List<StatPackage>() { new StatPackage(DmgType.Cut, 50 + Strength, "Vampire attacks you with his sword (" + (50 + Strength) + " incised damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Cut, 50 + Strength, "Vampire attacks you with his sword (" + (50 + Strength) + " cut damage)") };
                 }
                 else
                 {
@@ -36,7 +36,7 @@ namespace Game.Engine.Monsters
                     health += 30;
                     return new List<StatPackage>()
                     {
-                        new StatPackage(DmgType.Cut, 70 + Strength, "Vampire drinks your blood (" + (70 + Strength) + " cut damage) and gains 30 health"), 
+                        new StatPackage(DmgType.Other, 70 + Strength, "Vampire drains your blood (" + (70 + Strength) + " damage) and gains 30 health"), 
                     };
                 }
             }

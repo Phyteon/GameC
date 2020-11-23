@@ -20,7 +20,7 @@ namespace Game.Engine.Monsters
             Stamina = 70;
             XPValue = 40 + ratLevel;
             Name = "monster0002";
-            BattleGreetings = "You defeated me but now I'm back with venom!"; // this rat actually has something to say
+            BattleGreetings = "Now I'm back... with venom!"; // this rat actually has something to say
         }
         public override List<StatPackage> BattleMove()
         {
