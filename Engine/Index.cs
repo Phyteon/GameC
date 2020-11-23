@@ -20,26 +20,11 @@ namespace Game.Engine
         private static List<SkillFactory> magicSkillFactories = new List<SkillFactory>()
         {
             new BasicSpellFactory(),
-            new AdvancedSpellsFactory1(),
-            new AdvancedSpellsFactory2(),
-            new AdvancedSpellsFactory3(),
-            new HolySpellsFactory(),
-            new BuffSpellsFactory(),
-            new WaterSpellFactory(),
-            new OsirisMovesFactory(),
-            new ArmorDerivedSpellFactory(),
-            new SimpleSkillsFactory(),
         };
 
         private static List<SkillFactory> weaponSkillFactories = new List<SkillFactory>()
         {
             new BasicWeaponMoveFactory(),
-            new AdvancedWeaponMoveFactory(),
-            new AxeCutFactory(),
-            new SwordMoveFactory(),
-            new SpearMoveFactory(),
-            new ArmorDerivedSpellFactory(),
-            new SimpleSkillsFactory(),
         };
 
         private static List<Item> items = new List<Item>()

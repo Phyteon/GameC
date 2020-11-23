@@ -28,14 +28,14 @@ namespace Game.Engine.CharacterClasses
             parentSession.SendText("\n");
             parentSession.SendColorText("Level Up! Level: " + Level, "yellow");
             List<string> validInputs = new List<string>() { "1", "2", "3", "4" }; // only accept these inputs
-            parentSession.SendColorText("Choose a statistic to improve: +20 Health (press 1), +15 Strength (press 2), +5 Precision (press 3), +20 Stamina (press 4)", "yellow");
+            parentSession.SendColorText("Choose a statistic to improve: +20 Health (press 1), +10 Strength (press 2), +5 Precision (press 3), +20 Stamina (press 4)", "yellow");
             string key = parentSession.GetValidKeyResponse(validInputs).Item1;
             // don't make changes directly, ask GameSession to do it right
             if (key == "1") parentSession.UpdateStat(1, 20);
-            else if (key == "2") parentSession.UpdateStat(2, 15);
+            else if (key == "2") parentSession.UpdateStat(2, 10);
             else if (key == "3") parentSession.UpdateStat(4, 5);
             else if (key == "4") parentSession.UpdateStat(6, 20);
-            LearnNewSkill(Index.WeaponSkill(this));
+            if (Index.RNG(0, 100) > 50) LearnNewSkill(Index.WeaponSkill(this)); // warriors don't learn new skills as often as mages, but they gain statistics more quickly
         }
     }
 }

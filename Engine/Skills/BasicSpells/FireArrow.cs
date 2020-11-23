@@ -17,8 +17,7 @@ namespace Game.Engine.Skills.BasicSkills
         public override List<StatPackage> BattleMove(Player player)
         {
             StatPackage response = new StatPackage(DmgType.Fire);
-            Random rnd = new Random();
-            if (rnd.Next(0, 100) < player.Precision)
+            if (Index.RNG(0, 100) < player.Precision)
             {
                 response.HealthDmg = (int)(0.5 * player.MagicPower);
                 response.CustomText = "You use Fire Arrow! (" + (int)(0.5 * player.MagicPower) + " fire damage)";
