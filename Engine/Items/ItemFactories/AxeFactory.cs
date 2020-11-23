@@ -17,7 +17,7 @@ namespace Game.Engine.Items.ItemFactories
             {
                 new BasicAxe(),
                 new IronAxe(),
-                new SilverAxe(),
+                new GymirAxe(),
                 new DiamondAxe()
             };
             return basicAxe[Index.RNG(0, basicAxe.Count)];
@@ -28,7 +28,7 @@ namespace Game.Engine.Items.ItemFactories
             {
                 new BasicAxe(),
                 new IronAxe(),
-                new SilverAxe(),
+                new GymirAxe(),
                 new DiamondAxe()
             };
             return basicAxe[Index.RNG(0, basicAxe.Count)];

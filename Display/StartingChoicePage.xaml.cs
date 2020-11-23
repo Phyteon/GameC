@@ -30,6 +30,7 @@ namespace Game.Display
         }
         private void PressedOK(object sender, RoutedEventArgs e)
         {
+            if (ChoiceListBox.SelectedItem == null) return;
             parentPage.StartGameRun(ChoiceListBox.SelectedItem.ToString());
         }
     }

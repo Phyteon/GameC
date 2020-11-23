@@ -74,7 +74,7 @@ namespace Game.Engine
             new OsirisSabre(),
             new OsirisStaff(),
             new IronAxe(),
-            new SilverAxe(),
+            new GymirAxe(),
             new DiamondAxe(),
             new FlameStaff(),
             new SafetyRod(),

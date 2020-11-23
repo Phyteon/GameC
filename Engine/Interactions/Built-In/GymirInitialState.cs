@@ -59,7 +59,7 @@ namespace Game.Engine.Interactions.Built_In
             else
             {
                 parentSession.SendText("Wait, what are you doing? COME BACK HERE!");
-                parentSession.AddThisItem(Index.ProduceSpecificItem("item1261")); //silver axe
+                parentSession.AddThisItem(Index.ProduceSpecificItem("item0009")); //gymir's axe
                 myBrother.Strategy = new HymirHostileStrategy(); // Hymir will hear about this and he will hate you now
                 myself.ChangeState(new GymirHostileState(), true); // this interaction is now complete, but Gymir will no longer let you work here
             }
