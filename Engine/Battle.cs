@@ -13,14 +13,15 @@ namespace Game.Engine
     {
         protected BattleScene battleScene;
         protected int hpCopy, strCopy, armCopy, prCopy, mgCopy, staCopy; // after the battle, all statistics of the player are restored
-        protected bool rewards, firstBlood = false;
+        protected bool rewards, possibleToEscape, firstBlood = false;
         public Monster Monster { get; set; }
         public bool battleResult { get; private set; } = false; // has the player won?
-        public Battle(GameSession ses, BattleScene scene, Monster monster, bool rewards = true) : base(ses)
+        public Battle(GameSession ses, BattleScene scene, Monster monster, bool rewards = true, bool possibleToEscape = true) : base(ses)
         {
             Monster = monster;
             Name = "battle0001";
             this.rewards = rewards;
+            this.possibleToEscape = possibleToEscape;
             battleScene = scene;
             battleScene.ImgSetup = GetImage();
         }
@@ -35,10 +36,15 @@ namespace Game.Engine
                 battleScene.SendColorText(Monster.BattleGreetings, "red");
                 battleScene.SendBattleText("");
             }
-            battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills());
+            if(!possibleToEscape)
+            {
+                battleScene.SendColorText("Warning - running away is disabled for this fight", "yellow");
+                battleScene.SendBattleText("");
+            }
+            battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills(possibleToEscape));
             while (Monster.Health > 0) // reminder: there will be a separate mechanism for what happens when Player.Health == 0 
             {
-                if(parentSession.currentPlayer.ListAvailableSkills().Count == 0) // player has run out of stamina
+                if(parentSession.currentPlayer.ListAvailableSkills(possibleToEscape).Count == 0) // player has run out of stamina
                 {
                     RestorePlayerState();
                     battleScene.SendColorText("No more skills to use - defeat! (press any key to continue)", "red");
@@ -64,7 +70,7 @@ namespace Game.Engine
                 Monster.React(playerAttack);
                 battleScene.RefreshStats();
                 parentSession.UpdateStat(6, -1*playerResponse.StaminaCost);
-                battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills());
+                battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills(possibleToEscape));
                 battleScene.ResetChoice();
                 // now monster
                 if (Monster.Health == 0) continue;

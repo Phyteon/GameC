@@ -211,17 +211,19 @@ namespace Game.Engine
         }
 
         /***************************        FIGHTS      ***************************/
-        public void FightRandomMonster()
+        public void FightRandomMonster(bool possibleToEscape = false)
         {
             // player will fight against a random monster
             // xp can be gained here, but gold/items cannot (you can do this separately inside your interaction)
+            // unlike fights with wild monsters, in this fight it is impossible to run away by default
+            // if you want to make it possible to run away, provide the optional argument and set it to true
             try
             {
                 Monster monster = Index.RandomMonsterFactory().Clone().Create(currentPlayer.Level);
                 if (monster != null)
                 {
                     Display.BattleScene newBattleScene = new Display.BattleScene(parentPage, this, currentPlayer, monster);
-                    Battle newBattle = new Battle(this, newBattleScene, monster, false);
+                    Battle newBattle = new Battle(this, newBattleScene, monster, false, possibleToEscape);
                     newBattle.Run();
                     if (newBattle.battleResult) UpdateStat(7, monster.XPValue);
                 }
@@ -233,14 +235,16 @@ namespace Game.Engine
             }
         }
 
-        public bool FightThisMonster(Monster monster)
+        public bool FightThisMonster(Monster monster, bool possibleToEscape = false)
         {
             // player will fight against a particular monster
             // xp can be gained here, but gold/items cannot (you can do this separately inside your interaction)
+            // unlike fights with wild monsters, in this fight it is impossible to run away by default
+            // if you want to make it possible to run away, provide the optional second argument and set it to true
             if (monster != null)
             {
                 Display.BattleScene newBattleScene = new Display.BattleScene(parentPage, this, currentPlayer, monster);
-                Battle newBattle = new Battle(this, newBattleScene, monster, false);
+                Battle newBattle = new Battle(this, newBattleScene, monster, false, possibleToEscape);
                 newBattle.Run();
                 if (newBattle.battleResult) UpdateStat(7, monster.XPValue);
                 return newBattle.battleResult;

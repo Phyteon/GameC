@@ -229,7 +229,7 @@ namespace Game.Engine.CharacterClasses
                 ListOfSkills.Add(skill);
             }
         }
-        public List<Skill> ListAvailableSkills() 
+        public List<Skill> ListAvailableSkills(bool canRunAway = true) 
         {
             // return list of currently available skills (based on items and stamina)
             // to be used during battles
@@ -238,6 +238,7 @@ namespace Game.Engine.CharacterClasses
             {
                 if (Stamina >= skill.StaminaCost && parentSession.TestForItemClass(skill.RequiredItem)) tmp.Add(skill);
             }
+            if (tmp.Count > 1 && !canRunAway) tmp.RemoveAt(0);
             return tmp;
         }
     }
