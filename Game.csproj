@@ -75,11 +75,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Engine\DmgType.cs" />
-    <Compile Include="Engine\Interactions\Built-In\GymirNoMoneyState.cs" />
-    <Compile Include="Engine\Interactions\Built-In\GymirState.cs" />
-    <Compile Include="Engine\Interactions\Built-In\GymirCompleteState.cs" />
-    <Compile Include="Engine\Interactions\Built-In\GymirHostileState.cs" />
-    <Compile Include="Engine\Interactions\Built-In\GymirInitialState.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\GymirNoMoneyState.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\GymirState.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\GymirCompleteState.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\GymirHostileState.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\GymirInitialState.cs" />
+    <Compile Include="Engine\Interactions\Built-In\HealInteraction.cs" />
+    <Compile Include="Engine\Interactions\InteractionFactories\HealInteractionFactory.cs" />
     <Compile Include="Engine\RequiredItem.cs" />
     <Compile Include="Engine\Skills\Misc\RunAway.cs" />
     <Compile Include="Resource1.Designer.cs">
@@ -129,12 +131,12 @@
     <Compile Include="Engine\GameSessionPublicLogic.cs" />
     <Compile Include="Engine\DisplayItem.cs" />
     <Compile Include="Engine\IndexLogic.cs" />
-    <Compile Include="Engine\Interactions\Built-In\GymirEncounter.cs" />
-    <Compile Include="Engine\Interactions\Built-In\HymirEncounter.cs" />
-    <Compile Include="Engine\Interactions\Built-In\HymirFriendlyStrategy.cs" />
-    <Compile Include="Engine\Interactions\Built-In\HymirHostileStrategy.cs" />
-    <Compile Include="Engine\Interactions\Built-In\HymirNeutralStrategy.cs" />
-    <Compile Include="Engine\Interactions\Built-In\IHymirStrategy.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\GymirEncounter.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\HymirEncounter.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\HymirFriendlyStrategy.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\HymirHostileStrategy.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\HymirNeutralStrategy.cs" />
+    <Compile Include="Engine\Interactions\GymirHymir\IHymirStrategy.cs" />
     <Compile Include="Engine\Interactions\Built-In\SkillForgetInteraction.cs" />
     <Compile Include="Engine\Interactions\PlayerInteraction.cs" />
     <Compile Include="Engine\Interactions\InteractionWithImage.cs" />
@@ -298,6 +300,9 @@
   <ItemGroup>
     <Folder Include="Engine\Monsters\Misc\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Interactions\interaction0005.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

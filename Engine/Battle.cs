@@ -102,11 +102,15 @@ namespace Game.Engine
         }
         protected void RestorePlayerState(bool fullHP = true)
         {
-            if(fullHP)
+            if (fullHP)
             {
-                parentSession.currentPlayer.Health = hpCopy;  
+                parentSession.currentPlayer.Health = hpCopy;
             }
-            else parentSession.currentPlayer.Health = (int)((parentSession.currentPlayer.Health + hpCopy)/2);
+            else
+            {
+                parentSession.currentPlayer.Health = (int)((parentSession.currentPlayer.Health + hpCopy) / 2);
+                parentSession.currentPlayer.LostHP += hpCopy - parentSession.currentPlayer.Health;
+            }
             parentSession.currentPlayer.Strength = strCopy;
             parentSession.currentPlayer.Armor = armCopy;
             parentSession.currentPlayer.Precision = prCopy;

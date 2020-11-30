@@ -9,15 +9,15 @@ namespace Game.Engine.Monsters
     [Serializable]
     class Spider : Monster
     {
-        public Spider(int spiderLevel)
+        public Spider()
         {
-            Health = 50 + 4 * spiderLevel;
-            Strength = 15 + spiderLevel;
+            Health = 50;
+            Strength = 15;
             Armor = 5;
             Precision = 60;
             MagicPower = 0;
             Stamina = 70;
-            XPValue = 35 + spiderLevel;
+            XPValue = 35;
             Name = "monster0003";
             BattleGreetings = null;
         }

@@ -12,21 +12,21 @@ namespace Game.Engine
         private const int maps = 3; // how many maps in total in the game world // must be minimum 2 
         private const int minPortals = 2; // number of portals
         private const int shops = 1; // number of shops in the game world
-        private const int interactions = 4; // approximate number of all interactions (including shops) in the game world (not strictly guaranteed due to quest constraints)
+        private const int interactions = 6; // approximate number of all interactions (including shops) in the game world (not strictly guaranteed due to quest constraints)
         private const int monsters = 6; // monsters per single map
         private const int walls = 20; // approximate number of walls per single map (not strictly guaranteed due to movement constraints)
         
        
         private GameSession parentSession;
         private List<Interaction> interactionList;
-        public List<Interaction> QuestElements { get; private set; }
+        public List<Interaction> QuestElements { get; private set; } // shared between all maps
         // connections between maps
-        private int[,] adjacencyMatrix = new int[maps, maps];
-        private int[] visited;
+        private int[,] adjacencyMatrix = new int[maps, maps]; // a graph containing individual boards and connections between them
+        private int[] visited; 
         private int lastNumber;
-        private int currentNumber;
+        private int currentNumber; 
         // maps
-        private MapMatrix[] matrix;
+        private MapMatrix[] matrix; // an array containing all boards in the game
 
         public MetaMapMatrix(GameSession parent)
         {
@@ -75,6 +75,7 @@ namespace Game.Engine
 
         public MapMatrix GetCurrentMatrix(int codeNumber)
         {
+            // get the currently used board
             lastNumber = currentNumber;
             currentNumber = codeNumber;
             return matrix[codeNumber];
@@ -82,12 +83,15 @@ namespace Game.Engine
         public int GetPreviousMatrixCode()
         {
             // for display when portal hopping
+            // each board has its own individual code, which is used by portals to remember which portal leads where
+            // example: let's say we have a board with code 34
+            // this means that portals leading to that board will be encoded as 2034 value everywhere in the game
             return lastNumber;
         }
 
         private bool CheckConnectivity()
         {
-            // check if the adjacencyMatrix represents a fully connected graph
+            // utility: check if the adjacencyMatrix represents a fully connected graph
             visited = new int[maps];
             SearchAndMark(0);
             for (int i = 0; i < maps; i++)
@@ -98,7 +102,7 @@ namespace Game.Engine
         }
         private void SearchAndMark(int nodeNumber)
         {
-            // recursive function
+            // utility for the CheckConnectivity method
             visited[nodeNumber] = 1;
             for (int i = 0; i < maps; i++)
             {
@@ -119,8 +123,9 @@ namespace Game.Engine
         }
         private void GenerateInteractions()
         {
+            // fill the game world with interactions
             interactionList = new List<Interaction>();
-            QuestElements = Index.QuestFactory.CreateInteractionsGroup(parentSession);
+            QuestElements = Index.MainQuestFactory.CreateInteractionsGroup(parentSession);
             interactionList.AddRange(QuestElements);
             for (int i = 0; i < shops; i++) interactionList.Add(new ShopInteraction(parentSession));
             for (int i = shops + QuestElements.Count; i < interactions; i++) 
@@ -148,7 +153,6 @@ namespace Game.Engine
                 break;
             }
         }
-
         public void AddInteractionToRandomMap(Interaction interaction)
         {
             int mapNumber = currentNumber;

@@ -10,15 +10,15 @@ namespace Game.Engine.Monsters
     class Rat : Monster
     {
         // example monster: rat
-        public Rat(int ratLevel)
+        public Rat()
         {
-            Health = 30 + 5 * ratLevel;
-            Strength = 10 + ratLevel;
+            Health = 35;
+            Strength = 10;
             Armor = 0;
             Precision = 50;
             MagicPower = 0;
             Stamina = 50;
-            XPValue = 20 + ratLevel;
+            XPValue = 25;
             Name = "monster0001";
             BattleGreetings = null; // rat doesn't say anything
         }

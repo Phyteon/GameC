@@ -10,7 +10,7 @@ using Game.Engine.Interactions;
 namespace Game.Engine
 {
     // methods used to generate skills, items and monsters by the game engine
-    public partial class Index
+    public static partial class Index
     {
         // safe random number generator
         private static Random rnd = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);

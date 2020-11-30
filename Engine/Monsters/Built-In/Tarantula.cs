@@ -9,15 +9,15 @@ namespace Game.Engine.Monsters
     [Serializable]
     class Tarantula : Monster
     {
-        public Tarantula(int spiderLevel)
+        public Tarantula()
         {
-            Health = 75 + 4 * spiderLevel;
-            Strength = 30 + spiderLevel;
+            Health = 75;
+            Strength = 30;
             Armor = 10;
             Precision = 120;
-            MagicPower = 50 + spiderLevel;
+            MagicPower = 50;
             Stamina = 100;
-            XPValue = 70 + spiderLevel;
+            XPValue = 70;
             Name = "monster0004";
             BattleGreetings = "I can smell you, my little fly!";
         }

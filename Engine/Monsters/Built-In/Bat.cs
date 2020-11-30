@@ -9,14 +9,14 @@ namespace Game.Engine.Monsters
     [Serializable]
     class Bat : Monster
     {
-        public Bat(int batLevel)
+        public Bat()
         {
-            Health = 15 + 2 * batLevel;
-            Strength = 1 + batLevel;
+            Health = 20;
+            Strength = 3;
             Armor = 0;
             Precision = 50;
             Stamina = 100;
-            XPValue = 10 + batLevel;
+            XPValue = 15;
             Name = "monster0005";
             BattleGreetings = null;
         }

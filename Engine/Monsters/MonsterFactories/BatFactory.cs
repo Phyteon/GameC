@@ -10,7 +10,7 @@ namespace Game.Engine.Monsters.MonsterFactories
     class BatFactory : MonsterFactory
     {
         private int encounterNumber = 0; 
-        public override Monster Create(int playerLevel)
+        public override Monster Create()
         {
             if (encounterNumber == 0) 
             {
@@ -18,19 +18,19 @@ namespace Game.Engine.Monsters.MonsterFactories
                 int rng = Index.RNG(1, 101);
                 if (rng > 25)
                     encounterNumber++;
-                return new Bat(playerLevel);
+                return new Bat();
             }
             else if (encounterNumber == 1) 
             {
                 encounterNumber++;
-                return new VampireKnight(playerLevel);
+                return new VampireKnight();
             }
             else return null; 
         }
         public override System.Windows.Controls.Image Hint()
         {
-            if (encounterNumber == 0) return new Bat(0).GetImage();
-            else if (encounterNumber == 1) return new VampireKnight(0).GetImage();
+            if (encounterNumber == 0) return new Bat().GetImage();
+            else if (encounterNumber == 1) return new VampireKnight().GetImage();
             else return null;
         }
     }

@@ -11,6 +11,7 @@ namespace Game.Engine.CharacterClasses
     {
         // statistics: Health, Strength, Armor, Precision, MagicPower, Stamina, XP (hidden), Level, Gold
         public List<Skill> ListOfSkills { get; set; }
+        public int LostHP { get; set; } // sum of HP lost in battles
         protected GameSession parentSession;
         protected int xp, gold;
 

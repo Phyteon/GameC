@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace Game.Engine
 {
     // enum with damage types
+    // usage: DmgType.Cut, Dmg.Type.Crush, etc.
+    // you can also use DmgTest.Physical and DmgTest.Magic methods below to test for all physical/magic dmg types at the same time 
     public enum DmgType
     {
         // physical 

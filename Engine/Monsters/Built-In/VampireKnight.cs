@@ -9,14 +9,14 @@ namespace Game.Engine.Monsters
     [Serializable]
     class VampireKnight : Monster
     {
-        public VampireKnight(int vkLevel)
+        public VampireKnight()
         {
-            Health = 300 + 10 * vkLevel;
-            Strength = 40 + 2 * vkLevel;
+            Health = 300;
+            Strength = 30;
             Armor = 90;
             Precision = 80;
             Stamina = 500;
-            XPValue = 100 + 3 * vkLevel;
+            XPValue = 150;
             Name = "monster0006";
             BattleGreetings = "Greetings...";
         }

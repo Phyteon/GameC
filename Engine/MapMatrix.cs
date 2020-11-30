@@ -28,12 +28,12 @@ namespace Game.Engine
         private Random rng;
         private GameSession parentSession;
 
-        public Dictionary<int, MonsterFactory> MonDict;
-        public Dictionary<int, Monster> MemorizedMonsters { get; set; }
-        public Dictionary<int, Interaction> Interactions { get; private set; }
-        public int[,] Matrix { get; set; }
-        public int Width { get; set; } = 25;
-        public int Height { get; set; } = 20;
+        public Dictionary<int, MonsterFactory> MonDict; // key - position number on board, value - monster factory located there
+        public Dictionary<int, Monster> MemorizedMonsters { get; set; } // for keeping exactly the same monster between battles 
+        public Dictionary<int, Interaction> Interactions { get; private set; } // same as MonDict, but for interactions
+        public int[,] Matrix { get; set; } // matrix with all board positions 
+        public int Width { get; protected set; } = 25;
+        public int Height { get; protected set; } = 20;
 
         public MapMatrix(GameSession parent, List<int> portals, List<Interaction> inters, int randomCode, (int, int) mapParams)
         {
@@ -65,6 +65,7 @@ namespace Game.Engine
             MemorizedMonsters = new Dictionary<int, Monster>();
         }
 
+        // fill map with monster factories
         private void InitializeFactoryList()
         {
             MonDict = new Dictionary<int, MonsterFactory>();
@@ -86,7 +87,7 @@ namespace Game.Engine
             if (MemorizedMonsters.ContainsKey(y * Width + x) && MemorizedMonsters[y * Width + x] != null) return MemorizedMonsters[y * Width + x];
             if (MonDict.ContainsKey(y * Width + x) && MonDict[y * Width + x] != null)
             {
-                return MonDict[y * Width + x].Create(playerLevel);
+                return MonDict[y * Width + x].Create();
             }
             return null;
         }
@@ -223,10 +224,10 @@ namespace Game.Engine
                 Matrix[y, x] = 1000;
             }
         }
-
-        // utility
+        
         public bool ValidPlace(int x, int y)
         {
+            // utility
             if (x < 1 || y < 1 || x > Width - 2 || y > Height - 2) return false;
             if (Matrix[y, x] > 2000) return false;
             if ((Matrix[y, x - 1] != 1 && Matrix[y, x + 1] != 1) && (Matrix[y - 1, x] == 1 && Matrix[y + 1, x] == 1)) return false;

@@ -10,15 +10,15 @@ namespace Game.Engine.Monsters
     class RatEvolved : Monster
     {
         // evolved rat - this time also with venom
-        public RatEvolved(int ratLevel)
+        public RatEvolved()
         {
-            Health = 50 + 5 * ratLevel;
-            Strength = 10 + ratLevel;
+            Health = 60;
+            Strength = 15;
             Armor = 0;
             Precision = 50;
             MagicPower = 0;
             Stamina = 70;
-            XPValue = 40 + ratLevel;
+            XPValue = 40;
             Name = "monster0002";
             BattleGreetings = "Now I'm back... with venom!"; // this rat actually has something to say
         }

@@ -11,7 +11,7 @@ using Game.Engine.Interactions.InteractionFactories;
 namespace Game.Engine
 {
     // contains information about skills, items and monsters that will be available in the game
-    public partial class Index
+    public static partial class Index
     {
         private static List<SkillFactory> magicSkillFactories = new List<SkillFactory>()
         {
@@ -59,11 +59,12 @@ namespace Game.Engine
             new Monsters.MonsterFactories.SpiderFactory(),
         };
 
-        public readonly static InteractionFactory QuestFactory = new GymirHymirFactory();
+        public readonly static InteractionFactory MainQuestFactory = new GymirHymirFactory();
 
         private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
         {
             new SkillForgetFactory(),
+            new HealInteractionFactory(),
         };
 
     }
