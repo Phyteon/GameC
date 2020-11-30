@@ -33,13 +33,6 @@ namespace Game.Display
             this.monster = monster;
             this.playerImage = player.GetImage();
             this.monsterImage = monster.GetImage();
-            if(monster.Name == "monster0581") // mimic
-            {
-                Image img = new Image();
-                img.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(("Assets/Monsters/" + "monster0581b" + ".png"), UriKind.Relative));
-                img.Name = "monster0581b";
-                this.monsterImage = img;
-            }
         }
 
         public void SetupDisplay()
