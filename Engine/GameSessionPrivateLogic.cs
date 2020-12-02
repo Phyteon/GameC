@@ -290,6 +290,8 @@ namespace Game.Engine
              * In any case, IgnoreNextKey serves as a workaround
              * Be careful, though, since it means the movement will not be smooth around interactions by default
              * If you want smooth movement for some specific interaction, you need to overwrite IgnoreNextKey inside the relevant if-clause
+             * Update: it seems the above is true only for Interactions with Enterable set to true
+             * I'm going to experimentally remove IgnoreNextKey trigger for Enterable = false
              */
             if (code > 1) parentPage.IgnoreNextKey = true;
             //
@@ -331,6 +333,7 @@ namespace Game.Engine
             }
             else if (code > 3000)
             {
+                if (!mapMatrix.Interactions[mapMatrix.Width * PlayerPosTop + PlayerPosLeft].Enterable) parentPage.IgnoreNextKey = false;
                 mapMatrix.Interactions[mapMatrix.Width * PlayerPosTop + PlayerPosLeft].Run();
                 if (mapMatrix.Interactions[mapMatrix.Width * PlayerPosTop + PlayerPosLeft].Enterable == false) parentPage.MovePlayer("reverse");
                 if (CurrentlyComplete >= 100) 
