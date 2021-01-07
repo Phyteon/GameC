@@ -87,6 +87,7 @@ namespace Game.Engine
                 Wait(100);
             }
             inter.Finish();
+            parentPage.IgnoreNextKey = true;
             return inter.ChosenNumber;
         }
 
