@@ -19,7 +19,7 @@ namespace Game.Engine.CharacterClasses
         public override int Health 
         {
             get 
-            { return health + HealthBuff; }
+            { return health + HealthBuff + parentSession.TmpBattleBuffs.Health; }
             set 
             {
                 if (value < 0) health = 0;
@@ -38,7 +38,7 @@ namespace Game.Engine.CharacterClasses
         public override int Strength
         {
             get
-            { return strength + StrengthBuff; }
+            { return strength + StrengthBuff + parentSession.TmpBattleBuffs.Strength; }
             set
             {
                 if (value < 0) strength = 0;
@@ -48,7 +48,7 @@ namespace Game.Engine.CharacterClasses
         public override int Armor
         {
             get
-            { return armor + ArmorBuff; }
+            { return armor + ArmorBuff + parentSession.TmpBattleBuffs.Armor; }
             set
             {
                 if (value < 0) armor = 0;
@@ -58,7 +58,7 @@ namespace Game.Engine.CharacterClasses
         public override int Precision
         {
             get
-            { return precision + PrecisionBuff; }
+            { return precision + PrecisionBuff + parentSession.TmpBattleBuffs.Precision; }
             set
             {
                 if (value < 0) precision = 0;
@@ -68,7 +68,7 @@ namespace Game.Engine.CharacterClasses
         public override int MagicPower
         {
             get
-            { return magicPower + MagicPowerBuff; }
+            { return magicPower + MagicPowerBuff + parentSession.TmpBattleBuffs.MagicPower; }
             set
             {
                 if (value < 0) magicPower = 0;
@@ -77,7 +77,7 @@ namespace Game.Engine.CharacterClasses
         }
         public override int Stamina
         {
-            get { return stamina + StaminaBuff; }
+            get { return stamina + StaminaBuff + parentSession.TmpBattleBuffs.Stamina; }
             set
             {
                 if (value < 0) stamina = 0;
@@ -168,7 +168,8 @@ namespace Game.Engine.CharacterClasses
                 if (Precision < 0) precision = -PrecisionBuff;
                 if (MagicPower < 0) magicPower = -MagicPowerBuff;
                 // damageAfterArmor = 100.0 * damageBeforeArmor / (100.0 + Armor)
-                parentSession.UpdateStat(1, -1 * (100 * pack.HealthDmg) / (100 + Armor));
+                // parentSession.UpdateStat(1, -1 * (100 * pack.HealthDmg) / (100 + Armor)); // not used here, because it would reset skill buffs
+                parentSession.currentPlayer.Health += -1 * (100 * pack.HealthDmg) / (100 + Armor) - parentSession.currentPlayer.HealthBuff; // we use this instead
             }
         }
         protected virtual void LevelUp()

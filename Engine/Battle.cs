@@ -14,6 +14,7 @@ namespace Game.Engine
         protected BattleScene battleScene;
         protected int hpCopy, strCopy, armCopy, prCopy, mgCopy, staCopy; // after the battle, all statistics of the player are restored
         protected bool rewards, possibleToEscape, firstBlood = false;
+        protected GameSession.Stats Buffs;
         public Monster Monster { get; set; }
         public bool battleResult { get; private set; } = false; // has the player won?
         public Battle(GameSession ses, BattleScene scene, Monster monster, bool rewards = true, bool possibleToEscape = true) : base(ses)
@@ -22,6 +23,7 @@ namespace Game.Engine
             Name = "battle0001";
             this.rewards = rewards;
             this.possibleToEscape = possibleToEscape;
+            Buffs = new GameSession.Stats();
             battleScene = scene;
             battleScene.ImgSetup = GetImage();
         }
@@ -65,7 +67,9 @@ namespace Game.Engine
                     return;
                 }
                 firstBlood = true;
+                RegisterBuffs();
                 List<StatPackage> playerAttack = parentSession.ModifyOffensive(playerResponse.BattleMove(parentSession.currentPlayer));
+                ReflectBuffsFromSkills();
                 foreach (StatPackage i in playerAttack) battleScene.SendColorText(i.CustomText, "green");
                 Monster.React(playerAttack);
                 battleScene.RefreshStats();
@@ -102,6 +106,10 @@ namespace Game.Engine
         }
         protected void RestorePlayerState(bool fullHP = true)
         {
+            // clear temporary buffs
+            Buffs = new GameSession.Stats();
+            parentSession.TmpBattleBuffs = new GameSession.Stats();
+            // restore statistics
             if (fullHP)
             {
                 parentSession.currentPlayer.Health = hpCopy;
@@ -124,7 +132,27 @@ namespace Game.Engine
             battleScene.SendColorText("Your HP: " + parentSession.currentPlayer.Health + " Your Stamina: " + parentSession.currentPlayer.Stamina, "blue");
             battleScene.SendColorText("Monster HP: " + Monster.Health, "blue");
         }
-
+        protected void ReflectBuffsFromSkills()
+        {
+            // take a snapshot of currently applied buffs from skills
+            // and rewrrite it into a metastable form so that they are not getting reset
+            parentSession.TmpBattleBuffs.Health += parentSession.currentPlayer.HealthBuff - Buffs.Health;
+            parentSession.TmpBattleBuffs.Strength += parentSession.currentPlayer.StrengthBuff - Buffs.Strength;
+            parentSession.TmpBattleBuffs.Armor += parentSession.currentPlayer.ArmorBuff - Buffs.Armor;
+            parentSession.TmpBattleBuffs.Precision += parentSession.currentPlayer.PrecisionBuff - Buffs.Precision;
+            parentSession.TmpBattleBuffs.MagicPower += parentSession.currentPlayer.MagicPowerBuff - Buffs.MagicPower;
+            parentSession.TmpBattleBuffs.Stamina += parentSession.currentPlayer.StaminaBuff - Buffs.Stamina;
+        }
+        protected void RegisterBuffs()
+        {
+            // convenience method, see also ReflectBuffsFromSkills
+            Buffs.Health = parentSession.currentPlayer.HealthBuff;
+            Buffs.Strength = parentSession.currentPlayer.StrengthBuff;
+            Buffs.Armor = parentSession.currentPlayer.ArmorBuff;
+            Buffs.Precision = parentSession.currentPlayer.PrecisionBuff;
+            Buffs.MagicPower = parentSession.currentPlayer.MagicPowerBuff;
+            Buffs.Stamina = parentSession.currentPlayer.StaminaBuff;
+        }
         protected void VictoryReward()
         {
             Random RNG = new Random();

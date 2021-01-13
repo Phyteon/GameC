@@ -27,20 +27,34 @@ namespace Game.Engine
         [NonSerialized] private System.Windows.Forms.Timer timerPlayer = new System.Windows.Forms.Timer();
         public Player currentPlayer { get; set; }
         public bool[] AvailableMoves; // W,S,A,D
-        public string CurrentKey { private get; set; }
-        public Skill CurrentSelection { private get; set; }
+        public string CurrentKey { private get; set; } // currently pressed key
+        public Skill CurrentSelection { private get; set; } // currently selected skill during a battle
+        public class Stats
+        {
+            // convenience class, used by property TmpBattleBuffs
+            public int Health;
+            public int Strength;
+            public int Armor;
+            public int Precision;
+            public int MagicPower;
+            public int Stamina;
+        }
+        public Stats TmpBattleBuffs { get; set; } // used by skills - change a statistic temporarily during a battle
         public bool RemovableItems 
         {
+            // are items currently removable?
             get { return parentPage.RemovableItems; }
             set { parentPage.RemovableItems = value; }
         }
         public bool ItemSellFlag
         {
+            // are items currently being sold?
             get { return parentPage.ItemSellFlag; }
             set { parentPage.ItemSellFlag = value; }
         }
         public int PlayerPosTop
         {
+            // player position on map
             get { return playerPosTop; }
             set
             {
@@ -59,7 +73,7 @@ namespace Game.Engine
         }
         public int CurrentlyComplete
         {
-            // what percentage of the game is currently complete
+            // what percentage of the game is currently complete?
             get
             {
                 int completeElements = 0, allElements = 0;
@@ -72,6 +86,10 @@ namespace Game.Engine
                 return (100 * completeElements) / allElements;
             }
         }
+
+
+        // constructor and methods below
+
         public GameSession(GamePage parentPage, string playerChoice)
         {
             // core
@@ -80,6 +98,7 @@ namespace Game.Engine
             if (playerChoice != null) { if (playerChoice.Contains("Warrior")) currentPlayer = new Warrior(this); }
             itemPositions = new List<int>();
             items = new List<Item>();
+            TmpBattleBuffs = new Stats();
             parentPage.AddConsoleText("Welcome to the game!");
             RefreshStats();
             // map
