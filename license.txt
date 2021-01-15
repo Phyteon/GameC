@@ -1,4 +1,8 @@
-Copyright (c) 2020 Jakub Chęciński (checinski.j@gmail.com)
+Copyright (c) 2020 Jakub Chęciński (checinski.j@gmail.com),
+Natalia Biłko, Marcel Cisowski, Natalia Dudek, Katarzyna Firek, Bartosz Jaromin, 
+Julia Kącka, Aleksandra Mrowca, Monika Mundała, Anna Pancerz, Adrianna Pączek, 
+Joanna Piskorek, Zuzanna Podolak, Anna Prusak, Anna Ratowska, Bartłomiej Sosenka, 
+Agata Spałek, Olga Szafer, Martyna Trębacz, Sara Urban, Katarzyna Więcław, Natalia Zemła
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

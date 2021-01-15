@@ -82,6 +82,87 @@
     <Compile Include="Engine\Interactions\GymirHymir\GymirInitialState.cs" />
     <Compile Include="Engine\Interactions\Built-In\HealInteraction.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\HealInteractionFactory.cs" />
+    <Compile Include="Engine\Monsters\BoulderBeasts\Boulder.cs" />
+    <Compile Include="Engine\Monsters\BoulderBeasts\BoulderBeast.cs" />
+    <Compile Include="Engine\Monsters\BoulderBeasts\DiamondBeast.cs" />
+    <Compile Include="Engine\Monsters\Cats\BlackCat.cs" />
+    <Compile Include="Engine\Monsters\Cats\CatWizard.cs" />
+    <Compile Include="Engine\Monsters\Chinchillas\Chinchilla.cs" />
+    <Compile Include="Engine\Monsters\Chinchillas\ChinchillaAngel.cs" />
+    <Compile Include="Engine\Monsters\Chinchillas\ChinchillaDemon.cs" />
+    <Compile Include="Engine\Monsters\CrowLeshy\Crow.cs" />
+    <Compile Include="Engine\Monsters\CrowLeshy\Leshy.cs" />
+    <Compile Include="Engine\Monsters\Dragons\AncientDragon.cs" />
+    <Compile Include="Engine\Monsters\Dragons\AncientDragonState.cs" />
+    <Compile Include="Engine\Monsters\Dragons\AngryDragon.cs" />
+    <Compile Include="Engine\Monsters\Dragons\IceDragon.cs" />
+    <Compile Include="Engine\Monsters\Dragons\RainbowDragon.cs" />
+    <Compile Include="Engine\Monsters\Dragons\ShadowDragon.cs" />
+    <Compile Include="Engine\Monsters\Dragons\SkeletalDragon.cs" />
+    <Compile Include="Engine\Monsters\Dragons\StaggeredDragon.cs" />
+    <Compile Include="Engine\Monsters\Dragons\WeakenedDragon.cs" />
+    <Compile Include="Engine\Monsters\Mandragoras\Mandragora.cs" />
+    <Compile Include="Engine\Monsters\Mandragoras\Mandragorian.cs" />
+    <Compile Include="Engine\Monsters\Medusas\Basilisk.cs" />
+    <Compile Include="Engine\Monsters\Medusas\Medusa.cs" />
+    <Compile Include="Engine\Monsters\Misc\Boar.cs" />
+    <Compile Include="Engine\Monsters\Misc\Cerberus.cs" />
+    <Compile Include="Engine\Monsters\Misc\CursedMirror.cs" />
+    <Compile Include="Engine\Monsters\Misc\Eagle.cs" />
+    <Compile Include="Engine\Monsters\Misc\FieryAlice.cs" />
+    <Compile Include="Engine\Monsters\Misc\HumanCatcher.cs" />
+    <Compile Include="Engine\Monsters\Misc\Tyrannosaurus.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\AncientDragonFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\BlackCatFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\BoarFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\BoulderFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\CerberusFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\ChinchillaFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\CursedMirrorFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\DragonFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\EagleFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\FieryAliceFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\HumanCatcherFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\LeshyFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\MandragoraFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\MedusaFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\SlimeFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\SnakeFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\TrollFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\TyrannosaurusFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\WaspFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\WitchFactory.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\WolfFactory.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\BasicDarkElf.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\BasicWitch.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\Bear.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\FireHound.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\Fox.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\Gates.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\IceHound.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\MainDarkElf.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\MainWitch.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\ShadowHound.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\Trap.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\TreantStrong.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\TreantWeak.cs" />
+    <Compile Include="Engine\Monsters\QuestMonsters\Wolf.cs" />
+    <Compile Include="Engine\Monsters\Slimes\BigSlime.cs" />
+    <Compile Include="Engine\Monsters\Slimes\MediumSlime.cs" />
+    <Compile Include="Engine\Monsters\Slimes\SmallSlime.cs" />
+    <Compile Include="Engine\Monsters\Snakes\Cobra.cs" />
+    <Compile Include="Engine\Monsters\Snakes\Python.cs" />
+    <Compile Include="Engine\Monsters\Snakes\Rattlesnake.cs" />
+    <Compile Include="Engine\Monsters\Snakes\Viper.cs" />
+    <Compile Include="Engine\Monsters\Trolls\Troll.cs" />
+    <Compile Include="Engine\Monsters\Trolls\TrollEvolved.cs" />
+    <Compile Include="Engine\Monsters\Wasps\MagicWasp.cs" />
+    <Compile Include="Engine\Monsters\Wasps\Wasp.cs" />
+    <Compile Include="Engine\Monsters\Witches\DarkWitch.cs" />
+    <Compile Include="Engine\Monsters\Witches\FireWitch.cs" />
+    <Compile Include="Engine\Monsters\Witches\Witch.cs" />
+    <Compile Include="Engine\Monsters\Wolves\OldWolf.cs" />
+    <Compile Include="Engine\Monsters\Wolves\YoungWolf.cs" />
     <Compile Include="Engine\RequiredItem.cs" />
     <Compile Include="Engine\Skills\Misc\RunAway.cs" />
     <Compile Include="Resource1.Designer.cs">
@@ -229,9 +310,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\player.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Display\Assets\world.png" />
   </ItemGroup>
   <ItemGroup>
@@ -283,7 +361,6 @@
     <Resource Include="Display\Assets\Interactions\interaction0004.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Display\Assets\Monsters\monster0005.png" />
     <Resource Include="Display\Assets\Monsters\monster0006.png" />
   </ItemGroup>
   <ItemGroup>
@@ -298,11 +375,121 @@
     <Resource Include="Display\Assets\Items\item0009.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Engine\Monsters\Misc\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Display\Assets\Interactions\interaction0005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1423.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster0005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1340.png" />
+    <Resource Include="Display\Assets\Monsters\monster1341.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1360.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1240.png" />
+    <Resource Include="Display\Assets\Monsters\monster1241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1160.png" />
+    <Resource Include="Display\Assets\Monsters\monster1162.png" />
+    <Resource Include="Display\Assets\Monsters\monster1161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1163.png" />
+    <Resource Include="Display\Assets\Monsters\monster1164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1280.png" />
+    <Resource Include="Display\Assets\Monsters\monster1281.png" />
+    <Resource Include="Display\Assets\Monsters\monster1282.png" />
+    <Resource Include="Display\Assets\Monsters\monster1283.png" />
+    <Resource Include="Display\Assets\Monsters\monster1284.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1442.png" />
+    <Resource Include="Display\Assets\Monsters\monster1443.png" />
+    <Resource Include="Display\Assets\Monsters\monster1446.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1506.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1222.png" />
+    <Resource Include="Display\Assets\Monsters\monster1224.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1301.png" />
+    <Resource Include="Display\Assets\Monsters\monster1302.png" />
+    <Resource Include="Display\Assets\Monsters\monster1303.png" />
+    <Resource Include="Display\Assets\Monsters\monster1304.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1260.png" />
+    <Resource Include="Display\Assets\Monsters\monster1261.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1182.png" />
+    <Resource Include="Display\Assets\Monsters\monster1183.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1223.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1380.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1420.png" />
+    <Resource Include="Display\Assets\Monsters\monster1421.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1125.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1507.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1152.png" />
+    <Resource Include="Display\Assets\Monsters\monster1153.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster0011.png" />
+    <Resource Include="Display\Assets\Monsters\monster0012.png" />
+    <Resource Include="Display\Assets\Monsters\monster0013.png" />
+    <Resource Include="Display\Assets\Monsters\monster0014.png" />
+    <Resource Include="Display\Assets\Monsters\monster0015.png" />
+    <Resource Include="Display\Assets\Monsters\monster0016.png" />
+    <Resource Include="Display\Assets\Monsters\monster0020.png" />
+    <Resource Include="Display\Assets\Monsters\monster0021.png" />
+    <Resource Include="Display\Assets\Monsters\monster0022.png" />
+    <Resource Include="Display\Assets\Monsters\monster0023.png" />
+    <Resource Include="Display\Assets\Monsters\monster0024.png" />
+    <Resource Include="Display\Assets\Monsters\monster0025.png" />
+    <Resource Include="Display\Assets\Monsters\monster0026.png" />
+    <Resource Include="Display\Assets\Monsters\monster0027.png" />
+    <Resource Include="Display\Assets\Monsters\monster0028.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Display\Assets\Monsters\monster1426.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

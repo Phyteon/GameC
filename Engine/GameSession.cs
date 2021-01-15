@@ -29,6 +29,7 @@ namespace Game.Engine
         public bool[] AvailableMoves; // W,S,A,D
         public string CurrentKey { private get; set; } // currently pressed key
         public Skill CurrentSelection { private get; set; } // currently selected skill during a battle
+        [Serializable]
         public class Stats
         {
             // convenience class, used by property TmpBattleBuffs
