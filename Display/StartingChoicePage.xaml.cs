@@ -31,7 +31,23 @@ namespace Game.Display
         private void PressedOK(object sender, RoutedEventArgs e)
         {
             if (ChoiceListBox.SelectedItem == null) return;
+            PlaySoundClick();
             parentPage.StartGameRun(ChoiceListBox.SelectedItem.ToString());
+        }
+
+        private void PlayButtonSoundHover(object sender, MouseEventArgs e)
+        {
+            parentPage.soundEngine.PlaySound(Sound.SoundNames.MOUSE_HOVER_MENU);
+        }
+
+        private void PlayButtonSoundClick(object sender, RoutedEventArgs e)
+        {
+            PlaySoundClick();
+        }
+
+        private void PlaySoundClick()
+        {
+            parentPage.soundEngine.PlaySound(Sound.SoundNames.MOUSE_CLICK_MENU);
         }
     }
 }

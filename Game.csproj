@@ -170,6 +170,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="Sound\Players\BasicSoundPlayer.cs" />
+    <Compile Include="Sound\SoundEngine.cs" />
+    <Compile Include="Sound\SoundLibrary.cs" />
+    <Compile Include="Sound\SoundLibraryGenerator.cs" />
     <Page Include="Display\GamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

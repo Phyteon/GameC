@@ -7,6 +7,7 @@ using Game.Engine.Skills.BasicWeaponMoves;
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using Game.Sound;
 
 namespace Game.Engine
 {
@@ -41,6 +42,9 @@ namespace Game.Engine
             public int Stamina;
         }
         public Stats TmpBattleBuffs { get; set; } // used by skills - change a statistic temporarily during a battle
+
+        [NonSerialized] public SoundEngine SoundEngine;
+        [NonSerialized] public List<SoundEngine> ChildSoundEngines;
         public bool RemovableItems 
         {
             // are items currently removable?
@@ -102,6 +106,8 @@ namespace Game.Engine
             TmpBattleBuffs = new Stats();
             parentPage.AddConsoleText("Welcome to the game!");
             RefreshStats();
+            SoundEngine = parentPage.soundEngine;
+            ChildSoundEngines = new List<SoundEngine>();
             // map
             metaMapMatrix = new MetaMapMatrix(this);
             mapMatrix = metaMapMatrix.GetCurrentMatrix(0);

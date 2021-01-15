@@ -5,6 +5,7 @@ using Game.Engine.Monsters;
 using Game.Engine.Skills;
 using Game.Engine.Interactions;
 using Game.Engine.CharacterClasses;
+using Game.Sound;
 
 namespace Game.Engine
 {
@@ -17,6 +18,7 @@ namespace Game.Engine
         protected GameSession.Stats Buffs;
         public Monster Monster { get; set; }
         public bool battleResult { get; private set; } = false; // has the player won?
+        public SoundEngine SoundEngine;
         public Battle(GameSession ses, BattleScene scene, Monster monster, bool rewards = true, bool possibleToEscape = true) : base(ses)
         {
             Monster = monster;
@@ -26,9 +28,16 @@ namespace Game.Engine
             Buffs = new GameSession.Stats();
             battleScene = scene;
             battleScene.ImgSetup = GetImage();
+            SoundEngine = new SoundEngine(SoundContext.Battle);
+            parentSession.ChildSoundEngines.Add(SoundEngine);
         }
+
         protected override void RunContent()
-        {
+         {
+            // stop game music and play battle music
+            parentSession.SoundEngine.PauseBackgroundMusic();
+            SoundEngine.PlayBackgroundMusic();
+
             parentSession.SendText("\nBattle!");
             battleScene.SetupDisplay();
             CopyPlayerState();
@@ -36,6 +45,8 @@ namespace Game.Engine
             if (Monster.BattleGreetings != null)
             {
                 battleScene.SendColorText(Monster.BattleGreetings, "red");
+                // play battle monster greetings 
+                SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterInit);
                 battleScene.SendBattleText("");
             }
             if(!possibleToEscape)
@@ -53,6 +64,9 @@ namespace Game.Engine
                     parentSession.GetKeyResponse();
                     parentSession.SendText("No more skills to use - you lost the battle!");
                     battleScene.EndDisplay();
+                    // stop battle music and resume main game music
+                    SoundEngine.StopBackgroundMusic();
+                    parentSession.SoundEngine.ResumeBackgroundMusic();
                     return;
                 }
                 // player attacks first
@@ -64,8 +78,13 @@ namespace Game.Engine
                     else parentSession.SendText("It looks rather dangerous, better stay away from it.");
                     battleResult = false;
                     RestorePlayerState(false);
+                    // stop battle music and resume main game music
+                    SoundEngine.StopBackgroundMusic();
+                    parentSession.SoundEngine.ResumeBackgroundMusic();
                     return;
                 }
+                // play item sound
+                SoundEngine.WaitAndPlay(playerResponse.RequiredItem.ToString(), SoundType.BattleRequiredItem);
                 firstBlood = true;
                 RegisterBuffs();
                 List<StatPackage> playerAttack = parentSession.ModifyOffensive(playerResponse.BattleMove(parentSession.currentPlayer));
@@ -81,6 +100,8 @@ namespace Game.Engine
                 battleScene.SendBattleText("");
                 List<StatPackage> monsterAttack = parentSession.ModifyDefensive(Monster.BattleMove());
                 foreach (StatPackage i in monsterAttack) battleScene.SendColorText(i.CustomText, "red");
+                // play monster bite sound
+                SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterBite);
                 parentSession.currentPlayer.React(monsterAttack);
                 battleScene.RefreshStats();    
             }
@@ -93,6 +114,9 @@ namespace Game.Engine
             parentSession.SendText("You won! XP gained: " + Monster.XPValue);
             if(rewards) VictoryReward();
             //parentSession.UpdateStat(7, Monster.XPValue); // for smoother display, this one was moved to GameSession.cs
+            // stop battle music and resume main game music
+            SoundEngine.StopBackgroundMusic();
+            parentSession.SoundEngine.ResumeBackgroundMusic();
         }
         protected void CopyPlayerState()
         {

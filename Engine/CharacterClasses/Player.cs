@@ -26,6 +26,7 @@ namespace Game.Engine.CharacterClasses
                 else health = value;
                 if (health == 0)
                 {
+                    parentSession.SoundEngine.PlaySound(Sound.SoundNames.PLAYER_DEATH, Sound.SoundType.Player);
                     parentSession.SendText("");
                     parentSession.SendText("***********************************************************************************************");
                     parentSession.SendText("You lost! Press any key to continue.");
