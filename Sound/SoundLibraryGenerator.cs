@@ -31,6 +31,20 @@ namespace Game.Sound
             string monster = string.Empty;
             string item = string.Empty;
 
+            item = Engine.RequiredItem.Axe.ToString();
+            soundLibrary.Add(new Sound(null, item, string.Concat(item, "_item.mp3"), SoundContext.Battle, SoundType.BattleRequiredItem, Resource1.item_axe));
+
+            item = Engine.RequiredItem.Spear.ToString();
+            soundLibrary.Add(new Sound(null, item, string.Concat(item, "_item.mp3"), SoundContext.Battle, SoundType.BattleRequiredItem, Resource1.item_spear));
+
+            item = Engine.RequiredItem.Staff.ToString();
+            soundLibrary.Add(new Sound(null, item, string.Concat(item, "_item.mp3"), SoundContext.Battle, SoundType.BattleRequiredItem, Resource1.item_staff));
+
+            item = Engine.RequiredItem.Sword.ToString();
+            soundLibrary.Add(new Sound(null, item, string.Concat(item, "_item.mp3"), SoundContext.Battle, SoundType.BattleRequiredItem, Resource1.item_sword));
+
+            soundLibrary.Add(new Sound(null, SoundNames.PLAYER_DEATH, "PlayerDeath.mp3", SoundContext.Battle, SoundType.Player, Resource1.player_death));
+
 
             return soundLibrary;
         }

@@ -495,5 +495,12 @@
   <ItemGroup>
     <Resource Include="Display\Assets\Monsters\monster1426.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sound\Assets\Items\item_axe.mp3" />
+    <Content Include="Sound\Assets\Items\item_spear.mp3" />
+    <Content Include="Sound\Assets\Items\item_staff.mp3" />
+    <Content Include="Sound\Assets\Items\item_sword.mp3" />
+    <Content Include="Sound\Assets\Player\player_death.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
