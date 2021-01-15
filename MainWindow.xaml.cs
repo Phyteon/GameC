@@ -23,6 +23,8 @@ namespace Game
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
+            this.Hide();
+            Sound.SoundLibrary.DiscardTemporaryFiles();
             Application.Current.Dispatcher.DisableProcessing();
             Application.Current.Dispatcher.InvokeShutdown();
             Application.Current.Shutdown();

@@ -25,6 +25,7 @@ namespace Game.Display
             box.FontSize = 12.0;
             box.BorderThickness = new Thickness(1);
             box.ItemContainerStyle = Application.Current.Resources["ListBoxRowHeight"] as Style;
+            box.GotFocus += Box_GotFocus;
             box.SelectionChanged += new SelectionChangedEventHandler(Chosen);
             parentPage.PageGrid.Children.Add(box);
             Grid.SetColumn(box, 0);
@@ -32,6 +33,12 @@ namespace Game.Display
             Grid.SetRowSpan(box, 2);
             box.ItemsSource = choices;
         }
+
+        private void Box_GotFocus(object sender, RoutedEventArgs e)
+        {
+            parentPage.soundEngine.PlaySound(Sound.SoundNames.MOUSE_CLICK_GAME_2);
+        }
+
         public void Finish()
         {
             parentPage.PageGrid.Children.Remove(box);

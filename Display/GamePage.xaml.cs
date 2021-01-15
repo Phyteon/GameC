@@ -11,6 +11,9 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Game.Engine.Items;
+using Game.Sound;
+using Game.Sound.Players;
+using System.ComponentModel;
 
 namespace Game.Display
 {
@@ -22,6 +25,7 @@ namespace Game.Display
     {
         private MainWindow frameRef;
         private GameSession currentSession;
+        public SoundEngine soundEngine;
         protected double stepSize = 24.0;
         private PageData pageData;
         protected FrameworkElement draggedImage;
@@ -42,6 +46,10 @@ namespace Game.Display
         public GamePage(MainWindow frame, string playerChoice)
         {
             InitializeComponent();
+            // start background music player
+            soundEngine = new SoundEngine(SoundContext.GamePage);
+            soundEngine.PlayBackgroundMusic();
+
             frameRef = frame;
             frame.Background = new SolidColorBrush(Colors.Black);
             pageData = new PageData(this);
@@ -59,11 +67,14 @@ namespace Game.Display
             ItemSellFlag = false;
             IgnoreNextKey = false;
         }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var window = Window.GetWindow(this);
+            window.IsVisibleChanged += CleaningAfterPageClosedHandler;
             window.KeyDown += OnKeyDownHandler;
         }
+
         public void LoadGame(string filename)
         {
             try
@@ -338,10 +349,29 @@ namespace Game.Display
         // end current game
         public void EndGame()
         {
+            CleanAllSoundEngines();
             frameRef.ParentFrame.Navigate(new Display.MenuPage(frameRef));
             var window = Window.GetWindow(this);
+            window.IsVisibleChanged -= CleaningAfterPageClosedHandler;
             window.KeyDown -= OnKeyDownHandler;
         }
+
+        private void CleaningAfterPageClosedHandler(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            CleanAllSoundEngines();
+        }
+
+        private void CleanAllSoundEngines()
+        {
+            soundEngine.StopAllPlayers();
+            foreach (var se in currentSession.ChildSoundEngines)
+            {
+                se.StopAllPlayers();
+            }
+            currentSession.ChildSoundEngines = null;
+        }
+
+
         protected void OnKeyDownHandler(object sender, System.Windows.Input.KeyEventArgs e)
         {
             // this function is called after a keyboard signal from the user
@@ -420,6 +450,10 @@ namespace Game.Display
                 AddConsoleColorText("Quest info: " + currentSession.CurrentlyComplete + "% complete", "blue");
             }
 
+            if (e.Key == Key.P)
+            {
+                currentSession.EndGame();
+            }
         }
 
     }
