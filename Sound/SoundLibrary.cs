@@ -33,7 +33,7 @@ namespace Game.Sound
             {
                 Directory.CreateDirectory(TempPath.AbsolutePath);
             }
-            catch (Exception ex)
+            catch (IOException ex)
             {
                 System.Windows.Forms.MessageBox.Show("An exception occurred: " + ex.Message + ". Sound will be disabled.");
                 return;
