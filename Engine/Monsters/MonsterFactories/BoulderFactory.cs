@@ -11,7 +11,7 @@ namespace Game.Engine.Monsters.MonsterFactories
     {
         private int b;
         List<int> numbers = new List<int>();
-        private int x = 1;
+        private int x = 0;
         public BoulderFactory()
         {           
             for (int i= 0; i<=2; i++)
@@ -22,17 +22,18 @@ namespace Game.Engine.Monsters.MonsterFactories
         }
         public override Monster Create()
         {
-            if (numbers[x-1] == 0)
+            if (x > 2) return null;
+            if (numbers[x] == 0)
             {
                 x++;
                 return new Boulder();
             }
-            else if (numbers[x-1] == 1)
+            else if (numbers[x] == 1)
             {
                 x++;
                 return new BoulderBeast();
             }
-            else if (numbers[x-1] == 2)
+            else if (numbers[x] == 2)
             {
                 x++;
                 return new DiamondBeast();
@@ -42,24 +43,12 @@ namespace Game.Engine.Monsters.MonsterFactories
 
         public override System.Windows.Controls.Image Hint()
         {
-            //resetX();
-            if (numbers[x-1] == 0) return new Boulder().GetImage();
-            else if (numbers[x-1] == 1) return new BoulderBeast().GetImage();
-            else if (numbers[x-1] == 2) return new DiamondBeast().GetImage();
+            if (x > 2) return null;
+            if (numbers[x] == 0) return new Boulder().GetImage();
+            else if (numbers[x] == 1) return new BoulderBeast().GetImage();
+            else if (numbers[x] == 2) return new DiamondBeast().GetImage();
             else return null;
         }
 
-        /*private object resetX()
-        {
-            if (x > 3)
-                return null;
-            else return x;
-
-                //x = 1;
-        }*/
-        private void resetX()
-        {
-            if (x > 3) x = 1;
-        }
     }
 }

@@ -5,7 +5,21 @@ using Game.Engine.Monsters.MonsterFactories;
 using Game.Engine.Items;
 using Game.Engine.Items.ItemFactories;
 using Game.Engine.Items.BasicArmor;
+using Game.Engine.Items.EnhancedArmor;
+using Game.Engine.Items.Axes;
+using Game.Engine.Items.Swords;
+using Game.Engine.Items.Spears;
 using Game.Engine.Interactions.InteractionFactories;
+using Game.Engine.Items.AnnItems;
+using Game.Engine.Items.MyItems;
+using Game.Engine.Items.BasicAmulet;
+using Game.Engine.Items.Shields;
+using Game.Engine.Items.Ring;
+using Game.Engine.Items.Chains;
+using Game.Engine.Items.Heads;
+using Game.Engine.Items.AnimalItems;
+using Game.Engine.Items.Amulet;
+
 
 
 namespace Game.Engine
@@ -33,13 +47,87 @@ namespace Game.Engine
             new AntiMagicArmor(),
             new BerserkerArmor(),
             new GrowingStoneArmor(),
-            // quest items (if applicable) start below
+            new AdaptiveArmor(),
+            new LeatherArmor(),
+            new DiamondArmor(),
+            new AntiPoisonArmor(),
+            new HpAmulet(),
+            new StrAmulet(),
+            new MgcAmulet(),
+            new ArmorChain(),
+            new StaminaChain(),
+            new MagicChain(),
+            new PrecisionChain(),
             new GymirAxe(),
+            new BlueAxe(),
+            new OrangeAxe(),
+            new DiamondAxe(),
+            new IronAxe(),
+            new BlazingAxe(),
+            new FierySword(),
+            new DiaxSword(),
+            new SilverSword(),
+            new EmeraldSpear(),
+            new SharpSpear(),
+            new BasicShield(),
+            new WoodenShield(),
+            new VikingShield(),
+            new SteelShield(),
+            new AntiMagicDmgRing(),
+            new AntiPhysicalDmgRing(),
+            new MagicRing(),
+            new HealthRing(),
+            new EnhancementRing(),
+            new AnnPoison(),
+            new AnnShuriken(),
+            new AnnMagicBook(),
+            new BigBertha(),
+            new BloodyArmor(),
+            new MjolnirAxe(),
+            new LongBow(),
+            new CrystalBall(),
+            new GoldenApple(),
+            new Lightsaber(),
+            // secondary quest items start below
+            new OldTravelerArmor(),
+            new OldTravelerAxe(),
+            new OldTravelerHat(),
+            new OldTravelerPotion(),
+            new OldTravelerSpear(),
+            new OldTravelerStaff(),
+            new OldTravelerSword(),
+            // main quest items start below
+            new OrbOfGods(),
+            new TreantProtectionAmulet(),
+            new Amulet(),
+            new Bear(),
+            new BearCompanion(),
+            new BearHat(),
+            new DarkElfFakeHead(),
+            new DarkElfHead(),
+            new Fox(),
+            new FoxCompanion(),
+            new FoxHat(),
+            new WitchFakeHead(),
+            new WitchHead(),
+            new Wolf(),
+            new WolfCompanion(),
+            new WolfHat(),
         };
 
         private static List<ItemFactory> itemFactories = new List<ItemFactory>()
         {
             new BasicArmorFactory(),
+            new EnhancedArmorFactory(),
+            new BasicAmuletFactory(),
+            new ChainFactory(),
+            new AxeFactory(),
+            new SwordFactory(),
+            new SpearFactory(),
+            new ShieldFactory(),
+            new RingFactory(),
+            new AnnItemsFactory(),
+            new UniqueItemsFactory(),
         };
 
         private static List<MonsterFactory> monsterFactories = new List<MonsterFactory>()

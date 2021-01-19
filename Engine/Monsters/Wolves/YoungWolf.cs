@@ -46,15 +46,15 @@ namespace Game.Engine.Monsters
         }
         public override void React(List<StatPackage> packs)
         {
-            base.React(packs);
+            //base.React(packs);
             //Young wolf is fast so it's harder to hurt him
             if(Strength >= 10)
             {
                 if (packs != null) packs[0].CustomText += "\n Young wolf is so fast it's hard to hurt him.";
                 foreach (StatPackage pack in packs)
                 {
-                    Health -= 1 / 2 * pack.HealthDmg;
-                    Strength -= 1 / 2 * pack.StrengthDmg;
+                    Health -= 50 * pack.HealthDmg / 100;
+                    Strength -= 50 * pack.HealthDmg / 100;
                     Armor -= pack.ArmorDmg;
                     Precision -= pack.PrecisionDmg;
                     MagicPower -= pack.MagicPowerDmg;

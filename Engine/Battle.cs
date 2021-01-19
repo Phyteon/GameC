@@ -181,7 +181,7 @@ namespace Game.Engine
         {
             Random RNG = new Random();
             int test = RNG.Next(100);
-            if (test < 15)
+            if (test < 10)
             {
                 parentSession.SendText("It seems the monster was guarding an interesting item.");
                 parentSession.AddRandomItem();

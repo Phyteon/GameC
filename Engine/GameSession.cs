@@ -142,7 +142,7 @@ namespace Game.Engine
                     ProduceItem("item0001");
                     currentPlayer.Learn(new WindGust());
                 }
-            }      
+            }
         }
 
         private void InitializeMapDisplay(int codeNumber)

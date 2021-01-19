@@ -40,7 +40,7 @@ namespace Game.Engine.Monsters.MonsterFactories
         {
             if (encounterNumber == 0 && rng > 5)
                 return new RainbowDragon().GetImage();
-            else if(encounterNumber == 0 && rng < 5)
+            else if(encounterNumber == 0)
                 return new ShadowDragon().GetImage();
             else if (encounterNumber == 1) return new SkeletalDragon().GetImage();
             else if (encounterNumber == 2) return new IceDragon().GetImage();
