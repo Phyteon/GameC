@@ -67,9 +67,9 @@ namespace Game.Sound
             monsters.Add("monster1421"); 
             foreach (var m in monsters)
             {
-                soundLibrary.Add(new Sound(null, monster, "dragon_init.mp3", SoundContext.Battle, SoundType.MonsterInit, Resource1.dragon_init));
-                soundLibrary.Add(new Sound(null, monster, "dragon_bite.mp3", SoundContext.Battle, SoundType.MonsterBite, Resource1.dragon_bite));
-                soundLibrary.Add(new Sound(null, monster, "dragon_death.mp3", SoundContext.Battle, SoundType.MonsterDeath, Resource1.dragon_death));
+                soundLibrary.Add(new Sound(null, m, "dragon_init.mp3", SoundContext.Battle, SoundType.MonsterInit, Resource1.dragon_init));
+                soundLibrary.Add(new Sound(null, m, "dragon_bite.mp3", SoundContext.Battle, SoundType.MonsterBite, Resource1.dragon_bite));
+                soundLibrary.Add(new Sound(null, m, "dragon_death.mp3", SoundContext.Battle, SoundType.MonsterDeath, Resource1.dragon_death));
             }
             monsters.Clear();
 
@@ -85,9 +85,9 @@ namespace Game.Sound
             monsters.Add("monster1153");
             foreach (var m in monsters)
             {
-                soundLibrary.Add(new Sound(null, monster, "wolf_init.mp3", SoundContext.Battle, SoundType.MonsterInit, Resource1.wolf_init));
-                soundLibrary.Add(new Sound(null, monster, "wolf_bite.mp3", SoundContext.Battle, SoundType.MonsterBite, Resource1.wolf_bite));
-                soundLibrary.Add(new Sound(null, monster, "wolf_death.mp3", SoundContext.Battle, SoundType.MonsterDeath, Resource1.wolf_death));
+                soundLibrary.Add(new Sound(null, m, "wolf_init.mp3", SoundContext.Battle, SoundType.MonsterInit, Resource1.wolf_init));
+                soundLibrary.Add(new Sound(null, m, "wolf_bite.mp3", SoundContext.Battle, SoundType.MonsterBite, Resource1.wolf_bite));
+                soundLibrary.Add(new Sound(null, m, "wolf_death.mp3", SoundContext.Battle, SoundType.MonsterDeath, Resource1.wolf_death));
             }
             monsters.Clear();
 
