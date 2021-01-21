@@ -61,7 +61,7 @@ namespace Game.Display
         }
         private void ExitGame(object sender, RoutedEventArgs e)
         {
-            soundEngine.StopAllPlayers();
+            soundEngine.ForceStopAllPlayers();
             var window = Window.GetWindow(this);
             window.IsVisibleChanged -= CleaningAfterPageClosedHandler;
             System.Windows.Application.Current.Shutdown(); //close the application
@@ -78,7 +78,7 @@ namespace Game.Display
 
         private void CleaningAfterPageClosedHandler(object sender, DependencyPropertyChangedEventArgs e)
         {
-            soundEngine.StopAllPlayers();
+            soundEngine.ForceStopAllPlayers();
         }
 
     }

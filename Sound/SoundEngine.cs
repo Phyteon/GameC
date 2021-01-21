@@ -32,6 +32,11 @@ namespace Game.Sound
             backgroundPlayer.Stop();
         }
 
+        public void ForceStopBackgroundMusic()
+        {
+            backgroundPlayer.ForceStop();
+        }
+
         public void PauseBackgroundMusic()
         {
             backgroundPlayer.Pause();
@@ -76,6 +81,12 @@ namespace Game.Sound
         {
             backgroundPlayer.Stop();
             soundPlayer.Stop();
+        }
+
+        public void ForceStopAllPlayers()
+        {
+            backgroundPlayer.ForceStop();
+            soundPlayer.ForceStop();
         }
     }
 

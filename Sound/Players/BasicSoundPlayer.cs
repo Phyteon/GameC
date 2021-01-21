@@ -73,6 +73,13 @@ namespace Game.Sound.Players
             mediaPlayer.Volume = tempVolume;
         }
 
+        public void ForceStop()
+        {
+            mediaPlayer.IsMuted = true;
+            mediaPlayer.Stop();
+            mediaPlayer.IsMuted = false;
+        }
+
         public void PlayLooped()
         {
             playLooped = true;

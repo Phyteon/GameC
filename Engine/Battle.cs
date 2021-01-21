@@ -102,9 +102,11 @@ namespace Game.Engine
                 parentSession.RefreshStats();
             }
             // restore player state
+            SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterDeath);
             battleResult = true;
             RestorePlayerState();
             battleScene.SendColorText("Victory! (press any key to continue)", "green");
+            SoundEngine.WaitAndPlay(SoundNames.PLAYER_WIN, SoundType.Player);
             parentSession.GetKeyResponse();
             battleScene.EndDisplay();
             parentSession.SendText("You won! XP gained: " + Monster.XPValue);
