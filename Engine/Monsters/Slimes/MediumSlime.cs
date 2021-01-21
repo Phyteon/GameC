@@ -20,7 +20,7 @@ namespace Game.Engine.Monsters
             Stamina = 50;
             XPValue = 30;
             Name = "monster1282";
-            BattleGreetings = "It will not be a happy medium";
+            BattleGreetings = "It will not be a happy medium!";
         }
         public override List<StatPackage> BattleMove()
         {

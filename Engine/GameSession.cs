@@ -30,18 +30,6 @@ namespace Game.Engine
         public bool[] AvailableMoves; // W,S,A,D
         public string CurrentKey { private get; set; } // currently pressed key
         public Skill CurrentSelection { private get; set; } // currently selected skill during a battle
-        [Serializable]
-        public class Stats
-        {
-            // convenience class, used by property TmpBattleBuffs
-            public int Health;
-            public int Strength;
-            public int Armor;
-            public int Precision;
-            public int MagicPower;
-            public int Stamina;
-        }
-        public Stats TmpBattleBuffs { get; set; } // used by skills - change a statistic temporarily during a battle
 
         [NonSerialized] public SoundEngine SoundEngine;
         [NonSerialized] public List<SoundEngine> ChildSoundEngines;
@@ -103,7 +91,6 @@ namespace Game.Engine
             if (playerChoice != null) { if (playerChoice.Contains("Warrior")) currentPlayer = new Warrior(this); }
             itemPositions = new List<int>();
             items = new List<Item>();
-            TmpBattleBuffs = new Stats();
             parentPage.AddConsoleText("Welcome to the game!");
             RefreshStats();
             SoundEngine = parentPage.soundEngine;

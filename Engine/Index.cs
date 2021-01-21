@@ -29,12 +29,20 @@ namespace Game.Engine
     {
         private static List<SkillFactory> magicSkillFactories = new List<SkillFactory>()
         {
-            new BasicSpellFactory(),
+            new SelfBuffsFactory(),
+            new EarthSpellFactory(),
+            new LethalSpellFactory(),
+            new PsychoSpellFactory(),
+            new WaterSpellFactory(),
+            new WindSpellFactory(),
+            new FireSpellFactory(),
         };
 
         private static List<SkillFactory> weaponSkillFactories = new List<SkillFactory>()
         {
-            new BasicWeaponMoveFactory(),
+            new AxeMoveFactory(),
+            new SwordMoveFactory(),
+            new SpearMoveFactory(),
         };
 
         private static List<Item> items = new List<Item>()

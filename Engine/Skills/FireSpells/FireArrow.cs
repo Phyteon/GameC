@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicSkills
         // if your precision stat is higher than 100, you will always land the arrow
         public FireArrow() : base("Fire Arrow", 20, 1)
         { 
-            PublicName = "Fire Arrow: a chance equal to your Precision stat to land 0.5*MP damage [fire]";
+            PublicName = "Fire Arrow: a chance equal to your Precision stat to land 0.6*MP damage [fire]";
             RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
@@ -19,8 +19,8 @@ namespace Game.Engine.Skills.BasicSkills
             StatPackage response = new StatPackage(DmgType.Fire);
             if (Index.RNG(0, 100) < player.Precision)
             {
-                response.HealthDmg = (int)(0.5 * player.MagicPower);
-                response.CustomText = "You use Fire Arrow! (" + (int)(0.5 * player.MagicPower) + " fire damage)";
+                response.HealthDmg = (int)(0.6 * player.MagicPower);
+                response.CustomText = "You use Fire Arrow! (" + (int)(0.6 * player.MagicPower) + " fire damage)";
             }
             else
             {

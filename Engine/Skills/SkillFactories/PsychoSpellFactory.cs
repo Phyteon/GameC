@@ -6,35 +6,31 @@ using Game.Engine.CharacterClasses;
 namespace Game.Engine.Skills.SkillFactories
 {
     [Serializable]
-    class BasicSpellFactory : SkillFactory
+    class PsychoSpellFactory : SkillFactory
     {  
         // this factory produces skills from BasicSpells directory
         public Skill CreateSkill(Player player)
         {
             List<Skill> playerSkills = player.ListOfSkills;
-            Skill known = CheckContent(playerSkills); // check what spells from the BasicSpells category are known by the player already
-            if (known == null) // no BasicSpells known - we will return one of them
+            Skill psycho = CheckContent(playerSkills); // check what spells from the BasicSpells category are known by the player already
+            if (psycho == null) // no BasicSpells known - we will return one of them
             {
-                FireArrow s1 = new FireArrow();
-                LightFlash s2 = new LightFlash();
-                WindGust s3 = new WindGust();
+                MentalAttack s1 = new MentalAttack();
+                Drain s2 = new Drain();
                 // only include elligible spells
                 List<Skill> tmp = new List<Skill>();
                 if (s1.MinimumLevel <= player.Level) tmp.Add(s1); // check level requirements
                 if (s2.MinimumLevel <= player.Level) tmp.Add(s2);
-                if (s3.MinimumLevel <= player.Level) tmp.Add(s3);
                 if (tmp.Count == 0) return null;
                 return tmp[Index.RNG(0, tmp.Count)]; // use Index.RNG for safe random numbers
             }
-            else if (known.decoratedSkill == null) // a BasicSpell has been already learned, use decorator to create a combo
+            else if (psycho.decoratedSkill == null) // a BasicSpell has been already learned, use decorator to create a combo
             {
-                FireArrowDecorator s1 = new FireArrowDecorator(known);
-                LightFlashDecorator s2 = new LightFlashDecorator(known);
-                WindGustDecorator s3 = new WindGustDecorator(known);
+                MentalAttackDecorator s1 = new MentalAttackDecorator(psycho);
+                DrainDecorator s2 = new DrainDecorator(psycho);
                 List<Skill> tmp = new List<Skill>();
                 if (s1.MinimumLevel <= player.Level) tmp.Add(s1); // check level requirements
                 if (s2.MinimumLevel <= player.Level) tmp.Add(s2);
-                if (s3.MinimumLevel <= player.Level) tmp.Add(s3);
                 if (tmp.Count == 0) return null;
                 return tmp[Index.RNG(0, tmp.Count)];
             }
@@ -44,7 +40,7 @@ namespace Game.Engine.Skills.SkillFactories
         {
             foreach (Skill skill in skills)
             {
-                if (skill is FireArrow || skill is WindGust || skill is LightFlash || skill is FireArrowDecorator || skill is WindGustDecorator || skill is LightFlashDecorator) return skill;
+                if (skill is MentalAttack || skill is Drain || skill is MentalAttackDecorator || skill is DrainDecorator) return skill;
             }
             return null;
         }       

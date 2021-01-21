@@ -30,19 +30,19 @@ namespace Game.Engine.Monsters
                 {
                     case 0:
                         Stamina -= 10;
-                        return new List<StatPackage>() { new StatPackage(DmgType.Cut, 10 + Strength*1/2, "Boar bites you! (" + (10 + Strength * 1 / 2) + "cut damage)") };
+                        return new List<StatPackage>() { new StatPackage(DmgType.Cut, 10 + Strength*1/2, "Boar bites you! (" + (10 + Strength * 1 / 2) + " cut damage)") };
                     case 1:
                         Stamina -= 15;
-                        return new List<StatPackage>() { new StatPackage(DmgType.Other, 5 + Strength, "Boar dashes at you! (" + (5 + Strength) + "other damage)") };
+                        return new List<StatPackage>() { new StatPackage(DmgType.Other, 5 + Strength, "Boar dashes at you! (" + (5 + Strength) + " other damage)") };
                     default:
                         Stamina -= 5;
-                        return new List<StatPackage>() { new StatPackage(DmgType.Other, 5 + Strength*1/2, "Boar attacks you with its snout! (" + (5 + Strength * 1 / 2) + "other damage)") };
+                        return new List<StatPackage>() { new StatPackage(DmgType.Other, 5 + Strength*1/2, "Boar attacks you with its snout! (" + (5 + Strength * 1 / 2) + " other damage)") };
                 }
             }
             else if (Stamina > 0 && Stamina < 15)
             {
                 Stamina -= 5;
-                return new List<StatPackage>() { new StatPackage(DmgType.Other, Strength*1/2, "Boar attacks you with its leg! (" + Strength * 1 / 2 + "other damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, Strength*1/2, "Boar attacks you with its leg! (" + Strength * 1 / 2 + " other damage)") };
             }
             else
             {

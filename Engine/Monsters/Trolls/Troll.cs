@@ -17,7 +17,7 @@ namespace Game.Engine.Monsters.Built_In
             Precision = 10;
             MagicPower = 0;
             Stamina = 110; 
-            XPValue = 90;
+            XPValue = 60;
             Name = "monster1340";
             BattleGreetings = "I'll crush you!"; 
         }
@@ -26,19 +26,19 @@ namespace Game.Engine.Monsters.Built_In
             if (Stamina >=100)
             {
                 Stamina -= 50;
-                return new List<StatPackage>() { new StatPackage(DmgType.Crush, 8, "I'm crushing you! (" + (12) + " crush damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Crush, 8, "Troll crushes you! (" + (12) + " crush damage)") };
             }
 
             else if (Stamina > 20 && Stamina < 100)
             {
                 Stamina -= 40;
-                return new List<StatPackage>() { new StatPackage(DmgType.Crush,  5, "I'm crushing you! (" + (5) + " crush damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Crush,  5, "Troll crushes you! (" + (5) + " crush damage)") };
             }
 
             else if (Stamina > 0 && Stamina <= 20)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage(DmgType.Crush, 2, "I'm crushing you! (" + (2) + " crush damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Crush, 2, "Troll crushes you! (" + (2) + " crush damage)") };
             }
 
             else

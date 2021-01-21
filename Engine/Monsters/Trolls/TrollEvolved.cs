@@ -14,7 +14,7 @@ namespace Game.Engine.Monsters.MonsterFactories
             Precision = 10;
             MagicPower = 0;
             Stamina = 200;
-            XPValue = 150;
+            XPValue = 120;
             Name = "monster1341";
             BattleGreetings = "I am stronger now! You don't have enough power to kill me!!! He He He!";
         }
@@ -39,19 +39,19 @@ namespace Game.Engine.Monsters.MonsterFactories
                     if (Stamina > 100)
                     {
                         Stamina -= 100;
-                        return new List<StatPackage>() { new StatPackage(DmgType.Crush, 15, "I'm crushing you" + (15) + " crush damage)") };
+                        return new List<StatPackage>() { new StatPackage(DmgType.Crush, 15, "Troll crushes you" + (15) + " crush damage)") };
 
                     }
                     else if (Stamina < 100 && Stamina > 20)
                     {
                         Stamina -= 40;
-                        return new List<StatPackage>() { new StatPackage(DmgType.Crush, 5, "Ooo!!! I'm crushing you" + (5) + " crush damage)") };
+                        return new List<StatPackage>() { new StatPackage(DmgType.Crush, 5, "Troll crushes you" + (5) + " crush damage)") };
 
                     }
                     else
                     {
                         Stamina -= 10;
-                        return new List<StatPackage>() { new StatPackage(DmgType.Crush, 1, "I'm crushing you! (" + (1) + " crush damage)") };
+                        return new List<StatPackage>() { new StatPackage(DmgType.Crush, 1, "Troll crushes you! (" + (1) + " crush damage)") };
                     }
                 }
                 else

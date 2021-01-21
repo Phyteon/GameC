@@ -15,11 +15,19 @@ namespace Game.Engine.CharacterClasses
         protected GameSession parentSession;
         protected int xp, gold;
 
-        // public properties
+        // public properties - used only during battle
+        public int BattleBuffHealth { get; set; }
+        public int BattleBuffStrength { get; set; }
+        public int BattleBuffArmor { get; set; }
+        public int BattleBuffPrecision { get; set; }
+        public int BattleBuffMagicPower { get; set; }
+        public int BattleBuffStamina { get; set; }
+
+        // other public properties
         public override int Health 
         {
             get 
-            { return health + HealthBuff + parentSession.TmpBattleBuffs.Health; }
+            { return health + HealthBuff + BattleBuffHealth; }
             set 
             {
                 if (value < 0) health = 0;
@@ -39,7 +47,7 @@ namespace Game.Engine.CharacterClasses
         public override int Strength
         {
             get
-            { return strength + StrengthBuff + parentSession.TmpBattleBuffs.Strength; }
+            { return strength + StrengthBuff + BattleBuffStrength; }
             set
             {
                 if (value < 0) strength = 0;
@@ -49,7 +57,7 @@ namespace Game.Engine.CharacterClasses
         public override int Armor
         {
             get
-            { return armor + ArmorBuff + parentSession.TmpBattleBuffs.Armor; }
+            { return armor + ArmorBuff + BattleBuffArmor; }
             set
             {
                 if (value < 0) armor = 0;
@@ -59,7 +67,7 @@ namespace Game.Engine.CharacterClasses
         public override int Precision
         {
             get
-            { return precision + PrecisionBuff + parentSession.TmpBattleBuffs.Precision; }
+            { return precision + PrecisionBuff + BattleBuffPrecision; }
             set
             {
                 if (value < 0) precision = 0;
@@ -69,7 +77,7 @@ namespace Game.Engine.CharacterClasses
         public override int MagicPower
         {
             get
-            { return magicPower + MagicPowerBuff + parentSession.TmpBattleBuffs.MagicPower; }
+            { return magicPower + MagicPowerBuff + BattleBuffMagicPower; }
             set
             {
                 if (value < 0) magicPower = 0;
@@ -78,7 +86,7 @@ namespace Game.Engine.CharacterClasses
         }
         public override int Stamina
         {
-            get { return stamina + StaminaBuff + parentSession.TmpBattleBuffs.Stamina; }
+            get { return stamina + StaminaBuff + BattleBuffStamina; }
             set
             {
                 if (value < 0) stamina = 0;
@@ -109,7 +117,7 @@ namespace Game.Engine.CharacterClasses
         }
         public string ClassName { get; protected set; }
 
-        // core stats and temporary buffs are stored separately so that they can be updated easily
+        // core stats and temporary item buffs are stored separately so that they can be updated easily
         public int HealthBuff { get; set; }
         public int StrengthBuff { get; set; }
         public int ArmorBuff { get; set; }
@@ -147,7 +155,7 @@ namespace Game.Engine.CharacterClasses
         }
         public void ResetBuffs() 
         {
-            // convenience method that resets all buffs
+            // convenience method that resets all item buffs
             HealthBuff = 0;
             StrengthBuff = 0;
             ArmorBuff = 0;
@@ -155,22 +163,26 @@ namespace Game.Engine.CharacterClasses
             MagicPowerBuff = 0;
             StaminaBuff = 0;
         }
+        public void ResetBattleBuffs()
+        {
+            // similar to ResetBuffs, but for battle buffs
+            BattleBuffHealth = 0;
+            BattleBuffStrength = 0;
+            BattleBuffArmor = 0;
+            BattleBuffPrecision = 0;
+            BattleBuffMagicPower = 0;
+            BattleBuffStamina = 0;
+        }
         public virtual void React(List<StatPackage> packs) 
         {
             // receive the result of your opponent's action
             foreach (StatPackage pack in packs)
             {
-                strength -= pack.StrengthDmg;
-                armor -= pack.ArmorDmg;
-                precision -= pack.PrecisionDmg;
-                magicPower -= pack.MagicPowerDmg;
-                if (Strength < 0) strength = -StrengthBuff;
-                if (Armor < 0) armor = -ArmorBuff;
-                if (Precision < 0) precision = -PrecisionBuff;
-                if (MagicPower < 0) magicPower = -MagicPowerBuff;
-                // damageAfterArmor = 100.0 * damageBeforeArmor / (100.0 + Armor)
-                // parentSession.UpdateStat(1, -1 * (100 * pack.HealthDmg) / (100 + Armor)); // not used here, because it would reset skill buffs
-                parentSession.currentPlayer.Health += -1 * (100 * pack.HealthDmg) / (100 + Armor) - parentSession.currentPlayer.HealthBuff; // we use this instead
+                Health = Health - HealthBuff - BattleBuffHealth - 1 * (100 * pack.HealthDmg) / (100 + Armor);
+                Strength = Strength - StrengthBuff - BattleBuffStrength - pack.StrengthDmg;
+                Armor = Armor - ArmorBuff - BattleBuffArmor - pack.ArmorDmg;
+                Precision = Precision - PrecisionBuff - BattleBuffPrecision - pack.PrecisionDmg;
+                MagicPower = MagicPower - MagicPowerBuff - BattleBuffMagicPower - pack.MagicPowerDmg;
             }
         }
         protected virtual void LevelUp()

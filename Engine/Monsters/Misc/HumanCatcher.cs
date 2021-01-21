@@ -19,7 +19,7 @@ namespace Game.Engine.Monsters.Built_In
             Precision = 60;
             MagicPower = 5;
             Stamina = 20;
-            XPValue = 10;
+            XPValue = 40;
             Name = "monster1200";
             BattleGreetings = "";//doesn't say anything
         }

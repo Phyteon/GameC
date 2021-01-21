@@ -15,7 +15,7 @@ namespace Game.Engine.Monsters
             Precision = 50;
             MagicPower = 0;
             Stamina = 70;
-            XPValue = 35;
+            XPValue = 100;
             Name = "monster1152";
             BattleGreetings = "You mess with me => you mess with whole pack";
         }

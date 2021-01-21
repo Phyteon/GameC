@@ -1,10 +1,10 @@
 Copyright (c) 2020 Jakub Chęciński (checinski.j@gmail.com),
 Natalia Biłko, Marcel Cisowski, Anna Czaja, Natalia Dudek, Katarzyna Figurska, Katarzyna Firek, 
-Bartosz Jaromin, Julia Jarząb, Julia Kącka, Agnieszka Kiraga, Justyna Kozub, Weronika Kubińska, 
-Jakub Makówka, Aleksandra Mrowca, Monika Mundała, Anna Pancerz, Adrianna Pączek, Joanna Piskorek, 
-Zuzanna Podolak, Anna Prusak, Daria Pyk, Anna Ratowska, Roksana Robaszek, Bartłomiej Sosenka, 
-Agata Spałek, Olga Szafer, Anna Szarek, Maciej Talar, Martyna Trębacz, Sara Urban, Magda Wasiak,
-Katarzyna Więcław, Natalia Zemła
+Bartosz Jaromin, Julia Jarząb, Julia Kącka, Agnieszka Kiraga, Szymon Korzeniowski, Justyna Kozub, 
+Marcin Kościółek, Weronika Kubińska, Jakub Makówka, Aleksandra Mrowca, Monika Mundała, Anna Pancerz, 
+Adrianna Pączek, Joanna Piskorek, Zuzanna Podolak, Anna Prusak, Konrad Pusz, Daria Pyk, Anna Ratowska, 
+Roksana Robaszek, Krzysztof Skociński, Bartłomiej Sosenka, Agata Spałek, Olga Szafer, Anna Szarek, 
+Maciej Talar, Martyna Trębacz, Sara Urban, Magda Wasiak, Katarzyna Więcław, Natalia Zemła
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

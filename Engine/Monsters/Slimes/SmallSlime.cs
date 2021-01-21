@@ -20,7 +20,7 @@ namespace Game.Engine.Monsters
             Stamina = 50;
             XPValue = 15;
             Name = "monster1281";
-            BattleGreetings = "Good things come in small packages";
+            BattleGreetings = "Good things come in small packages!";
         }
         public override List<StatPackage> BattleMove()
         {
