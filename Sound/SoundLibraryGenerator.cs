@@ -21,6 +21,7 @@ namespace Game.Sound
         public const string MOUSE_CLICK_GAME_2 = "MouseClickGame_2";
 
         public const string PLAYER_DEATH = "PlayerDeath";
+        public const string PLAYER_WIN = "PlayerWin";
 
     }
     internal static class SoundLibraryGenerator
