@@ -571,6 +571,13 @@
     <Resource Include="Display\Assets\Monsters\monster1426.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sound\Assets\Monsters\Dragons\dragon_bite.mp3" />
+    <Content Include="Sound\Assets\Monsters\Dragons\dragon_death.mp3" />
+    <Content Include="Sound\Assets\Monsters\Dragons\dragon_init.mp3" />
+    <Content Include="Sound\Assets\Monsters\Wolves\wolf_bite.mp3" />
+    <Content Include="Sound\Assets\Monsters\Wolves\wolf_death.mp3" />
+    <Content Include="Sound\Assets\Monsters\Wolves\wolf_init.mp3" />
+    <Content Include="Sound\Assets\Player\player_win.mp3" />
     <Resource Include="Display\Assets\Items\item1320.png" />
     <Resource Include="Display\Assets\Items\item1321.png" />
     <Resource Include="Display\Assets\Items\item1323.png" />
@@ -639,6 +646,18 @@
     <Content Include="Sound\Assets\Items\item_spear.mp3" />
     <Content Include="Sound\Assets\Items\item_staff.mp3" />
     <Content Include="Sound\Assets\Items\item_sword.mp3" />
+    <Content Include="Sound\Assets\Monsters\Cats\cat_bite.mp3" />
+    <Content Include="Sound\Assets\Monsters\Cats\cat_death.mp3" />
+    <Content Include="Sound\Assets\Monsters\Cats\cat_init.mp3" />
+    <Content Include="Sound\Assets\Monsters\Cats\cat_win.mp3" />
+    <Content Include="Sound\Assets\Monsters\Misc\Tyrannosaurus\misc_tyrannosaurus_bite.mp3" />
+    <Content Include="Sound\Assets\Monsters\Misc\Tyrannosaurus\misc_tyrannosaurus_death.mp3" />
+    <Content Include="Sound\Assets\Monsters\Misc\Tyrannosaurus\misc_tyrannosaurus_init.mp3" />
+    <Content Include="Sound\Assets\Mouse\mouse_click.mp3" />
+    <Content Include="Sound\Assets\Mouse\mouse_drop.mp3" />
+    <Content Include="Sound\Assets\Mouse\mouse_full_click_2.mp3" />
+    <Content Include="Sound\Assets\Mouse\mouse_full_click_3.mp3" />
+    <Content Include="Sound\Assets\Mouse\mouse_hover.mp3" />
     <Content Include="Sound\Assets\Player\player_death.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

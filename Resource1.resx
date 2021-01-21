@@ -118,6 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cat_bite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\cats\cat_bite.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cat_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\cats\cat_death.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cat_init" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\cats\cat_init.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cat_win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\cats\cat_win.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dragon_bite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\dragons\dragon_bite.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dragon_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\dragons\dragon_death.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dragon_init" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\dragons\dragon_init.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="item_axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>sound\assets\items\item_axe.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -130,7 +151,43 @@
   <data name="item_sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>sound\assets\items\item_sword.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="misc_tyrannosaurus_bite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\misc\tyrannosaurus\misc_tyrannosaurus_bite.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="misc_tyrannosaurus_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\misc\tyrannosaurus\misc_tyrannosaurus_death.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="misc_tyrannosaurus_init" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\misc\tyrannosaurus\misc_tyrannosaurus_init.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mouse_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\mouse\mouse_click.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mouse_drop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\mouse\mouse_drop.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mouse_full_click_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\mouse\mouse_full_click_2.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mouse_full_click_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\mouse\mouse_full_click_3.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mouse_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\mouse\mouse_hover.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="player_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>sound\assets\player\player_death.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="player_win" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\player\player_win.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="wolf_bite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\wolves\wolf_bite.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="wolf_death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\wolves\wolf_death.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="wolf_init" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>sound\assets\monsters\wolves\wolf_init.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

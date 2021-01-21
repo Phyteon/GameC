@@ -63,6 +63,76 @@ namespace Game {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
         /// </summary>
+        internal static byte[] cat_bite {
+            get {
+                object obj = ResourceManager.GetObject("cat_bite", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] cat_death {
+            get {
+                object obj = ResourceManager.GetObject("cat_death", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] cat_init {
+            get {
+                object obj = ResourceManager.GetObject("cat_init", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] cat_win {
+            get {
+                object obj = ResourceManager.GetObject("cat_win", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] dragon_bite {
+            get {
+                object obj = ResourceManager.GetObject("dragon_bite", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] dragon_death {
+            get {
+                object obj = ResourceManager.GetObject("dragon_death", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] dragon_init {
+            get {
+                object obj = ResourceManager.GetObject("dragon_init", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
         internal static byte[] item_axe {
             get {
                 object obj = ResourceManager.GetObject("item_axe", resourceCulture);
@@ -103,9 +173,129 @@ namespace Game {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
         /// </summary>
+        internal static byte[] misc_tyrannosaurus_bite {
+            get {
+                object obj = ResourceManager.GetObject("misc_tyrannosaurus_bite", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] misc_tyrannosaurus_death {
+            get {
+                object obj = ResourceManager.GetObject("misc_tyrannosaurus_death", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] misc_tyrannosaurus_init {
+            get {
+                object obj = ResourceManager.GetObject("misc_tyrannosaurus_init", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_click {
+            get {
+                object obj = ResourceManager.GetObject("mouse_click", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_drop {
+            get {
+                object obj = ResourceManager.GetObject("mouse_drop", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_full_click_2 {
+            get {
+                object obj = ResourceManager.GetObject("mouse_full_click_2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_full_click_3 {
+            get {
+                object obj = ResourceManager.GetObject("mouse_full_click_3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_hover {
+            get {
+                object obj = ResourceManager.GetObject("mouse_hover", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
         internal static byte[] player_death {
             get {
                 object obj = ResourceManager.GetObject("player_death", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] player_win {
+            get {
+                object obj = ResourceManager.GetObject("player_win", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] wolf_bite {
+            get {
+                object obj = ResourceManager.GetObject("wolf_bite", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] wolf_death {
+            get {
+                object obj = ResourceManager.GetObject("wolf_death", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
+        /// </summary>
+        internal static byte[] wolf_init {
+            get {
+                object obj = ResourceManager.GetObject("wolf_init", resourceCulture);
                 return ((byte[])(obj));
             }
         }
