@@ -35,6 +35,7 @@ namespace Game.Sound
             }
             catch (Exception ex)
             {
+                System.Windows.Forms.MessageBox.Show("An exception occurred: " + ex.Message + ". Sound will be disabled.");
                 return;
             }
 
