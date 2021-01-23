@@ -27,7 +27,7 @@ namespace Game.Sound.Players
             playLooped = false;
             waiting = false;
             SoundList = new List<Sound>();
-            mediaPlayer.Volume = 1;
+            mediaPlayer.Volume = 0.2;
 
             // allow to loop audio
             mediaPlayer.MediaEnded += new EventHandler(Player_Ended);
