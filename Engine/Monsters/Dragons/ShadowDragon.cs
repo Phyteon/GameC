@@ -17,7 +17,7 @@ namespace Game.Engine.Monsters
             Precision = 60;
             MagicPower = 20;
             Stamina = 140;
-            XPValue = 110;
+            XPValue = 150;
             Name = "monster1420";
             BattleGreetings = "Are you afraid of the dark? No? You should be!";
         }

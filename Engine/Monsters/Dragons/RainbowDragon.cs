@@ -17,7 +17,7 @@ namespace Game.Engine.Monsters
             Precision = 60;
             MagicPower = 25;
             Stamina = 120;
-            XPValue = 100;
+            XPValue = 150;
             Name = "monster1426";
             BattleGreetings = "Colors give me strength!";
         }

@@ -15,7 +15,7 @@ namespace Game.Engine.Monsters
             Armor = 10;
             Precision = 80;
             Stamina = 200;
-            XPValue = 35;
+            XPValue = 135;
             Name = "monster1261";
             BattleGreetings = "You felt the darkness coming from the depths of the forest. Leshy is coming ...";
         }

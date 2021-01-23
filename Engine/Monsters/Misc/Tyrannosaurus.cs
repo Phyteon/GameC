@@ -17,7 +17,7 @@ namespace Game.Engine.Monsters
             Precision = 50;
             MagicPower = 20;
             Stamina = 120;
-            XPValue = 75;
+            XPValue = 150;
             Name = "monster1120";
             BattleGreetings = "I'm a powerful mutant Tyrannosaurus! Consider if it's worth attacking me. Your 1st attack just make me healthier.";
         }

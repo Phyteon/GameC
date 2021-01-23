@@ -17,7 +17,7 @@ namespace Game.Engine.Monsters
             Precision = 60;
             MagicPower = 90;
             Stamina = 250;
-            XPValue = 95;
+            XPValue = 195;
             Name = "monster1125";
             BattleGreetings = "I'm an Ice Dragon from Scandinavia! You have to try very hard to make me suffer.";
         }
