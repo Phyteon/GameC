@@ -14,7 +14,7 @@ namespace Game.Sound.Players
         protected MediaPlayer mediaPlayer;
         protected bool playLooped;
         protected bool waiting;
-        protected Sound tempSoud;
+        protected List<Sound> SoundList;
 
         public double Volume
         {
@@ -26,8 +26,8 @@ namespace Game.Sound.Players
             mediaPlayer = new MediaPlayer();
             playLooped = false;
             waiting = false;
-            tempSoud = null;
-            mediaPlayer.Volume = 0.2;
+            SoundList = new List<Sound>();
+            mediaPlayer.Volume = 1;
 
             // allow to loop audio
             mediaPlayer.MediaEnded += new EventHandler(Player_Ended);
@@ -88,15 +88,16 @@ namespace Game.Sound.Players
 
         public void WaitAndPlay(Sound sound)
         {
-            if(mediaPlayer.Source != null && mediaPlayer.NaturalDuration.HasTimeSpan && mediaPlayer.NaturalDuration.TimeSpan > mediaPlayer.Position)
+            if (sound == null) return;
+            SoundList.Add(sound);
+
+            if (mediaPlayer.Source != null && mediaPlayer.NaturalDuration.HasTimeSpan && mediaPlayer.NaturalDuration.TimeSpan > mediaPlayer.Position)
             {
                 waiting = true;
-                tempSoud = sound;
             }
             else
             {
-                Open(sound);
-                Play();
+                HandleWaitingPlayer();
             }
         }
 
@@ -109,13 +110,27 @@ namespace Game.Sound.Players
                 //Play the music
                 mediaPlayer.Play();
             }
-            if (waiting && tempSoud != null)
+            if (waiting && SoundList.Count > 0)
             {
-                Open(tempSoud);
-                Play();
-                waiting = false;
-                tempSoud = null;
+                HandleWaitingPlayer();
             }
+        }
+
+        private void HandleWaitingPlayer()
+        {
+            SoundList.RemoveAll(x => x == null);
+            if (SoundList.Count == 0)
+            {
+                waiting = false;
+                return;
+            }
+
+            Sound temp = SoundList.First();
+            SoundList.RemoveAt(0);
+            Open(temp);
+            Play();
+            if (SoundList.Count == 0)
+                waiting = false;
         }
 
     }
