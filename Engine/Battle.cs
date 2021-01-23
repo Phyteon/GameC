@@ -82,7 +82,7 @@ namespace Game.Engine
                     return;
                 }
                 // play item sound
-                SoundEngine.WaitAndPlay(playerResponse.RequiredItem.ToString(), SoundType.BattleRequiredItem);
+                SoundEngine.PlaySound(playerResponse.RequiredItem.ToString(), SoundType.BattleRequiredItem);
                 firstBlood = true;
                 List<StatPackage> playerAttack = parentSession.ModifyOffensive(playerResponse.BattleMove(parentSession.currentPlayer));
                 Monster.React(playerAttack);
