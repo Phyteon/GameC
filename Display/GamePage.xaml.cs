@@ -364,6 +364,7 @@ namespace Game.Display
         private void CleanAllSoundEngines()
         {
             soundEngine.StopAllPlayers();
+            if (currentSession == null) return;
             foreach (var se in currentSession.ChildSoundEngines)
             {
                 se.StopAllPlayers();
@@ -445,10 +446,13 @@ namespace Game.Display
                 }
             }
 
+            // disabled
+            /*
             if (e.Key == Key.Q)
             {
                 AddConsoleColorText("Quest info: " + currentSession.CurrentlyComplete + "% complete", "blue");
             }
+            */
 
             if (e.Key == Key.P)
             {

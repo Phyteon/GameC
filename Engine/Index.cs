@@ -19,6 +19,7 @@ using Game.Engine.Items.Chains;
 using Game.Engine.Items.Heads;
 using Game.Engine.Items.AnimalItems;
 using Game.Engine.Items.Amulet;
+using Game.Engine.Interactions;
 
 
 
@@ -185,13 +186,18 @@ namespace Game.Engine
             new Monsters.MonsterFactories.TyrannosaurusFactory(),
         };
 
-        public readonly static InteractionFactory MainQuestFactory = new GymirHymirFactory();
+        public readonly static InteractionFactory MainQuestFactory = new MainQuestFactory();
 
         private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
         {
             new SkillForgetFactory(),
             new HealInteractionFactory(),
+            new ShrineFactory(),
+            new HoundmasterFactory(),
+            new GymirHymirFactory(),
         };
+
+        private static Dictionary<int, Interaction> InteractionsList = new Dictionary<int, Interaction>();
 
     }
 }
