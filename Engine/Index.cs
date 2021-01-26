@@ -195,6 +195,8 @@ namespace Game.Engine
             new ShrineFactory(),
             new HoundmasterFactory(),
             new GymirHymirFactory(),
+            new SarcophagusFactory(),
+            new OldTravelerFactory(),
         };
 
         private static Dictionary<int, Interaction> InteractionsList = new Dictionary<int, Interaction>();

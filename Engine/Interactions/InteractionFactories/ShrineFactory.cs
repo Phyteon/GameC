@@ -18,7 +18,8 @@ namespace Game.Engine.Interactions.InteractionFactories
             switch(shrineType)
             {
                 case 0:
-                    return new List<Interaction>() { new RandomShrine(parentSession)};
+                    //return new List<Interaction>() { new RandomShrine(parentSession)};
+                    return new List<Interaction>() { new BattleShrine(parentSession) };
                 case 1:
                     return new List<Interaction>() { new BattleShrine(parentSession) };
                 case 2:

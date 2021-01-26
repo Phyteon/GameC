@@ -101,6 +101,8 @@ namespace Game.Engine
                 InitializeFactoryList(parentSession);
             }
             if (InteractionsList.ContainsKey(number)) return InteractionsList[number];
+            
+            //return interactionFactories[RNG(0, interactionFactories.Count)].CreateInteractionsGroup(parentSession)[0];
 
             // check if there are some interactions still waiting to be drawn
             if (waitingToBeDrawn.Count > 0)
@@ -116,7 +118,7 @@ namespace Game.Engine
                 if (tmp.Count == 1) return tmp[0];
                 else if (tmp.Count > 1)
                 {
-                    for (int i = 1; i <= tmp.Count; i++)
+                    for (int i = 1; i < tmp.Count; i++)
                     {
                         waitingToBeDrawn.Add(tmp[i]);
                     }
@@ -138,7 +140,7 @@ namespace Game.Engine
                 foreach (Interaction inter in fact.CreateInteractionsGroup(parentSession))
                 {
                     int num = Int32.Parse(inter.Name.Replace("interaction", ""));
-                    InteractionsList.Add(num, inter);
+                    if(!InteractionsList.ContainsKey(num)) InteractionsList.Add(num, inter);
                 }
             }
         }

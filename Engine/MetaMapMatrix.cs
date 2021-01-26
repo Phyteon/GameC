@@ -216,6 +216,7 @@ namespace Game.Engine
                 MapsCnt++;
             }
 
+
             //PPath
             {
                 Matrix[0].SetPortals(MapsCnt);
@@ -230,7 +231,7 @@ namespace Game.Engine
                 (int[], MapMatrix[]) BoardWeb = MapMatrix.PrepareMatrixWeb(MLabLength, MapsCnt - 1, 2, ref MapsCnt, parent);
                 foreach (MapMatrix bor in BoardWeb.Item2) Matrix.Add(bor);
 
-                //Ridle
+                //Riddle
                 BlockSet = new MapBlock[1] { MapBlock.PathBlocks[19] };
                 Matrix.Add(new MapMatrix(BlockSet, MapsCnt, 1, parent));
                 Matrix[MapsCnt].SetPortals(BoardWeb.Item1[0]);
@@ -264,6 +265,7 @@ namespace Game.Engine
                 Matrix[MapsCnt].SetPortals(new int[2] { 0, BoardWeb.Item1[0] });
                 MapsCnt++;
             }
+            
 
             //Random Dungeon
             {
@@ -274,6 +276,7 @@ namespace Game.Engine
                 (int[], MapMatrix[]) BoardWeb = MapMatrix.PrepareMatrixWeb(MLabLength, 2, 0, ref MapsCnt, parent);
                 foreach (MapMatrix bor in BoardWeb.Item2) Matrix.Add(bor);
             }
+
             matrix = Matrix.ToArray();
             LoadInteractions();
         }

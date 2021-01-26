@@ -21,6 +21,7 @@ namespace Game.Engine.Interactions.InteractionFactories
                 GeneralQuestline.TreantEncounter treant = new GeneralQuestline.TreantEncounter(parentSession);
                 GeneralQuestline.LibrarianEncounter librarian = new GeneralQuestline.LibrarianEncounter(parentSession, treant);
                 GeneralEncounter general = new GeneralEncounter(parentSession, training, camp, librarian, treant);
+
                 BasicWitch.BasicWitchEncounter bWitch = new BasicWitch.BasicWitchEncounter(parentSession);
                 // the map constructor does not support multiple interactions of the same type for now
                 //BasicWitch.BasicWitchEncounter bWitch1 = new BasicWitch.BasicWitchEncounter(parentSession);
@@ -57,6 +58,15 @@ namespace Game.Engine.Interactions.InteractionFactories
                 List<Interaction> finalList = new List<Interaction>() { camp, training, treant, librarian, general, wolf,
                     druid, bear, fox, gates, witch, elf, bElf, /*bElf1, bElf2, bElf3,*/ bWitch, /*bWitch1, bWitch2, bWitch3,*/
                     amulet, trap };
+
+                TempleQuestFactory pSmallFactory = new TempleQuestFactory(); 
+                List<Interaction> pQuest = pSmallFactory.CreateInteractionsGroup(parentSession);
+                foreach (Interaction quest in pQuest) { finalList.Add(quest); }
+
+                NecromancerFactory mSmallFactory = new NecromancerFactory();
+                List<Interaction> mQuest = mSmallFactory.CreateInteractionsGroup(parentSession);
+                foreach (Interaction quest in mQuest) { finalList.Add(quest); }
+
                 return finalList;
             }
             else return new List<Interaction>();
