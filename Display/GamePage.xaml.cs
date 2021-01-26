@@ -364,12 +364,19 @@ namespace Game.Display
         private void CleanAllSoundEngines()
         {
             soundEngine.StopAllPlayers();
-            if (currentSession == null) return;
-            foreach (var se in currentSession.ChildSoundEngines)
+            try
             {
-                se.StopAllPlayers();
+                if (currentSession == null) return;
+                foreach (var se in currentSession.ChildSoundEngines)
+                {
+                    se.StopAllPlayers();
+                }
+                currentSession.ChildSoundEngines = null;
             }
-            currentSession.ChildSoundEngines = null;
+            catch(Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("An exception occurred: " + ex.Message);
+            }
         }
 
 

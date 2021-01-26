@@ -12,24 +12,29 @@ namespace Game.Engine.Interactions.InteractionFactories
     [Serializable]
     class ShrineFactory : InteractionFactory
     {
+        private int i = 0;
         public List<Interaction> CreateInteractionsGroup(GameSession parentSession)
         {
-            int shrineType = Index.RNG(0, 6);
-            switch(shrineType)
+            if (i < 10)
             {
-                case 0:
-                    //return new List<Interaction>() { new RandomShrine(parentSession)};
-                    return new List<Interaction>() { new BattleShrine(parentSession) };
-                case 1:
-                    return new List<Interaction>() { new BattleShrine(parentSession) };
-                case 2:
-                    return new List<Interaction>() { new BerserkerShrine(parentSession) };
-                case 3:
-                    return new List<Interaction>() { new CatShrine(parentSession) };
-                case 4:
-                    return new List<Interaction>() { new ElephantShrine(parentSession) };
-                case 5:
-                    return new List<Interaction>() { new HunterShrine(parentSession) };
+                i++;
+                int shrineType = Index.RNG(0, 6);
+                switch (shrineType)
+                {
+                    case 0:
+                        //return new List<Interaction>() { new RandomShrine(parentSession)};
+                        return new List<Interaction>() { new BattleShrine(parentSession) };
+                    case 1:
+                        return new List<Interaction>() { new BattleShrine(parentSession) };
+                    case 2:
+                        return new List<Interaction>() { new BerserkerShrine(parentSession) };
+                    case 3:
+                        return new List<Interaction>() { new CatShrine(parentSession) };
+                    case 4:
+                        return new List<Interaction>() { new ElephantShrine(parentSession) };
+                    case 5:
+                        return new List<Interaction>() { new HunterShrine(parentSession) };
+                }
             }
             return new List<Interaction>();
         }

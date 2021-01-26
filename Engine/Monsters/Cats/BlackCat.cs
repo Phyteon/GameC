@@ -72,7 +72,7 @@ namespace Game.Engine.Monsters
             dmgToMonster = 0;            
             foreach (StatPackage pack in packs)
             {
-                int dmgHealth = (pack.HealthDmg - Armor);
+                int dmgHealth = pack.HealthDmg * 100 / (100 + Armor);
                 if (dmgHealth < 0)
                     dmgHealth = 0;
                 Health -= dmgHealth;

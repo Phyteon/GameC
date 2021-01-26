@@ -3,6 +3,8 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Game.Display;
+using Game.Sound;
+using System.Collections.Generic;
 
 namespace Game.Engine
 {
@@ -30,11 +32,14 @@ namespace Game.Engine
             parentPage = page;
             timer = new System.Windows.Forms.Timer();
             timerPlayer = new System.Windows.Forms.Timer();
+            SoundEngine = parentPage.soundEngine;
+            ChildSoundEngines = new List<SoundEngine>();
             InitializeMapDisplay(-1); // don't move player - this will be handled seprately
             RefreshMonstersDisplay();
             RefreshItems();
             RefreshStats();
             UpdateLocations();
+            
         }
 
     }

@@ -314,7 +314,7 @@ namespace Game.Engine
                     currentPlayer.MagicPower += value - currentPlayer.MagicPowerBuff;
                     break;
                 case 6:
-                    currentPlayer.Stamina += value - currentPlayer.StaminaBuff;
+                    currentPlayer.Stamina += value - currentPlayer.StaminaBuff - currentPlayer.BattleBuffStamina;
                     break;
                 case 7:
                     currentPlayer.XP += value;

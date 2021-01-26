@@ -18,7 +18,7 @@ namespace Game.Engine.Skills.BasicSkills
             StatPackage response = new StatPackage(DmgType.Other);
             player.BattleBuffStamina += 50;
             player.BattleBuffHealth -= 5;
-            response.CustomText = "You use Regenarate! (50 stamina added, 5 HP taken)";
+            response.CustomText = "You use Regenerate! (50 stamina added, 5 HP taken)";
             return new List<StatPackage>() { response };
         }
     }

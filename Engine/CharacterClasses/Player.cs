@@ -40,7 +40,7 @@ namespace Game.Engine.CharacterClasses
                     parentSession.SendText("You lost! Press any key to continue.");
                     parentSession.GetKeyResponse();
                     parentSession.EndGame();
-                    //Application.Current.Shutdown();
+                    //health = 200; // cheat
                 }
             }
         }
@@ -210,7 +210,8 @@ namespace Game.Engine.CharacterClasses
                 parentSession.SendColorText(learningSkills[0]+ " (press 1)", "yellow");
                 parentSession.SendColorText(learningSkills[1]+ " (press 2)", "yellow");
                 parentSession.SendColorText(learningSkills[2]+ " (press 3)", "yellow");
-                string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2", "3" }).Item1;
+                parentSession.SendColorText("Thank you, I will skip on these (press 4)", "yellow");
+                string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2", "3", "4" }).Item1;
                 if (key == "1") Learn(learningSkills[0]);
                 else if (key == "2") Learn(learningSkills[1]);
                 else if (key == "3") Learn(learningSkills[2]);
@@ -220,7 +221,8 @@ namespace Game.Engine.CharacterClasses
                 parentSession.SendColorText("Choose a skill to learn:", "yellow");
                 parentSession.SendColorText(learningSkills[0] + " (press 1)", "yellow");
                 parentSession.SendColorText(learningSkills[1] + " (press 2)", "yellow");
-                string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2"}).Item1;
+                parentSession.SendColorText("Thank you, I will skip on these (press 3)", "yellow");
+                string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2", "3"}).Item1;
                 if (key == "1") Learn(learningSkills[0]);
                 else if (key == "2") Learn(learningSkills[1]);
             }
@@ -228,7 +230,8 @@ namespace Game.Engine.CharacterClasses
             {
                 parentSession.SendColorText("Choose a skill to learn:", "yellow");
                 parentSession.SendColorText(learningSkills[0] + " (press 1)", "yellow");
-                string key = parentSession.GetValidKeyResponse(new List<string>() {"1"}).Item1;
+                parentSession.SendColorText("Thank you, I will skip on this one (press 2)", "yellow");
+                string key = parentSession.GetValidKeyResponse(new List<string>() {"1", "2"}).Item1;
                 if (key == "1") Learn(learningSkills[0]);
             }
         }

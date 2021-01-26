@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Engine.Items.EnhancedArmor
 {
+    [Serializable]
     class AdaptiveArmor : Item
     {
         private Dictionary<DmgType, int> ReducedDamage = new Dictionary<DmgType, int>();

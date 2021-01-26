@@ -27,14 +27,24 @@ namespace Game.Engine
             battleScene = scene;
             battleScene.ImgSetup = GetImage();
             SoundEngine = new SoundEngine(SoundContext.Battle);
-            parentSession.ChildSoundEngines.Add(SoundEngine);
+            try
+            {
+                parentSession.ChildSoundEngines.Add(SoundEngine);
+            }
+            catch (Exception e)
+            {
+                parentSession.SendColorText(e.Message, "red");
+            }
         }
 
         protected override void RunContent()
          {
             // stop game music and play battle music
-            parentSession.SoundEngine.PauseBackgroundMusic();
-            SoundEngine.PlayBackgroundMusic();
+            if (parentSession.SoundEngine != null)
+            {
+                parentSession.SoundEngine.PauseBackgroundMusic();
+                SoundEngine.PlayBackgroundMusic();
+            }
 
             parentSession.SendText("\nBattle!");
             battleScene.SetupDisplay();
@@ -44,7 +54,7 @@ namespace Game.Engine
             {
                 battleScene.SendColorText(Monster.BattleGreetings, "red");
                 // play battle monster greetings 
-                SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterInit);
+                if (parentSession.SoundEngine != null) SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterInit);
                 battleScene.SendBattleText("");
             }
             if(!possibleToEscape)
@@ -63,8 +73,11 @@ namespace Game.Engine
                     parentSession.SendText("No more skills to use - you lost the battle!");
                     battleScene.EndDisplay();
                     // stop battle music and resume main game music
-                    SoundEngine.StopBackgroundMusic();
-                    parentSession.SoundEngine.ResumeBackgroundMusic();
+                    if (parentSession.SoundEngine != null)
+                    {
+                        SoundEngine.StopBackgroundMusic();
+                        parentSession.SoundEngine.ResumeBackgroundMusic();
+                    }
                     return;
                 }
                 // player attacks first
@@ -77,12 +90,15 @@ namespace Game.Engine
                     battleResult = false;
                     RestorePlayerState(false);
                     // stop battle music and resume main game music
-                    SoundEngine.StopBackgroundMusic();
-                    parentSession.SoundEngine.ResumeBackgroundMusic();
+                    if (parentSession.SoundEngine != null)
+                    {
+                        SoundEngine.StopBackgroundMusic();
+                        parentSession.SoundEngine.ResumeBackgroundMusic();
+                    }
                     return;
                 }
                 // play item sound
-                SoundEngine.PlaySound(playerResponse.RequiredItem.ToString(), SoundType.BattleRequiredItem);
+                if (parentSession.SoundEngine != null) SoundEngine.PlaySound(playerResponse.RequiredItem.ToString(), SoundType.BattleRequiredItem);
                 firstBlood = true;
                 List<StatPackage> playerAttack = parentSession.ModifyOffensive(playerResponse.BattleMove(parentSession.currentPlayer));
                 Monster.React(playerAttack);
@@ -96,25 +112,28 @@ namespace Game.Engine
                 List<StatPackage> monsterAttack = parentSession.ModifyDefensive(Monster.BattleMove());
                 foreach (StatPackage i in monsterAttack) battleScene.SendColorText(i.CustomText, "red");
                 // play monster bite sound
-                SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterBite);
+                if (parentSession.SoundEngine != null) SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterBite);
                 parentSession.currentPlayer.React(monsterAttack);
                 battleScene.RefreshStats();
                 parentSession.RefreshStats();
             }
             // restore player state
-            SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterDeath);
+            if (parentSession.SoundEngine != null) SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterDeath);
             battleResult = true;
             RestorePlayerState();
             battleScene.SendColorText("Victory! (press any key to continue)", "green");
-            SoundEngine.WaitAndPlay(SoundNames.PLAYER_WIN, SoundType.Player);
+            if (parentSession.SoundEngine != null) SoundEngine.WaitAndPlay(SoundNames.PLAYER_WIN, SoundType.Player);
             parentSession.GetKeyResponse();
             battleScene.EndDisplay();
             parentSession.SendText("You won! XP gained: " + Monster.XPValue);
             if(rewards) VictoryReward();
             //parentSession.UpdateStat(7, Monster.XPValue); // for smoother display, this one was moved to GameSession.cs
             // stop battle music and resume main game music
-            SoundEngine.StopBackgroundMusic();
-            parentSession.SoundEngine.ResumeBackgroundMusic();
+            if (parentSession.SoundEngine != null)
+            {
+                SoundEngine.StopBackgroundMusic();
+                parentSession.SoundEngine.ResumeBackgroundMusic();
+            }
         }
         protected void CopyPlayerState()
         {
@@ -137,7 +156,8 @@ namespace Game.Engine
             {
                 parentSession.currentPlayer.Health = (int)((parentSession.currentPlayer.Health + hpCopy) / 2);
                 if (parentSession.currentPlayer.Health > hpCopy) parentSession.currentPlayer.Health = hpCopy;
-                parentSession.currentPlayer.LostHP += hpCopy - parentSession.currentPlayer.Health;
+                parentSession.currentPlayer.LostHP += hpCopy - parentSession.currentPlayer.Health + parentSession.currentPlayer.BattleBuffHealth;
+                if (parentSession.currentPlayer.LostHP < 0) parentSession.currentPlayer.LostHP = 0; //workaround
             }
             parentSession.currentPlayer.Strength = strCopy;
             parentSession.currentPlayer.Armor = armCopy;

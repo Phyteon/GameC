@@ -30,7 +30,7 @@ namespace Game.Engine.Interactions.Shrines
                     case 1:
                         if (choice == 0)
                         {
-                            parentSession.SendText("You feel the force flow through you");
+                            parentSession.SendText("You feel the force flowing through you");
                             parentSession.AddRandomClassItem(); //add class item
                             parentSession.UpdateStat(6, -15); //take stamina
                             parentSession.UpdateStat(4, -5); //take precision
@@ -39,7 +39,7 @@ namespace Game.Engine.Interactions.Shrines
                     case 2:
                         if (choice == 0)
                         {
-                            parentSession.SendText("You feel the force flow through you");
+                            parentSession.SendText("You feel the force flowing through you");
                             if (parentSession.currentPlayer.ClassName == "Warrior")
                             {
                                 parentSession.UpdateStat(2, 15); //add strength
@@ -55,7 +55,7 @@ namespace Game.Engine.Interactions.Shrines
                     case 3:
                         if (choice == 0)
                         {
-                            parentSession.SendText("You feel the force flow through you");
+                            parentSession.SendText("You feel the force flowing through you");
                             parentSession.UpdateStat(6, 40);
                             if (parentSession.currentPlayer.ClassName == "Warrior") parentSession.UpdateStat(2, -15);
                             if (parentSession.currentPlayer.ClassName == "Mage") parentSession.UpdateStat(5, -15);
@@ -64,7 +64,7 @@ namespace Game.Engine.Interactions.Shrines
                     case 4:
                         if (choice == 0)
                         {
-                            parentSession.SendText("You feel the force flow through you");
+                            parentSession.SendText("You feel the force flowing through you");
                             parentSession.UpdateStat(6, -40); //take stamina
                             parentSession.UpdateStat(3, 15); //add armor
                             parentSession.UpdateStat(3, 10); //add health
@@ -75,7 +75,7 @@ namespace Game.Engine.Interactions.Shrines
                     case 5:
                         if(choice == 0)
                         {
-                            parentSession.SendText("You feel the force flow through you");
+                            parentSession.SendText("You feel the force flowing through you");
                             parentSession.UpdateStat(4, 15); //add precision
                             parentSession.UpdateStat(1, 20); // takes health
 
