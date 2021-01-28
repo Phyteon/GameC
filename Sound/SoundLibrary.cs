@@ -13,6 +13,10 @@ namespace Game.Sound
         public static string TempFolderName = "GameJPiA2021_temp_music";
         public static Uri TempPath { get; private set; }
 
+        /// <summary>
+        /// Initializes sound library on app start. 
+        /// </summary>
+        /// <param name="tempFiles">Determines if copy files to temporary folder or not.</param>
         public static void InitializeLibrary(bool tempFiles)
         {
             if(Sounds == null)
@@ -25,6 +29,9 @@ namespace Game.Sound
             }
         }
 
+        /// <summary>
+        /// Copies music / sound files to OS temporary folder. 
+        /// </summary>
         public static void InitilizeTempraryFiles() 
         {
             BuildTempPath();
@@ -54,6 +61,9 @@ namespace Game.Sound
             Resource1.ResourceManager.ReleaseAllResources();
         }
 
+        /// <summary>
+        /// Removes music / sound files from OS temporary folder.
+        /// </summary>
         public static void DiscardTemporaryFiles() 
         {
             if(TempPath == null) { BuildTempPath(); }
@@ -65,6 +75,9 @@ namespace Game.Sound
             }
         }
 
+        /// <summary>
+        /// Creates temporary folder path to store app data. 
+        /// </summary>
         private static void BuildTempPath()
         {
             TempPath = new Uri(Path.Combine(Path.GetTempPath(), TempFolderName));
@@ -74,11 +87,29 @@ namespace Game.Sound
 
     class Sound
     {
+        /// <summary>
+        /// Uri type path to music / sound file on hard drive. 
+        /// </summary>
         public Uri FilePath { get; set; }
+        /// <summary>
+        /// Name of sound / music. 
+        /// </summary>
         public string SoundName { get; set; }
+        /// <summary>
+        /// Name of file on hard drive. 
+        /// </summary>
         public string FileName { get; set; }
+        /// <summary>
+        /// Sound context
+        /// </summary>
         public SoundContext SoundContext { get; set; }
+        /// <summary>
+        /// Sound type
+        /// </summary>
         public SoundType SoundType { get; set; }
+        /// <summary>
+        /// Sound byte stream resource file. 
+        /// </summary>
         public byte[] Resource { get; set; }
 
         public Sound(Uri filePath, string soundName, string fileName, SoundContext soundContext, SoundType soundType, byte[] resource)
