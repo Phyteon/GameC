@@ -11,7 +11,7 @@ namespace Game.Engine.Interactions
     class ShopInteraction : PlayerInteraction
     {
         private Item it1, it2, it3;
-        public ShopInteraction(GameSession parentSession) : base(parentSession) 
+        public ShopInteraction(GameSession parentSession) : base(parentSession)
         {
             while (it1 == null) it1 = Index.RandomClassItem(parentSession.currentPlayer);
             while (it2 == null) it2 = Index.RandomClassItem(parentSession.currentPlayer);
@@ -24,7 +24,7 @@ namespace Game.Engine.Interactions
             parentSession.SendText("You may also press I to see the value of your items, B to buy items or ENTER to leave.");
             parentSession.RemovableItems = true;
             parentSession.ItemSellFlag = true;
-            while(true)
+            while (true)
             {
                 string key = parentSession.GetValidKeyResponse(new List<string>() { "Return", "I", "B" }).Item1;
                 if (key == "Return") break;
@@ -32,9 +32,9 @@ namespace Game.Engine.Interactions
                 else
                 {
                     parentSession.SendText("Here is what I have to offer today: ");
-                    parentSession.SendText(it1.PublicName + " for " + (it1.GoldValue + 20) + " gold (press 1)"); 
-                    parentSession.SendText(it2.PublicName + " for " + (it2.GoldValue + 20) + " gold (press 2)");
-                    parentSession.SendText(it3.PublicName + " for " + (it3.GoldValue + 20) + " gold (press 3)");
+                    if (it1 != null) parentSession.SendText(it1.PublicName + " for " + (it1.GoldValue + 20) + " gold (press 1)");
+                    if (it2 != null) parentSession.SendText(it2.PublicName + " for " + (it2.GoldValue + 20) + " gold (press 2)");
+                    if (it3 != null) parentSession.SendText(it3.PublicName + " for " + (it3.GoldValue + 20) + " gold (press 3)");
                     while (true)
                     {
                         string key2 = parentSession.GetValidKeyResponse(new List<string>() { "Return", "1", "2", "3" }).Item1;
@@ -44,23 +44,49 @@ namespace Game.Engine.Interactions
                             parentSession.ItemSellFlag = false;
                             return;
                         }
-                        else if (key2 == "1") SellItem(it1);
-                        else if (key2 == "2") SellItem(it2);
-                        else if (key2 == "3") SellItem(it3);
-                    }        
+                        else if (key2 == "1") SellItem(1);
+                        else if (key2 == "2") SellItem(2);
+                        else if (key2 == "3") SellItem(3);
+                    }
                 }
             }
             parentSession.RemovableItems = false;
             parentSession.ItemSellFlag = false;
         }
-        protected void SellItem(Item it)
+        protected void SellItem(int i)
         {
+            Item it = null;
+            switch (i)
+            {
+                case 1:
+                    it = it1;
+                    break;
+                case 2:
+                    it = it2;
+                    break;
+                case 3:
+                    it = it3;
+                    break;
+            }
+            if (it == null) return;
             if (parentSession.currentPlayer.Gold >= it.GoldValue + 20)
             {
                 parentSession.AddThisItem(it);
                 parentSession.UpdateStat(8, -1 * it.GoldValue - 20);
+                switch (i)
+                {
+                    case 1:
+                        it1 = null;
+                        break;
+                    case 2:
+                        it2 = null;
+                        break;
+                    case 3:
+                        it3 = null;
+                        break;
+                }
             }
             else parentSession.SendText("Sorry, you don't have enough gold to buy this!");
         }
-    } 
+    }
 }

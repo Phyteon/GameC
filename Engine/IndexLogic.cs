@@ -61,13 +61,13 @@ namespace Game.Engine
         // produce random class-specific or non-class-specific items - this one will be used to populate the game world
         public static Item RandomItem()
         {
-            return itemFactories[RNG(0, itemFactories.Count)].CreateItem();
+            return itemFactories[RNG(0, itemFactories.Count)].CreateAnyItem();
         }
         public static Item RandomClassItem(Player player)
         {
             if (player.ClassName == "Mage") return itemFactories[RNG(0, itemFactories.Count)].CreateNonWeaponItem();
             else if (player.ClassName == "Warrior") return itemFactories[RNG(0, itemFactories.Count)].CreateNonMagicItem();
-            else return itemFactories[RNG(0, itemFactories.Count)].CreateItem();
+            else return itemFactories[RNG(0, itemFactories.Count)].CreateAnyItem();
         }
 
         // produce random monster factory

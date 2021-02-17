@@ -9,7 +9,7 @@ namespace Game.Engine.Items.ItemFactories
     interface ItemFactory
     {
         // interface for all item factories
-        Item CreateItem();
+        Item CreateAnyItem();
         Item CreateNonMagicItem();
         Item CreateNonWeaponItem();
     }

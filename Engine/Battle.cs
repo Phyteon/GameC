@@ -70,8 +70,8 @@ namespace Game.Engine
                 RegisterBuffs();
                 List<StatPackage> playerAttack = parentSession.ModifyOffensive(playerResponse.BattleMove(parentSession.currentPlayer));
                 ReflectBuffsFromSkills();
-                foreach (StatPackage i in playerAttack) battleScene.SendColorText(i.CustomText, "green");
                 Monster.React(playerAttack);
+                foreach (StatPackage i in playerAttack) battleScene.SendColorText(i.CustomText, "green");
                 battleScene.RefreshStats();
                 parentSession.UpdateStat(6, -1*playerResponse.StaminaCost);
                 battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills(possibleToEscape));
@@ -157,7 +157,7 @@ namespace Game.Engine
         {
             Random RNG = new Random();
             int test = RNG.Next(100);
-            if (test < 15)
+            if (test < 10)
             {
                 parentSession.SendText("It seems the monster was guarding an interesting item.");
                 parentSession.AddRandomItem();

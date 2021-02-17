@@ -8,7 +8,7 @@ namespace Game.Engine.Items.ItemFactories
     class BasicArmorFactory : ItemFactory
     {
         // produce items from BasicArmor directory
-        public Item CreateItem()
+        public Item CreateAnyItem()
         {
             List<Item> basicArmor = new List<Item>()
             {
