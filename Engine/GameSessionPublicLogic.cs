@@ -314,7 +314,7 @@ namespace Game.Engine
                     currentPlayer.MagicPower += value - currentPlayer.MagicPowerBuff;
                     break;
                 case 6:
-                    currentPlayer.Stamina += value - currentPlayer.StaminaBuff;
+                    currentPlayer.Stamina += value - currentPlayer.StaminaBuff - currentPlayer.BattleBuffStamina;
                     break;
                 case 7:
                     currentPlayer.XP += value;
@@ -323,16 +323,6 @@ namespace Game.Engine
                     currentPlayer.Gold += value;
                     break;
             }
-            RefreshStats();
-        }
-        public void UpdateStat(StatPackage pack) 
-        {
-            // another version, can be useful during battle-type interactions
-            currentPlayer.Health -= pack.HealthDmg - currentPlayer.HealthBuff;
-            currentPlayer.Strength -= pack.StrengthDmg - currentPlayer.StrengthBuff;
-            currentPlayer.Armor -= pack.ArmorDmg - currentPlayer.ArmorBuff;
-            currentPlayer.Precision -= pack.PrecisionDmg - currentPlayer.PrecisionBuff;
-            currentPlayer.MagicPower -= pack.MagicPowerDmg - currentPlayer.MagicPowerBuff;
             RefreshStats();
         }
 
