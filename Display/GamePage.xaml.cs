@@ -363,12 +363,19 @@ namespace Game.Display
 
         private void CleanAllSoundEngines()
         {
-            soundEngine.StopAllPlayers();
-            foreach (var se in currentSession.ChildSoundEngines)
+            try 
             {
-                se.StopAllPlayers();
+                soundEngine.StopAllPlayers();
+                foreach (var se in currentSession.ChildSoundEngines)
+                {
+                    se.StopAllPlayers();
+                }
+                currentSession.ChildSoundEngines = null;
             }
-            currentSession.ChildSoundEngines = null;
+            catch(Exception e)
+            {
+                AddConsoleText("Nie udalo sie prawidlowo zamknac silnikow dzwiekowych: " + e.Message);
+            }
         }
 
 

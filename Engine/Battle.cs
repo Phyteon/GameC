@@ -27,7 +27,14 @@ namespace Game.Engine
             battleScene = scene;
             battleScene.ImgSetup = GetImage();
             SoundEngine = new SoundEngine(SoundContext.Battle);
-            parentSession.ChildSoundEngines.Add(SoundEngine);
+            try
+            {
+                parentSession.ChildSoundEngines.Add(SoundEngine);
+            }
+            catch (Exception e)
+            {
+                parentSession.SendText("Nie udalo sie zainicjalizowac dzwieku: " + e.Message);
+            }
         }
 
         protected override void RunContent()

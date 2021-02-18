@@ -75,7 +75,7 @@ namespace Game.Sound.Players
         {
             double tempVolume = mediaPlayer.Volume;
             int msTime = 10;
-            double sleepFactor = (double)msTime / 1000;
+            double sleepFactor = (double)msTime / 500;
 
             while (mediaPlayer.Volume > 0)
             {
