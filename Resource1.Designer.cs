@@ -59,5 +59,95 @@ namespace Game {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] item_axe {
+            get {
+                object obj = ResourceManager.GetObject("item_axe", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] item_spear {
+            get {
+                object obj = ResourceManager.GetObject("item_spear", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] item_staff {
+            get {
+                object obj = ResourceManager.GetObject("item_staff", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] item_sword {
+            get {
+                object obj = ResourceManager.GetObject("item_sword", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_click {
+            get {
+                object obj = ResourceManager.GetObject("mouse_click", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_drop {
+            get {
+                object obj = ResourceManager.GetObject("mouse_drop", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_full_click_2 {
+            get {
+                object obj = ResourceManager.GetObject("mouse_full_click_2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_full_click_3 {
+            get {
+                object obj = ResourceManager.GetObject("mouse_full_click_3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mouse_hover {
+            get {
+                object obj = ResourceManager.GetObject("mouse_hover", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

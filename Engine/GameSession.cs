@@ -103,17 +103,17 @@ namespace Game.Engine
             // starting skills and items
             if (playerChoice != null)
             {
-                if (playerChoice.Contains("Topor"))
+                if (playerChoice.Contains("topor"))
                 {
                     ProduceItem("item0003");
                     currentPlayer.Learn(new AxeCut());
                 }
-                else if (playerChoice.Contains("Miecz"))
+                else if (playerChoice.Contains("miecz"))
                 {
                     ProduceItem("item0004");
                     currentPlayer.Learn(new SwordSlash());
                 }
-                else if (playerChoice.Contains("Wlocznia"))
+                else if (playerChoice.Contains("wlocznia"))
                 {
                     ProduceItem("item0002");
                     currentPlayer.Learn(new SpearStab());

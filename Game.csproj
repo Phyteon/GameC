@@ -306,5 +306,16 @@
   <ItemGroup>
     <Resource Include="Display\Assets\Interactions\interaction0005.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sound\Assets\item_axe.mp3" />
+    <Content Include="Sound\Assets\item_spear.mp3" />
+    <Content Include="Sound\Assets\item_staff.mp3" />
+    <Content Include="Sound\Assets\item_sword.mp3" />
+    <Content Include="Sound\Assets\mouse_click.mp3" />
+    <Content Include="Sound\Assets\mouse_drop.mp3" />
+    <Content Include="Sound\Assets\mouse_full_click_2.mp3" />
+    <Content Include="Sound\Assets\mouse_full_click_3.mp3" />
+    <Content Include="Sound\Assets\mouse_hover.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
