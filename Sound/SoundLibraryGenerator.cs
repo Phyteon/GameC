@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game.Sound
 {
+    /// <summary>
+    /// Contains constant strings of prepared music and sound names. 
+    /// </summary>
     public static class SoundNames
     {
         public const string BACKGROUND_MUSIC = "BackgroundMusic";
@@ -24,8 +27,15 @@ namespace Game.Sound
         public const string PLAYER_WIN = "PlayerWin";
 
     }
+    /// <summary>
+    /// Generates list (library) of game sounds. 
+    /// </summary>
     internal static class SoundLibraryGenerator
     {
+        /// <summary>
+        /// Contains list of all sounds linked to monsters, items, payer, background music etc.
+        /// </summary>
+        /// <returns>List of sounds used by game app.</returns>
         internal static List<Sound> CreateLibrary()
         {
             List<Sound> soundLibrary = new List<Sound>();
