@@ -11,7 +11,7 @@ namespace Game.Engine.CharacterClasses
         public Warrior(GameSession ses) : base(ses)
         {
             // initial class statistics
-            ClassName = "Warrior";
+            ClassName = ""; // deprecated
             Health = 100;
             Strength = 50;
             Armor = 0;
@@ -26,9 +26,9 @@ namespace Game.Engine.CharacterClasses
         {
             Level++;
             parentSession.SendText("\n");
-            parentSession.SendColorText("Level Up! Level: " + Level, "yellow");
+            parentSession.SendColorText("Nowy poziom! Poziom: " + Level, "yellow");
             List<string> validInputs = new List<string>() { "1", "2", "3", "4" }; // only accept these inputs
-            parentSession.SendColorText("Choose a statistic to improve: +20 Health (press 1), +10 Strength (press 2), +5 Precision (press 3), +20 Stamina (press 4)", "yellow");
+            parentSession.SendColorText("Wybierz statystyke do ulepszenia: +20 Zdrowia (nacisnij 1), +10 Sily (nacisnij 2), +5 Precyzji (nacisnij 3), +20 Energii (nacisnij 4)", "yellow");
             string key = parentSession.GetValidKeyResponse(validInputs).Item1;
             // don't make changes directly, ask GameSession to do it right
             if (key == "1") parentSession.UpdateStat(1, 20);

@@ -24,12 +24,12 @@ namespace Game.Engine.Interactions
             int hpToHeal = parentSession.currentPlayer.LostHP;
             if(hpToHeal == 0)
             {
-                parentSession.SendText("\nGreetings traveler. I'm a doctor who tends to sick and wounded, but it seems you don't need my help right now.");
+                parentSession.SendText("\nWitaj. Jestem lekarzem zajmujacym sie chorymi i rannymi... ty chyba jednak nie potrzebujesz teraz mojej pomocy.");
                 return;
             }
-            parentSession.SendText("\nGreetings traveler. I'm a doctor who tends to sick and wounded. Let me see what I can do for you.");
-            parentSession.SendText("Uh oh... well, I can heal you for " + hpToHeal + " HP, but it will also cost you " + 2 * hpToHeal + " gold.");
-            List<string> choices = new List<string>() { "Yes, please.", "Thank you, I've changed my mind" };
+            parentSession.SendText("\nWitaj. Jestem lekarzem zajmujacym sie chorymi i rannymi... zobaczmy, co moge dla ciebie zrobic.");
+            parentSession.SendText("Hmm... moge uleczyc " + hpToHeal + " punktow twojego zdrowia, ale bedzie to kosztowalo " + 2 * hpToHeal + " sztuk zlota.");
+            List<string> choices = new List<string>() { "Zgoda.", "Dziekuje, nie skorzystam." };
             int a = parentSession.GetListBoxChoice(choices);
             if (a == 0)
             {
@@ -38,11 +38,11 @@ namespace Game.Engine.Interactions
                     parentSession.UpdateStat(1, hpToHeal);
                     parentSession.UpdateStat(8, -2 * hpToHeal);
                     parentSession.currentPlayer.LostHP = 0;
-                    parentSession.SendText("Now you are good to go! Take care next time.");
+                    parentSession.SendText("Juz po wszystkim! Uwazaj na siebie nastepnym razem.");
                 }
-                else parentSession.SendText("Well, I'm sorry, but it seems you don't have enough money and we doctors don't work for free.");
+                else parentSession.SendText("Wybacz, ale nie masz wystarczajaco duzo zlota. Rozumiesz chyba, gildia lekarzy nie pozwala mi pracowac za darmo.");
             }
-            else parentSession.SendText("That's not a smart choice, but as you wish.");
+            else parentSession.SendText("To nie jest madry wybor, ale jak sobie chcesz.");
         }
     }
 }

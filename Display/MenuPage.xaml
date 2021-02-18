@@ -11,7 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -42,7 +42,7 @@
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Viewbox Grid.Row="1" Grid.Column="1">
-                            <TextBlock>New Game</TextBlock>
+                            <TextBlock>Rozpocznij gre</TextBlock>
                         </Viewbox>
                     </Grid>
                 </DataTemplate>
@@ -65,7 +65,7 @@
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Viewbox Grid.Row="1" Grid.Column="1">
-                            <TextBlock>Load Game</TextBlock>
+                            <TextBlock>Wczytaj zapis</TextBlock>
                         </Viewbox>
                     </Grid>
                 </DataTemplate>
@@ -88,7 +88,7 @@
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Viewbox Grid.Row="1" Grid.Column="1">
-                            <TextBlock>Exit Game</TextBlock>
+                            <TextBlock>Wyjscie z gry</TextBlock>
                         </Viewbox>
                     </Grid>
                 </DataTemplate>

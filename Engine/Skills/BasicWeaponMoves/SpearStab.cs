@@ -10,14 +10,14 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         // simple stab with spear
         public SpearStab() : base("Spear Stab", 20, 1) 
         { 
-            PublicName = "Basic spear stab [requires spear]: 0.2*Str + 0.3*Pr damage [cut]";
+            PublicName = "Pchniecie wlocznia [wymagana wlocznia]: 0.2*Sila + 0.3*Precyzja obrazen [fizyczne]";
             RequiredItem = RequiredItem.Spear;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.Cut);
+            StatPackage response = new StatPackage(DmgType.Physical);
             response.HealthDmg = (int)(0.2 * player.Strength) + (int)(0.3 * player.Precision);
-            response.CustomText = "You use Spear Stab! (" + ((int)(0.2 * player.Strength) + (int)(0.3 * player.Precision)) + " cut damage)";
+            response.CustomText = "Uzywasz pchniecia wlocznia! " + ((int)(0.2 * player.Strength) + (int)(0.3 * player.Precision)) + " obrazen [fizyczne]";
             return new List<StatPackage>() { response };
         }
     }

@@ -11,7 +11,7 @@ namespace Game.Engine.Interactions.Built_In
     {
         public override void RunContent(GameSession parentSession, GymirEncounter myself, HymirEncounter myBrother)
         {
-            parentSession.SendText("\nOh, hello. Thanks for coming, but I don't have any job for you right now.");
+            parentSession.SendText("\nAch, to ty. Milo cie tu znowu widziec, ale chwilowo nie mam dla ciebie zadnej pracy do zaoferowania.");
             return;
         }
     }

@@ -26,18 +26,18 @@
         <Viewbox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
             <TextBlock 
                 FontFamily="Impact" TextAlignment="Center">
-            Choose your character class and starting item
+            Wybierz swoja sciezke i poczatkowy bonus
             </TextBlock>
         </Viewbox>
 
         <Viewbox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
             <ListBox Name="ChoiceListBox"
                 Background="Beige" FontFamily="Impact">
-                <ListBoxItem>Warrior (Axe)</ListBoxItem>
-                <ListBoxItem>Warrior (Sword)</ListBoxItem>
-                <ListBoxItem>Warrior (Spear)</ListBoxItem>
-                <ListBoxItem>Mage (Staff) with Fire Arrow spell</ListBoxItem>
-                <ListBoxItem>Mage (Staff) with Wind Gust spell</ListBoxItem>
+                <ListBoxItem>Fizyczna / Topor</ListBoxItem>
+                <ListBoxItem>Fizyczna / Miecz</ListBoxItem>
+                <ListBoxItem>Fizyczna / Wlocznia</ListBoxItem>
+                <ListBoxItem>Magiczna / zaklecie Ognista Strzala</ListBoxItem>
+                <ListBoxItem>Magiczna / zaklecie Podmuch Wiatru</ListBoxItem>
             </ListBox>
         </Viewbox>
         

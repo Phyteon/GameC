@@ -10,14 +10,14 @@ namespace Game.Engine.Skills.BasicSkills
         // wind gust: deal 5+0.3*[Mp] damage
         public WindGust() : base("Wind Gust", 10, 1)
         {
-            PublicName = "Wind Gust: 5 + 0.3*MP damage [air]";
+            PublicName = "Podmuch Wiatru: 5 + 0.3*Moc obrazen [wiatr]";
             RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
             StatPackage response = new StatPackage(DmgType.Air);
             response.HealthDmg = 5 + (int)(0.3 * player.MagicPower);
-            response.CustomText = "You use Wind Gust! (" + (5 + (int)(0.3 * player.MagicPower)) + " air damage)";
+            response.CustomText = "Podmuch Wiatru uderza w przeciwnika! " + (5 + (int)(0.3 * player.MagicPower)) + " obrazen [wiatr]";
             return new List<StatPackage>() { response };
         }
     }

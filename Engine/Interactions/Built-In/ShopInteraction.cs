@@ -20,8 +20,8 @@ namespace Game.Engine.Interactions
         }
         protected override void RunContent()
         {
-            parentSession.SendText("\nWelcome! You may now sell your items by dragging them outside of the item grid.");
-            parentSession.SendText("You may also press I to see the value of your items, B to buy items or ENTER to leave.");
+            parentSession.SendText("\nWitaj! Mozesz tutaj sprzedac swoje przedmioty poprzez przeciagniecie ich na zewnatrz planszy z ekwipunkiem.");
+            parentSession.SendText("Mozesz takze nacisnac I aby sprawdzic wartosc swoich przedmiotow, B aby kupic nowe przedmioty oraz ENTER aby wyjsc.");
             parentSession.RemovableItems = true;
             parentSession.ItemSellFlag = true;
             while (true)
@@ -31,10 +31,10 @@ namespace Game.Engine.Interactions
                 else if (key == "I") parentSession.ListAllItemsCost();
                 else
                 {
-                    parentSession.SendText("Here is what I have to offer today: ");
-                    if (it1 != null) parentSession.SendText(it1.PublicName + " for " + (it1.GoldValue + 20) + " gold (press 1)");
-                    if (it2 != null) parentSession.SendText(it2.PublicName + " for " + (it2.GoldValue + 20) + " gold (press 2)");
-                    if (it3 != null) parentSession.SendText(it3.PublicName + " for " + (it3.GoldValue + 20) + " gold (press 3)");
+                    parentSession.SendText("Mamy w ofercie nastepujace przedmioty: ");
+                    if (it1 != null) parentSession.SendText(it1.PublicName + " za " + (it1.GoldValue + 20) + " sztuk zlota (nacisnij 1)");
+                    if (it2 != null) parentSession.SendText(it2.PublicName + " za " + (it2.GoldValue + 20) + " sztuk zlota (nacisnij 2)");
+                    if (it3 != null) parentSession.SendText(it3.PublicName + " za " + (it3.GoldValue + 20) + " sztuk zlota (nacisnij 3)");
                     while (true)
                     {
                         string key2 = parentSession.GetValidKeyResponse(new List<string>() { "Return", "1", "2", "3" }).Item1;
@@ -86,7 +86,7 @@ namespace Game.Engine.Interactions
                         break;
                 }
             }
-            else parentSession.SendText("Sorry, you don't have enough gold to buy this!");
+            else parentSession.SendText("Nie masz wystarczajaco wiele zlota!");
         }
     }
 }

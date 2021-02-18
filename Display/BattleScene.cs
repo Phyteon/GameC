@@ -204,29 +204,29 @@ namespace Game.Display
         {
             // refresh all statistics displayed
             rtbs[0].Document.Blocks.Clear();
-            rtbs[0].AppendText("Health: " + player.Health);
+            rtbs[0].AppendText("Zdrowie: " + player.Health);
             rtbs[1].Document.Blocks.Clear();
-            rtbs[1].AppendText("Strength: " + player.Strength);
+            rtbs[1].AppendText("Sila: " + player.Strength);
             rtbs[2].Document.Blocks.Clear();
-            rtbs[2].AppendText("Armor: " + player.Armor);
+            rtbs[2].AppendText("Pancerz: " + player.Armor);
             rtbs[3].Document.Blocks.Clear();
-            rtbs[3].AppendText("Precision: " + player.Precision);
+            rtbs[3].AppendText("Precyzja: " + player.Precision);
             rtbs[4].Document.Blocks.Clear();
-            rtbs[4].AppendText("Magic Power: " + player.MagicPower);
+            rtbs[4].AppendText("Moc: " + player.MagicPower);
             rtbs[5].Document.Blocks.Clear();
-            rtbs[5].AppendText("Stamina: " + player.Stamina);
+            rtbs[5].AppendText("Energia: " + player.Stamina);
             rtbs[6].Document.Blocks.Clear();
-            rtbs[6].AppendText("Health: " + monster.Health);
+            rtbs[6].AppendText("Zdrowie: " + monster.Health);
             rtbs[7].Document.Blocks.Clear();
-            rtbs[7].AppendText("Strength: " + monster.Strength);
+            rtbs[7].AppendText("Sila: " + monster.Strength);
             rtbs[8].Document.Blocks.Clear();
-            rtbs[8].AppendText("Armor: " + monster.Armor);
+            rtbs[8].AppendText("Pancerz: " + monster.Armor);
             rtbs[9].Document.Blocks.Clear();
-            rtbs[9].AppendText("Precision: " + monster.Precision);
+            rtbs[9].AppendText("Precyzja: " + monster.Precision);
             rtbs[10].Document.Blocks.Clear();
-            rtbs[10].AppendText("Magic Power: " + monster.MagicPower);
+            rtbs[10].AppendText("Moc: " + monster.MagicPower);
             rtbs[11].Document.Blocks.Clear();
-            rtbs[11].AppendText("Stamina: " + monster.Stamina);
+            rtbs[11].AppendText("Energia: " + monster.Stamina);
             AdjustStatDisplay();
         }
         private void AdjustStatDisplay()

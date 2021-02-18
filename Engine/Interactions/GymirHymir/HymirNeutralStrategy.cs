@@ -13,8 +13,8 @@ namespace Game.Engine.Interactions.Built_In
     {
         public bool Execute(GameSession parentSession, bool complete)
         {
-            parentSession.SendText("\nHello adventurer. Have you seen my brother Gymir? I haven't heard from him in ages... ");
-            parentSession.SendText("In any case, I'm pretty busy right now, so perhaps you can come back later.");
+            parentSession.SendText("\nWitaj, przechodniu. Nie masz przypadkiem jakichs wiesci o moim bracie Gymirze? Juz dawno go nie widzialem.");
+            parentSession.SendText("Tak czy inaczej, jestem dosyc zajety, wiec wybacz, ale musze wracac do pracy.");
             return false; // executing this strategy means HymirEncounter is still not complete
         }
     }

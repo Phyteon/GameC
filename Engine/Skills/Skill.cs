@@ -22,7 +22,7 @@ namespace Game.Engine.Skills
         }
         public override string ToString()
         {
-            return "[" + StaminaCost + " stamina] " + PublicName;
+            return "[" + StaminaCost + " punktow energii] " + PublicName;
         }
         public abstract List<StatPackage> BattleMove(Player player);
 

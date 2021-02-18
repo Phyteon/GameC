@@ -14,7 +14,7 @@ namespace Game.Engine.Items
         {
             MgcMod = 10;
             GoldValue = 10;
-            PublicName = "Basic Staff";
+            PublicName = "Zwykla Rozdzka";
         }
     }
 }

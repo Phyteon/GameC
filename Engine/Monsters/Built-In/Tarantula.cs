@@ -19,7 +19,7 @@ namespace Game.Engine.Monsters
             Stamina = 100;
             XPValue = 70;
             Name = "monster0004";
-            BattleGreetings = "I can smell you, my little fly!";
+            BattleGreetings = "Widze cie, moja mala muszko!";
         }
         public override List<StatPackage> BattleMove()
         {
@@ -28,17 +28,17 @@ namespace Game.Engine.Monsters
                 if (Stamina > 70)
                 {
                     Stamina -= 10;
-                    return new List<StatPackage>() { new StatPackage(DmgType.Crush, 20 + Strength, "Tarantula charges forward! (" + (20 + Strength) + " crush damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Physical, 20 + Strength, "Tarantula szarzuje naprzod! (" + (20 + Strength) + " dmg [fizyczne])") };
                 }
 
                 if (Stamina > 0 && Stamina <= 70)
                 {
                     Stamina -= 10;
-                    return new List<StatPackage>() { new StatPackage(DmgType.Poison, 15 + MagicPower, "Tarantula's poison burns you! (" + (15 + MagicPower) + " poison damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Poison, 15 + MagicPower, "Jad tarantuli zadaje ci obrazenia! (" + (15 + MagicPower) + " dmg [trucizna])") };
                 }
                 else
                 {
-                    return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Tarantula has no energy to attack anymore!") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Tarantula nie ma sil na dalsza walke!") };
                 }
             }
             else
@@ -46,12 +46,12 @@ namespace Game.Engine.Monsters
                 if (Stamina > 0)
                 {
                     Stamina -= 5;
-                    return new List<StatPackage>() { new StatPackage(DmgType.Cut, 10 + Strength, "Tarantula uses Bite! (" + (10 + Strength) + " cut damage)") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Physical, 10 + Strength, "Tarantula atakuje ugryzieniem! (" + (10 + Strength) + " dmg [fizyczne])") };
                 }
 
                 else
                 {
-                    return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Tarantula has no energy to attack anymore!") };
+                    return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Tarantula nie ma sil na dalsza walke!") };
                 }
             }
         }

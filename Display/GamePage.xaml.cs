@@ -93,7 +93,7 @@ namespace Game.Display
             catch (Exception exc)
             {
                 AddConsoleText(exc.Message);
-                AddConsoleText("Unable to load game. A new one has been generated instead.");
+                AddConsoleText("Nie udalo sie wczytac gry. Zamiast tego wygenerowana zostala nowa.");
             }
         }
         
@@ -275,7 +275,7 @@ namespace Game.Display
             catch(Exception e)
             {
                 AddConsoleText(e.Message);
-                AddConsoleText("Image not found: obstacle" + (number.ToString()).PadLeft(4, '0') + ".png");
+                AddConsoleText("Nie znaleziono obrazka: obstacle" + (number.ToString()).PadLeft(4, '0') + ".png");
             }  
         }
 
@@ -295,7 +295,7 @@ namespace Game.Display
             catch (Exception e)
             {
                 AddConsoleText(e.Message);
-                AddConsoleText("Image not found: portal" + (number.ToString()).PadLeft(4, '0') + ".png");
+                AddConsoleText("Nie znaleziono obrazka: portal" + (number.ToString()).PadLeft(4, '0') + ".png");
             }
 
         }
@@ -315,7 +315,7 @@ namespace Game.Display
             catch (Exception e)
             {
                 AddConsoleText(e.Message);
-                AddConsoleText("Image not found: interaction" + (number.ToString()).PadLeft(4, '0') + ".png");
+                AddConsoleText("Nie znaleziono obrazka: interaction" + (number.ToString()).PadLeft(4, '0') + ".png");
             }
         }
 
@@ -402,13 +402,13 @@ namespace Game.Display
 
             if (e.Key == Key.I)
             {
-                AddConsoleText("Currently you have the following items:");
+                AddConsoleText("Obecnie posiadasz nastepujace itemy:");
                 currentSession.ListAllItemsTips();
             }
 
             if (e.Key == Key.U)
             {
-                AddConsoleText("Currently you know the following skills:");
+                AddConsoleText("Obecnie znasz nastepujace umiejetnosci:");
                 foreach(Skill sk in currentSession.currentPlayer.ListOfSkills)
                 {
                     AddConsoleText(sk.PublicName);
@@ -417,7 +417,7 @@ namespace Game.Display
 
             if (e.Key == Key.Q)
             {
-                AddConsoleColorText("Quest info: " + currentSession.CurrentlyComplete + "% complete", "blue");
+                AddConsoleColorText("Informacja o quescie: ukonczono " + currentSession.CurrentlyComplete + "%", "blue");
             }
 
         }

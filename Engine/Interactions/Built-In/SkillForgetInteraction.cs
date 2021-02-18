@@ -23,17 +23,17 @@ namespace Game.Engine.Interactions
             List<string> choices = new List<string>();
             foreach (Skill sk in tmp)
             {
-                choices.Add(sk.ToString());
+                choices.Add("Zapomnij " + sk.ToString() + ".");
             }
-            parentSession.SendText("\nDrinking from this fountain can help you forget about one of your skills.");
+            parentSession.SendText("\nNapis na podstawie fontanny glosi: ta woda sprawia, ze zapomnisz o jednej ze swoich umiejetnosci.");
             if (choices.Count > 2)
             {
                 choices.RemoveAt(0); // remove running away, which is always first on the list
-                choices.Add("Thank you, I've changed my mind");
+                choices.Add("Chyba jednak napije sie gdzies indziej.");
                 int a = parentSession.GetListBoxChoice(choices);
                 if (a < choices.Count - 1) parentSession.currentPlayer.ListOfSkills.RemoveAt(a + 1);
             }
-            else parentSession.SendText("However, you only know one skill currently. Your mind is already calm and simple, so the fountain water will not change you.");
+            else parentSession.SendText("Obecnie znasz jednak tylko jedna umiejetnosc - twoj umysl jest prosty i czysty, wiec woda z fontanny nie ma nad toba wladzy.");
         }
     }
 }

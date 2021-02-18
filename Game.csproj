@@ -179,8 +179,6 @@
     <Compile Include="Engine\SaveData.cs" />
     <Compile Include="Engine\Skills\BasicSpells\FireArrow.cs" />
     <Compile Include="Engine\Skills\BasicSpells\FireArrowDecorator.cs" />
-    <Compile Include="Engine\Skills\BasicSpells\LightFlash.cs" />
-    <Compile Include="Engine\Skills\BasicSpells\LightFlashDecorator.cs" />
     <Compile Include="Engine\Skills\BasicWeaponMoves\AxeCut.cs" />
     <Compile Include="Engine\Skills\BasicWeaponMoves\SpearStab.cs" />
     <Compile Include="Engine\Skills\BasicWeaponMoves\SwordSlash.cs" />

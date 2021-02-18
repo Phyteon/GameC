@@ -84,10 +84,10 @@ namespace Game.Engine
             // core
             this.parentPage = parentPage;
             currentPlayer = new Mage(this);
-            if (playerChoice != null) { if (playerChoice.Contains("Warrior")) currentPlayer = new Warrior(this); }
+            if (playerChoice != null) { if (playerChoice.Contains("Fizyczna")) currentPlayer = new Warrior(this); }
             itemPositions = new List<int>();
             items = new List<Item>();
-            parentPage.AddConsoleText("Welcome to the game!");
+            parentPage.AddConsoleText("Witaj w grze!");
             RefreshStats();
             // map
             metaMapMatrix = new MetaMapMatrix(this);
@@ -98,27 +98,27 @@ namespace Game.Engine
             // starting skills and items
             if (playerChoice != null)
             {
-                if (playerChoice.Contains("Axe"))
+                if (playerChoice.Contains("Topor"))
                 {
                     ProduceItem("item0003");
                     currentPlayer.Learn(new AxeCut());
                 }
-                else if (playerChoice.Contains("Sword"))
+                else if (playerChoice.Contains("Miecz"))
                 {
                     ProduceItem("item0004");
                     currentPlayer.Learn(new SwordSlash());
                 }
-                else if (playerChoice.Contains("Spear"))
+                else if (playerChoice.Contains("Wlocznia"))
                 {
                     ProduceItem("item0002");
                     currentPlayer.Learn(new SpearStab());
                 }
-                else if (playerChoice.Contains("Fire"))
+                else if (playerChoice.Contains("Ognista"))
                 {
                     ProduceItem("item0001");
                     currentPlayer.Learn(new FireArrow());
                 }
-                else if (playerChoice.Contains("Wind"))
+                else if (playerChoice.Contains("Podmuch"))
                 {
                     ProduceItem("item0001");
                     currentPlayer.Learn(new WindGust());

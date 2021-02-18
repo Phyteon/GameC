@@ -15,7 +15,7 @@ namespace Game.Engine.Skills
         // you can check BasicSpells and BasicWeaponMoves folders instead 
         public RunAway() : base("Run Away", 20, 1)
         {
-            PublicName = "Run away (only half of your wounds will heal!)";
+            PublicName = "Ucieczka (tylko polowa odniesionych obrazen sie zagoi!)";
         }
         public override List<StatPackage> BattleMove(Player player)
         {

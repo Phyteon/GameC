@@ -13,7 +13,7 @@ namespace Game.Engine.Items
         {
             StrMod = 50;
             GoldValue = 80;
-            PublicName = "Gymir's Axe";
+            PublicName = "Topor Gymira";
         }
     }
 }

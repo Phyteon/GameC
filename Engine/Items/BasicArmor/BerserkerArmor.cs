@@ -14,14 +14,14 @@ namespace Game.Engine.Items.BasicArmor
         private int berserkerBonus;
         public BerserkerArmor() : base("item0007")
         {
-            PublicName = "BerserkerArmor";
-            PublicTip = "when you lose X health, receive a X/4 percentage bonus to physical damage you deal in this battle";
+            PublicName = "Zbroja Berserkera";
+            PublicTip = "gdy stracisz X punktow zdrowia, otrzymujesz X/4 procentowego bonusu do zadawanych obrazen fizycznych w tym pojedynku";
             GoldValue = 40;
             ArMod = 20;
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
-            if (pack.DamageType == DmgType.Cut || pack.DamageType == DmgType.Crush)
+            if (DmgTest.Physical(pack.DamageType))
             {
                 pack.HealthDmg = (100 + berserkerBonus / 4) * pack.HealthDmg / 100;
             }

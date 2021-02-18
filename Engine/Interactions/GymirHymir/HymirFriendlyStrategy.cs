@@ -15,13 +15,13 @@ namespace Game.Engine.Interactions.Built_In
         {
             if(complete)
             {
-                parentSession.SendText("\nHello again! Pretty nice weather we have today, right?");
+                parentSession.SendText("\n?Witaj ponownie! Przyjemna dzisiaj pogoda, nieprawdaz?");
             }
             else
             {
-                parentSession.SendText("\nHello adventurer. Wait, you must be the person who helped my older brother Gymir! Please come in, I have to thank you.");
-                parentSession.SendText("They say that drinking the water from my well brings wisdom, so please let this be my gift for you.");
-                parentSession.UpdateStat(7, 300); // + 300 xp
+                parentSession.SendText("\nWitaj. Slyszalem juz o tobie i o twojej pomocy dla mojego brata Gymira - koniecznie wejdz do srodka, musze ci podziekowac!");
+                parentSession.SendText("Mowia, ze woda z tej zakletej fiolki przynosi wielka madrosc. To ostatnia, jaka mi zostala, wiec chcialbym podarowac ja tobie.");
+                parentSession.UpdateStat(7, 400); // + 400 xp
             }
             return true; // executing this strategy means HymirEncounter is now complete
         }

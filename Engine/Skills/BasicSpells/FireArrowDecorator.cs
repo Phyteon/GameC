@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicSkills
         public FireArrowDecorator(Skill skill) : base("Fire Arrow", 20, 1, skill) 
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
-            PublicName = "COMBO - Fire Arrow: a chance equal to your Precision stat to land 0.5*MP damage [fire] AND " + decoratedSkill.PublicName.Replace("COMBO: ", "");
+            PublicName = "COMBO - Ognista Strzala: procentowa szansa rowna twojej precyzji na zadanie 0.5*Moc obrazen [ogien] ORAZ " + decoratedSkill.PublicName.Replace("COMBO: ", "");
             RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
@@ -20,12 +20,12 @@ namespace Game.Engine.Skills.BasicSkills
             if (Index.RNG(0, 100) < player.Precision)
             {
                 response.HealthDmg = (int)(0.5 * player.MagicPower);
-                response.CustomText = "You use Fire Arrow! (" + (int)(0.5 * player.MagicPower) + " fire damage)";
+                response.CustomText = "Ognista Strzala trafia przeciwnika! " + (int)(0.5 * player.MagicPower) + "  obrazen [ogien]";
             }
             else
             {
                 response.HealthDmg = 0;
-                response.CustomText = "You try to Fire Arrow but it misses!";
+                response.CustomText = "Ognista Strzala nie trafila w przeciwnika!";
             }
             List<StatPackage> combo = decoratedSkill.BattleMove(player);
             combo.Add(response);

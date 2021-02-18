@@ -182,11 +182,11 @@
                      Background="Black" Foreground="Yellow" FontSize="16" FontWeight="Bold"
                      Focusable="False" BorderThickness="0"
                      VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-            <RichTextBox Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Name="StatLevel"
+            <RichTextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Name="StatLevel"
                      Background="Black" Foreground="Yellow" FontSize="16" FontWeight="Bold"
                      Focusable="False" BorderThickness="0"
                      VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <RichTextBox Grid.Column="3"  Grid.Row="2" Name="StatGold"
+            <RichTextBox Grid.Column="2"  Grid.ColumnSpan="2" Grid.Row="2" Name="StatGold"
                      Background="Black" Foreground="Yellow" FontSize="16" FontWeight="Bold"
                      Focusable="False" BorderThickness="0"
                      VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>

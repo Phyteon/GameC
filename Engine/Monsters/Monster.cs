@@ -12,8 +12,9 @@ namespace Game.Engine.Monsters
         public int XPValue { get; protected set; }
         public string BattleGreetings { get; protected set; } // what the monster says when it attacks the player for the first time
         public abstract List<StatPackage> BattleMove(); // perform an action in the battle
-        public virtual void React(List<StatPackage> packs) // receive the result of your opponent's action
+        public virtual List<StatPackage> React(List<StatPackage> packs) // receive the result of your opponent's action
         {
+            List<StatPackage> ans = new List<StatPackage>();
             foreach (StatPackage pack in packs)
             {
                 Health -= pack.HealthDmg;
@@ -21,7 +22,9 @@ namespace Game.Engine.Monsters
                 Armor -= pack.ArmorDmg;
                 Precision -= pack.PrecisionDmg;
                 MagicPower -= pack.MagicPowerDmg;
+                ans.Add(pack); // if your monster has some resistances, modify pack elements before adding them (example in VampireKnight)
             }
+            return ans; // return effective damage
         }
         public override Image GetImage()
         {

@@ -10,14 +10,14 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         // simple axe cut
         public AxeCut() : base("Axe Cut", 20, 1) 
         {
-            PublicName = "Basic axe cut [requires axe]: 0.4*Str + 0.1*Pr damage [incised]";
+            PublicName = "Cios toporem [wymagany topor]: 0.4*Sila + 0.1*Precyzja obrazen [fizyczne]";
             RequiredItem = RequiredItem.Axe;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response = new StatPackage(DmgType.Cut);
+            StatPackage response = new StatPackage(DmgType.Physical);
             response.HealthDmg = (int)(0.4 * player.Strength) + (int)(0.1 * player.Precision);
-            response.CustomText = "You use Axe Cut! (" + ((int)(0.4 * player.Strength) + (int)(0.1 * player.Precision)) + " incised damage)";
+            response.CustomText = "Uzywasz ciosu toporem! " + ((int)(0.4 * player.Strength) + (int)(0.1 * player.Precision)) + " obrazen [fizyczne]";
             return new List<StatPackage>() { response };
         }
     }

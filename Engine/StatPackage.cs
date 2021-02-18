@@ -46,6 +46,12 @@ namespace Game.Engine
             MagicPowerDmg = magic;
             CustomText = text;
         }
+
+        public StatPackage Copy()
+        {
+            return new StatPackage(this.DamageType, this.HealthDmg, this.StrengthDmg, this.ArmorDmg, this.PrecisionDmg,
+                this.MagicPowerDmg, this.CustomText);
+        }
         
     }
 }

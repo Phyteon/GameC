@@ -26,24 +26,24 @@ namespace Game.Engine.Monsters
             if (Stamina > 50)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 15 + Strength, "Spider uses Bite! (" + (15 + Strength) + " cut damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Physical, 15 + Strength, "Pajak atakuje ugryzieniem! (" + (15 + Strength) + " dmg [fizyczne])") };
             }
 
             if (Stamina > 20 && Stamina <= 50)
             {
                 Stamina -= 10;
-                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 10 + Strength, "Spider uses Sting! (" + (5 + Strength) + " cut damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Physical, 10 + Strength, "Pajak atakuje zadlem! (" + (5 + Strength) + " dmg [fizyczne])") };
             }
 
             if (Stamina > 0 && Stamina <= 20)
             {
                 Stamina -= 5;
-                return new List<StatPackage>() { new StatPackage(DmgType.Cut, 5 + Strength, "Spider uses Bite! (" + (5 + Strength) + " cut damage)") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Physical, 5 + Strength, "Pajak atakuje ugryzieniem! (" + (5 + Strength) + " dmg [fizyczne])") };
             }
 
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Spider has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Pajak nie ma sil na dalsza walke!") };
             }
         }
     }

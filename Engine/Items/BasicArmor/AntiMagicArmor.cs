@@ -12,8 +12,8 @@ namespace Game.Engine.Items.BasicArmor
         // extra reduction of magic damage
         public AntiMagicArmor() : base("item0006")
         {
-            PublicName = "AntiMagicArmor";
-            PublicTip = "extra 30% reduction of magic damage";
+            PublicName = "Zbroja antymagiczna";
+            PublicTip = "dodatkowe 30% redukcji otrzymywanych obrazen magicznych";
             GoldValue = 40;
             ArMod = 20;
         }

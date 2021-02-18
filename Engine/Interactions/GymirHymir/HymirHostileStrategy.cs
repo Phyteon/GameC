@@ -13,8 +13,8 @@ namespace Game.Engine.Interactions.Built_In
     {
         public bool Execute(GameSession parentSession, bool complete)
         {
-            parentSession.SendText("\nHello adventurer. Wait, you must be the person who robbed my older brother Gymir! You will regret that.");
-            parentSession.SendText("Quickly Charlie, get him!");
+            parentSession.SendText("\nPatrzcie jaka podejrzana twarz sie tutaj kreci... slyszalem juz o twojej kradziezy topora od mojego brata Gymira. Teraz dostaniesz za swoje.");
+            parentSession.SendText("Dalej Charlie, bierz go!");
             parentSession.FightRandomMonster();
             return true; // executing this strategy means HymirEncounter is now complete
         }

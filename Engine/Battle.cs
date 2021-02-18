@@ -27,7 +27,7 @@ namespace Game.Engine
         }
         protected override void RunContent()
         {
-            parentSession.SendText("\nBattle!");
+            parentSession.SendText("\nPojedynek!");
             battleScene.SetupDisplay();
             CopyPlayerState();
             // battle
@@ -38,7 +38,7 @@ namespace Game.Engine
             }
             if(!possibleToEscape)
             {
-                battleScene.SendColorText("Warning - running away is disabled for this fight", "yellow");
+                battleScene.SendColorText("Ostrzezenie - z tego pojedynku nie mozna uciec", "yellow");
                 battleScene.SendBattleText("");
             }
             battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills(possibleToEscape));
@@ -47,46 +47,78 @@ namespace Game.Engine
                 if(parentSession.currentPlayer.ListAvailableSkills(possibleToEscape).Count == 0) // player has run out of stamina
                 {
                     RestorePlayerState();
-                    battleScene.SendColorText("No more skills to use - defeat! (press any key to continue)", "red");
+                    battleScene.SendColorText("Zadne dalsze ruchy nie sa dostepne - porazka! (Nacisnij dowolny klawisz, aby kontynuowac)", "red");
                     parentSession.GetKeyResponse();
-                    parentSession.SendText("No more skills to use - you lost the battle!");
+                    parentSession.SendText("Zadne dalsze ruchy nie sa dostepne - porazka!");
                     battleScene.EndDisplay();
                     return;
                 }
                 // player attacks first
                 Skill playerResponse = parentSession.GetListBoxResponse();
-                if (playerResponse.PublicName == "Run away (only half of your wounds will heal!)")
+                if (playerResponse.PublicName == "Ucieczka (tylko polowa odniesionych obrazen sie zagoi!)")
                 {
                     battleScene.EndDisplay();
-                    if (firstBlood) parentSession.SendText("The monster is chasing you down and you have no time to properly tend to your wounds...");
-                    else parentSession.SendText("It looks rather dangerous, better stay away from it.");
+                    if (firstBlood) parentSession.SendText("Potwor sciga cie przez jakis czas i nie jestes w stanie opatrzyc swoich ran...");
+                    else parentSession.SendText("Wyglada dosyc groznie, lepiej trzymac sie z daleka.");
                     battleResult = false;
                     RestorePlayerState(false);
                     return;
                 }
                 firstBlood = true;
-                List<StatPackage> playerAttack = parentSession.ModifyOffensive(playerResponse.BattleMove(parentSession.currentPlayer));
-                Monster.React(playerAttack);
-                foreach (StatPackage i in playerAttack) battleScene.SendColorText(i.CustomText, "green");
+                List<StatPackage> playerAttack = playerResponse.BattleMove(parentSession.currentPlayer);
+                List<StatPackage> memorizedAttack = new List<StatPackage>();
+                foreach (StatPackage pack in playerAttack) memorizedAttack.Add(pack.Copy());
+                playerAttack = parentSession.ModifyOffensive(playerAttack);
+                playerAttack = Monster.React(playerAttack);
+                for (int i = 0; i < playerAttack.Count && i < memorizedAttack.Count; i++)
+                {
+                    battleScene.SendColorText(playerAttack[i].CustomText, "green");
+                    if (memorizedAttack[i].HealthDmg != playerAttack[i].HealthDmg) battleScene.SendColorText("Specjalne umiejetnosci potwora zatrzymuja " +
+                        (memorizedAttack[i].HealthDmg - playerAttack[i].HealthDmg) + " obrazen!", "yellow");
+                    if (memorizedAttack[i].StrengthDmg != playerAttack[i].StrengthDmg) battleScene.SendColorText("Specjalne umiejetnosci potwora zatrzymuja " +
+                        (memorizedAttack[i].StrengthDmg - playerAttack[i].StrengthDmg) + " debuffa do sily!", "yellow");
+                    if (memorizedAttack[i].ArmorDmg != playerAttack[i].ArmorDmg) battleScene.SendColorText("Specjalne umiejetnosci potwora zatrzymuja " +
+                        (memorizedAttack[i].ArmorDmg - playerAttack[i].ArmorDmg) + " debuffa do pancerza!", "yellow");
+                    if (memorizedAttack[i].PrecisionDmg != playerAttack[i].PrecisionDmg) battleScene.SendColorText("Specjalne umiejetnosci potwora zatrzymuja " +
+                        (memorizedAttack[i].PrecisionDmg - playerAttack[i].PrecisionDmg) + " debuffa do precyzji!", "yellow");
+                    if (memorizedAttack[i].MagicPowerDmg != playerAttack[i].MagicPowerDmg) battleScene.SendColorText("Specjalne umiejetnosci potwora zatrzymuja " +
+                        (memorizedAttack[i].MagicPowerDmg - playerAttack[i].MagicPowerDmg) + " debuffa do mocy magicznej!", "yellow");
+                }
                 parentSession.UpdateStat(6, -1*playerResponse.StaminaCost);
                 battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills(possibleToEscape));
                 battleScene.ResetChoice();
                 // now monster
                 if (Monster.Health == 0) continue;
                 battleScene.SendBattleText("");
-                List<StatPackage> monsterAttack = parentSession.ModifyDefensive(Monster.BattleMove());
-                foreach (StatPackage i in monsterAttack) battleScene.SendColorText(i.CustomText, "red");
-                parentSession.currentPlayer.React(monsterAttack);
+                List<StatPackage> effectiveAttack = Monster.BattleMove();
+                List<StatPackage> monsterAttack = new List<StatPackage>();
+                foreach (StatPackage pack in effectiveAttack) monsterAttack.Add(pack.Copy());
+                effectiveAttack = parentSession.ModifyDefensive(effectiveAttack);
+                effectiveAttack = parentSession.currentPlayer.React(effectiveAttack);
+                for (int i = 0; i < monsterAttack.Count && i < effectiveAttack.Count; i++) 
+                {
+                    battleScene.SendColorText(monsterAttack[i].CustomText, "red");
+                    if (monsterAttack[i].HealthDmg != effectiveAttack[i].HealthDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +
+                        (monsterAttack[i].HealthDmg - effectiveAttack[i].HealthDmg) + " obrazen!", "yellow");
+                    if (monsterAttack[i].StrengthDmg != effectiveAttack[i].StrengthDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +
+                        (monsterAttack[i].StrengthDmg - effectiveAttack[i].StrengthDmg) + " debuffa do sily!", "yellow");
+                    if (monsterAttack[i].ArmorDmg != effectiveAttack[i].ArmorDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +
+                        (monsterAttack[i].ArmorDmg - effectiveAttack[i].ArmorDmg) + " debuffa do pancerza!", "yellow");
+                    if (monsterAttack[i].PrecisionDmg != effectiveAttack[i].PrecisionDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +
+                        (monsterAttack[i].PrecisionDmg - effectiveAttack[i].PrecisionDmg) + " debuffa do precyzji!", "yellow");
+                    if (monsterAttack[i].MagicPowerDmg != effectiveAttack[i].MagicPowerDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +
+                        (monsterAttack[i].MagicPowerDmg - effectiveAttack[i].MagicPowerDmg) + " debuffa do mocy magicznej!", "yellow");
+                }
                 battleScene.RefreshStats();
                 parentSession.RefreshStats();
             }
             // restore player state
             battleResult = true;
             RestorePlayerState();
-            battleScene.SendColorText("Victory! (press any key to continue)", "green");
+            battleScene.SendColorText("Zwyciestwo! (Nacisnij dowolny klawisz, aby kontynuowac)", "green");
             parentSession.GetKeyResponse();
             battleScene.EndDisplay();
-            parentSession.SendText("You won! XP gained: " + Monster.XPValue);
+            parentSession.SendText("Zwyciestwo! Zyskane punkty doswiadczenia: " + Monster.XPValue);
             if(rewards) VictoryReward();
             //parentSession.UpdateStat(7, Monster.XPValue); // for smoother display, this one was moved to GameSession.cs
         }
@@ -123,25 +155,19 @@ namespace Game.Engine
             parentSession.RefreshStats();
         }
 
-        protected void ReportStats()
-        {
-            battleScene.SendColorText("Your HP: " + parentSession.currentPlayer.Health + " Your Stamina: " + parentSession.currentPlayer.Stamina, "blue");
-            battleScene.SendColorText("Monster HP: " + Monster.Health, "blue");
-        }
-
         protected void VictoryReward()
         {
             Random RNG = new Random();
             int test = RNG.Next(100);
             if (test < 10)
             {
-                parentSession.SendText("It seems the monster was guarding an interesting item.");
+                parentSession.SendText("Wyglada na to, ze potwor strzegl interesujacego przedmiotu.");
                 parentSession.AddRandomItem();
             }
             else if (test < 50)
             {
                 int gold = 5 * (RNG.Next(9) + 1); ;
-                parentSession.SendText("It seems the monster was guarding a bag of gold (+" + gold + " gold)");
+                parentSession.SendText("Wyglada na to, ze potwor strzegl torby ze zlotem (+" + gold + " sztuk zlota).");
                 parentSession.currentPlayer.Gold += gold;
             }
         }

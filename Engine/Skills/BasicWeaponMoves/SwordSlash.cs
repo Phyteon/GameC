@@ -10,18 +10,16 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         // simple slash with sword
         public SwordSlash() : base("Sword Slash", 20, 1)
         {
-            PublicName = "Basic sword slash [requires sword]: 0.1*Str + 0.1*Pr damage [cut] and then 0.1*Str + 0.1*Pr damage [incised]";
+            PublicName = "Uderzenie mieczem [wymagany miecz]: 0.2*Sila + 0.2*Precyzja obrazen [fizyczne]";
             RequiredItem = RequiredItem.Sword;
         }
         public override List<StatPackage> BattleMove(Player player)
         {
-            StatPackage response1 = new StatPackage(DmgType.Cut);
-            response1.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.1 * player.Precision);
-            StatPackage response2 = new StatPackage(DmgType.Cut);
-            response2.HealthDmg = (int)(0.1 * player.Strength) + (int)(0.1 * player.Precision);
+            StatPackage response1 = new StatPackage(DmgType.Physical);
+            response1.HealthDmg = (int)(0.2 * player.Strength) + (int)(0.2 * player.Precision);
             // applying CustomText only once is sufficient
-            response2.CustomText = "You use Sword Slash! (" + ((int)(0.1 * player.Strength) + (int)(0.1 * player.Precision)) + " cut damage, " + ((int)(0.1 * player.Strength) + (int)(0.1 * player.Precision)) + " incised damage)";
-            return new List<StatPackage>() { response1, response2 };
+            response1.CustomText = "Uderzasz mieczem! " + ((int)(0.2 * player.Strength) + (int)(0.2 * player.Precision)) + " obrazen [fizyczne]";
+            return new List<StatPackage>() { response1 };
         }
     }
 }

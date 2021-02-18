@@ -153,21 +153,21 @@ namespace Game.Engine
             }
             // refresh statistics display
             parentPage.Stat1.Document.Blocks.Clear();
-            parentPage.Stat1.AppendText("Health: " + currentPlayer.Health);
+            parentPage.Stat1.AppendText("Zdrowie: " + currentPlayer.Health);
             parentPage.Stat2.Document.Blocks.Clear();
-            parentPage.Stat2.AppendText("Strength: " + currentPlayer.Strength);
+            parentPage.Stat2.AppendText("Sila: " + currentPlayer.Strength);
             parentPage.Stat3.Document.Blocks.Clear();
-            parentPage.Stat3.AppendText("Armor: " + currentPlayer.Armor);
+            parentPage.Stat3.AppendText("Pancerz: " + currentPlayer.Armor);
             parentPage.Stat4.Document.Blocks.Clear();
-            parentPage.Stat4.AppendText("Precision: " + currentPlayer.Precision);
+            parentPage.Stat4.AppendText("Precyzja: " + currentPlayer.Precision);
             parentPage.Stat5.Document.Blocks.Clear();
-            parentPage.Stat5.AppendText("Power: " + currentPlayer.MagicPower);
+            parentPage.Stat5.AppendText("Moc: " + currentPlayer.MagicPower);
             parentPage.Stat6.Document.Blocks.Clear();
-            parentPage.Stat6.AppendText("Stamina: " + currentPlayer.Stamina);
+            parentPage.Stat6.AppendText("Energia: " + currentPlayer.Stamina);
             parentPage.StatLevel.Document.Blocks.Clear();
-            parentPage.StatLevel.AppendText(currentPlayer.ClassName + " Level " + currentPlayer.Level);
+            parentPage.StatLevel.AppendText(currentPlayer.ClassName + " Poziom " + currentPlayer.Level);
             parentPage.StatGold.Document.Blocks.Clear();
-            parentPage.StatGold.AppendText("Gold: " + currentPlayer.Gold);
+            parentPage.StatGold.AppendText("Zloto: " + currentPlayer.Gold);
             AdjustStatDisplay();
         }
         private void AdjustStatDisplay()
@@ -221,7 +221,7 @@ namespace Game.Engine
                         if (img.Name != "")
                         {
                             Item tmp = Index.ProduceSpecificItem(img.Name);
-                            SendText(tmp.PublicName + ": " + tmp.GoldValue + " gold");
+                            SendText(tmp.PublicName + ": " + tmp.GoldValue + " sztuk zlota");
                         }
                     }
                 }
@@ -233,25 +233,25 @@ namespace Game.Engine
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    Image img = parentPage.GetImageFromGrid(i, j);
+                    Image img = parentPage.GetImageFromGrid(j, i);
                     if (img != null)
                     {
                         if (img.Name != "")
                         {
                             Item tmp = Index.ProduceSpecificItem(img.Name);
                             string txt = tmp.PublicName + ": ";
-                            if (tmp.HpMod > 0) txt += "Health(+" + tmp.HpMod + ") ";
-                            if (tmp.HpMod < 0) txt += "Health(" + tmp.HpMod + ") ";
-                            if (tmp.StrMod > 0) txt += "Strength(+" + tmp.StrMod + ") ";
-                            if (tmp.StrMod < 0) txt += "Strength(" + tmp.StrMod + ") ";
-                            if (tmp.ArMod > 0) txt += "Armor(+" + tmp.ArMod + ") ";
-                            if (tmp.ArMod < 0) txt += "Armor(" + tmp.ArMod + ") ";
-                            if (tmp.PrMod > 0) txt += "Precision(+" + tmp.PrMod + ") ";
-                            if (tmp.PrMod < 0) txt += "Precision(" + tmp.PrMod + ") ";
-                            if (tmp.MgcMod > 0) txt += "Power(+" + tmp.MgcMod + ") ";
-                            if (tmp.MgcMod < 0) txt += "Power(" + tmp.MgcMod + ") ";
-                            if (tmp.StaMod > 0) txt += "Health(+" + tmp.StaMod + ") ";
-                            if (tmp.StaMod < 0) txt += "Health(" + tmp.StaMod + ") ";
+                            if (tmp.HpMod > 0) txt += "Zdrowie(+" + tmp.HpMod + ") ";
+                            if (tmp.HpMod < 0) txt += "Zdrowie(" + tmp.HpMod + ") ";
+                            if (tmp.StrMod > 0) txt += "Sila(+" + tmp.StrMod + ") ";
+                            if (tmp.StrMod < 0) txt += "Sila(" + tmp.StrMod + ") ";
+                            if (tmp.ArMod > 0) txt += "Pancerz(+" + tmp.ArMod + ") ";
+                            if (tmp.ArMod < 0) txt += "Pancerz(" + tmp.ArMod + ") ";
+                            if (tmp.PrMod > 0) txt += "Precyzja(+" + tmp.PrMod + ") ";
+                            if (tmp.PrMod < 0) txt += "Precyzja(" + tmp.PrMod + ") ";
+                            if (tmp.MgcMod > 0) txt += "Moc(+" + tmp.MgcMod + ") ";
+                            if (tmp.MgcMod < 0) txt += "Moc(" + tmp.MgcMod + ") ";
+                            if (tmp.StaMod > 0) txt += "Energia(+" + tmp.StaMod + ") ";
+                            if (tmp.StaMod < 0) txt += "Energia(" + tmp.StaMod + ") ";
                             if (tmp.PublicTip != null) txt += "Bonus: " + tmp.PublicTip;
                             SendText(txt);
                         }
@@ -316,15 +316,15 @@ namespace Game.Engine
                         else
                         {
                             // restore position from before the battle
-                            parentPage.MovePlayer("reverse");
                             mapMatrix.MemorizedMonsters[mapMatrix.Width * PlayerPosTop + PlayerPosLeft] = monster; // remember this monster until the next time
+                            parentPage.MovePlayer("reverse");
                         }
                     }
                     else parentPage.IgnoreNextKey = false;
                 }
                 catch (IndexOutOfRangeException e)
                 {
-                    parentPage.AddConsoleText("An attempt was made to create a monster but something went wrong. Did you remember to update the Index class?");
+                    parentPage.AddConsoleText("Podjeto nieudana probe wygenerowania potwora. Czy klasa Index zostala zaktualizowana?");
                     parentPage.AddConsoleText(e.Message);
                 }
             }
@@ -341,7 +341,7 @@ namespace Game.Engine
                 if (CurrentlyComplete >= 100) 
                 {
                     parentPage.AddConsoleText("\n");
-                    parentPage.AddConsoleColorText("Congratulations! The quest is complete. You can end the game here or continue playing if you wish.", "blue");
+                    parentPage.AddConsoleColorText("Gratulacje! Quest zostal ukonczony. Mozesz zakonczyc gre w tym miejscu lub kontynuowac rozgrywke, jezeli masz na to ochote.", "blue");
                     parentPage.AddConsoleText("\n");
                 }
             }

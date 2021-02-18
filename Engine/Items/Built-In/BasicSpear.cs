@@ -14,7 +14,7 @@ namespace Game.Engine.Items
         {
             PrMod = 5;
             GoldValue = 10;
-            PublicName = "Basic Spear"; 
+            PublicName = "Zwykla Wlocznia"; 
         }
     }
 }

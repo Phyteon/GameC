@@ -12,8 +12,7 @@ namespace Game.Engine
     public enum DmgType
     {
         // physical 
-        Cut,
-        Crush,
+        Physical,
         // magic
         Fire, 
         Air,
@@ -30,7 +29,7 @@ namespace Game.Engine
         // utility class for building monsters and skills
         public static bool Physical(DmgType dmg)
         {
-            if (dmg == DmgType.Cut || dmg == DmgType.Crush) return true;
+            if (dmg == DmgType.Physical) return true;
             else return false;
         }
         public static bool Magic(DmgType dmg)

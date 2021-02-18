@@ -233,7 +233,7 @@ namespace Game.Engine
             }
             catch (IndexOutOfRangeException e)
             {
-                parentPage.AddConsoleText("An attempt was made to create a monster but something went wrong. Did you remember to update the Index class?");
+                parentPage.AddConsoleText("Podjeto nieudana probe wygenerowania potwora. Czy klasa Index zostala zaktualizowana?");
                 parentPage.AddConsoleText(e.Message);     
             }
             return false;

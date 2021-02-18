@@ -12,8 +12,8 @@ namespace Game.Engine.Items.BasicArmor
         // armor with magic crystals that can grow stronger from the user's magic aura
         public GrowingStoneArmor() : base("item0008") 
         { 
-            PublicName = "GrowingStoneArmor";
-            PublicTip = "each 4 points of magic power are converted into 1 point of bonus armor";
+            PublicName = "Zbroja Rosnacego Kamienia";
+            PublicTip = "bonusowy punkt pancerza za kazde 4 punkty mocy magicznej";
             GoldValue = 40;
             ArMod = 20;
         }

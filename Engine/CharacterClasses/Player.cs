@@ -36,7 +36,7 @@ namespace Game.Engine.CharacterClasses
                 {
                     parentSession.SendText("");
                     parentSession.SendText("***********************************************************************************************");
-                    parentSession.SendText("You lost! Press any key to continue.");
+                    parentSession.SendText("Przegrana! Nacisnij dowolny klawisz, aby kontynuowac.");
                     parentSession.GetKeyResponse();
                     parentSession.EndGame();
                     //health = 200; // cheat
@@ -172,9 +172,10 @@ namespace Game.Engine.CharacterClasses
             BattleBuffMagicPower = 0;
             BattleBuffStamina = 0;
         }
-        public virtual void React(List<StatPackage> packs)
+        public virtual List<StatPackage> React(List<StatPackage> packs)
         {
             // receive the result of your opponent's action
+            List<StatPackage> ans = new List<StatPackage>();
             foreach (StatPackage pack in packs)
             {
                 Health = Health - HealthBuff - BattleBuffHealth - 1 * (100 * pack.HealthDmg) / (100 + Armor);
@@ -182,16 +183,19 @@ namespace Game.Engine.CharacterClasses
                 Armor = Armor - ArmorBuff - BattleBuffArmor - pack.ArmorDmg;
                 Precision = Precision - PrecisionBuff - BattleBuffPrecision - pack.PrecisionDmg;
                 MagicPower = MagicPower - MagicPowerBuff - BattleBuffMagicPower - pack.MagicPowerDmg;
+                pack.HealthDmg = (100 * pack.HealthDmg) / (100 + Armor);
+                ans.Add(pack);
             }
+            return ans;
         }
         protected virtual void LevelUp()
         {
             // override this for specific character classes, which may have easier time learning one stat vs another... 
             Level++;
             parentSession.SendText("\n");
-            parentSession.SendColorText("Level Up! Level: " + Level, "yellow");
+            parentSession.SendColorText("Nowy poziom! Poziom: " + Level, "yellow");
             List<string> validInputs = new List<string>() { "1", "2", "3", "4", "5" }; // only accept these inputs
-            parentSession.SendColorText("Choose a statistic to improve: +10 Health (press 1), +10 Strength (press 2), +5 Precision (press 3), +10 Magic Power (press 4), +10 Stamina (press 5)", "yellow");
+            parentSession.SendColorText("Wybierz statystyke do ulepszenia: +10 Zdrowia (nacisnij 1), +10 Sily (nacisnij 2), +5 Precyzji (nacisnij 3), +10 Mocy Magicznej (nacisnij 4), +10 Energii (nacisnij 5)", "yellow");
             string key = parentSession.GetValidKeyResponse(validInputs).Item1;
             // don't make changes directly, ask GameSession to do it right
             if (key == "1") parentSession.UpdateStat(1, 10);
@@ -205,11 +209,11 @@ namespace Game.Engine.CharacterClasses
             // learn a new skill from the list (maximum three choices)
             if (learningSkills.Count > 2)
             {
-                parentSession.SendColorText("Choose a skill to learn:", "yellow");
-                parentSession.SendColorText(learningSkills[0] + " (press 1)", "yellow");
-                parentSession.SendColorText(learningSkills[1] + " (press 2)", "yellow");
-                parentSession.SendColorText(learningSkills[2] + " (press 3)", "yellow");
-                parentSession.SendColorText("Thank you, I will skip on these (press 4)", "yellow");
+                parentSession.SendColorText("Wybierz umiejetnosc do nauczenia sie:", "yellow");
+                parentSession.SendColorText(learningSkills[0] + " (nacisnij 1)", "yellow");
+                parentSession.SendColorText(learningSkills[1] + " (nacisnij 2)", "yellow");
+                parentSession.SendColorText(learningSkills[2] + " (nacisnij 3)", "yellow");
+                parentSession.SendColorText("Dziekuje, tym razem nie skorzystam (nacisnij 4)", "yellow");
                 string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2", "3", "4" }).Item1;
                 if (key == "1") Learn(learningSkills[0]);
                 else if (key == "2") Learn(learningSkills[1]);
@@ -217,19 +221,19 @@ namespace Game.Engine.CharacterClasses
             }
             else if (learningSkills.Count > 1)
             {
-                parentSession.SendColorText("Choose a skill to learn:", "yellow");
-                parentSession.SendColorText(learningSkills[0] + " (press 1)", "yellow");
-                parentSession.SendColorText(learningSkills[1] + " (press 2)", "yellow");
-                parentSession.SendColorText("Thank you, I will skip on these (press 3)", "yellow");
+                parentSession.SendColorText("Wybierz umiejetnosc do nauczenia sie:", "yellow");
+                parentSession.SendColorText(learningSkills[0] + " (nacisnij 1)", "yellow");
+                parentSession.SendColorText(learningSkills[1] + " (nacisnij 2)", "yellow");
+                parentSession.SendColorText("Dziekuje, tym razem nie skorzystam (nacisnij 3)", "yellow");
                 string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2", "3" }).Item1;
                 if (key == "1") Learn(learningSkills[0]);
                 else if (key == "2") Learn(learningSkills[1]);
             }
             else if (learningSkills.Count > 0)
             {
-                parentSession.SendColorText("Choose a skill to learn:", "yellow");
-                parentSession.SendColorText(learningSkills[0] + " (press 1)", "yellow");
-                parentSession.SendColorText("Thank you, I will skip on this one (press 2)", "yellow");
+                parentSession.SendColorText("Wybierz umiejetnosc do nauczenia sie:", "yellow");
+                parentSession.SendColorText(learningSkills[0] + " (nacisnij 1)", "yellow");
+                parentSession.SendColorText("Dziekuje, tym razem nie skorzystam (nacisnij 2)", "yellow");
                 string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2" }).Item1;
                 if (key == "1") Learn(learningSkills[0]);
             }

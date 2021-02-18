@@ -20,7 +20,7 @@ namespace Game.Engine.Monsters
             Stamina = 70;
             XPValue = 40;
             Name = "monster0002";
-            BattleGreetings = "Now I'm back... with venom!"; // this rat actually has something to say
+            BattleGreetings = "Powracam... w jadowitej wersji!"; // this rat actually has something to say
         }
         public override List<StatPackage> BattleMove()
         {
@@ -30,13 +30,13 @@ namespace Game.Engine.Monsters
                 return new List<StatPackage>()
                 { 
                     // the same bite move as in Rat, but also with 15 poison damage
-                    new StatPackage(DmgType.Cut, 5 + Strength, "Rat uses Bite! ("+ (5 + Strength) +" cut damage)"),
-                    new StatPackage(DmgType.Poison, 15, "Venom burns in your veins (15 poison damage)")
+                    new StatPackage(DmgType.Physical, 5 + Strength, "Szczur atakuje ugryzieniem! "+ (5 + Strength) +" dmg [fizyczne]"),
+                    new StatPackage(DmgType.Poison, 15, "Jad szczura piecze w twoich zylach! (15 dmg [trucizna])")
                 };
             }
             else
             {
-                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Rat has no energy to attack anymore!") };
+                return new List<StatPackage>() { new StatPackage(DmgType.Other, 0, "Szczur nie ma sil na dalsza walke!") };
             }
         }
     }

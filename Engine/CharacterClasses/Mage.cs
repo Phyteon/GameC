@@ -11,7 +11,7 @@ namespace Game.Engine.CharacterClasses
         public Mage(GameSession ses) : base(ses)
         {
             // initial class statistics
-            ClassName = "Mage";
+            ClassName = ""; // deprecated
             Health = 100;
             Strength = 20;
             Armor = 0;
@@ -26,9 +26,9 @@ namespace Game.Engine.CharacterClasses
         {
             Level++;
             parentSession.SendText("\n");
-            parentSession.SendColorText("Level Up! Level: " + Level, "yellow");
+            parentSession.SendColorText("Nowy poziom! Poziom: " + Level, "yellow");
             List<string> validInputs = new List<string>() { "1", "2", "3", "4" }; // only accept these inputs
-            parentSession.SendColorText("Choose a statistic to improve: +10 Health (press 1), +5 Precision (press 2), +10 Magic Power (press 3), +10 Stamina (press 4)", "yellow");
+            parentSession.SendColorText("Wybierz statystyke do ulepszenia: +10 Zdrowia (nacisnij 1), +5 Precyzji (nacisnij 2), +10 Mocy Magicznej (nacisnij 3), +10 Energii (nacisnij 4)", "yellow");
             string key = parentSession.GetValidKeyResponse(validInputs).Item1;
             // don't make changes directly, ask GameSession to do it right
             if (key == "1") parentSession.UpdateStat(1, 10);

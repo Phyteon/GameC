@@ -12,7 +12,7 @@ namespace Game.Engine.Items.BasicArmor
         // no special effects, but stronger than other BasicArmors
         public SteelArmor() : base("item0005") 
         { 
-            PublicName = "SteelArmor";
+            PublicName = "Stalowa Zbroja";
             GoldValue = 40;
             ArMod = 40;
         }

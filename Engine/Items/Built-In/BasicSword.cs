@@ -15,7 +15,7 @@ namespace Game.Engine.Items
             StrMod = 5;
             PrMod = 2;
             GoldValue = 10;
-            PublicName = "Basic Sword"; 
+            PublicName = "Zwykly Miecz"; 
         }
     }
 }

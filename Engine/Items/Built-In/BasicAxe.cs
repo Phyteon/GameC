@@ -14,7 +14,7 @@ namespace Game.Engine.Items
         {
             StrMod = 10;
             GoldValue = 10;
-            PublicName = "Basic Axe"; 
+            PublicName = "Zwykly Topor"; 
         }
     }
 }
