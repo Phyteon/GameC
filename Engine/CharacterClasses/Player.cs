@@ -34,6 +34,7 @@ namespace Game.Engine.CharacterClasses
                 else health = value;
                 if (health == 0)
                 {
+                    parentSession.SoundEngine.PlaySound(Sound.SoundNames.PLAYER_DEATH, Sound.SoundType.Player);
                     parentSession.SendText("");
                     parentSession.SendText("***********************************************************************************************");
                     parentSession.SendText("Przegrana! Nacisnij dowolny klawisz, aby kontynuowac.");

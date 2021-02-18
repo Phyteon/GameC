@@ -5,6 +5,7 @@ using Game.Engine.Monsters;
 using Game.Engine.Skills;
 using Game.Engine.Interactions;
 using Game.Engine.CharacterClasses;
+using Game.Sound;
 
 namespace Game.Engine
 {
@@ -16,6 +17,7 @@ namespace Game.Engine
         protected bool rewards, possibleToEscape, firstBlood = false;
         public Monster Monster { get; set; }
         public bool battleResult { get; private set; } = false; // has the player won?
+        public SoundEngine SoundEngine;
         public Battle(GameSession ses, BattleScene scene, Monster monster, bool rewards = true, bool possibleToEscape = true) : base(ses)
         {
             Monster = monster;
@@ -24,9 +26,16 @@ namespace Game.Engine
             this.possibleToEscape = possibleToEscape;
             battleScene = scene;
             battleScene.ImgSetup = GetImage();
+            SoundEngine = new SoundEngine(SoundContext.Battle);
+            parentSession.ChildSoundEngines.Add(SoundEngine);
         }
+
         protected override void RunContent()
         {
+            // stop game music and play battle music
+            parentSession.SoundEngine.PauseBackgroundMusic();
+            SoundEngine.PlayBackgroundMusic();
+
             parentSession.SendText("\nPojedynek!");
             battleScene.SetupDisplay();
             CopyPlayerState();
@@ -34,6 +43,8 @@ namespace Game.Engine
             if (Monster.BattleGreetings != null)
             {
                 battleScene.SendColorText(Monster.BattleGreetings, "red");
+                // play battle monster greetings 
+                SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterInit);
                 battleScene.SendBattleText("");
             }
             if(!possibleToEscape)
@@ -51,6 +62,9 @@ namespace Game.Engine
                     parentSession.GetKeyResponse();
                     parentSession.SendText("Zadne dalsze ruchy nie sa dostepne - porazka!");
                     battleScene.EndDisplay();
+                    // stop battle music and resume main game music
+                    SoundEngine.StopBackgroundMusic();
+                    parentSession.SoundEngine.ResumeBackgroundMusic();
                     return;
                 }
                 // player attacks first
@@ -62,8 +76,13 @@ namespace Game.Engine
                     else parentSession.SendText("Wyglada dosyc groznie, lepiej trzymac sie z daleka.");
                     battleResult = false;
                     RestorePlayerState(false);
+                    // stop battle music and resume main game music
+                    SoundEngine.StopBackgroundMusic();
+                    parentSession.SoundEngine.ResumeBackgroundMusic();
                     return;
                 }
+                // play item sound
+                SoundEngine.PlaySound(playerResponse.RequiredItem.ToString(), SoundType.BattleRequiredItem);
                 firstBlood = true;
                 List<StatPackage> playerAttack = playerResponse.BattleMove(parentSession.currentPlayer);
                 List<StatPackage> memorizedAttack = new List<StatPackage>();
@@ -109,18 +128,25 @@ namespace Game.Engine
                     if (monsterAttack[i].MagicPowerDmg != effectiveAttack[i].MagicPowerDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +
                         (monsterAttack[i].MagicPowerDmg - effectiveAttack[i].MagicPowerDmg) + " debuffa do mocy magicznej!", "yellow");
                 }
+                // play monster bite sound
+                SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterBite);
                 battleScene.RefreshStats();
                 parentSession.RefreshStats();
             }
             // restore player state
+            SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterDeath);
             battleResult = true;
             RestorePlayerState();
             battleScene.SendColorText("Zwyciestwo! (Nacisnij dowolny klawisz, aby kontynuowac)", "green");
+            SoundEngine.WaitAndPlay(SoundNames.PLAYER_WIN, SoundType.Player);
             parentSession.GetKeyResponse();
             battleScene.EndDisplay();
             parentSession.SendText("Zwyciestwo! Zyskane punkty doswiadczenia: " + Monster.XPValue);
             if(rewards) VictoryReward();
             //parentSession.UpdateStat(7, Monster.XPValue); // for smoother display, this one was moved to GameSession.cs
+            // stop battle music and resume main game music
+            SoundEngine.StopBackgroundMusic();
+            parentSession.SoundEngine.ResumeBackgroundMusic();
         }
         protected void CopyPlayerState()
         {

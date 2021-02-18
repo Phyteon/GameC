@@ -33,17 +33,18 @@
         <Viewbox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1">
             <ListBox Name="ChoiceListBox"
                 Background="Beige" FontFamily="Impact">
-                <ListBoxItem>Fizyczna / Topor</ListBoxItem>
-                <ListBoxItem>Fizyczna / Miecz</ListBoxItem>
-                <ListBoxItem>Fizyczna / Wlocznia</ListBoxItem>
-                <ListBoxItem>Magiczna / zaklecie Ognista Strzala</ListBoxItem>
-                <ListBoxItem>Magiczna / zaklecie Podmuch Wiatru</ListBoxItem>
+                <ListBoxItem MouseEnter="PlayButtonSoundHover" Selected="PlayButtonSoundClick">Fizyczna / topor</ListBoxItem>
+                <ListBoxItem Selected="PlayButtonSoundClick" MouseEnter="PlayButtonSoundHover">Fizyczna / miecz</ListBoxItem>
+                <ListBoxItem MouseEnter="PlayButtonSoundHover" Selected="PlayButtonSoundClick">Fizyczna / wlocznia</ListBoxItem>
+                <ListBoxItem MouseEnter="PlayButtonSoundHover" Selected="PlayButtonSoundClick">Magiczna / zaklecie Ognista Strzala</ListBoxItem>
+                <ListBoxItem MouseEnter="PlayButtonSoundHover" Selected="PlayButtonSoundClick">Magiczna / zaklecie Podmuch Wiatru</ListBoxItem>
+
             </ListBox>
         </Viewbox>
         
         <Button Click="PressedOK" 
                 Grid.Column="2" Grid.Row="3"
-               FontFamily="Impact" BorderThickness="2" BorderBrush="Black">
+               FontFamily="Impact" BorderThickness="2" BorderBrush="Black" MouseEnter="PlayButtonSoundHover">
             <Button.ContentTemplate>
                 <DataTemplate>
                     <Grid>

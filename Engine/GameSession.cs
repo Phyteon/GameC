@@ -7,6 +7,7 @@ using Game.Engine.Skills.BasicWeaponMoves;
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using Game.Sound;
 
 namespace Game.Engine
 {
@@ -29,6 +30,8 @@ namespace Game.Engine
         public bool[] AvailableMoves; // W,S,A,D
         public string CurrentKey { private get; set; } // currently pressed key
         public Skill CurrentSelection { private get; set; } // currently selected skill during a battle
+        [NonSerialized] public SoundEngine SoundEngine;
+        [NonSerialized] public List<SoundEngine> ChildSoundEngines;
         public bool RemovableItems 
         {
             // are items currently removable?
@@ -89,6 +92,8 @@ namespace Game.Engine
             items = new List<Item>();
             parentPage.AddConsoleText("Witaj w grze!");
             RefreshStats();
+            SoundEngine = parentPage.soundEngine;
+            ChildSoundEngines = new List<SoundEngine>();
             // map
             metaMapMatrix = new MetaMapMatrix(this);
             mapMatrix = metaMapMatrix.GetCurrentMatrix(0);

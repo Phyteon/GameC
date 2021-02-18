@@ -15,6 +15,7 @@ namespace Game.Display
             var image = e.Source as Image;
             if ((Movable || ItemSellFlag) && image != null && ItemGrid.CaptureMouse())
             {
+                soundEngine.PlaySound(Sound.SoundNames.MOUSE_CLICK_GAME_1);
                 mousePosition = e.GetPosition(ItemCanvas);
                 prevX = MyGridPositionX(mousePosition);
                 prevY = MyGridPositionY(mousePosition);
@@ -32,6 +33,7 @@ namespace Game.Display
             // mouse button was released
             if (draggedImage != null)
             {
+                soundEngine.PlaySound(Sound.SoundNames.MOUSE_CLICK_GAME_2);
                 ItemGrid.ReleaseMouseCapture();
                 ItemCanvas.Children.Remove(draggedImage);
                 if (RemovableItems)
