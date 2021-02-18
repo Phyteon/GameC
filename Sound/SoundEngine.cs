@@ -25,6 +25,13 @@ namespace Game.Sound
             this.soundPlayer = new BasicSoundPlayer();
         }
 
+        // update game volume for all sound players
+        public void UpdateVolume(double volume)
+        {
+            backgroundPlayer.Volume = volume / 100.0;
+            soundPlayer.Volume = volume / 100.0;
+        }
+
         /// <summary>
         /// Plays background music for specified location in game navigation 
         /// by current game sound context (check SoundEngine.GetBackgroundMusic())
