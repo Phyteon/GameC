@@ -80,6 +80,15 @@ namespace Game.Display
         {
             soundEngine.ForceStopAllPlayers();
         }
+        private void VolumeLoaded(object sender, RoutedEventArgs e)
+        {
+            Volume.Value = 50;
+            soundEngine.UpdateVolume(50);
+        }
+        private void VolumeChanged(object sender, RoutedEventArgs e)
+        {
+            soundEngine.UpdateVolume(Volume.Value);
+        }
 
     }
 }
