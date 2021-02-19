@@ -23,10 +23,10 @@ namespace Game.Engine.Skills.BasicWeaponMoves
             int chance = player.Precision;
             while (chance >= 100)
             {
-                attacks.Add(new StatPackage(DmgType.Physical, dmg, "Udaje ci sie zadac dodatkowe uderzenie! "));
+                attacks.Add(new StatPackage(DmgType.Physical, dmg, "Udaje ci sie zadac dodatkowe uderzenie! " + dmg + " dmg [fizyczne]"));
                 chance -= 100;
             }
-            if (Index.RNG(0, 100) < chance) attacks.Add(new StatPackage(DmgType.Physical, dmg, "Udaje ci sie zadac dodatkowe uderzenie! "));
+            if (Index.RNG(0, 100) < chance) attacks.Add(new StatPackage(DmgType.Physical, dmg, "Udaje ci sie zadac dodatkowe uderzenie! " + dmg + " dmg [fizyczne]"));
             return attacks;
         }
     }

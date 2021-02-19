@@ -40,7 +40,7 @@ namespace Game.Display
             // initialize display elements
             BattleGrid = new Grid();
             for (int i = 0; i < 5; i++) BattleGrid.RowDefinitions.Add(new RowDefinition());
-            for (int i = 0; i < 2; i++) BattleGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            for (int i = 0; i < 5; i++) BattleGrid.ColumnDefinitions.Add(new ColumnDefinition());
             // construct battle image
             Grid ImageGrid = new Grid();
             ImageGrid.Background = Brushes.Black;
@@ -104,6 +104,7 @@ namespace Game.Display
             // add battle image to grid
             BattleGrid.Children.Add(ImageGrid);
             Grid.SetColumn(ImageGrid, 0);
+            Grid.SetColumnSpan(ImageGrid, 2);
             Grid.SetRow(ImageGrid, 0);
             Grid.SetRowSpan(ImageGrid, 2);
             // style
@@ -118,7 +119,7 @@ namespace Game.Display
             BattleGrid.Children.Add(moves);
             //positioning
             Grid.SetColumn(moves, 0);
-            Grid.SetColumnSpan(moves, 2);
+            Grid.SetColumnSpan(moves, 5);
             Grid.SetRow(moves, 2);
             Grid.SetRowSpan(moves, 3);
             // battle text console
@@ -131,7 +132,8 @@ namespace Game.Display
             //battleConsole.IsReadOnly = true;
             battleConsole.Focusable = false;
             BattleGrid.Children.Add(battleConsole);
-            Grid.SetColumn(battleConsole, 1);
+            Grid.SetColumn(battleConsole, 2);
+            Grid.SetColumnSpan(battleConsole, 3);
             Grid.SetRow(battleConsole, 0);
             Grid.SetRowSpan(battleConsole, 2);
             // final

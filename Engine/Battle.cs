@@ -143,7 +143,6 @@ namespace Game.Engine
                 battleScene.ResetChoice();
                 // now monster
                 if (Monster.Health == 0) continue;
-                battleScene.SendBattleText("");
                 List<StatPackage> effectiveAttack = Monster.BattleMove();
                 List<StatPackage> monsterAttack = new List<StatPackage>();
                 foreach (StatPackage pack in effectiveAttack) monsterAttack.Add(pack.Copy());
@@ -165,6 +164,7 @@ namespace Game.Engine
                 }
                 // play monster bite sound
                 SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterBite);
+                battleScene.SendBattleText("");
                 battleScene.RefreshStats();
                 parentSession.RefreshStats();
             }
