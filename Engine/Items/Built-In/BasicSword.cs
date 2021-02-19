@@ -12,8 +12,7 @@ namespace Game.Engine.Items
         // simple sword
         public BasicSword() : base("item0004") 
         {
-            StrMod = 5;
-            PrMod = 2;
+            StrMod = 10;
             GoldValue = 10;
             PublicName = "Zwykly Miecz"; 
         }

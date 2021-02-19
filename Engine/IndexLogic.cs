@@ -19,28 +19,14 @@ namespace Game.Engine
             return rnd.Next(x1, x2);
         }
 
-        // create a list of three random magic skills
-        public static List<Skill> MagicSkill(Player player)
+        // create a list of three random magic spells
+        public static List<Skill> MagicSpell(Player player)
         {
             List<Skill> newSkills = new List<Skill>();
             int counter = 0;
             while (newSkills.Count < 3)
             {
-                Skill generated = magicSkillFactories[RNG(0, magicSkillFactories.Count)].CreateSkill(player);
-                if (generated != null) newSkills.Add(generated);
-                counter++;
-                if (counter > 10) break; // safety check if there are less than three skills left in the library
-            }
-            return newSkills;
-        }
-        // create a list of three random weapon skills
-        public static List<Skill> WeaponSkill(Player player)
-        {
-            List<Skill> newSkills = new List<Skill>();
-            int counter = 0;
-            while (newSkills.Count < 3)
-            {
-                Skill generated = weaponSkillFactories[RNG(0, weaponSkillFactories.Count)].CreateSkill(player);
+                Skill generated = skillFactories[RNG(0, skillFactories.Count)].CreateSkill(player);
                 if (generated != null) newSkills.Add(generated);
                 counter++;
                 if (counter > 10) break; // safety check if there are less than three skills left in the library

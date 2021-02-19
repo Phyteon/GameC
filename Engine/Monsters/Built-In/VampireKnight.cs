@@ -52,7 +52,7 @@ namespace Game.Engine.Monsters
             List<StatPackage> ans = new List<StatPackage>();
             foreach (StatPackage pack in packs)
             {
-                pack.ArmorDmg -= pack.ArmorDmg / 2; // vampire knight has partial resistance to armor debuffs
+                pack.ArmorDmg = pack.ArmorDmg / 2; // vampire knight has partial resistance to armor debuffs
                 Health -= pack.HealthDmg;
                 Strength -= pack.StrengthDmg;
                 Armor -= pack.ArmorDmg;

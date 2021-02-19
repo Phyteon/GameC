@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicSkills
         public WindGustDecorator(Skill skill) : base("Wind Gust", 10, 1, skill)
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
-            PublicName = "COMBO - Podmuch Wiatru: 5 + 0.3*Moc obrazen [wiatr] ORAZ " + decoratedSkill.PublicName.Replace("COMBO: ", "");
+            PublicName = "COMBO - Podmuch Wiatru: (5 + 0.3 * Moc) dmg [wiatr] ORAZ " + decoratedSkill.PublicName.Replace("COMBO: ", "");
             RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)

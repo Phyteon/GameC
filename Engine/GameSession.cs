@@ -107,15 +107,21 @@ namespace Game.Engine
                 {
                     ProduceItem("item0003");
                     currentPlayer.Learn(new AxeCut());
+                    currentPlayer.Learn(new SwordSlash());
+                    currentPlayer.Learn(new SpearStab());
                 }
                 else if (playerChoice.Contains("miecz"))
                 {
                     ProduceItem("item0004");
+                    currentPlayer.Learn(new AxeCut());
                     currentPlayer.Learn(new SwordSlash());
+                    currentPlayer.Learn(new SpearStab());
                 }
                 else if (playerChoice.Contains("wlocznia"))
                 {
                     ProduceItem("item0002");
+                    currentPlayer.Learn(new AxeCut());
+                    currentPlayer.Learn(new SwordSlash());
                     currentPlayer.Learn(new SpearStab());
                 }
                 else if (playerChoice.Contains("Ognista"))
@@ -128,6 +134,7 @@ namespace Game.Engine
                     ProduceItem("item0001");
                     currentPlayer.Learn(new WindGust());
                 }
+                //ProduceItem("item0007");
             }      
         }
 

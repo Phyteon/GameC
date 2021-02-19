@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicSkills
         public FireArrowDecorator(Skill skill) : base("Fire Arrow", 20, 1, skill) 
         {
             MinimumLevel = Math.Max(1, skill.MinimumLevel) + 1;
-            PublicName = "COMBO - Ognista Strzala: procentowa szansa rowna twojej precyzji na zadanie 0.5*Moc obrazen [ogien] ORAZ " + decoratedSkill.PublicName.Replace("COMBO: ", "");
+            PublicName = "COMBO - Ognista Strzala: procentowa szansa rowna twojej precyzji na zadanie (0.5 * Moc) obrazen [ogien] ORAZ " + decoratedSkill.PublicName.Replace("COMBO: ", "");
             RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)

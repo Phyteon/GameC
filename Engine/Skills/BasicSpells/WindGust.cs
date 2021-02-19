@@ -10,7 +10,7 @@ namespace Game.Engine.Skills.BasicSkills
         // wind gust: deal 5+0.3*[Mp] damage
         public WindGust() : base("Wind Gust", 10, 1)
         {
-            PublicName = "Podmuch Wiatru: 5 + 0.3*Moc obrazen [wiatr]";
+            PublicName = "Podmuch Wiatru: (5 + 0.3 * Moc) dmg [wiatr]";
             RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)

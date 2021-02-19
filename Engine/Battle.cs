@@ -95,12 +95,40 @@ namespace Game.Engine
                 List<StatPackage> memorizedAttack = new List<StatPackage>();
                 foreach (StatPackage pack in playerAttack) memorizedAttack.Add(pack.Copy());
                 playerAttack = parentSession.ModifyOffensive(playerAttack);
-                playerAttack = Monster.React(playerAttack);
                 for (int i = 0; i < playerAttack.Count && i < memorizedAttack.Count; i++)
                 {
                     battleScene.SendColorText(playerAttack[i].CustomText, "green");
+                    if (memorizedAttack[i].HealthDmg != playerAttack[i].HealthDmg)
+                    {
+                        battleScene.SendColorText("Twoje przedmioty pozwalaja zadac dodatkowe " + (-memorizedAttack[i].HealthDmg + playerAttack[i].HealthDmg) + " dmg!", "yellow");
+                        memorizedAttack[i].HealthDmg = playerAttack[i].HealthDmg;
+                    }
+                    if (memorizedAttack[i].StrengthDmg != playerAttack[i].StrengthDmg)
+                    {
+                        battleScene.SendColorText("Twoje przedmioty pozwalaja zadac dodatkowe " + (-memorizedAttack[i].StrengthDmg + playerAttack[i].StrengthDmg) + " debuffa do sily!", "yellow");
+                        memorizedAttack[i].StrengthDmg = playerAttack[i].StrengthDmg;
+                    }
+                    if (memorizedAttack[i].ArmorDmg != playerAttack[i].ArmorDmg)
+                    {
+                        battleScene.SendColorText("Twoje przedmioty pozwalaja zadac dodatkowe " + (-memorizedAttack[i].ArmorDmg + playerAttack[i].ArmorDmg) + " debuffa do pancerza!", "yellow");
+                        memorizedAttack[i].ArmorDmg = playerAttack[i].ArmorDmg;
+                    }
+                    if (memorizedAttack[i].PrecisionDmg != playerAttack[i].PrecisionDmg)
+                    {
+                        battleScene.SendColorText("Twoje przedmioty pozwalaja zadac dodatkowe " + (-memorizedAttack[i].PrecisionDmg + playerAttack[i].PrecisionDmg) + " debuffa do precyzji!", "yellow");
+                        memorizedAttack[i].PrecisionDmg = playerAttack[i].PrecisionDmg;
+                    }
+                    if (memorizedAttack[i].MagicPowerDmg != playerAttack[i].MagicPowerDmg)
+                    {
+                        battleScene.SendColorText("Twoje przedmioty pozwalaja zadac dodatkowe " + (-memorizedAttack[i].MagicPowerDmg + playerAttack[i].MagicPowerDmg) + " debuffa do mocy magicznej!", "yellow");
+                        memorizedAttack[i].MagicPowerDmg = playerAttack[i].MagicPowerDmg;
+                    }
+                }
+                playerAttack = Monster.React(playerAttack);
+                for (int i = 0; i < playerAttack.Count && i < memorizedAttack.Count; i++)
+                {
                     if (memorizedAttack[i].HealthDmg != playerAttack[i].HealthDmg) battleScene.SendColorText("Specjalne umiejetnosci potwora zatrzymuja " +
-                        (memorizedAttack[i].HealthDmg - playerAttack[i].HealthDmg) + " obrazen!", "yellow");
+                        (memorizedAttack[i].HealthDmg - playerAttack[i].HealthDmg) + " dmg!", "yellow");
                     if (memorizedAttack[i].StrengthDmg != playerAttack[i].StrengthDmg) battleScene.SendColorText("Specjalne umiejetnosci potwora zatrzymuja " +
                         (memorizedAttack[i].StrengthDmg - playerAttack[i].StrengthDmg) + " debuffa do sily!", "yellow");
                     if (memorizedAttack[i].ArmorDmg != playerAttack[i].ArmorDmg) battleScene.SendColorText("Specjalne umiejetnosci potwora zatrzymuja " +
@@ -125,7 +153,7 @@ namespace Game.Engine
                 {
                     battleScene.SendColorText(monsterAttack[i].CustomText, "red");
                     if (monsterAttack[i].HealthDmg != effectiveAttack[i].HealthDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +
-                        (monsterAttack[i].HealthDmg - effectiveAttack[i].HealthDmg) + " obrazen!", "yellow");
+                        (monsterAttack[i].HealthDmg - effectiveAttack[i].HealthDmg) + " dmg!", "yellow");
                     if (monsterAttack[i].StrengthDmg != effectiveAttack[i].StrengthDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +
                         (monsterAttack[i].StrengthDmg - effectiveAttack[i].StrengthDmg) + " debuffa do sily!", "yellow");
                     if (monsterAttack[i].ArmorDmg != effectiveAttack[i].ArmorDmg) battleScene.SendColorText("Twoj pancerz i przedmioty zatrzymuja " +

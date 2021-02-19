@@ -12,7 +12,7 @@ namespace Game.Engine.Items
         // simple spear
         public BasicSpear() : base("item0002") 
         {
-            PrMod = 5;
+            PrMod = 10;
             GoldValue = 10;
             PublicName = "Zwykla Wlocznia"; 
         }

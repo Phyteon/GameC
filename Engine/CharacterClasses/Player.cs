@@ -210,7 +210,7 @@ namespace Game.Engine.CharacterClasses
             // learn a new skill from the list (maximum three choices)
             if (learningSkills.Count > 2)
             {
-                parentSession.SendColorText("Wybierz umiejetnosc do nauczenia sie:", "yellow");
+                parentSession.SendColorText("Wybierz zaklecie do nauczenia sie:", "yellow");
                 parentSession.SendColorText(learningSkills[0] + " (nacisnij 1)", "yellow");
                 parentSession.SendColorText(learningSkills[1] + " (nacisnij 2)", "yellow");
                 parentSession.SendColorText(learningSkills[2] + " (nacisnij 3)", "yellow");
@@ -222,7 +222,7 @@ namespace Game.Engine.CharacterClasses
             }
             else if (learningSkills.Count > 1)
             {
-                parentSession.SendColorText("Wybierz umiejetnosc do nauczenia sie:", "yellow");
+                parentSession.SendColorText("Wybierz zaklecie do nauczenia sie:", "yellow");
                 parentSession.SendColorText(learningSkills[0] + " (nacisnij 1)", "yellow");
                 parentSession.SendColorText(learningSkills[1] + " (nacisnij 2)", "yellow");
                 parentSession.SendColorText("Dziekuje, tym razem nie skorzystam (nacisnij 3)", "yellow");
@@ -232,7 +232,7 @@ namespace Game.Engine.CharacterClasses
             }
             else if (learningSkills.Count > 0)
             {
-                parentSession.SendColorText("Wybierz umiejetnosc do nauczenia sie:", "yellow");
+                parentSession.SendColorText("Wybierz zaklecie do nauczenia sie:", "yellow");
                 parentSession.SendColorText(learningSkills[0] + " (nacisnij 1)", "yellow");
                 parentSession.SendColorText("Dziekuje, tym razem nie skorzystam (nacisnij 2)", "yellow");
                 string key = parentSession.GetValidKeyResponse(new List<string>() { "1", "2" }).Item1;

@@ -28,15 +28,15 @@ namespace Game.Engine.CharacterClasses
             parentSession.SendText("\n");
             parentSession.SendColorText("Nowy poziom! Poziom: " + Level, "yellow");
             List<string> validInputs = new List<string>() { "1", "2", "3", "4" }; // only accept these inputs
-            parentSession.SendColorText("Wybierz statystyke do ulepszenia: +10 Zdrowia (nacisnij 1), +5 Precyzji (nacisnij 2), +10 Mocy Magicznej (nacisnij 3), +10 Energii (nacisnij 4)", "yellow");
+            parentSession.SendColorText("Wybierz statystyke do ulepszenia: +10 Zdrowia (nacisnij 1), +5 Precyzji (nacisnij 2), +10 Mocy Magicznej (nacisnij 3), +20 Energii (nacisnij 4)", "yellow");
             string key = parentSession.GetValidKeyResponse(validInputs).Item1;
             // don't make changes directly, ask GameSession to do it right
             if (key == "1") parentSession.UpdateStat(1, 10);
             else if (key == "2") parentSession.UpdateStat(4, 5);
             else if (key == "3") parentSession.UpdateStat(5, 10);
-            else if (key == "4") parentSession.UpdateStat(6, 10);
-            List<Skill> ss = Index.MagicSkill(this);
-            LearnNewSkill(Index.MagicSkill(this)); // mages learn a new spell every time
+            else if (key == "4") parentSession.UpdateStat(6, 20);
+            List<Skill> ss = Index.MagicSpell(this);
+            LearnNewSkill(Index.MagicSpell(this)); // mages learn a new spell every time
         }
 
     }

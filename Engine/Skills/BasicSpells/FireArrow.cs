@@ -11,7 +11,7 @@ namespace Game.Engine.Skills.BasicSkills
         // if your precision stat is higher than 100, you will always land the arrow
         public FireArrow() : base("Fire Arrow", 20, 1)
         { 
-            PublicName = "Ognista Strzala: procentowa szansa rowna twojej precyzji na zadanie 0.5*Moc obrazen [ogien]";
+            PublicName = "Ognista Strzala: procentowa szansa rowna twojej precyzji na zadanie (0.5 * Moc) dmg [ogien]";
             RequiredItem = RequiredItem.Staff;
         }
         public override List<StatPackage> BattleMove(Player player)
@@ -20,7 +20,7 @@ namespace Game.Engine.Skills.BasicSkills
             if (Index.RNG(0, 100) < player.Precision)
             {
                 response.HealthDmg = (int)(0.5 * player.MagicPower);
-                response.CustomText = "Ognista Strzala trafia przeciwnika! " + (int)(0.5 * player.MagicPower) + " obrazen [ogien]";
+                response.CustomText = "Ognista Strzala trafia przeciwnika! " + (int)(0.5 * player.MagicPower) + " dmg [ogien]";
             }
             else
             {
