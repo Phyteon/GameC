@@ -18,6 +18,7 @@ namespace Game.Engine.Items.BasicArmor
             PublicTip = "gdy stracisz X punktow zdrowia, otrzymujesz X/4 procentowego bonusu do zadawanych obrazen fizycznych w tym pojedynku";
             GoldValue = 40;
             ArMod = 20;
+            berserkerBonus = 0;
         }
         public override StatPackage ModifyOffensive(StatPackage pack, List<string> otherItems)
         {
@@ -31,6 +32,10 @@ namespace Game.Engine.Items.BasicArmor
         {
             berserkerBonus += pack.HealthDmg;
             return pack;
+        }
+        public override void ResetAfterBattle()
+        {
+            berserkerBonus = 0;
         }
     }
 }

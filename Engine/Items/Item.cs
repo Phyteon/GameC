@@ -58,6 +58,10 @@ namespace Game.Engine.Items
             // by default, do not include any specific defensive bonuses for player receiving an attack
             return pack;
         }
+        public virtual void ResetAfterBattle() 
+        { 
+            // optional method for resetting item statistics after battle
+        }
 
     }
 }

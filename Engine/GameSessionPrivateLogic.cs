@@ -113,6 +113,11 @@ namespace Game.Engine
             items = newItems;
             RefreshStats();
         }
+        public void ResetItemsAfterBattle()
+        {
+            // some items need to have their statistics reset after battle
+            foreach (Item i in items) i.ResetAfterBattle();
+        }
         public List<StatPackage> ModifyOffensive(List<StatPackage> packs)
         {
             // apply offensive buffs from all active items to a StatPackage

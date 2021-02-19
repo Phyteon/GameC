@@ -176,6 +176,7 @@ namespace Game.Engine
             SoundEngine.WaitAndPlay(SoundNames.PLAYER_WIN, SoundType.Player);
             parentSession.GetKeyResponse();
             battleScene.EndDisplay();
+            parentSession.ResetItemsAfterBattle();
             parentSession.SendText("Zwyciestwo! Zyskane punkty doswiadczenia: " + Monster.XPValue);
             if(rewards) VictoryReward();
             //parentSession.UpdateStat(7, Monster.XPValue); // for smoother display, this one was moved to GameSession.cs
