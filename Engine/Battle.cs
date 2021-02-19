@@ -91,6 +91,7 @@ namespace Game.Engine
                 // play item sound
                 SoundEngine.PlaySound(playerResponse.RequiredItem.ToString(), SoundType.BattleRequiredItem);
                 firstBlood = true;
+                // calculate damage
                 List<StatPackage> playerAttack = playerResponse.BattleMove(parentSession.currentPlayer);
                 List<StatPackage> memorizedAttack = new List<StatPackage>();
                 foreach (StatPackage pack in playerAttack) memorizedAttack.Add(pack.Copy());
@@ -141,7 +142,7 @@ namespace Game.Engine
                 parentSession.UpdateStat(6, -1*playerResponse.StaminaCost);
                 battleScene.SetSkills(parentSession.currentPlayer.ListAvailableSkills(possibleToEscape));
                 battleScene.ResetChoice();
-                // now monster
+                // monster attack
                 if (Monster.Health == 0) continue;
                 List<StatPackage> effectiveAttack = Monster.BattleMove();
                 List<StatPackage> monsterAttack = new List<StatPackage>();
@@ -168,7 +169,7 @@ namespace Game.Engine
                 battleScene.RefreshStats();
                 parentSession.RefreshStats();
             }
-            // restore player state
+            // after battle - clean up
             SoundEngine.WaitAndPlay(Monster.Name, SoundType.MonsterDeath);
             battleResult = true;
             RestorePlayerState();
