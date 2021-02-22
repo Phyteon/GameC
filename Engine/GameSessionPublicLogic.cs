@@ -132,6 +132,24 @@ namespace Game.Engine
             return ans;
         }
 
+        public void RemoveThisItem(Item it)
+        {
+            // player will lose a particular item (if currently owned)
+            // example usage: RemoveThisItem(new BasicSpear());
+
+            RemoveItemFromGrid(it);
+            // reset itemPositions
+            itemPositions.Clear();
+            for (int i = 0; i < 30; i++)
+            {
+                Image img = parentPage.GetImageFromGrid(i, 0);
+                if (img != null)
+                {
+                    itemPositions.Add(i);
+                }
+            }
+        }
+
         public bool TestForItem(string name)
         {
             // check if a particular item is currently equipped as active
@@ -144,8 +162,9 @@ namespace Game.Engine
         }
         public bool TestForItemClass(RequiredItem name)
         {
-            // check if ANY item from a given special class (staff,axe,spear,sword) is currently equipped as active
-            switch(name)
+            // check if ANY item from a given special class is currently equipped as active
+            // possible arguments: RequiredItem.Sword, RequiredItem.Axe, RequiredItem.Spear, RequiredItem.Staff
+            switch (name)
             {
                 case RequiredItem.None:
                     return true;
@@ -203,24 +222,6 @@ namespace Game.Engine
                 {
                     InsertItemToGrid(it, i);
                     break;
-                }
-            }
-        }
-
-        public void RemoveThisItem(Item it)
-        {
-            // player will lose a particular item (if currently owned)
-            // example usage: RemoveThisItem(new BasicSpear());
-
-            RemoveItemFromGrid(it);
-            // reset itemPositions
-            itemPositions.Clear();
-            for (int i = 0; i < 30; i++)
-            {
-                Image img = parentPage.GetImageFromGrid(i, 0);
-                if (img != null)
-                {
-                    itemPositions.Add(i);
                 }
             }
         }

@@ -33,7 +33,7 @@ namespace Game.Sound
     internal static class SoundLibraryGenerator
     {
         /// <summary>
-        /// Contains list of all sounds linked to monsters, items, payer, background music etc.
+        /// Contains list of all sounds linked to monsters, items, player, background music etc.
         /// </summary>
         /// <returns>List of sounds used by game app.</returns>
         internal static List<Sound> CreateLibrary()
