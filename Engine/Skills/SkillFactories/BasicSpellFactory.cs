@@ -12,38 +12,24 @@ namespace Game.Engine.Skills.SkillFactories
         public Skill CreateSkill(Player player)
         {
             List<Skill> playerSkills = player.ListOfSkills;
-            Skill known = CheckContent(playerSkills); // check what spells from the BasicSpells category are known by the player already
-            if (known == null) // no BasicSpells known - we will return one of them
+            List<Skill> tmp = new List<Skill>();
+            FireArrow s1 = new FireArrow();
+            WindGust s2 = new WindGust();
+            DeepBreath s3 = new DeepBreath();
+            ChargeGSArmor s4 = new ChargeGSArmor();
+            if (s1.MinimumLevel <= player.Level) tmp.Add(s1); // check level requirements
+            if (s2.MinimumLevel <= player.Level) tmp.Add(s2);
+            if (s3.MinimumLevel <= player.Level) tmp.Add(s3);
+            if (s4.MinimumLevel <= player.Level) tmp.Add(s4);
+            foreach (Skill skill in playerSkills) // don't offer skills which the player knows already
             {
-                FireArrow s1 = new FireArrow();
-                WindGust s2 = new WindGust();
-                // only include elligible spells
-                List<Skill> tmp = new List<Skill>();
-                if (s1.MinimumLevel <= player.Level) tmp.Add(s1); // check level requirements
-                if (s2.MinimumLevel <= player.Level) tmp.Add(s2);
-                if (tmp.Count == 0) return null;
-                return tmp[Index.RNG(0, tmp.Count)]; // use Index.RNG for safe random numbers
+                if (skill is FireArrow) tmp.Remove(s1);
+                if (skill is WindGust) tmp.Remove(s2);
+                if (skill is DeepBreath) tmp.Remove(s3);
+                if (skill is ChargeGSArmor) tmp.Remove(s4);
             }
-            else if (known.decoratedSkill == null) // a BasicSpell has been already learned, use decorator to create a combo
-            {
-                FireArrowDecorator s1 = new FireArrowDecorator(known);
-                WindGustDecorator s2 = new WindGustDecorator(known);
-                List<Skill> tmp = new List<Skill>();
-                if (s1.MinimumLevel <= player.Level) tmp.Add(s1); // check level requirements
-                if (s2.MinimumLevel <= player.Level) tmp.Add(s2);
-                if (tmp.Count == 0) return null;
-                return tmp[Index.RNG(0, tmp.Count)];
-            }
-            else return null; // a combo of BasicSpells has been already learned - this factory doesn't offer double combos so we stop here
+            if (tmp.Count == 0) return null;
+            return tmp[Index.RNG(0, tmp.Count)];
         }
-        private Skill CheckContent(List<Skill> skills) // wrapper method for checking
-        {
-            foreach (Skill skill in skills)
-            {
-                if (skill is FireArrow || skill is WindGust || skill is FireArrowDecorator || skill is WindGustDecorator ) return skill;
-            }
-            return null;
-        }       
-
     }
 }

@@ -11,7 +11,7 @@ namespace Game.Engine.CharacterClasses
         public Mage(GameSession ses) : base(ses)
         {
             // initial class statistics
-            ClassName = ""; // deprecated
+            ClassName = "Mage"; 
             Health = 100;
             Strength = 20;
             Armor = 0;

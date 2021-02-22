@@ -17,7 +17,7 @@ namespace Game.Engine.Skills
         {
             PublicName = "Ucieczka (tylko polowa odniesionych obrazen sie zagoi!)";
         }
-        public override List<StatPackage> BattleMove(Player player)
+        public override List<StatPackage> BattleMove(Player player, List<string> items)
         {
             StatPackage response = new StatPackage(DmgType.Other);
             return new List<StatPackage>() { response };

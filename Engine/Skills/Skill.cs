@@ -11,9 +11,7 @@ namespace Game.Engine.Skills
         public string PublicName { get; protected set; } // a name to be displayed in the game
         public int StaminaCost { get; protected set; } // how much does this spell cost
         public int MinimumLevel { get; protected set; } // what level do you need to learn it
-        public RequiredItem RequiredItem { get; protected set; } = RequiredItem.None; 
-
-        public Skill decoratedSkill = null; // only decorator will use this (but it has to be here)
+        public RequiredItem ReqItem { get; protected set; } = RequiredItem.None; 
         protected Skill(string name, int stamina, int minLevel) // for derived classes
         {
             PublicName = name;
@@ -24,7 +22,7 @@ namespace Game.Engine.Skills
         {
             return "[" + StaminaCost + " punktow energii] " + PublicName;
         }
-        public abstract List<StatPackage> BattleMove(Player player);
+        public abstract List<StatPackage> BattleMove(Player player, List<string> items);
 
     }
 }

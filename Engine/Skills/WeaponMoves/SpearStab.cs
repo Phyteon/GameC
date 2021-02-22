@@ -11,9 +11,9 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         public SpearStab() : base("Spear Stab", 20, 1) 
         { 
             PublicName = "Atak wlocznia: (10 + 0.2 * Sila) dmg [fizyczne] oraz (Precyzja %) szansy na kolejne uderzenie";
-            RequiredItem = RequiredItem.Spear;
+            ReqItem = RequiredItem.Spear;
         }
-        public override List<StatPackage> BattleMove(Player player)
+        public override List<StatPackage> BattleMove(Player player, List<string> items)
         {
             List<StatPackage> attacks = new List<StatPackage>();
             // first attack

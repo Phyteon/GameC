@@ -222,7 +222,7 @@ namespace Game.Engine
             parentPage.Stat6.Document.Blocks.Clear();
             parentPage.Stat6.AppendText("Energia: " + currentPlayer.Stamina);
             parentPage.StatLevel.Document.Blocks.Clear();
-            parentPage.StatLevel.AppendText(currentPlayer.ClassName + " Poziom " + currentPlayer.Level);
+            parentPage.StatLevel.AppendText(" Poziom " + currentPlayer.Level);
             parentPage.StatGold.Document.Blocks.Clear();
             parentPage.StatGold.AppendText("Zloto: " + currentPlayer.Gold);
             AdjustStatDisplay();

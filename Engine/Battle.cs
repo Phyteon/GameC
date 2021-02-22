@@ -89,10 +89,10 @@ namespace Game.Engine
                     return;
                 }
                 // play item sound
-                SoundEngine.PlaySound(playerResponse.RequiredItem.ToString(), SoundType.BattleRequiredItem);
+                SoundEngine.PlaySound(playerResponse.ReqItem.ToString(), SoundType.BattleRequiredItem);
                 firstBlood = true;
                 // calculate damage
-                List<StatPackage> playerAttack = playerResponse.BattleMove(parentSession.currentPlayer);
+                List<StatPackage> playerAttack = playerResponse.BattleMove(parentSession.currentPlayer, parentSession.GetActiveItemNames());
                 List<StatPackage> memorizedAttack = new List<StatPackage>();
                 foreach (StatPackage pack in playerAttack) memorizedAttack.Add(pack.Copy());
                 playerAttack = parentSession.ModifyOffensive(playerAttack);

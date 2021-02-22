@@ -47,6 +47,12 @@ namespace Game.Engine
             CustomText = text;
         }
 
+        public StatPackage(string text)
+        {
+            DamageType = DmgType.Other;
+            CustomText = text;
+        }
+
         public StatPackage Copy()
         {
             return new StatPackage(this.DamageType, this.HealthDmg, this.StrengthDmg, this.ArmorDmg, this.PrecisionDmg,

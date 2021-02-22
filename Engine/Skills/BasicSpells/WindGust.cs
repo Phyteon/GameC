@@ -5,15 +5,14 @@ using Game.Engine.CharacterClasses;
 namespace Game.Engine.Skills.BasicSkills
 {
     [Serializable]
-    class WindGust : Skill
+    class WindGust : Spell
     {
         // wind gust: deal 5+0.3*[Mp] damage
         public WindGust() : base("Wind Gust", 10, 1)
         {
             PublicName = "Podmuch Wiatru: (5 + 0.3 * Moc) dmg [wiatr]";
-            RequiredItem = RequiredItem.Staff;
         }
-        public override List<StatPackage> BattleMove(Player player)
+        public override List<StatPackage> BattleMove(Player player, List<string> items)
         {
             StatPackage response = new StatPackage(DmgType.Air);
             response.HealthDmg = 5 + (int)(0.3 * player.MagicPower);

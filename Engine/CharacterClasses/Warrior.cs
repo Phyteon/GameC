@@ -11,7 +11,7 @@ namespace Game.Engine.CharacterClasses
         public Warrior(GameSession ses) : base(ses)
         {
             // initial class statistics
-            ClassName = ""; // deprecated
+            ClassName = "Warrior"; 
             Health = 100;
             Strength = 50;
             Armor = 0;

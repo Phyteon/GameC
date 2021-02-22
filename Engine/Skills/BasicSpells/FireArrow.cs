@@ -5,16 +5,15 @@ using Game.Engine.CharacterClasses;
 namespace Game.Engine.Skills.BasicSkills
 {
     [Serializable]
-    class FireArrow : Skill
+    class FireArrow : Spell
     {
         // fire arrow: [Pr]% chance to land an arrow that deals 0.5*[Mp] damage
         // if your precision stat is higher than 100, you will always land the arrow
         public FireArrow() : base("Fire Arrow", 20, 1)
         { 
             PublicName = "Ognista Strzala: procentowa szansa rowna twojej precyzji na zadanie (0.5 * Moc) dmg [ogien]";
-            RequiredItem = RequiredItem.Staff;
         }
-        public override List<StatPackage> BattleMove(Player player)
+        public override List<StatPackage> BattleMove(Player player, List<string> items)
         {
             StatPackage response = new StatPackage(DmgType.Fire);
             if (Index.RNG(0, 100) < player.Precision)

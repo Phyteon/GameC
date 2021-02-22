@@ -83,7 +83,10 @@
     <Compile Include="Engine\Interactions\Built-In\HealInteraction.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\HealInteractionFactory.cs" />
     <Compile Include="Engine\RequiredItem.cs" />
+    <Compile Include="Engine\Skills\BasicSpells\ChargeGSArmor.cs" />
+    <Compile Include="Engine\Skills\BasicSpells\DeepBreath.cs" />
     <Compile Include="Engine\Skills\Misc\RunAway.cs" />
+    <Compile Include="Engine\Skills\Spell.cs" />
     <Compile Include="Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,15 +185,12 @@
     <Compile Include="Engine\Monsters\Built-In\VampireKnight.cs" />
     <Compile Include="Engine\SaveData.cs" />
     <Compile Include="Engine\Skills\BasicSpells\FireArrow.cs" />
-    <Compile Include="Engine\Skills\BasicSpells\FireArrowDecorator.cs" />
     <Compile Include="Engine\Skills\WeaponMoves\AxeCut.cs" />
     <Compile Include="Engine\Skills\WeaponMoves\SpearStab.cs" />
     <Compile Include="Engine\Skills\WeaponMoves\SwordSlash.cs" />
     <Compile Include="Engine\Skills\Skill.cs" />
-    <Compile Include="Engine\Skills\SkillDecorator.cs" />
     <Compile Include="Engine\Skills\SkillFactories\BasicSpellFactory.cs" />
     <Compile Include="Engine\Skills\BasicSpells\WindGust.cs" />
-    <Compile Include="Engine\Skills\BasicSpells\WindGustDecorator.cs" />
     <Compile Include="Engine\Skills\SkillFactory.cs" />
     <Compile Include="Engine\StatPackage.cs" />
     <Compile Include="Engine\Subject.cs" />

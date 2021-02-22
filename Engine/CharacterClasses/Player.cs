@@ -242,14 +242,7 @@ namespace Game.Engine.CharacterClasses
         public virtual void Learn(Skill skill)
         {
             // a method that helps LearnNewSkill
-            // new skill means we just add it to the list
-            if (skill.decoratedSkill == null) ListOfSkills.Add(skill);
-            // otherwise we also need to remove the old one
-            else
-            {
-                ListOfSkills.Remove(skill.decoratedSkill);
-                ListOfSkills.Add(skill);
-            }
+            ListOfSkills.Add(skill);
         }
         public List<Skill> ListAvailableSkills(bool canRunAway = true)
         {
@@ -258,7 +251,11 @@ namespace Game.Engine.CharacterClasses
             List<Skill> tmp = new List<Skill>();
             foreach (Skill skill in ListOfSkills)
             {
-                if (Stamina >= skill.StaminaCost && parentSession.TestForItemClass(skill.RequiredItem)) tmp.Add(skill);
+                if (Stamina >= skill.StaminaCost && parentSession.TestForItemClass(skill.ReqItem))
+                {
+                    if (skill is Spell && (skill as Spell).SpecialItem != "none" && !parentSession.TestForItem((skill as Spell).SpecialItem)) continue;
+                    tmp.Add(skill);
+                }
             }
             if (tmp.Count > 1 && !canRunAway) tmp.RemoveAt(0);
             return tmp;

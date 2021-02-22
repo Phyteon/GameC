@@ -10,9 +10,9 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         public AxeCut() : base("Axe Cut", 20, 1) 
         {
             PublicName = "Atak toporem: (0.5 * Sila) dmg [fizyczne]";
-            RequiredItem = RequiredItem.Axe;
+            ReqItem = RequiredItem.Axe;
         }
-        public override List<StatPackage> BattleMove(Player player)
+        public override List<StatPackage> BattleMove(Player player, List<string> items)
         {
             StatPackage response = new StatPackage(DmgType.Physical);
             response.HealthDmg = (int)(0.5 * player.Strength);

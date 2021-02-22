@@ -10,9 +10,9 @@ namespace Game.Engine.Skills.BasicWeaponMoves
         public SwordSlash() : base("Sword Slash", 20, 1)
         {
             PublicName = "Atak mieczem: (Sila * Precyzja / 100) dmg [fizyczne]";
-            RequiredItem = RequiredItem.Sword;
+            ReqItem = RequiredItem.Sword;
         }
-        public override List<StatPackage> BattleMove(Player player)
+        public override List<StatPackage> BattleMove(Player player, List<string> items)
         {
             StatPackage response = new StatPackage(DmgType.Physical);
             response.HealthDmg = (int)(player.Strength * player.Precision / 100);

@@ -134,9 +134,6 @@ namespace Game.Engine
                     ProduceItem("item0001");
                     currentPlayer.Learn(new WindGust());
                 }
-                ProduceItem("item0002");
-                ProduceItem("item0003");
-                ProduceItem("item0004");
             }      
         }
 
