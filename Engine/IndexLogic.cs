@@ -45,15 +45,16 @@ namespace Game.Engine
         }
         
         // produce random class-specific or non-class-specific items - this one will be used to populate the game world
-        public static Item RandomItem()
+        public static Item RandomItem(GameSession parentSession)
         {
-            return itemFactories[RNG(0, itemFactories.Count)].CreateAnyItem();
+            return itemFactories[RNG(0, itemFactories.Count)].CreateAnyItem(parentSession);
         }
-        public static Item RandomClassItem(Player player)
+        public static Item RandomClassItem(GameSession parentSession)
         {
-            if (player.ClassName == "Mage") return itemFactories[RNG(0, itemFactories.Count)].CreateNonWeaponItem();
-            else if (player.ClassName == "Warrior") return itemFactories[RNG(0, itemFactories.Count)].CreateNonMagicItem();
-            else return itemFactories[RNG(0, itemFactories.Count)].CreateAnyItem();
+            Player player = parentSession.currentPlayer;
+            if (player.ClassName == "Mage") return itemFactories[RNG(0, itemFactories.Count)].CreateNonWeaponItem(parentSession);
+            else if (player.ClassName == "Warrior") return itemFactories[RNG(0, itemFactories.Count)].CreateNonMagicItem(parentSession);
+            else return itemFactories[RNG(0, itemFactories.Count)].CreateAnyItem(parentSession);
         }
 
         // produce random monster factory

@@ -22,7 +22,7 @@ namespace Game.Engine
         private MetaMapMatrix metaMapMatrix;
         private MapMatrix mapMatrix;
         private List<int> itemPositions; // all item positions
-        private List<Item> items; // active items only
+        private List<Item> activeItems; // active items only
         private bool startGame = true; // is the game starting?
         [NonSerialized] private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         [NonSerialized] private System.Windows.Forms.Timer timerPlayer = new System.Windows.Forms.Timer();
@@ -89,7 +89,7 @@ namespace Game.Engine
             currentPlayer = new Mage(this);
             if (playerChoice != null) { if (playerChoice.Contains("Fizyczna")) currentPlayer = new Warrior(this); }
             itemPositions = new List<int>();
-            items = new List<Item>();
+            activeItems = new List<Item>();
             parentPage.AddConsoleText("Witaj w grze!");
             RefreshStats();
             SoundEngine = parentPage.soundEngine;
@@ -134,6 +134,9 @@ namespace Game.Engine
                     ProduceItem("item0001");
                     currentPlayer.Learn(new WindGust());
                 }
+                ProduceItem("item0002");
+                ProduceItem("item0003");
+                ProduceItem("item0004");
             }      
         }
 

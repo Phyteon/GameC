@@ -8,7 +8,7 @@ namespace Game.Engine.Items.ItemFactories
     class BasicArmorFactory : ItemFactory
     {
         // produce items from BasicArmor directory
-        public Item CreateAnyItem()
+        public Item CreateAnyItem(GameSession parentSession)
         {
             List<Item> basicArmor = new List<Item>()
             {
@@ -19,7 +19,7 @@ namespace Game.Engine.Items.ItemFactories
             };
             return basicArmor[Index.RNG(0, basicArmor.Count)];
         }
-        public Item CreateNonMagicItem()
+        public Item CreateNonMagicItem(GameSession parentSession)
         {
             // GrowingStoneArmor only works for magic users
             List<Item> basicArmor = new List<Item>()
@@ -30,7 +30,7 @@ namespace Game.Engine.Items.ItemFactories
             };
             return basicArmor[Index.RNG(0, basicArmor.Count)];
         }
-        public Item CreateNonWeaponItem()
+        public Item CreateNonWeaponItem(GameSession parentSession)
         {
             // BerserkerArmor only works for physical damage dealers
             List<Item> basicArmor = new List<Item>()

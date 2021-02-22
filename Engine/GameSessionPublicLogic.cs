@@ -110,6 +110,28 @@ namespace Game.Engine
             }
             return ans;
         }
+
+        public List<string> GetAllItemNames()
+        {
+            // return names of all items (max 30) as List<string>
+            List<string> ans = new List<string>();
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Image img = parentPage.GetImageFromGrid(j, i);
+                    if (img != null)
+                    {
+                        if (img.Name != "")
+                        {
+                            ans.Add(img.Name);
+                        }
+                    }
+                }
+            }
+            return ans;
+        }
+
         public bool TestForItem(string name)
         {
             // check if a particular item is currently equipped as active
@@ -128,16 +150,16 @@ namespace Game.Engine
                 case RequiredItem.None:
                     return true;
                 case RequiredItem.Sword:
-                    foreach (Item item in items) if (item.IsSword) return true;
+                    foreach (Item item in activeItems) if (item.IsSword) return true;
                     break;
                 case RequiredItem.Axe:
-                    foreach (Item item in items) if (item.IsAxe) return true;
+                    foreach (Item item in activeItems) if (item.IsAxe) return true;
                     break;
                 case RequiredItem.Spear:
-                    foreach (Item item in items) if (item.IsSpear) return true;
+                    foreach (Item item in activeItems) if (item.IsSpear) return true;
                     break;
                 case RequiredItem.Staff:
-                    foreach (Item item in items) if (item.IsStaff) return true;
+                    foreach (Item item in activeItems) if (item.IsStaff) return true;
                     break;
             }
             return false;
@@ -146,7 +168,7 @@ namespace Game.Engine
         {
             // player receives a random item that is guaranteed to fit their class
             // (e.g. a warrior will not get magic staffs and a mage will not get axes, swords or spears)
-            Item it = Index.RandomClassItem(currentPlayer);
+            Item it = Index.RandomClassItem(this);
             for (int i = 0; i < 30; i++)
             {
                 if (!itemPositions.Contains(i))
@@ -159,7 +181,7 @@ namespace Game.Engine
         public void AddRandomItem()
         {
             // player receives a random item (no class restrictions)
-            Item it = Index.RandomItem();
+            Item it = Index.RandomItem(this);
             for (int i = 0; i < 30; i++)
             {
                 if (!itemPositions.Contains(i))

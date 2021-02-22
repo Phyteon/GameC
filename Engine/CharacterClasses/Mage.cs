@@ -35,7 +35,6 @@ namespace Game.Engine.CharacterClasses
             else if (key == "2") parentSession.UpdateStat(4, 5);
             else if (key == "3") parentSession.UpdateStat(5, 10);
             else if (key == "4") parentSession.UpdateStat(6, 20);
-            List<Skill> ss = Index.MagicSpell(this);
             LearnNewSkill(Index.MagicSpell(this)); // mages learn a new spell every time
         }
 

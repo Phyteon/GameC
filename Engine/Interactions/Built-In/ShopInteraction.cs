@@ -13,9 +13,9 @@ namespace Game.Engine.Interactions
         private Item it1, it2, it3;
         public ShopInteraction(GameSession parentSession) : base(parentSession)
         {
-            while (it1 == null) it1 = Index.RandomClassItem(parentSession.currentPlayer);
-            while (it2 == null) it2 = Index.RandomClassItem(parentSession.currentPlayer);
-            while (it3 == null) it3 = Index.RandomClassItem(parentSession.currentPlayer);
+            while (it1 == null) it1 = Index.RandomClassItem(parentSession);
+            while (it2 == null) it2 = Index.RandomClassItem(parentSession);
+            while (it3 == null) it3 = Index.RandomClassItem(parentSession);
             Name = "interaction0001";
         }
         protected override void RunContent()

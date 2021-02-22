@@ -110,20 +110,72 @@ namespace Game.Engine
                 Item tmp = Index.ProduceSpecificItem(itemName);
                 newItems.Add(tmp);
             }
-            items = newItems;
+            activeItems = newItems;
             RefreshStats();
         }
         public void ResetItemsAfterBattle()
         {
             // some items need to have their statistics reset after battle
-            foreach (Item i in items) i.ResetAfterBattle();
+            foreach (Item i in activeItems) i.ResetAfterBattle();
+        }
+
+        public void ListAllItemsCost()
+        {
+            // for selling items
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Image img = parentPage.GetImageFromGrid(i, j);
+                    if (img != null)
+                    {
+                        if (img.Name != "")
+                        {
+                            Item tmp = Index.ProduceSpecificItem(img.Name);
+                            SendText(tmp.PublicName + ": " + tmp.GoldValue + " sztuk zlota");
+                        }
+                    }
+                }
+            }
+        }
+        public void ListAllItemsTips()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Image img = parentPage.GetImageFromGrid(j, i);
+                    if (img != null)
+                    {
+                        if (img.Name != "")
+                        {
+                            Item tmp = Index.ProduceSpecificItem(img.Name);
+                            string txt = tmp.PublicName + ": ";
+                            if (tmp.HpMod > 0) txt += "Zdrowie(+" + tmp.HpMod + ") ";
+                            if (tmp.HpMod < 0) txt += "Zdrowie(" + tmp.HpMod + ") ";
+                            if (tmp.StrMod > 0) txt += "Sila(+" + tmp.StrMod + ") ";
+                            if (tmp.StrMod < 0) txt += "Sila(" + tmp.StrMod + ") ";
+                            if (tmp.ArMod > 0) txt += "Pancerz(+" + tmp.ArMod + ") ";
+                            if (tmp.ArMod < 0) txt += "Pancerz(" + tmp.ArMod + ") ";
+                            if (tmp.PrMod > 0) txt += "Precyzja(+" + tmp.PrMod + ") ";
+                            if (tmp.PrMod < 0) txt += "Precyzja(" + tmp.PrMod + ") ";
+                            if (tmp.MgcMod > 0) txt += "Moc(+" + tmp.MgcMod + ") ";
+                            if (tmp.MgcMod < 0) txt += "Moc(" + tmp.MgcMod + ") ";
+                            if (tmp.StaMod > 0) txt += "Energia(+" + tmp.StaMod + ") ";
+                            if (tmp.StaMod < 0) txt += "Energia(" + tmp.StaMod + ") ";
+                            if (tmp.PublicTip != null) txt += "Bonus: " + tmp.PublicTip;
+                            SendText(txt);
+                        }
+                    }
+                }
+            }
         }
         public List<StatPackage> ModifyOffensive(List<StatPackage> packs)
         {
             // apply offensive buffs from all active items to a StatPackage
-            if (items.Count > 0)
+            if (activeItems.Count > 0)
             {
-                foreach (Item item in items)
+                foreach (Item item in activeItems)
                 {
                     for (int i = 0; i < packs.Count; i++)
                     {
@@ -136,9 +188,9 @@ namespace Game.Engine
         public List<StatPackage> ModifyDefensive(List<StatPackage> packs)
         {
             // apply defensive buffs from all active items to a StatPackage
-            if (items.Count > 0)
+            if (activeItems.Count > 0)
             {
-                foreach (Item item in items)
+                foreach (Item item in activeItems)
                 {
                     for (int i = 0; i < packs.Count; i++) packs[i] = item.ModifyDefensive(packs[i], GetActiveItemNames());
                 }
@@ -212,57 +264,6 @@ namespace Game.Engine
         public void DestroyInteraction(Interaction interaction)
         {
             // for permanently removing interactions
-        }
-        public void ListAllItemsCost()
-        {
-            // for selling items
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    Image img = parentPage.GetImageFromGrid(i, j);
-                    if (img != null)
-                    {
-                        if (img.Name != "")
-                        {
-                            Item tmp = Index.ProduceSpecificItem(img.Name);
-                            SendText(tmp.PublicName + ": " + tmp.GoldValue + " sztuk zlota");
-                        }
-                    }
-                }
-            }
-        }
-        public void ListAllItemsTips()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    Image img = parentPage.GetImageFromGrid(j, i);
-                    if (img != null)
-                    {
-                        if (img.Name != "")
-                        {
-                            Item tmp = Index.ProduceSpecificItem(img.Name);
-                            string txt = tmp.PublicName + ": ";
-                            if (tmp.HpMod > 0) txt += "Zdrowie(+" + tmp.HpMod + ") ";
-                            if (tmp.HpMod < 0) txt += "Zdrowie(" + tmp.HpMod + ") ";
-                            if (tmp.StrMod > 0) txt += "Sila(+" + tmp.StrMod + ") ";
-                            if (tmp.StrMod < 0) txt += "Sila(" + tmp.StrMod + ") ";
-                            if (tmp.ArMod > 0) txt += "Pancerz(+" + tmp.ArMod + ") ";
-                            if (tmp.ArMod < 0) txt += "Pancerz(" + tmp.ArMod + ") ";
-                            if (tmp.PrMod > 0) txt += "Precyzja(+" + tmp.PrMod + ") ";
-                            if (tmp.PrMod < 0) txt += "Precyzja(" + tmp.PrMod + ") ";
-                            if (tmp.MgcMod > 0) txt += "Moc(+" + tmp.MgcMod + ") ";
-                            if (tmp.MgcMod < 0) txt += "Moc(" + tmp.MgcMod + ") ";
-                            if (tmp.StaMod > 0) txt += "Energia(+" + tmp.StaMod + ") ";
-                            if (tmp.StaMod < 0) txt += "Energia(" + tmp.StaMod + ") ";
-                            if (tmp.PublicTip != null) txt += "Bonus: " + tmp.PublicTip;
-                            SendText(txt);
-                        }
-                    }
-                }
-            }
         }
         public void RefreshMonstersDisplay()
         {

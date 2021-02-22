@@ -227,7 +227,7 @@ namespace Game.Display
                 }
                 catch(Exception e)
                 {
-                    AddConsoleText(e.Message);
+                    if(e.Message != "Sequence contains no elements") AddConsoleText(e.Message); // silence a useless LINQ warning
                 }
             }
             else
@@ -239,7 +239,7 @@ namespace Game.Display
                 }
                 catch (Exception e)
                 {
-                    AddConsoleText(e.Message);
+                    if (e.Message != "Sequence contains no elements") AddConsoleText(e.Message); // silence a useless LINQ warning
                 }
             }
             return null;

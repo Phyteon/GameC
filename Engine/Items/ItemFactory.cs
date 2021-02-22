@@ -9,8 +9,8 @@ namespace Game.Engine.Items.ItemFactories
     interface ItemFactory
     {
         // interface for all item factories
-        Item CreateAnyItem();
-        Item CreateNonMagicItem();
-        Item CreateNonWeaponItem();
+        Item CreateAnyItem(GameSession parentSession);
+        Item CreateNonMagicItem(GameSession parentSession);
+        Item CreateNonWeaponItem(GameSession parentSession);
     }
 }
