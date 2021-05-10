@@ -25,8 +25,8 @@ namespace Game
         {
             this.Hide();
             Sound.SoundLibrary.DiscardTemporaryFiles();
-            Application.Current.Dispatcher.DisableProcessing();
-            Application.Current.Dispatcher.InvokeShutdown();
+            //Application.Current.Dispatcher.DisableProcessing();
+            //Application.Current.Dispatcher.InvokeShutdown();
             Application.Current.Shutdown();
         }
     }

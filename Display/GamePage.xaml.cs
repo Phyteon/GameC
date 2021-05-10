@@ -353,7 +353,7 @@ namespace Game.Display
             frameRef.ParentFrame.Navigate(new Display.MenuPage(frameRef));
             var window = Window.GetWindow(this);
             window.IsVisibleChanged -= CleaningAfterPageClosedHandler;
-            window.KeyDown -= OnKeyDownHandler;
+            window.KeyDown -= OnKeyDownHandler; 
         }
 
         private void CleaningAfterPageClosedHandler(object sender, DependencyPropertyChangedEventArgs e)
