@@ -42,7 +42,7 @@ namespace Game.Sound.Players
         /// <param name="sound">Sound</param>
         public void Open(Sound sound)
         {
-            if(sound != null && File.Exists(sound.FilePath.AbsolutePath))
+            if(sound != null && sound.FilePath != null && File.Exists(sound.FilePath.AbsolutePath))
             {
                 mediaPlayer.Open(sound.FilePath);
             }

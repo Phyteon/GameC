@@ -43,7 +43,7 @@ namespace Game.Sound
             string item = string.Empty;
 
             // Add here list of sounds by pattern
-            // soundLibrary.Add(new Sound(null, NAME, "FILE_NAME.mp3", SoundContext.Battle, SoundType.MonsterInit, Resource1.RESOURCE_NAME));
+            // soundLibrary.Add(new Sound(null, NAME, "FILE_NAME.mp3", SoundContext, SoundType, Resource1.RESOURCE_NAME));
             // mp3 files have to be added to Sound/Assets, then ALSO dragged from there to Resources window
 
             // MOUSE
