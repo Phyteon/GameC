@@ -18,7 +18,7 @@ namespace Game.Engine
             new BasicSpellFactory(),
         };
 
-        private static List<Item> items = new List<Item>()
+        public static List<Item> Items = new List<Item>()
         {
             new BasicStaff(),
             new BasicSpear(),

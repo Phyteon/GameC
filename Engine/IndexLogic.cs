@@ -37,7 +37,7 @@ namespace Game.Engine
         // produce a specific item based on its name - important for the display-engine interactions
         public static Item ProduceSpecificItem(string name)
         {
-            foreach(Item item in items)
+            foreach(Item item in Items)
             {
                 if (item.Name == name) return item;
             }
