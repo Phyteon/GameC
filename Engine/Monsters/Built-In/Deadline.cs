@@ -19,6 +19,7 @@ namespace Game.Engine.Monsters
             BattleGreetings = "Zawsze jestem blizej niz ci sie wydaje...";
         }
 
+        private Strategies strategy = Strategies.Defensive;
         // TODO: Add override of the react function
         public override List<StatPackage> BattleMove()
         {
@@ -89,7 +90,7 @@ namespace Game.Engine.Monsters
             throw new NotImplementedException();
         }
 
-        public void ChooseStrategy()
+        public void ChooseStrategy(List<StatPackage> pkg)
         {
             throw new NotImplementedException();
         }

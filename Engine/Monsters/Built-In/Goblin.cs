@@ -17,7 +17,7 @@ namespace Game.Engine.Monsters
             BattleGreetings = "Uk skoon gutora garkot!";
         }
 
-        protected int strategy = 0;
+        private Strategies strategy = Strategies.Defensive;
 
         public override List<StatPackage> BattleMove()
         {
@@ -81,17 +81,67 @@ namespace Game.Engine.Monsters
 
         public List<StatPackage> Defensive()
         {
-            throw new System.NotImplementedException();
+            if (Stamina > 0)
+            {
+                Stamina -= 5;
+                return new List<StatPackage>()
+                {
+                    new StatPackage(DmgType.Physical, 5, "Goblin Grineer wzmocnil swoja obrone i wykonuje tylko slaby atak (" + 5 + " dmg [Physical]")
+                };
+            }
+            else
+            {
+                return new List<StatPackage>()
+                {
+                    new StatPackage(DmgType.Physical, 0, "Goblin Grineer probuje sie bronic ale juz mu brakuje sil")
+                };
+            }
         }
 
-        public List<StatPackage> Mixed()
+        public List<StatPackage> Mixed() // TODO: Make sure that each turn also value required to move is checked
         {
-            throw new System.NotImplementedException();
+            if (Stamina > 0)
+            {
+                Stamina -= 10;
+                return new List<StatPackage>()
+                {
+                    new StatPackage(DmgType.Physical, Strength, "Goblin Grineer wzmocnil swoja obrone i wykonuje sredni atak (" + Strength + " dmg [Physical]")
+                };
+            }
+            else
+            {
+                return new List<StatPackage>()
+                {
+                    new StatPackage(DmgType.Physical, 0, "Goblin Grineer zmeczyl sie obrona i atakiem, musi odpoczac")
+                };
+            }
         }
 
-        public void ChooseStrategy()
+        public void ChooseStrategy(List<StatPackage> pkg)
         {
-            throw new System.NotImplementedException();
+            var dmg = 0;
+            foreach (var pack in pkg)
+            {
+                dmg += pack.HealthDmg;
+            }
+
+            if (Health - dmg <= 0.25 * Health)
+            {
+                strategy = Strategies.Defensive;
+            }
+            else if (0.45 * Health <= Health - dmg && Health - dmg <= 0.5 * Health)
+            {
+                strategy = Strategies.Mixed;
+            }
+            else
+            {
+                strategy = Strategies.Aggressive;
+            }
+        }
+
+        public override List<StatPackage> React(List<StatPackage> packs)
+        {
+            return base.React(packs);
         }
     }
 }

@@ -85,6 +85,7 @@
     <Compile Include="Engine\Monsters\Built-In\Deadline.cs" />
     <Compile Include="Engine\Monsters\Built-In\Goblin.cs" />
     <Compile Include="Engine\Monsters\IStrategist.cs" />
+    <Compile Include="Engine\Monsters\Strategies.cs" />
     <Compile Include="Engine\RequiredItem.cs" />
     <Compile Include="Engine\Skills\BasicSpells\ChargeGSArmor.cs" />
     <Compile Include="Engine\Skills\BasicSpells\DeepBreath.cs" />
