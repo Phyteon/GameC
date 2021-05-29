@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace Game.Engine.Monsters
 {
     [Serializable]
-    public class Deadline : Monster, IStrategist
+    public class Deadline : Monster
     {
         public Deadline()
         {
@@ -15,11 +15,11 @@ namespace Game.Engine.Monsters
             Precision = 50;
             Stamina = 100;
             XPValue = 30;
-            Name = "the scariest monster";
+            Name = "sample"; // TODO: Choose picture
             BattleGreetings = "Zawsze jestem blizej niz ci sie wydaje...";
         }
 
-        private Strategies strategy = Strategies.Defensive;
+        
         // TODO: Add override of the react function
         public override List<StatPackage> BattleMove()
         {
@@ -74,25 +74,6 @@ namespace Game.Engine.Monsters
                     new StatPackage(DmgType.Psycho, 0, "Deadline sie zmeczyl nekaniem cie i musi odpoczac")
                 };
             }
-        }
-        public List<StatPackage> Aggressive()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<StatPackage> Defensive()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<StatPackage> Mixed()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ChooseStrategy(List<StatPackage> pkg)
-        {
-            throw new NotImplementedException();
         }
     }
 }
