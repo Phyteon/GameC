@@ -52,6 +52,14 @@ namespace Game.Engine
             new Monsters.MonsterFactories.SpiderFactory(),
             new Monsters.MonsterFactories.SpiderFactory(),
             new Monsters.MonsterFactories.SpiderFactory(),
+            new Monsters.MonsterFactories.DeadlineFactory(),
+            new Monsters.MonsterFactories.DeadlineFactory(),
+            new Monsters.MonsterFactories.DeadlineFactory(),
+            new Monsters.MonsterFactories.DeadlineFactory(),
+            new Monsters.MonsterFactories.GoblinFactory(),
+            new Monsters.MonsterFactories.GoblinFactory(),
+            new Monsters.MonsterFactories.GoblinFactory(),
+            new Monsters.MonsterFactories.GoblinFactory()
         };
 
         public readonly static InteractionFactory MainQuestFactory = new GymirHymirFactory();

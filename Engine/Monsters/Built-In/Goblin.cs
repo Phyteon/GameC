@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Game.Engine.Monsters
 {
+    [Serializable]
     public class Goblin : Monster
     {
         protected IStrategist strategy;
@@ -20,7 +21,19 @@ namespace Game.Engine.Monsters
             Precision = 50;
             Stamina = 100;
             XPValue = 15;
-            Name = "sample"; // TODO: Choose picture
+            Name = "goblin_grineer";
+            BattleGreetings = "Uk skoon gutora garkot!";
+        }
+
+        public Goblin(int health, int strength, int armor, int precision, int stamina, int xpval)
+        {
+            Health = health;
+            Strength = strength;
+            Armor = armor;
+            Precision = precision;
+            Stamina = stamina;
+            XPValue = xpval;
+            Name = "goblin_grineer";
             BattleGreetings = "Uk skoon gutora garkot!";
         }
 
@@ -68,7 +81,7 @@ namespace Game.Engine.Monsters
             if (monster.Stamina > 0)
             {
                 monster.Stamina -= 20;
-                int chance = Index.RNG(0, 10);
+                int chance = Index.RNG(0, 11);
                 switch (chance)
                 {
                     case 0:
