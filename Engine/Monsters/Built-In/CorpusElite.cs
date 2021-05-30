@@ -1,32 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Game.Engine.Monsters
 {
     [Serializable]
-    public class Deadline : Monster
+    public class CorpusElite : Monster
     {
         protected IStrategist strategy;
-
         protected List<IStrategist> strategies = new List<IStrategist>()
         {
-            new DeadlineAggressive(),
-            new DeadlineDefensive(),
-            new DeadlineMixed()
+            new CorpusEliteAggressive(),
+            new CorpusEliteDefensive(),
+            new CorpusEliteMixed()
         };
-        public Deadline()
+        public CorpusElite()
         {
-            Health = 60;
-            Strength = 50;
-            Armor = 100;
-            Precision = 50;
-            Stamina = 100;
-            XPValue = 50;
-            Name = "monster0008";
-            BattleGreetings = "Zawsze jestem blizej niz ci sie wydaje...";
+            Health = 800;
+            Strength = 200;
+            Armor = 200;
+            Precision = 100;
+            Stamina = 200;
+            XPValue = 200;
+            Name = "monster0011";
+            BattleGreetings = "Je yette pke Yotkuy. Je ate pke Yotkuy. App kaip pke Yotkuy!";
         }
-        
+
         public override List<StatPackage> BattleMove()
         {
             return strategy.BattleStrategy(this);
@@ -62,89 +60,94 @@ namespace Game.Engine.Monsters
             return ans;
         }
     }
-
-    public class DeadlineAggressive : IStrategist
+    
+    public class CorpusEliteAggressive : IStrategist
     {
         public List<StatPackage> BattleStrategy(Monster monster)
         {
+            monster.Armor -= 10;
             if (monster.Stamina > 0)
             {
-                monster.Stamina -= 1; // Deadline is a very tough and resilient opponent...
+                monster.Stamina -= 20;
                 int chance = Index.RNG(0, 11);
                 switch (chance)
                 {
                     case 0:
                         return new List<StatPackage>()
                         {
-                            new StatPackage(DmgType.Psycho, 50 + monster.Strength,
-                                "Deadline zastosowal podroz w czasie i jest na wczoraj (" + (50 + monster.Strength) +
-                                " dmg [Psycho])")
+                            new StatPackage(DmgType.Other, 50 + monster.Strength,
+                                "Elitarny Corpusu dostal rozkaz zabicia cie wszelkimi mozliwymi sposobami," +
+                                " wiec uzywa calej swojej sily(" + (50 + monster.Strength) +
+                                " dmg [Other])")
                         };
                     case 1:
                         return new List<StatPackage>()
                         {
-                            new StatPackage(DmgType.Psycho, 25 + monster.Strength,
-                                "Deadline sie zaktualizowal i dodal do siebie nowe wymagania (" + (25 + monster.Strength) +
-                                " dmg [Psycho])")
+                            new StatPackage(DmgType.Other, 25 + monster.Strength,
+                                "Elitarny Corpusu jest na patrolu w krytycznym obszarze ich dzialan," +
+                                " chce wyeliminowac cie na miejscu (" + (25 + monster.Strength) +
+                                " dmg [Other])")
                         };
                     case 5:
                         return new List<StatPackage>()
                         {
-                            new StatPackage(DmgType.Psycho, 10 + monster.Strength,
-                                "Deadline groznie sie na ciebie patrzy i przyprawia cie o ciarki (" + (10 + monster.Strength) +
-                                " dmg [Psycho])")
+                            new StatPackage(DmgType.Other, 10 + monster.Strength,
+                                "Elitarny Corpusu atakuje z wyjatkowa precyzja! (" + (10 + monster.Strength) +
+                                " dmg [Other])")
                         };
                     case 10:
                         return new List<StatPackage>()
                         {
-                            new StatPackage(DmgType.Psycho, Math.Abs(monster.Strength - 20),
-                                "Deadline przeniosl sie w czasie ale pomylil sobie kierunek i przenosi sie na za miesiac (" +
-                                (25 + monster.Strength) + " dmg [Psycho])")
+                            new StatPackage(DmgType.Other, 0,
+                                "Elitarny Corpusu nie trafia atakujac cie ( 0 dmg [Other])")
                         };
                     default:
                         return new List<StatPackage>()
                         {
-                            new StatPackage(DmgType.Psycho, 5 + monster.Strength,
-                                "Deadline teleportuje sie za ciebie i wbija ci pinezke ze swoim terminem w plecy (" +
-                                (25 + monster.Strength) + " dmg [Psycho])")
+                            new StatPackage(DmgType.Other, 5 + monster.Strength,
+                                "Elitarny Corpusu atakuje! (" +
+                                (5 + monster.Strength) + " dmg [Other])")
                         };
+
                 }
             }
             else
             {
                 return new List<StatPackage>()
                 {
-                    new StatPackage(DmgType.Psycho, 0, "Deadline sie zmeczyl nekaniem cie i musi odpoczac")
+                    new StatPackage(DmgType.Other, 0, "Elitarny corpusu sie zmeczyl i musi odpoczac")
                 };
             }
         }
     }
-
-    public class DeadlineDefensive : IStrategist
+    
+    public class CorpusEliteDefensive : IStrategist
     {
         public List<StatPackage> BattleStrategy(Monster monster)
         {
-            monster.Armor += 10;
-            monster.Health += 10;
+            
             if (monster.Stamina > 0)
             {
+                monster.Armor += 30;
+                monster.Health += 50;
                 monster.Stamina -= 5;
                 return new List<StatPackage>()
                 {
-                    new StatPackage(DmgType.Psycho, 10, "Deadline wzmocnil swoja obrone i wykonuje tylko slaby atak (" + 10 + " dmg [Psycho]")
+                    new StatPackage(DmgType.Other, 5, "Elitarny Corpusu wzmocnil swoja obrone, wykorzystuje specjalny" +
+                                                         " artefakt by ukrasc ci zycie (50 Hp) i wykonuje tylko slaby atak ( 5 dmg [Physical])")
                 };
             }
             else
             {
                 return new List<StatPackage>()
                 {
-                    new StatPackage(DmgType.Physical, 0, "Deadline probuje sie bronic ale juz mu brakuje sil")
+                    new StatPackage(DmgType.Other, 0, "Elitarny Corpusu probuje sie bronic ale juz mu brakuje sil")
                 };
             }
         }
     }
-
-    public class DeadlineMixed : IStrategist
+    
+    public class CorpusEliteMixed : IStrategist
     {
         public List<StatPackage> BattleStrategy(Monster monster)
         {
@@ -154,14 +157,15 @@ namespace Game.Engine.Monsters
                 monster.Stamina -= 10;
                 return new List<StatPackage>()
                 {
-                    new StatPackage(DmgType.Psycho, monster.Strength, "Deadline wzmocnil swoja obrone i wykonuje sredni atak (" + monster.Strength + " dmg [Psycho]")
+                    new StatPackage(DmgType.Other, monster.Strength, "Elitarny Corpusu wzmocnil swoja obrone" +
+                                                                        " i wykonuje sredni atak (" + monster.Strength + " dmg [Other]")
                 };
             }
             else
             {
                 return new List<StatPackage>()
                 {
-                    new StatPackage(DmgType.Psycho, 0, "Deadline zmeczyl sie obrona i atakiem, musi odpoczac")
+                    new StatPackage(DmgType.Other, 0, "Elitarny Corpusu zmeczyl sie obrona i atakiem, musi odpoczac")
                 };
             }
         }

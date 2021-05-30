@@ -59,7 +59,11 @@ namespace Game.Engine
             new Monsters.MonsterFactories.GoblinFactory(),
             new Monsters.MonsterFactories.GoblinFactory(),
             new Monsters.MonsterFactories.GoblinFactory(),
-            new Monsters.MonsterFactories.GoblinFactory()
+            new Monsters.MonsterFactories.GoblinFactory(),
+            new Monsters.MonsterFactories.CorpusFactory(),
+            new Monsters.MonsterFactories.CorpusFactory(),
+            new Monsters.MonsterFactories.CorpusFactory(),
+            new Monsters.MonsterFactories.CorpusFactory()
         };
 
         public readonly static InteractionFactory MainQuestFactory = new GymirHymirFactory();

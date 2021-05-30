@@ -82,9 +82,12 @@
     <Compile Include="Engine\Interactions\GymirHymir\GymirInitialState.cs" />
     <Compile Include="Engine\Interactions\Built-In\HealInteraction.cs" />
     <Compile Include="Engine\Interactions\InteractionFactories\HealInteractionFactory.cs" />
+    <Compile Include="Engine\Monsters\Built-In\Corpus.cs" />
+    <Compile Include="Engine\Monsters\Built-In\CorpusElite.cs" />
     <Compile Include="Engine\Monsters\Built-In\Deadline.cs" />
     <Compile Include="Engine\Monsters\Built-In\Goblin.cs" />
     <Compile Include="Engine\Monsters\IStrategist.cs" />
+    <Compile Include="Engine\Monsters\MonsterFactories\CorpusFactory.cs" />
     <Compile Include="Engine\Monsters\MonsterFactories\DeadlineFactory.cs" />
     <Compile Include="Engine\Monsters\MonsterFactories\GoblinFactory.cs" />
     <Compile Include="Engine\RequiredItem.cs" />
@@ -313,6 +316,8 @@
   <ItemGroup>
     <Content Include="Display\Assets\Monsters\monster0008.png" />
     <Content Include="Display\Assets\Monsters\monster0009.png" />
+    <Content Include="Display\Assets\Monsters\monster0010.png" />
+    <Content Include="Display\Assets\Monsters\monster0011.png" />
     <Content Include="Sound\Assets\item_axe.mp3" />
     <Content Include="Sound\Assets\item_spear.mp3" />
     <Content Include="Sound\Assets\item_staff.mp3" />
