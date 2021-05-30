@@ -311,8 +311,8 @@
     <Resource Include="Display\Assets\Interactions\interaction0005.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Display\Assets\Monsters\deadline.png" />
-    <Content Include="Display\Assets\Monsters\goblin_grineer.png" />
+    <Content Include="Display\Assets\Monsters\monster0008.png" />
+    <Content Include="Display\Assets\Monsters\monster0009.png" />
     <Content Include="Sound\Assets\item_axe.mp3" />
     <Content Include="Sound\Assets\item_spear.mp3" />
     <Content Include="Sound\Assets\item_staff.mp3" />

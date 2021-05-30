@@ -21,19 +21,7 @@ namespace Game.Engine.Monsters
             Precision = 50;
             Stamina = 100;
             XPValue = 15;
-            Name = "goblin_grineer";
-            BattleGreetings = "Uk skoon gutora garkot!";
-        }
-
-        public Goblin(int health, int strength, int armor, int precision, int stamina, int xpval)
-        {
-            Health = health;
-            Strength = strength;
-            Armor = armor;
-            Precision = precision;
-            Stamina = stamina;
-            XPValue = xpval;
-            Name = "goblin_grineer";
+            Name = "monster0009";
             BattleGreetings = "Uk skoon gutora garkot!";
         }
 

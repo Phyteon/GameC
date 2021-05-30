@@ -11,7 +11,9 @@ namespace Game.Engine.Monsters
 
         protected List<IStrategist> strategies = new List<IStrategist>()
         {
-            
+            new DeadlineAggressive(),
+            new DeadlineDefensive(),
+            new DeadlineMixed()
         };
         public Deadline()
         {
@@ -21,24 +23,10 @@ namespace Game.Engine.Monsters
             Precision = 50;
             Stamina = 100;
             XPValue = 50;
-            Name = "deadline";
+            Name = "monster0008";
             BattleGreetings = "Zawsze jestem blizej niz ci sie wydaje...";
         }
         
-        public Deadline(int health, int strength, int armor, int precision, int stamina, int xpval)
-        {
-            Health = health;
-            Strength = strength;
-            Armor = armor;
-            Precision = precision;
-            Stamina = stamina;
-            XPValue = xpval;
-            Name = "deadline";
-            BattleGreetings = "Zawsze jestem blizej niz ci sie wydaje...";
-        }
-
-        
-        // TODO: Add override of the react function
         public override List<StatPackage> BattleMove()
         {
             return strategy.BattleStrategy(this);

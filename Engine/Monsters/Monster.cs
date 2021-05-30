@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Game.Engine.Monsters
@@ -28,8 +29,9 @@ namespace Game.Engine.Monsters
         }
         public override Image GetImage()
         {
+            // TODO: Find the best solution
             Image img = new Image();
-            img.Source = new BitmapImage(new Uri(("Assets/Monsters/" + Name + ".png"), UriKind.Relative));
+            img.Source = (ImageSource) new ImageSourceConverter().ConvertFromString("D:\\RiderProjects\\FinalProject\\GameC\\Display\\Assets\\Monsters\\" + Name + ".png");//new BitmapImage(new Uri(("Assets/Monsters/" + Name + ".png"), UriKind.Relative));
             img.Name = Name;
             return img;
         }
