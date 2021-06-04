@@ -47,11 +47,11 @@ namespace Game.Engine.Monsters
                 ans.Add(pack); 
             }
 
-            if (Health - health_dmg <= 0.25 * Health)
+            if (Health - health_dmg <= 0.1 * Health)
             {
                 strategy = strategies[1];
             }
-            else if (Health - health_dmg > 0.25 * Health && Health - health_dmg <= 0.5 * Health)
+            else if (Health - health_dmg > 0.1 * Health && Health - health_dmg <= 0.25 * Health)
             {
                 strategy = strategies[2];
             }
